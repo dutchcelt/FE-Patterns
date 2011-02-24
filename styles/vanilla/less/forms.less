@@ -1,0 +1,67 @@
+/*  ###########################################################################
+    company:    DutchCelt Design
+    date:       January 2011
+    ########################################################################### */
+
+
+/*  FORMS [WARNING! low specificity!]------------------------------------------ */
+
+    form {
+        padding: 0 0 @em/2 0;
+        max-width: @form-width;  
+        }
+    fieldset {
+        padding: 0 0 @em/2 0;
+        }
+    label {
+        display: block;
+        width: @label-width;
+        }
+    input{
+        margin-bottom: @interline/2;
+        width: @text-input-width;
+        }
+    input[type=checkbox],
+    input[type=radio]{
+        width: auto;
+        }
+    input[type=checkbox] + label {
+        float: none;
+        display: inline;
+        }
+    input[type="radio"] + label {
+        display:inline;
+        float:none;
+        }
+    select {
+        width: auto;
+        min-width: @text-input-width/2;
+        }
+    textarea {
+        width: @text-input-width;
+        }
+    input[type=checkbox] {
+        float: left;
+        }
+    div > div > input[type=radio],
+    div > div > input[type=checkbox] {
+        float: none;
+        display: inline;
+        }
+    fieldset > div > div {
+        float: right;
+        display: block;
+        margin: @interline/2 0;
+        width: @text-input-width;
+        }
+    div > div > label {
+        float: none;
+        display: inline;
+        }
+    input[type=button],
+    input[type=submit] {
+        width: auto;
+        }
+
+    select[multiple]{ width: @text-input-width/2; }
+        

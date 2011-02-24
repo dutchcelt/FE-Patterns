@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+        <title>Lunatech Labs - Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/vanilla/main.css">
+        <script src="scripts/modernizr.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery.dataTables.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/init.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        
+        <header>
+            <h1><a href="index.html" title="Front-end Patterns">Front-end Patterns</a></h1>
+        </header>
+        
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="text.html">Text</a></li>
+                    <li><a href="forms.html">Forms</a></li>
+                    <li class="active"><a href="table.html">Tables</a></li>
+                    <li><a href="less.html">LESS</a></li>
+                </ul>
+            </nav>
+        
+                
+        <article class="content">
+            <hgroup>
+                <h2>Tables</h2>
+                <h5>For all your tabular data!</h5>
+            </hgroup>
+        
+            <section>
+                <p>Tables have been abused over the years and have led to some of the most convoluted, unmaintainable and inaccessible markup. The Web standards movement has been able to stamp out these table based layouts. Tables are sane again and provide us with some of the most powerful markup.  </p>
+            </section>
+    
+            <div class="tabs">
+                <ul>
+                    <li><a href="#tabs-0">Basic</a></li>
+                    <li><a href="#tabs-1">Datatable</a></li>
+                </ul>
+                <div id="tabs-0">
+                    <section class="notes">
+                        <code class="note">
+&lt;table cellspacing=&quot;0&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;date&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;&nbsp;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;4&quot;&gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+        &lt;tr class=&quot;odd&quot;&gt;
+            &lt;td&gt;A101&lt;/td&gt;&lt;td&gt;Name 01&lt;/td&gt;&lt;td&gt;00-00-0000&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        ...
+        &lt;tr class=&quot;even&quot;&gt;
+            &lt;td&gt;A106&lt;/td&gt;&lt;td&gt;Name 06&lt;/td&gt;&lt;td&gt;00-00-0000&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                        </code>
+                    </section>
+                    <h4>Standard table</h4>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">date</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Footer</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr class="odd">
+                                <td>A101</td><td>Name 01</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A102</td><td>Name 02</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>A103</td><td>Name 03</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A104</td><td>Name 04</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>A105</td><td>Name 05</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A106</td><td>Name 06</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tabs-1">
+                    <section class="notes">
+                        <code class="note">
+&lt;table cellspacing=&quot;0&quot; class=&quot;datatable&quot;&gt;
+    &lt;col class=&quot;id&quot;/&gt;
+    &lt;col class=&quot;title&quot;/&gt;
+    &lt;col class=&quot;date&quot;/&gt;
+    &lt;col class=&quot;actions&quot;/&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;date&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;&nbsp;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;4&quot; class=&quot;ui-state-default&quot;&gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;A101&lt;/td&gt;
+            &lt;td&gt;Firstname ... 01&lt;/td&gt;
+            &lt;td&gt;00-00-0000&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&quot;#&quot; class=&quot;ui-icon ui-icon-trash&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        ...
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                        </code>
+                    </section>
+                    <h4>Datatable & jQuery UI scripted tables</h4>
+                    <table cellspacing="0" class="datatable">
+                        <col class="id"/>
+                        <col class="title"/>
+                        <col class="date"/>
+                        <col class="actions"/>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">date</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="ui-state-default">Footer</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>A101</td>
+                                <td>Firstname Middlename Middlename Surname 01</td>
+                                <td>00-00-0000</td>
+                                <td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>B101</td><td>Firstname Middlename Middlename Surname 04</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>C101</td><td>Firstname Middlename Middlename Surname 02</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>D101</td><td>Firstname Middlename Middlename Surname 06</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>E101</td><td>Firstname Middlename Middlename Surname 03</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                            <tr>
+                                <td>F101</td><td>Firstname Middlename Middlename Surname 05</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </article>
+        
+        <footer>
+            <p>Copyright &#169; 2011 Lunatech Labs, All Rights Reserved</p>
+        </footer>
+        
+    </body>
+</html>

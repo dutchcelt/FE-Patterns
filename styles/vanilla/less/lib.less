@@ -1,0 +1,145 @@
+/*  ###########################################################################
+    Author:     Lunatech
+    date:       January 2011
+    ########################################################################### */
+    
+    
+//  LESS LIBRARY ##############################################################
+//  THESE ARE THE VARIABLES TO SKIN THIS PROJECT ##############################
+
+
+
+//  Base units that set overal proportions ------------------------------------
+
+    @grid-unit:             12px;
+    @unit:                  0.2em;
+    @em:                    @unit*7;
+    
+    @base-height:           @em;
+    @base-width:            @grid-unit * 4;
+    @block-space:           @base-width / 2;
+    @text-block-width:      @base-width * 11;
+    @max-width:             960px;
+    
+    @line:                  1px;
+    @ui-line:               1px;
+    @top:                   0 - @ui-line;
+    @bottom:                @ui-line;
+    @rad:                   @grid-unit / 3;  // border radius setting
+    
+    
+//  Font elements -------------------------------------------------------------
+
+    @font-face {
+        font-family: 'DejaVuSerifCondensedBook';
+        src: url('fonts/DejaVuSerifCondensed.eot');
+        src: url('fonts/DejaVuSerifCondensed.eot?iefix') format('eot'),
+             url('fonts/DejaVuSerifCondensed.woff') format('woff'),
+             url('fonts/DejaVuSerifCondensed.ttf') format('truetype'),
+             url('fonts/DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        }
+        
+    @font-face {
+        font-family: 'SilkscreenNormal';
+        src: url('fonts/slkscr-webfont.eot');
+        src: url('fonts/slkscr-webfont.eot?iefix') format('eot'),
+             url('fonts/slkscr-webfont.woff') format('woff'),
+             url('fonts/slkscr-webfont.ttf') format('truetype'),
+             url('fonts/slkscr-webfont.svg#webfontbGeqd9MO') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        }
+        
+    @font-scale:            82.5%;
+    @transport:             1.6;
+    @interline:             @em/@em;
+    @typeface:              Arial, sans-serif;
+    @typeface-header:       "DejaVuSerifCondensedBook", Calibri, Georgia, serif;
+    @typeface-brand:        "SilkscreenNormal", Calibri, Georgia, serif;
+    
+    
+//  Basic colour values -------------------------------------------------------
+
+    @light-color:           #ffffff;
+    @dark-color:            #222222;
+    @text-color:            #333333;
+    
+    
+//  Link colour values --------------------------------------------------------
+
+    @link-color:            #0080ff;
+    @link-color-visited:    #8000ff;
+    @link-color-hover:      @link-color;
+    @link-color-active:     @link-color;
+    
+    
+//  Color sets ----------------------------------------------------------------
+    
+    @brand-color:           #7abcff;
+
+    @blue1:                 @brand-color;
+    @blue2:                 darken(@blue1, 15%);
+    
+    @green1:                #57c26c;
+    @green2:                darken(@green1, 15%);
+    
+    @yellow1:               #ffe362;
+    @yellow2:               darken(@yellow1, 25%);
+    
+    @red1:                  #f83f21;
+    @red2:                  darken(@red1, 15%);
+    
+    
+    @grey0:                 #efefef;                            @base-color:                @grey0;    
+    @grey1:                 darken(@grey0, 8%);                 @base-color1:               darken(@base-color, 8%);
+    @grey2:                 darken(@grey0, 16%);                @base-color2:               darken(@base-color, 16%);
+    @grey3:                 darken(@grey0, 26%);                @base-color3:               darken(@base-color, 26%);
+    @grey4:                 darken(@grey0, 38%);                @base-color4:               darken(@base-color, 38%);
+    @grey5:                 darken(@grey0, 54%);                @base-color5:               darken(@base-color, 54%);
+    @grey6:                 darken(@grey0, 76%);                @base-color6:               darken(@base-color, 76%);
+   
+    @error:                 #cd0a0a;
+    
+    @ui-highlight1:         @yellow1;                           @ui-error1:                  @red1;
+    @ui-highlight2:         darken(@ui-highlight1, 25%);        @ui-error2:                  darken(@ui-error1, 15%);
+    @ui-highlight3:         darken(@ui-highlight2, 5%);         @ui-error3:                  darken(@ui-error2, 5%);
+
+    
+//  Form elements -------------------------------------------------------------
+
+    @form-width:            @text-block-width;
+    @field-width:           inherit;
+    @label-width:           inherit;
+    @text-input-width:      100%;
+    
+    
+//  Basic UI elements ---------------------------------------------------------
+
+    .text-shadow(@loc, @color) {
+        text-shadow: 0 @loc @line @color;
+        }
+    .box-shadow(@size,@color) {
+        -moz-box-shadow: 0 @size @size @color;
+        -webkit-box-shadow: 0 @size @size @color;
+        box-shadow: 0 @size @size @color;
+        }
+    .gradient(@start,@stop){
+        background: @start; /* old browsers */
+        background: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
+        background: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
+        filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
+        }   
+    .rounded-corners(@rad) {
+        -moz-border-radius:@rad;
+        -webkit-border-radius:@rad;
+        border-radius:@rad;
+        }
+    .columns(@col) {
+        -moz-column-count: @col; 
+        -moz-column-gap: @block-space; 
+        -webkit-column-count: @col; 
+        -webkit-column-gap: @block-space; 
+        }

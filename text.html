@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <title>Lunatech Labs - Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/vanilla/main.css">
+        <script src="scripts/modernizr.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/init.js" type="text/javascript" charset="utf-8"></script>
+        
+    </head>
+    <body>
+        
+        <header>
+            <h1><a href="index.html" title="Front-end Patterns">Front-end Patterns</a></h1>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="text.html">Text</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="table.html">Tables</a></li>
+                <li><a href="less.html">LESS</a></li>
+            </ul>
+        </nav>
+                
+        <article class="content">
+            <hgroup>
+                <h2>Text</h2>
+                <h5>Content is king!</h5>
+            </hgroup>
+        
+            <section>
+                <p>
+                    Content is important to any web site and web application. Making sure that it has the proper markup should have high priority. <br/>
+                    Text should be in paragraphs &lt;p&gt;, headings in &lt;h1&gt;&lt;h2&gt; etc. Giving thought to which type of list you need to use. Making sure your tabular data is setup in a table. The most important is that you mark up your consistently. So we've set up some examples to get you started. 
+                 </p>
+            </section>
+    
+            <div class="tabs">
+                <ul>
+                    <li><a href="#tabs-0">Headers</a></li>
+                    <li><a href="#tabs-1">Images</a></li>
+                    <li><a href="#tabs-2">Lists</a></li>
+                    <li><a href="#tabs-3">Flash</a></li>
+                    <li><a href="#tabs-4">Audio</a></li>
+                    <li><a href="#tabs-5">Video</a></li>
+                </ul>
+                <div id="tabs-0">
+                     <section class="notes">
+                    <code class="note">
+&lt;hgroup&gt;
+    &lt;h6&gt;pre header&lt;/h6&gt;
+    &lt;h2&gt;header text&lt;/h2&gt;
+&lt;/hgroup&gt;
+                    </code>
+                    <code class="note">
+&lt;hgroup&gt;
+    &lt;h2&gt;header text&lt;/h2&gt;
+    &lt;h5&gt;post header / tagline&lt;/h5&gt;
+&lt;/hgroup&gt;
+                    </code>
+                    <code class="note">
+&lt;h3&gt;Paragraph header&lt;/h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur sunt...&lt;/p&gt;
+                    </code>
+                    <code class="note">
+&lt;h4&gt;Paragraph header&lt;/h4&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur sunt...&lt;/p&gt;
+                    </code>
+                    </section>
+                    <hgroup>
+                        <h6>pre header</h6>
+                        <h2>header text</h2>
+                    </hgroup>
+                    <hgroup>
+                        <h2>header text</h2>
+                        <h5>post header / tagline</h5>
+                    </hgroup>
+                    <h3>Paragraph header</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h4>Paragraph header</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div id="tabs-1">
+                     <section class="notes">
+                    <code class="note">
+&lt;h4&gt;Paragraph header&lt;/h4&gt;
+&lt;p&gt;
+    &lt;img src=&quot;images/lorikeet.jpg&quot; alt=&quot;Cheeky looking Rainbow Lorikeet&quot;&gt;
+    Lorem ipsum dolor sit amet, consectetur sunt...
+&lt;/p&gt;
+                    </code>
+                    <code class="note">
+&lt;h4&gt;Figure&lt;/h4&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+        &lt;img src=&quot;images/macaque.jpg&quot; alt=&quot;Macaque in the trees&quot; /&gt;
+        &lt;figcaption&gt;
+            A cheeky macaque, Lower Kintaganban River, Borneo.
+        &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    Lorem ipsum dolor sit amet, consectetur sunt...
+&lt;/p&gt;
+                    </code>
+                    <code class="note">
+&lt;h4&gt;Canvas&lt;/h4&gt;
+&lt;p&gt;
+    &lt;canvas&gt;&lt;/canvas&gt;
+    Lorem ipsum dolor sit amet, consectetur sunt...
+&lt;/p&gt;
+                    </code>
+                     
+                     </section>
+                    <h4>Paragraph header</h4>
+                    <p>
+                        <img src="images/lorikeet.jpg" alt="Cheeky looking Rainbow Lorikeet" />
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    
+                    <h4>Figure</h4>
+                    
+                    <figure>
+                        <img src="images/macaque.jpg" alt="Macaque in the trees" />
+                        <figcaption>A cheeky macaque, Lower Kintaganban River, Borneo.</figcaption>
+                    </figure>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <h4>Canvas</h4>
+                    <p>
+                        <canvas class="dummy"></canvas>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div id="tabs-2">
+                     <section class="notes">
+                    <code class="note">
+&lt;h4&gt;Unordered list&lt;/h4&gt;
+&lt;ul&gt;
+    &lt;li&gt;List item &lt;/li&gt;
+    ...
+    &lt;li&gt;List item 03
+        &lt;ul&gt;
+            &lt;li&gt;List item 03 a&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;List item 04&lt;/li&gt;
+&lt;/ul&gt;
+                    </code>
+                    <code class="note">
+&lt;h4&gt;Ordered list&lt;/h4&gt;
+&lt;ol&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+    ...
+    &lt;li&gt;List item
+        &lt;ol&gt;
+            &lt;li&gt;List item&lt;/li&gt;
+            &lt;li&gt;List item
+                &lt;ol&gt;
+                    &lt;li&gt;List item&lt;/li&gt;
+                    ...
+                &lt;/ol&gt;
+            &lt;/li&gt;
+            &lt;li&gt;List item&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+&lt;/ol&gt;
+                    </code>
+                    <code class="note">
+&lt;h4&gt;Definition list&lt;/h4&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Cake&lt;/dt&gt;
+    &lt;dd&gt;Flower&lt;/dd&gt;
+    &lt;dd&gt;Eggs&lt;/dd&gt;
+    &lt;dd&gt;Butter&lt;/dd&gt;
+    &lt;dd&gt;Sugar&lt;/dd&gt;
+&lt;/dl&gt;
+                    </code>
+                    </section>
+                    <h4>Unordered list</h4>
+                    <ul>
+                        <li>List item </li>
+                        <li>List item 02</li>
+                        <li>List item 03
+                            <ul>
+                                <li>List item 03 a</li>
+                                <li>List item 03 b</li>
+                                <li>List item 03 c</li>
+                                <li>List item 03 d</li>
+                            </ul>
+                        </li>
+                        <li>List item 04</li>
+                    </ul>
+                    <h4>Ordered list</h4>
+                    <ol>
+                        <li>List item</li>
+                        <li>List item</li>
+                        <li>List item
+                            <ol>
+                                <li>List item</li>
+                                <li>List item
+                                    <ol>
+                                        <li>List item</li>
+                                        <li>List item</li>
+                                        <li>List item</li>
+                                        <li>List item</li>
+                                        <li>List item</li>
+                                        <li>List item</li>
+                                    </ol>
+                                </li>
+                                <li>List item</li>
+                                <li>List item</li>
+                            </ol>
+                        </li>
+                        <li>List item</li>
+                    </ol>
+                    <h4>Definition list</h4>
+                    <dl>
+                        <dt>Cake</dt>
+                        <dd>Flower</dd>
+                        <dd>Eggs</dd>
+                        <dd>Butter</dd>
+                        <dd>Sugar</dd>
+                    </dl>
+                </div>
+                <div id="tabs-3">
+                    <section class="notes">
+                        <code class="note">
+&lt;object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="300" id="flash"&gt;
+    &lt;param name="movie" value="scripts/swfobject/test.swf"&gt;
+    &lt;!--[if !IE]&gt;--&gt;
+    &lt;object type="application/x-shockwave-flash" data="scripts/swfobject/test.swf" width="400" height="300"&gt;
+    &lt;!--&lt;![endif]--&gt;
+        &lt;a href="http://www.adobe.com/go/getflashplayer"&gt;
+            &lt;img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"&gt;
+        &lt;/a&gt;
+    &lt;!--[if !IE]&gt;--&gt;
+    &lt;/object&gt;
+    &lt;!--&lt;![endif]--&gt;
+&lt;/object&gt;
+                        </code>
+                    </section>
+                    <h4>Plugins</h4>
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="300" id="flash">
+                        <param name="movie" value="scripts/swfobject/test.swf">
+                        <!--[if !IE]>-->
+                        <object type="application/x-shockwave-flash" data="scripts/swfobject/test.swf" width="400" height="300">
+                        <!--<![endif]-->
+                            <a href="http://www.adobe.com/go/getflashplayer">
+                                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player">
+                            </a>
+                        <!--[if !IE]>-->
+                        </object>
+                        <!--<![endif]-->
+                    </object>
+                </div>
+                <div id="tabs-4">
+                    <section class="notes">
+                        <code class="note">
+&lt;audio src="horse.ogg" controls="controls"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;
+                        </code>
+                    </section>
+                    <h4>Audio</h4>
+                    <audio src="horse.ogg" controls="controls">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div id="tabs-5">
+                    <section class="notes">
+                        <code class="note">
+&lt;video width="320" height="240" controls="controls"&gt;
+    &lt;source src="movie.ogg" type="video/ogg" /&gt;
+    &lt;source src="movie.mp4" type="video/mp4" /&gt;
+    &lt;source src="movie.webm" type="video/webm" /&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+                        </code>
+                    </section>
+                    <h4>Video</h4>
+                    <video width="320" height="240" controls="controls">
+                        <source src="movie.ogg" type="video/ogg" />
+                        <source src="movie.mp4" type="video/mp4" />
+                        <source src="movie.webm" type="video/webm" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+    
+        </article>
+        
+        <footer>
+            <p>Copyright &#169; 2011 Lunatech Labs, All Rights Reserved</p>
+        </footer>
+        
+    </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <title>Lunatech Labs - Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/vanilla/main.css">
+        <script src="scripts/modernizr.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/init.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+<body>
+    
+    <header>
+            <h1><a href="index.html" title="Front-end Patterns">Front-end Patterns</a></h1>
+    </header>
+    
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="text.html">Text</a></li>
+                <li class="active"><a href="forms.html">Forms</a></li>
+                <li><a href="table.html">Tables</a></li>
+                <li><a href="less.html">LESS</a></li>
+            </ul>
+        </nav>
+    
+            
+    <article class="content">
+        <hgroup>
+            <h2>Forms</h2>
+            <h5>You can't live with them but know you can style them!</h5>
+        </hgroup>
+        <section>
+            <p>The most important mark up to implement consistently are forms. Allow the CSS to take control and keep the HTML simple and the same throughout your all your projects. </p>
+            <p>Think carefully about the buttons you will need. If can use only the button tag &lt;button&gt; do so, they will give you the most control. Remember that IE6 and 7 have a bug with buttons tags in that they send all the value.</p>
+            <p>Beware of HTML5 input types, browsers are still inconsistent. The examples here have been tested and little or no problems.</p>
+        </section>
+
+        <div class="tabs">
+            <ul>
+                <li><a href="#tabs-0">Basics snippets</a></li>
+                <li><a href="#tabs-0-1">Buttons</a></li>
+                <li><a href="#tabs-1">Contact form</a></li>
+                <!--li><a href="#tabs-2">Sign-up form</a></li>
+                <li><a href="#tabs-3">Miscellaneous</a></li-->
+            </ul>
+            <div id="tabs-0">
+                     <section class="notes">
+                    <code class="note">
+&lt;div&gt;
+    &lt;label for="txt01"&gt;Name *&lt;/label&gt;
+    &lt;input type="text" id="txt01" required /&gt;
+&lt;/div&gt;
+                </code>
+                <code class="note">
+&lt;div&gt;
+    &lt;label&gt;Do you wish to receive our newletter?&lt;/label&gt;
+    &lt;div&gt;
+        &lt;input type="radio" name="radio" id="r01" /&gt;
+        &lt;label for="r01"&gt;Yes&lt;/label&gt;
+        &lt;input type="radio" name="radio" id="r02" /&gt;
+        &lt;label for="r02"&gt;No&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+                </section>
+                
+                                <form>
+                    <fieldset>
+                        <h4>Text field</h4>
+                        <div>
+                            <label for="txt01">Label text</label>
+                            <input type="text" id="txt01" required />
+                        </div>
+                        <h4>Radio or checkbox entry</h4>
+                        <div>
+                            <label>Label text</label>
+                            <div>
+                                <input type="radio" name="radio" id="r01" /><label for="r01">Yes</label>
+                                <input type="radio" name="radio" id="r02" /><label for="r02">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+            <div id="tabs-0-1">
+                <section class="notes">
+                    <code class="note">
+&lt;div class="buttons"&gt;
+    &lt;button type="submit" class="save" value="Save"&gt;Save&lt;/button&gt;
+    &lt;button type="button" class="delete value="Delete"&gt;Delete&lt;/button&gt;
+    &lt;button type="button" class="cancel value="Cancel"&gt;Cancel&lt;/button&gt;
+    &lt;button type="button" class="print" value="Print"&gt;Print&lt;/button&gt;
+&lt;/div&gt;
+                </code>
+                </section>
+                <form>
+                    <h4>Buttons (right aligned)</h4>
+                    <fieldset>
+                    <div class="buttons">
+                        <button type="submit" class="save" value="Save">Save</button>
+                        <button type="button" class="delete" value="Delete">Delete</button>
+                        <button type="button" class="button cancel" value="Cancel">Cancel</button>
+                        <button type="button" class="print" value="Print">Print</button>
+                    </div>
+                    </fieldset>
+                </form>
+
+            </div>
+            <div id="tabs-1">
+    
+                <section class="notes">
+                    <code class="note">
+&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;div&gt;
+            &lt;label for="id01"&gt;Name *&lt;/label&gt;
+            &lt;input type="text" id="id01" required /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for="id02"&gt;E-mail *&lt;/label&gt;
+            &lt;input type="email" id="id02" required /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for="id03"&gt;Subject&lt;/label&gt;
+            &lt;input type="text" id="id03" /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for="id04"&gt;Message *&lt;/label&gt;
+            &lt;textarea id="id04" rows="10" cols="20" required&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label&gt;Do you wish to receive our newletter?&lt;/label&gt;
+            &lt;div&gt;
+                &lt;input type="radio" name="radio" id="id05" /&gt;
+                &lt;label for="id05"&gt;Yes&lt;/label&gt;
+                &lt;input type="radio" name="radio" id="id06" /&gt;
+                &lt;label for="id06"&gt;No&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+    &lt;div class="buttons"&gt;
+        &lt;button type="submit" class="save" value="Save"&gt;Save&lt;/button&gt;
+        &lt;button type="button" class="cancel"value="Cancel"&gt;Cancel&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+                </code>
+                </section>
+                <form>
+                    <h4>Contact form</h4>
+                    <fieldset>
+                        <div>
+                            <label for="id01">Name *</label>
+                            <input type="text" id="id01" required />
+                        </div>
+                        <div>
+                            <label for="id02">E-mail *</label>
+                            <input type="email" id="id02" required />
+                        </div>
+                        <div>
+                            <label for="id03">Subject</label>
+                            <input type="text" id="id03" />
+                        </div>
+                        <div>
+                            <label for="id04">Message *</label>
+                            <textarea id="id04" rows="10" cols="20" required></textarea>
+                        </div>
+                        <div>
+                            <label>Do you wish to receive our newletter?</label>
+                            <div>
+                                <input type="radio" name="radio" id="id05" /><label for="id05">Yes</label>
+                                <input type="radio" name="radio" id="id06" /><label for="id06">No</label>
+                            </div>
+                        </div>
+<!--
+                        <div>
+                            <label for="id07">Date 1</label>
+                            <input type="text" id="id07" class="date" value=""/>
+                        </div>
+-->
+                    </fieldset>
+                    <div class="buttons">
+                        <button type="submit" class="save" value="Save">Save</button>
+                        <button type="button" class="cancel"value="Cancel">Cancel</button>
+                    </div>
+                    <p>* These fields are required.</p>
+                </form>
+            
+            </div>
+            <div id="tabs-2"></div>
+            <div id="tabs-3"></div>
+        </div>
+
+
+    </article>
+    
+    <footer>
+            <p>Copyright &#169; 2011 Lunatech Labs, All Rights Reserved</p>
+    </footer>
+    
+</body>
+</html>
