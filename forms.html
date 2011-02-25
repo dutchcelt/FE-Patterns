@@ -12,23 +12,22 @@
 <body>
     
     <header>
-            <h1><a href="index.html" title="Front-end Patterns">Front-end Patterns</a></h1>
+        <div class="logo">Front-end Patterns</div>
     </header>
     
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="text.html">Text</a></li>
-                <li class="active"><a href="forms.html">Forms</a></li>
-                <li><a href="table.html">Tables</a></li>
-                <li><a href="less.html">LESS</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="text.html">Text</a></li>
+            <li class="active"><a href="forms.html">Forms</a></li>
+            <li><a href="table.html">Tables</a></li>
+        </ul>
+    </nav>
     
             
     <article class="content">
         <hgroup>
-            <h2>Forms</h2>
+            <h1>Forms</h1>
             <h5>You can't live with them but know you can style them!</h5>
         </hgroup>
         <section>
@@ -64,6 +63,12 @@
     &lt;/div&gt;
 &lt;/div&gt;
                 </code>
+                <code class="note">
+&lt;div&gt;
+    &lt;label for=&quot;d01&quot;&gt;Date&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;d01&quot; class=&quot;date&quot;/&gt;
+&lt;/div&gt;
+                </code>
                 </section>
                 
                                 <form>
@@ -80,6 +85,11 @@
                                 <input type="radio" name="radio" id="r01" /><label for="r01">Yes</label>
                                 <input type="radio" name="radio" id="r02" /><label for="r02">No</label>
                             </div>
+                        </div>
+                        <h4>Datepicker</h4>
+                        <div>
+                            <label for="d01">Date</label>
+                            <input type="date" id="d01" class="date"/>
                         </div>
                     </fieldset>
                 </form>
@@ -174,12 +184,6 @@
                                 <input type="radio" name="radio" id="id06" /><label for="id06">No</label>
                             </div>
                         </div>
-<!--
-                        <div>
-                            <label for="id07">Date 1</label>
-                            <input type="text" id="id07" class="date" value=""/>
-                        </div>
--->
                     </fieldset>
                     <div class="buttons">
                         <button type="submit" class="save" value="Save">Save</button>
@@ -197,7 +201,7 @@
     </article>
     
     <footer>
-            <p>Copyright &#169; 2011 Lunatech Labs, All Rights Reserved</p>
+            <p>2011 Lunatech Labs</p>
     </footer>
     
 </body>

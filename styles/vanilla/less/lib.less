@@ -18,8 +18,8 @@
     @base-height:           @em;
     @base-width:            @grid-unit * 4;
     @block-space:           @base-width / 2;
-    @text-block-width:      @base-width * 11;
-    @max-width:             960px;
+    @text-block-width:      @base-width * 12;
+    @max-width:             @grid-unit*80;
     
     @line:                  1px;
     @ui-line:               1px;
@@ -130,7 +130,7 @@
         background: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
         background: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
-        filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
+        //filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
         }   
     .rounded-corners(@rad) {
         -moz-border-radius:@rad;

@@ -5,12 +5,15 @@
 
     
 
-/*  Layout */
+/*  Mockup Layout */
+    
     html {
-        padding: 0 @block-space;
-        background: @grey5;
+        padding: @base-height @block-space;
         }
+
     body { 
+        margin: 0 auto;
+        width: @max-width;
         color: @text-color;
         background-color: @grey0;
         }
@@ -18,34 +21,21 @@
         border-bottom: @line solid @dark-color;
         padding: @base-height/2 @block-space 0;
         height: @base-height*3;
-        color: @light-color;
-        .gradient(@grey5,@dark-color);
         overflow: hidden;
         }
-    h1 {
+    header .logo {
         margin: @base-height/@transport 0 0 0;
         padding: 0;
-        .h4;
+        .h3;
         font-weight: normal;
         line-height: @transport/@transport;
-        font-family: @typeface-brand;
-        color: black;
-        .text-shadow(@bottom, @grey4);
-        }
-    h1 a,
-    h1 a:visited,
-    h1 a:hover,
-    h1 a:active {
-        color: black;
-        }
-    h2 {
         font-family: @typeface-header;
         }
      p { 
         max-width: @text-block-width;
         }   
     .content {
-        padding: @em @block-space;
+        padding: @base-height @block-space;
         }
     .content hgroup {
         margin: 0 - @em 0 - @block-space @block-space;
@@ -53,7 +43,7 @@
         .text-shadow(@bottom, @light-color);
         background-color: @grey1;
         }
-    .content hgroup h2 {
+    .content hgroup h1 {
         padding-bottom: @interline/8;
         }      
     .content hgroup h5 {
@@ -61,9 +51,9 @@
         color: @grey5;
         }  
     .csscolumns .content > section {
-        margin-bottom: @base-height;
-        .columns(2);
-        max-width: @text-block-width*1.5;
+        float: left;
+        margin-right: @block-space;
+        width: @text-block-width/2;
         }    
     body > footer {
         position: relative;
@@ -85,7 +75,6 @@
         float: left;
         margin-right: @block-space/4;
         }
-    
     .details {
         max-width: @text-block-width;  
         }
@@ -95,8 +84,7 @@
         padding-bottom: 0;
         }
 
-
-/*  Mockup layout */
+/*  Tab & intro content */
     
     .content .ui-tabs-panel {
         float: left;
@@ -111,7 +99,6 @@
         }
     canvas,
     figure {
-        
         border: @line solid @grey6;
         max-width: @text-block-width;
         background-color: @grey6;
@@ -130,9 +117,26 @@
         color: @grey1;
         background-color: @grey6;
         }   
+    .bootsteps{
+        float: left;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: @grid-unit*50;
+        }
+    .bootsteps li{
+        margin: 0 0 @interline;
+        padding: @base-height @block-space;
+        .h5;
+        .rounded-corners(@rad);
+        background: @light-color;
+        }
+        
+        
+/*  Datatables */
+
     .content .dataTables_wrapper {
-        position: absolute;
-        max-width: 45%;
+        float:left;
         clear: none;
         _height: 302px;
     }
@@ -160,14 +164,11 @@
     nav ul {
         clear: both;
         margin: 0;
-        border-top: @line solid fadeout(@light-color, 40%);
-        border-bottom: @line solid fadeout(@dark-color, 40%);
         padding: 0 @block-space;
         display: block;
         list-style: none;
         min-height: @base-height*1.2;
-        .gradient(@blue1,@blue2);
-        .box-shadow(@ui-line,@light-color);
+        background: @grey6;
         }    
     nav ul li {
         position: relative;
@@ -176,12 +177,12 @@
         font-size: @em/@em;
         line-height: @transport * 1.2;
         text-transform: uppercase;
-        color: darken(@blue2, 15%);
+        color: @grey2;
         .text-shadow(@top, darken(@blue2, 50%));
         }    
     nav ul li a,
     nav ul li a:visited {
-        color: lighten(@blue1,15%);
+        color: @grey3;
         }    
     nav ul li a:hover,
     nav ul li a:active,
@@ -192,7 +193,7 @@
         position: absolute;
         display: block;
         content: " ";  
-        border-color: @dark-color transparent transparent transparent;
+        border-color: @grey0 transparent transparent transparent;
         border-style: solid;
         border-width: @block-space/6;
         height:0;
@@ -204,7 +205,11 @@
         
            
 /*  Tabs */
-
+    
+    .tabs {
+        float: left;
+        width: @grid-unit*50;
+        }
     .tabs > div > :last-child:after {
         clear: both;
         display: block;
@@ -278,18 +283,14 @@
 /*  Messages */
 
     .warning {
-        margin: @interline 0; 
+        margin: @interline 0 @base-height; 
         padding: @interline @grid-unit;
         }
     .notes {
-        float: right;
-        max-width: 50%;
+        float: none;
         min-width: @text-block-width;
         overflow: hidden;
         }
     .notes .note {
-        display: block;
-        margin-bottom: @interline;
-        padding: 0 @block-space 0;
-        background: lighten(@yellow1,25%);
+        color: darken(@green2,10%);
         }
