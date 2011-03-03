@@ -32,26 +32,15 @@
 
     @font-face {
         font-family: 'DejaVuSerifCondensedBook';
-        src: url('fonts/DejaVuSerifCondensed.eot');
-        src: url('fonts/DejaVuSerifCondensed.eot?iefix') format('eot'),
-             url('fonts/DejaVuSerifCondensed.woff') format('woff'),
-             url('fonts/DejaVuSerifCondensed.ttf') format('truetype'),
-             url('fonts/DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');
+        src: url('../fonts/DejaVuSerifCondensed.eot');
+        src: url('../fonts/DejaVuSerifCondensed.eot?iefix') format('eot'),
+             url('../fonts/DejaVuSerifCondensed.woff') format('woff'),
+             url('../fonts/DejaVuSerifCondensed.ttf') format('truetype'),
+             url('../fonts/DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');
         font-weight: normal;
         font-style: normal;
         }
-        
-    @font-face {
-        font-family: 'SilkscreenNormal';
-        src: url('fonts/slkscr-webfont.eot');
-        src: url('fonts/slkscr-webfont.eot?iefix') format('eot'),
-             url('fonts/slkscr-webfont.woff') format('woff'),
-             url('fonts/slkscr-webfont.ttf') format('truetype'),
-             url('fonts/slkscr-webfont.svg#webfontbGeqd9MO') format('svg');
-        font-weight: normal;
-        font-style: normal;
-        }
-        
+                
     @font-scale:            82.5%;
     @transport:             1.6;
     @interline:             @em/@em;
@@ -142,4 +131,6 @@
         -moz-column-gap: @block-space; 
         -webkit-column-count: @col; 
         -webkit-column-gap: @block-space; 
+        column-count: @col; 
+        column-gap: @block-space; 
         }
