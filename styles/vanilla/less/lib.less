@@ -102,7 +102,8 @@
     @field-width:           inherit;
     @label-width:           inherit;
     @text-input-width:      100%;
-    
+    @label-orientation:     none; /* float value: left, right, none */
+    @label-text-orientation:left;
     
 //  Basic UI elements ---------------------------------------------------------
 
@@ -133,4 +134,10 @@
         -webkit-column-gap: @block-space; 
         column-count: @col; 
         column-gap: @block-space; 
+        }
+    .borderbox {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -box-sizing: border-box;
         }

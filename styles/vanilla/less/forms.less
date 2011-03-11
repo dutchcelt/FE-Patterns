@@ -14,10 +14,20 @@
         padding: 0 0 @em/2 0;
         }
     label {
+        .borderbox;
+        clear: left;
+        float: @label-orientation;
         display: block;
+        padding-right: @block-space/2;
         width: @label-width;
+        text-align: @label-text-orientation;
         }
-    input{
+    input[type=url],
+    input[type=email],
+    input[type=number],
+    input[type=date],
+    input[type=text]{
+        float: @label-orientation;
         margin-bottom: @interline/2;
         width: @text-input-width;
         }
@@ -34,10 +44,12 @@
         float:none;
         }
     select {
+        float: @label-orientation;
         width: auto;
         min-width: @text-input-width/2;
         }
     textarea {
+        float: @label-orientation;
         width: @text-input-width;
         }
     input[type=checkbox] {
@@ -49,9 +61,7 @@
         display: inline;
         }
     fieldset > div > div {
-        float: right;
-        display: block;
-        margin: @interline/2 0;
+        float: @label-orientation;
         width: @text-input-width;
         }
     div > div > label {

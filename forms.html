@@ -18,9 +18,10 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="text.html">Text</a></li>
+            <li><a href="text.html">Content</a></li>
             <li class="active"><a href="forms.html">Forms</a></li>
             <li><a href="table.html">Tables</a></li>
+            <li><a href="usage.html">Usage</a></li>
         </ul>
     </nav>
     
@@ -33,7 +34,7 @@
         <section>
             <p>The most important mark up to implement consistently are forms. Allow the CSS to take control and keep the HTML simple and the same throughout your all your projects. </p>
             <p>Think carefully about the buttons you will need. If can use only the button tag &lt;button&gt; do so, they will give you the most control. Remember that IE6 and 7 have a bug with buttons tags in that they send all the value.</p>
-            <p>Beware of HTML5 input types, browsers are still inconsistent. The examples here have been tested and little or no problems.</p>
+            <p>Beware of HTML5 input types, browsers are still inconsistent. The date input type doesn't work very well and has been omitted from these patterns. The examples here have been tested and little or no problems.</p>
             <p><strong>Note:</strong> Client-side validation has not yet been implemented.</p>
         </section>
 
@@ -90,7 +91,7 @@
                         <h4>Datepicker</h4>
                         <div>
                             <label for="d01">Date</label>
-                            <input type="date" id="d01" class="date"/>
+                            <input type="text" id="d01" class="date"/>
                         </div>
                     </fieldset>
                 </form>
