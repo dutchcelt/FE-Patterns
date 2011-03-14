@@ -22,14 +22,18 @@
         width: @label-width;
         text-align: @label-text-orientation;
         }
+    input[type=search],
     input[type=url],
     input[type=email],
-    input[type=number],
-    input[type=date],
     input[type=text]{
         float: @label-orientation;
-        margin-bottom: @interline/2;
         width: @text-input-width;
+        }
+    input[type=number],
+    input[type^=date],
+    input[type=time] {
+        float: @label-orientation;
+        width: @text-input-width*0.325;
         }
     input[type=checkbox],
     input[type=radio]{
@@ -46,7 +50,7 @@
     select {
         float: @label-orientation;
         width: auto;
-        min-width: @text-input-width/2;
+        min-width: @text-input-width*0.655;
         }
     textarea {
         float: @label-orientation;
@@ -59,6 +63,11 @@
     div > div > input[type=checkbox] {
         float: none;
         display: inline;
+        }
+    fieldset > div {
+        padding-bottom: @interline/1.5;
+        float: @label-orientation;
+        width: 100%;
         }
     fieldset > div > div {
         float: @label-orientation;
@@ -73,5 +82,5 @@
         width: auto;
         }
 
-    select[multiple]{ width: @text-input-width/2; }
+    select[multiple]{ width: @text-input-width*0.655; }
         
