@@ -1,4 +1,4 @@
-@font-face{font-family:'DejaVuSerifCondensedBook';src:url('../fonts/DejaVuSerifCondensed.eot');src:url('../fonts/DejaVuSerifCondensed.eot?iefix') format('eot'),url('../fonts/DejaVuSerifCondensed.woff') format('woff'),url('../fonts/DejaVuSerifCondensed.ttf') format('truetype'),url('../fonts/DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');font-weight:normal;font-style:normal;}.borderbox{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;-box-sizing:border-box;}
+@font-face{font-family:'DejaVuSerifCondensedBook';src:url('../fonts/DejaVuSerifCondensed.eot');src:url('../fonts/DejaVuSerifCondensed.eot?iefix') format('eot'),url('../fonts/DejaVuSerifCondensed.woff') format('woff'),url('../fonts/DejaVuSerifCondensed.ttf') format('truetype'),url('../fonts/DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');font-weight:normal;font-style:normal;}.clear-fix{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;}
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,address,img,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
 body{font-style:normal;font-weight:normal;font-size:82.5%;line-height:1.6;font-family:Arial,sans-serif;}
@@ -31,21 +31,21 @@ a:active{text-decoration:none;color:#0080ff;}
 a:focus{outline:1;}
 form{padding:0 0 0.7000000000000001em 0;max-width:576px;}
 fieldset{padding:0 0 0.7000000000000001em 0;}
-label{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;-box-sizing:border-box;clear:left;float:none;display:block;padding-right:12px;width:inherit;text-align:left;}
-input[type=search],input[type=url],input[type=email],input[type=text]{float:none;width:100%;}
-input[type=number],input[type^=date],input[type=time]{float:none;width:32.5%;}
+label{clear:left;float:none;display:block;padding-right:12px;width:576px;text-align:left;}
+input[type=search],input[type=url],input[type=email],input[type=text]{float:none;width:568px;}
+input[type=number],input[type^=date],input[type=time]{float:none;width:184.6px;}
 input[type=checkbox],input[type=radio]{width:auto;}
 input[type=checkbox]+label{float:none;display:inline;}
 input[type="radio"]+label{display:inline;float:none;}
-select{float:none;width:auto;min-width:65.5%;}
-textarea{float:none;width:100%;}
+select{float:none;width:auto;min-width:372.04px;}
+textarea{float:none;width:568px;}
 input[type=checkbox]{float:left;}
 div>div>input[type=radio],div>div>input[type=checkbox]{float:none;display:inline;}
 fieldset>div{padding-bottom:0.6666666666666666em;float:none;width:100%;}
-fieldset>div>div{float:none;width:100%;}
+fieldset>div>div{float:none;width:568px;}
 div>div>label{float:none;display:inline;}
 input[type=button],input[type=submit]{width:auto;}
-select[multiple]{width:65.5%;}
+select[multiple]{width:372.04px;}
 .ui-helper-hidden{display:none;}
 .ui-helper-hidden-accessible{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px);}
 .ui-helper-reset{margin:0;padding:0;border:0;outline:0;line-height:1.6;text-decoration:none;font-size:100%;list-style:none;}

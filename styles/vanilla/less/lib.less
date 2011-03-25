@@ -96,15 +96,22 @@
     @ui-highlight3:         darken(@ui-highlight2, 5%);         @ui-error3:                  darken(@ui-error2, 5%);
 
     
+
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block-width;
-    @field-width:           inherit;
-    @label-width:           inherit;
-    @text-input-width:      100%;
+    @field-width:           @text-block-width;
+    
+    @input-padding-height:  @base-height/4;
+    @input-padding-width:   @block-space/6;
+    @text-input-padding:    @input-padding-height @input-padding-width;
+    
+    @label-width:           @text-block-width;
+    @text-input-width:      @text-block-width - @input-padding-width*2;
     @label-orientation:     none; /* float value: left, right, none */
     @label-text-orientation:left;
-    
+
+
 //  Basic UI elements ---------------------------------------------------------
 
     .text-shadow(@loc, @color) {
@@ -135,9 +142,11 @@
         column-count: @col; 
         column-gap: @block-space; 
         }
-    .borderbox {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        -box-sizing: border-box;
+    .clear-fix {
+        content: ".";
+    	display: block;
+    	clear: both;
+    	visibility: hidden;
+    	line-height: 0;
+    	height: 0;
         }
