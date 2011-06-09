@@ -11,23 +11,24 @@
 /*  Mockup Layout */
     
     html {
-        padding: @base-height @block-space;
+        padding: @em @block;
         }
 
     body { 
         margin: 0 auto;
-        width: @max-width;
         color: @text-color;
+        min-width:  @grid * 26;
+        max-width:  @grid * 100;
         background-color: @grey0;
         }
     body > header {
         border-bottom: @line solid @dark-color;
-        padding: @base-height/2 @block-space 0;
-        height: @base-height*3;
+        padding: @em/2 @block 0;
+        height: @em*3;
         overflow: hidden;
         }
     header .logo {
-        margin: @base-height/@transport 0 0 0;
+        margin: @em/@transport 0 0 0;
         padding: 0;
         .h3;
         font-weight: normal;
@@ -35,14 +36,14 @@
         font-family: @typeface-header;
         }
      p { 
-        max-width: @text-block-width;
+        width: 100%;
         }   
     .content {
-        padding: @base-height @block-space;
+        padding: @em @block;
         }
     .content hgroup {
-        margin: 0 - @em 0 - @block-space @block-space;
-        padding: @em @block-space;
+        margin: 0 - @em 0 - @block @block;
+        padding: @em @block;
         .text-shadow(@bottom, @light-color);
         background-color: @grey1;
         }
@@ -53,33 +54,34 @@
         .h6;
         color: @grey5;
         }  
-    .csscolumns .content > section {
+    .content > section {
         float: left;
-        margin-right: @block-space;
-        width: @text-block-width/2;
+        margin-right: @block;
+        width: @text-block/2;
+        width: 33%;
         }    
     body > footer {
         position: relative;
-        top: @base-height;
+        top: @em;
         clear: both;
         border-top: @line dotted fadeout(@dark-color, 80%);
-        padding: @base-height @block-space;
+        padding: @em @block;
         text-align: center;
         }
     body > footer p {
-        max-width: inherit;
+        //max-width: inherit;
         }
     .message {
-        margin: @base-height @block-space 0;
-        padding: @em/2 @block-space/2;
+        margin: @em @block 0;
+        padding: @em/2 @block/2;
         .rounded-corners(@rad);
         }    
     .message .ui-icon {
         float: left;
-        margin-right: @block-space/4;
+        margin-right: @block/4;
         }
     .details {
-        max-width: @text-block-width;  
+        max-width: @text-block;  
         }
     .details .buttons{
         margin-bottom: 0 - @interline;
@@ -90,20 +92,20 @@
 /*  Tab & intro content */
     
     .content .ui-tabs-panel {
-        float: left;
-        width: 95%;
+        width: 100%;
+        overflow: hidden;
         }
     .tabs hgroup {
         background: transparent;
         }   
     p canvas, p img {
         float: left;
-        margin: 0 @block-space/2 0 0;
+        margin: 0 @block/2 0 0;
         }
     canvas,
     figure {
         border: @line solid @grey6;
-        max-width: @text-block-width;
+        max-width: @text-block;
         background-color: @grey6;
         }
     figure img{
@@ -125,11 +127,11 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        width: @grid-unit*50;
+        width: 60%;
         }
     .bootsteps li{
         margin: 0 0 @interline;
-        padding: @base-height @block-space;
+        padding: @em @block;
         .h5;
         .rounded-corners(@rad);
         background: @light-color;
@@ -167,15 +169,15 @@
     nav ul {
         clear: both;
         margin: 0;
-        padding: 0 @block-space;
+        padding: 0 @block;
         display: block;
         list-style: none;
-        min-height: @base-height*1.2;
+        min-height: @em*1.2;
         background: @grey6;
         }    
     nav ul li {
         position: relative;
-        margin: 0 @block-space/2 0 0;
+        margin: 0 @block/2 0 0;
         display: inline;
         font-size: @em/@em;
         line-height: @transport * 1.2;
@@ -198,7 +200,7 @@
         content: " ";  
         border-color: @grey0 transparent transparent transparent;
         border-style: solid;
-        border-width: @block-space/6;
+        border-width: @block/6;
         height:0;
         width:0;
         position:absolute;
@@ -211,12 +213,12 @@
     
     .tabs {
         float: left;
-        width: @grid-unit*50;
+        width: 60%;
         }
     .tabs > div > :last-child:after {
         clear: both;
         display: block;
-        margin-bottom: 0 - @base-height;
+        margin-bottom: 0 - @em;
         content: ".";
         visibility: hidden;
         height: 0;
@@ -227,7 +229,7 @@
 /*  Forms & Buttons */   
      
     .buttons  {
-        margin-right: 0 - @grid-unit/2;
+        margin-right: 0 - @grid/2;
         padding: @interline 0;
         height: @em*2;
         text-align: right;
@@ -245,7 +247,7 @@
         }
       
     fieldset .error {
-        padding-right: @block-space/2;
+        padding-right: @block/2;
         font-weight: bold;
         color: @error;
         }
@@ -276,7 +278,7 @@
     .ui-autocomplete-input + .ui-button { 
         top: @interline/4;
         right: 0;
-        padding: 0;width: @block-space; height: @em; overflow: hidden;
+        padding: 0;width: @block; height: @em; overflow: hidden;
         }
         
     .hover:hover .ui-icon {
@@ -286,12 +288,12 @@
 /*  Messages */
 
     .warning {
-        margin: @interline 0 @base-height; 
-        padding: @interline @grid-unit;
+        margin: @interline 0 @em; 
+        padding: @interline @grid;
         }
     .notes {
         float: none;
-        min-width: @text-block-width;
+        //min-width: @text-block;
         overflow: hidden;
         }
     .notes .note {

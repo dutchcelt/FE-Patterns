@@ -1,0 +1,78 @@
+/*  ###########################################################################
+    company:    Lunatech
+    date:       May 2011
+    ########################################################################### */
+
+
+    @media screen and (max-width: 768px) {
+        html {
+            padding: 0 @block/2 @em/2;
+        }
+        body {
+            min-width:  @grid * 26;
+            max-width:  @grid * 40;
+        }
+        body > header {
+            padding: @em/2 0 0;
+        }
+        .content {
+            padding: @em/2 @block/2;
+        }
+        .content hgroup {
+            margin: 0 - @em/2 0 - @block/2 @block;
+            padding: @em/2 @block/2;
+        }
+        .content > section {
+            float: none;
+            padding: 0;
+            margin-right: 0;
+            width: auto;
+        }    
+        .content section p{
+            float: none;
+            margin-right: 0;
+        }    
+        .content .tabs {
+            float: none;
+            margin-right: 0;
+            width: auto;
+        }    
+        .content .tabs li,
+        .content .tabs li a{
+            padding: @unit @grid/3;
+        }    
+        .content .ui-tabs-panel {
+            float: none;
+            overflow: hidden;
+            width: auto;
+            }
+        nav ul {
+            padding: 0 @block/4;
+        }    
+        nav ul li {
+            margin: 0 @block/4 0 0;
+        }    
+        .bootsteps{
+            width: auto;
+        }
+   }
+        
+    @media screen and (min-width: 768px) and (max-width: 960px){
+        body {
+            min-width:  @grid * 64 - @block*2;
+            max-width:  @grid * 80;
+        }
+        .csscolumns .content .tabs li,
+        .csscolumns .content .tabs li a{
+            padding: @unit @grid/3;
+        }    
+    }
+    @media screen and (min-width: 960px) {
+        body {
+            min-width:  @grid * 80 - @block*2;
+            max-width:  @grid * 100;
+        }
+    }
+    
+    
+    

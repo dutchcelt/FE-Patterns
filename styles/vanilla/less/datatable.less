@@ -36,13 +36,13 @@
     }
     
     .dataTables_filter {
-        width: @base-width * 6;
+        width: @block * 12;
         float: right;
         text-align: right;
     }
     
     .dataTables_filter input {
-        width: @base-width * 3;
+        width: @block * 6;
     }
     
     .dataTables_info {
@@ -68,18 +68,18 @@
         }
     
     .dataTables_wrapper table thead th {
-        padding: (@base-height/4) (@base-width/3) (@base-height/4) (@base-width/5);
+        padding: (@em/4) (@block/1.5) (@em/4) (@block/2.5);
         border-bottom: @line solid @grey1;
         cursor: pointer;
         }   
     .dataTables_wrapper table tfoot th {
-        padding: (@base-height/4) (@base-width/3) (@base-height/4) (@base-width/5);
+        padding: (@em/4) (@block/1.5) (@em/4) (@block/2.5);
         border-top: @line solid @grey1;
         }
     
     .dataTables_wrapper table td {
-        padding: (@base-height/4)  (@base-width/5);
-        height: @base-height;
+        padding: (@em/4) (@block/2.5);
+        height: @em;
         }
     
     .dataTables_wrapper table td.center {
@@ -88,7 +88,7 @@
     
     .DataTables_sort_wrapper .ui-icon {
         float: right;
-        margin-right: (@block-space - 30%);
+        margin-right: (@block - 30%);
         }
     
     .dataTables_wrapper table td.dataTables_empty { 
@@ -100,7 +100,7 @@
         border-top: @ui-line solid @yellow2;
         border-right: @ui-line solid @yellow2;
         border-left: @ui-line solid @yellow2;
-        padding: 0.5em @base-width/4 0; 
+        padding: 0.5em @block/2 0; 
         max-width: 600px;
         background: @yellow1; 
         }
@@ -110,7 +110,7 @@
         border-right: 1px solid @yellow2;
         border-bottom: 1px solid @yellow2;
         border-left: 1px solid @yellow2;
-        padding: 0em @base-width/4 0.5em; 
+        padding: 0em @block/2 0.5em; 
         max-width: 600px;
         background: @yellow1; 
         }
@@ -119,7 +119,7 @@
         margin: 0 auto;
         border-right: 1px solid @yellow2;
         border-left: 1px solid @yellow2;
-        padding: 0 @base-width/4; 
+        padding: 0 @block/2; 
         max-width: inherit;
         max-width: 600px;
         background: @yellow1; 
@@ -150,8 +150,8 @@
      
     .fg-toolbar {
         border: @line solid @base-color;
-        padding: @unit @block-space/2;
-        min-height: (@base-height*1.6);
+        padding: @unit @block/2;
+        min-height: (@em*1.6);
         background: @base-color none;
         filter: 0;
         }
@@ -159,7 +159,7 @@
         margin: 0 0 0 0 - @ui-line;
         }
     .fg-button {
-        padding: 0 @block-space/2;
+        padding: 0 @block/2;
         line-height: @transport;
         }
     .dataTables_scroll {
@@ -176,8 +176,8 @@
     
     .paging_full_numbers {
         float: right;
-        width: @base-width*10;
-        height: @base-height;
+        width: @block*20;
+        height: @em;
         line-height: 1.3;
         }
         
