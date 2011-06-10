@@ -4,12 +4,13 @@
     ########################################################################### */
 
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 680px) {
         html {
             padding: 0 @block/2 @em/2;
+            -webkit-text-size-adjust: none;
         }
         body {
-            min-width:  @grid * 26- @block;
+            min-width:  @grid * 26 - @block;
             max-width:  @grid * 40;
         }
         body > header {
@@ -29,7 +30,6 @@
             width: auto;
         }    
         .content section p{
-            float: none;
             margin-right: 0;
         }    
         .content .tabs {
@@ -49,9 +49,9 @@
         nav ul {
             padding: 0 @block/4;
         }    
-        nav ul li {
-            margin: 0 @block/6 0 0;
-        }    
+        nav ul li a {
+            padding: 0 @block/4 0 0
+        }
         .bootsteps{
             width: auto;
         }

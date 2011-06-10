@@ -35,9 +35,6 @@
         line-height: @transport/@transport;
         font-family: @typeface-header;
         }
-     p { 
-        width: 100%;
-        }   
     .content {
         padding: @em @block;
         }
@@ -67,9 +64,6 @@
         border-top: @line dotted fadeout(@dark-color, 80%);
         padding: @em @block;
         text-align: center;
-        }
-    body > footer p {
-        //max-width: inherit;
         }
     .message {
         margin: @em @block 0;
@@ -177,14 +171,17 @@
         }    
     nav ul li {
         position: relative;
-        margin: 0 @block/2 0 0;
-        display: inline;
+        float: left;
+        display: block;
         font-size: @em/@em;
         line-height: @transport * 1.2;
         text-transform: uppercase;
         color: @grey2;
         .text-shadow(@top, darken(@blue2, 50%));
         }    
+    nav ul li a {
+        padding: 0 @block/2 0 0
+        }
     nav ul li a,
     nav ul li a:visited {
         color: @grey3;
@@ -196,6 +193,8 @@
         }    
     nav ul .active:before {
         position: absolute;
+        top: -1px;
+        left:40%;
         display: block;
         content: " ";  
         border-color: @grey0 transparent transparent transparent;
@@ -203,9 +202,6 @@
         border-width: @block/6;
         height:0;
         width:0;
-        position:absolute;
-        top: 0 - @interline/2.2;
-        left:40%;
         }  
         
            
@@ -293,7 +289,6 @@
         }
     .notes {
         float: none;
-        //min-width: @text-block;
         overflow: hidden;
         }
     .notes .note {

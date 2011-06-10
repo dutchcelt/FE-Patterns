@@ -438,7 +438,6 @@ html{padding:1.4000000000000001em 24px;}
 body{margin:0 auto;color:#333333;min-width:312px;max-width:1200px;background-color:#efefef;}
 body>header{border-bottom:1px solid #222222;padding:0.7000000000000001em 24px 0;height:4.2em;overflow:hidden;}
 header .logo{margin:0.875em 0 0 0;padding:0;font-size:1.5400000000000003em;font-weight:normal;line-height:1;font-family:"DejaVuSerifCondensedBook",Calibri,Georgia,serif;}
-p{width:100%;}
 .content{padding:1.4000000000000001em 24px;}
 .content hgroup{margin:-1.4000000000000001em -24px 24px;padding:1.4000000000000001em 24px;text-shadow:0 1px 1px #ffffff;background-color:#dbdbdb;}
 .content hgroup h1{padding-bottom:0.125em;}
@@ -464,10 +463,11 @@ figcaption{margin:0;padding:0;text-align:center;white-space:nowrap;color:#dbdbdb
 .dataTables_wrapper col.date{width:15%;}
 .dataTables_wrapper col.actions{width:2%;}
 nav ul{clear:both;margin:0;padding:0 24px;display:block;list-style:none;min-height:1.6800000000000002em;background:#2d2d2d;}
-nav ul li{position:relative;margin:0 12px 0 0;display:inline;font-size:1em;line-height:1.92;text-transform:uppercase;color:#c6c6c6;text-shadow:0 -1px 1px #00172e;}
+nav ul li{position:relative;float:left;display:block;font-size:1em;line-height:1.92;text-transform:uppercase;color:#c6c6c6;text-shadow:0 -1px 1px #00172e;}
+nav ul li a{padding:0 12px 0 0;}
 nav ul li a,nav ul li a:visited{color:#adadad;}
 nav ul li a:hover,nav ul li a:active,nav ul li.active a{color:#ffffff;}
-nav ul .active:before{position:absolute;display:block;content:" ";border-color:#efefef transparent transparent transparent;border-style:solid;border-width:4px;height:0;width:0;position:absolute;top:-0.45454545454545453em;left:40%;}
+nav ul .active:before{position:absolute;top:-1px;left:40%;display:block;content:" ";border-color:#efefef transparent transparent transparent;border-style:solid;border-width:4px;height:0;width:0;}
 .tabs{float:left;width:60%;}
 .tabs>div>:last-child:after{clear:both;display:block;margin-bottom:-1.4000000000000001em;content:".";visibility:hidden;height:0;line-height:0;}
 .buttons{margin-right:-6px;padding:1em 0;height:2.8000000000000003em;text-align:right;}
@@ -482,4 +482,4 @@ fieldset .error{padding-right:12px;font-weight:bold;color:#cd0a0a;}
 .warning{margin:1em 0 1.4000000000000001em;padding:1em 12px;}
 .notes{float:none;overflow:hidden;}
 .notes .note{color:#297137;}
-@media screen and (max-width: 768px){html{padding:0 12px 0.7000000000000001em;} body{min-width:288px;max-width:480px;} body>header{padding:0.7000000000000001em 0 0;} .content{padding:0.7000000000000001em 12px;} .content hgroup{margin:-0.7000000000000001em -12px 24px;padding:0.7000000000000001em 12px;} .content>section{float:none;padding:0;margin-right:0;width:auto;} .content section p{float:none;margin-right:0;} .content .tabs{float:none;margin-right:0;width:auto;} .content .tabs li,.content .tabs li a{padding:0.2em 3px;} .content .ui-tabs-panel{float:none;overflow:hidden;width:auto;} nav ul{padding:0 6px;} nav ul li{margin:0 4px 0 0;} .bootsteps{width:auto;}}@media screen and (min-width: 768px) and (max-width: 960px){body{min-width:720px;max-width:960px;} .csscolumns .content .tabs li,.csscolumns .content .tabs li a{padding:0.2em 4px;}}@media screen and (min-width: 960px){body{min-width:912px;max-width:1200px;}}
+@media screen and (max-width: 680px){html{padding:0 12px 0.7000000000000001em;-webkit-text-size-adjust:none;} body{min-width:288px;max-width:480px;} body>header{padding:0.7000000000000001em 0 0;} .content{padding:0.7000000000000001em 12px;} .content hgroup{margin:-0.7000000000000001em -12px 24px;padding:0.7000000000000001em 12px;} .content>section{float:none;padding:0;margin-right:0;width:auto;} .content section p{margin-right:0;} .content .tabs{float:none;margin-right:0;width:auto;} .content .tabs li,.content .tabs li a{padding:0.2em 3px;} .content .ui-tabs-panel{float:none;overflow:hidden;width:auto;} nav ul{padding:0 6px;} nav ul li a{padding:0 6px 0 0;} .bootsteps{width:auto;}}@media screen and (min-width: 768px) and (max-width: 960px){body{min-width:720px;max-width:960px;} .csscolumns .content .tabs li,.csscolumns .content .tabs li a{padding:0.2em 4px;}}@media screen and (min-width: 960px){body{min-width:912px;max-width:1200px;}}
