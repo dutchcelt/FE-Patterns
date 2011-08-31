@@ -24,6 +24,9 @@
     input[type=search],
     input[type=url],
     input[type=email],
+    input[type=url],
+    input[type=email],
+    input[type=password],
     input[type=text]{
         float: @label-orientation;
         width: @text-input-width;
@@ -80,6 +83,30 @@
     input[type=submit] {
         width: auto;
         }
-
-    select[multiple]{ width: @text-input-width*0.655; }
+    select[multiple]{ 
+        width: @text-input-width*0.655;
+        }
         
+    :invalid {
+        color: @error;
+        }
+    :valid {
+        color: @text-color;
+        }
+    :read-only{ border: 0; padding: 0; }
+    
+    
+    ::-webkit-validation-bubble {}
+    ::-webkit-validation-bubble-arrow-clipper {}
+    ::-webkit-validation-bubble-arrow {
+        margin-bottom: 0 - @interline/2;
+        .box-shadow(0,0,0,0);
+        background: @error;
+        }
+    ::-webkit-validation-bubble-message {
+        padding: @interline/4 @block/2;
+        .rounded-corners(@grid);
+        .box-shadow(0,0,0,0);
+        color: @light-color;
+        background: @error;
+        }

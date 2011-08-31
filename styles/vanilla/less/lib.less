@@ -11,14 +11,14 @@
 
 //  Base units that set overal proportions ------------------------------------
 
-    
-    @grid:                  12px;
+    @view:                  1200;            // VIEWPORT WIDTH based on pixels
+    @grid:                  @view / 100px; 
     @unit:                  0.2em;
     @em:                    @unit*7;
     
     @block:                 @grid * 2;
-    @text-block:            @grid * 48;
-    @max-width:             @grid * 80;     // 960px
+    @text-block:            @view * 48%;
+    @max-width:             @grid * 100;     // @grid * 80 = 960
     
     @line:                  1px;
     @ui-line:               1px;
@@ -33,12 +33,14 @@
     @font-root: "../fonts/";
     
     @font-face {
-        font-family: 'DejaVuSerifCondensedBook';
-        src: url('@{font-root}DejaVuSerifCondensed.eot');
-        src: url('@{font-root}DejaVuSerifCondensed.eot?iefix') format('eot'),
-             url('@{font-root}DejaVuSerifCondensed.woff') format('woff'),
-             url('@{font-root}DejaVuSerifCondensed.ttf') format('truetype'),
-             url('@{font-root}DejaVuSerifCondensed.svg#DejaVuSerifCondensed') format('svg');
+        font-family: 'OstrichBlack';
+        src: url('@{font-root}ostrich-black.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+    @font-face {
+        font-family: 'LobsterTwoBoldItalic';
+        src: url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
         font-weight: normal;
         font-style: normal;
         }
@@ -47,8 +49,8 @@
     @transport:             1.6;
     @interline:             @unit*5;
     @typeface:              Arial, sans-serif;
-    @typeface-header:       "DejaVuSerifCondensedBook", Calibri, Georgia, serif;
-    @typeface-brand:        "SilkscreenNormal", Calibri, Georgia, serif;
+    @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
+    @typeface-brand:        "OstrichBlack", Arial, sans-serif;
     
     
 //  Basic colour values -------------------------------------------------------
@@ -75,7 +77,7 @@
     @red2:                  darken(@red1, 15%);
     
     
-    @grey0:                 #efefef;                            @base-color:                @grey0;    
+    @grey0:                 #fafafa;                            @base-color:                @grey0;    
     @grey1:                 darken(@grey0, 8%);                 @base-color1:               darken(@base-color, 8%);
     @grey2:                 darken(@grey0, 16%);                @base-color2:               darken(@base-color, 16%);
     @grey3:                 darken(@grey0, 26%);                @base-color3:               darken(@base-color, 26%);
@@ -117,9 +119,9 @@
 
 //  Box elements --------------------------------------------------------------
 
-    .panelLESS {
-        margin: 0 0 @interline;
-        padding: @unit @grid;
+    .panel {
+        margin: 0 0 @interline ;
+        padding: @interline @block;
         }
         
 
@@ -134,26 +136,29 @@
         box-shadow: @arguments;
         }
     .gradient(@start,@stop){
-        background: @start; /* old browsers */
-        background: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
-        background: -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
-        background: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
+        background-color: @start;
+        background-image: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
+        background-image: -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
+        background-image: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
         /* IE HACK!!*/
         //filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
         }   
     .rounded-corners(@rad) {
-        -moz-border-radius:@rad;
-        -webkit-border-radius:@rad;
-        border-radius:@rad;
+        -moz-border-radius:@arguments;
+        -webkit-border-radius:@arguments;
+        border-radius:@arguments;
+		-moz-background-clip   : padding;
+		-webkit-background-clip: padding-box;
+		background-clip        : padding-box;
         }
-    .columns(@col) {
+    .columns(@col:2) {
         -moz-column-count: @col; 
-        -moz-column-gap: @block; 
+        -moz-column-gap: @grid; 
         -webkit-column-count: @col; 
-        -webkit-column-gap: @block; 
+        -webkit-column-gap: @grid; 
         column-count: @col; 
-        column-gap: @block; 
+        column-gap: @grid; 
         }
     .clear-fix {
         content: ".";

@@ -7,44 +7,48 @@
 //  its own 'app.less' file or whatever you will call it. 
 //  The 'main.less' file is where you can add as many files you want.
 
-
+ 
 /*  Mockup Layout */
     
-    html {
-        padding: @em @block;
-        }
 
     body { 
         margin: 0 auto;
         color: @text-color;
         min-width:  @grid * 26;
         max-width:  @grid * 100;
-        background-color: @grey0;
+        background-color: @base-color;
+        background-image: url(../images/backgrounds/back.png);
         }
     body > header {
-        border-bottom: @line solid @dark-color;
+        border-bottom: @line solid @grey5;
         padding: @em/2 @block 0;
         height: @em*3;
         overflow: hidden;
         }
     header .logo {
-        margin: @em/@transport 0 0 0;
+        margin: 0;
         padding: 0;
-        .h3;
+        .h1;
         font-weight: normal;
-        line-height: @transport/@transport;
+        line-height: @transport;
         font-family: @typeface-header;
+        color: @red2;
+        background: transparent;
         }
     .content {
-        padding: @em @block;
+        padding: 0 @block @em;
         }
     .content hgroup {
-        margin: 0 - @em 0 - @block @block;
-        padding: @em @block;
+        .panel;
+        margin-right: 0 - @block;
+        margin-left: 0 - @block;
         .text-shadow(@bottom, @light-color);
-        background-color: @grey1;
+        background: @grey1;
+        background-color: fadeout(@base-color6, 85%);
+
         }
     .content hgroup h1 {
+        font-family: @typeface-brand;
         padding-bottom: @interline/8;
         }      
     .content hgroup h5 {
@@ -167,13 +171,13 @@
         display: block;
         list-style: none;
         min-height: @em*1.2;
-        background: @grey6;
+        .gradient(@grey5,@grey6);
         }    
     nav ul li {
         position: relative;
         float: left;
         display: block;
-        font-size: @em/@em;
+        font-size: 0.9em;
         line-height: @transport * 1.2;
         text-transform: uppercase;
         color: @grey2;
@@ -211,6 +215,8 @@
         float: left;
         width: 60%;
         }
+    .tabs ul {        background-color: transparent;
+}
     .tabs > div > :last-child:after {
         clear: both;
         display: block;
