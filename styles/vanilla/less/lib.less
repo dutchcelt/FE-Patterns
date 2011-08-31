@@ -14,13 +14,13 @@
     @view:                  1200;           // VIEWPORT target based on pixels
     @w:                     @view / 100px;  // Smallest horisontal unit
     @h:                     0.2em;          // Smallest vertical unit
-    @em:                    @h*7;           // Line transport
+    @em:                    @h*7;           // Vertical space or leading
     
-    @block:                 @w * 2;         // White space for paddings etc
+    @block:                 @w * 2;         // White space for paddings or margins
     @text-block:            @view * 48%;    // alt: 52em; 
     @max-width:             @view * 1px;    // alt: @w * 80 = 960
     
-    @l:                     1px;            // Line
+    @l:                     1px;            // Line or border
     @rad:                   @w/3;           // Standard radius
     
     
@@ -43,7 +43,7 @@
                 
     @font-scale:            82.5%;          // Used on the body element
     @transport:             1.6;            // For line height (no units!)
-    @line:                  @h*5;           // Interline: usually a single em
+    @line:                  @h*5;           // Interline: For web it's usually 1em
     @typeface:              Arial, sans-serif;
     @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
     @typeface-brand:        "OstrichBlack", Arial, sans-serif;
@@ -72,21 +72,14 @@
     @red1:                  #f83f21;
     @red2:                  darken(@red1, 15%);
     
-    
-    @grey0:                 #fafafa;                            @base-color:                @grey0;    
-    @grey1:                 darken(@grey0, 8%);                 @base-color1:               darken(@base-color, 8%);
-    @grey2:                 darken(@grey0, 16%);                @base-color2:               darken(@base-color, 16%);
-    @grey3:                 darken(@grey0, 26%);                @base-color3:               darken(@base-color, 26%);
-    @grey4:                 darken(@grey0, 38%);                @base-color4:               darken(@base-color, 38%);
-    @grey5:                 darken(@grey0, 54%);                @base-color5:               darken(@base-color, 54%);
-    @grey6:                 darken(@grey0, 76%);                @base-color6:               darken(@base-color, 76%);
+    @grey0:                 #fafafa;                            @error:                 #cd0a0a;     
+    @grey1:                 darken(@grey0, 8%);                 @ui-highlight1:         @yellow1;
+    @grey2:                 darken(@grey0, 16%);                @ui-highlight2:         darken(@ui-highlight1, 25%);
+    @grey3:                 darken(@grey0, 26%);                @ui-highlight3:         darken(@ui-highlight2, 5%);
+    @grey4:                 darken(@grey0, 38%);                @ui-error1:             @red1;
+    @grey5:                 darken(@grey0, 54%);                @ui-error2:             darken(@ui-error1, 15%);
+    @grey6:                 darken(@grey0, 76%);                @ui-error3:             darken(@ui-error2, 5%);
    
-    @error:                 #cd0a0a;
-    
-    @ui-highlight1:         @yellow1;                           @ui-error1:                  @red1;
-    @ui-highlight2:         darken(@ui-highlight1, 25%);        @ui-error2:                  darken(@ui-error1, 15%);
-    @ui-highlight3:         darken(@ui-highlight2, 5%);         @ui-error3:                  darken(@ui-error2, 5%);
-
     
 //  Link colour values --------------------------------------------------------
 

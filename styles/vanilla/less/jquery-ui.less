@@ -59,18 +59,18 @@
 .ui-widget { font-family: @typeface; font-size: 1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: @typeface; font-size: 1em; }
-.ui-widget-content { border: @l solid @base-color1; color: @text-color; background: @light-color; }
+.ui-widget-content { border: @l solid @grey1; color: @text-color; background: @light-color; }
 .ui-widget-content a { color: @text-color; }
-.ui-widget-header { border: @l solid @base-color1; .gradient(@base-color,@base-color1); color: @text-color; font-weight: bold; .text-shadow(@l, @light-color);}
+.ui-widget-header { border: @l solid @grey1; .gradient(@grey0,@grey1); color: @text-color; font-weight: bold; .text-shadow(@l, @light-color);}
 .ui-widget-header a { color: @text-color; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: @l solid @base-color2; .gradient(@light-color,@base-color1); font-weight: normal; color: @text-color; .text-shadow(@l, @light-color); }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: @l solid @grey2; .gradient(@light-color,@grey1); font-weight: normal; color: @text-color; .text-shadow(@l, @light-color); }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: @text-color; text-decoration: none; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: @l solid @blue2; .gradient(@blue1,@blue2); font-weight: normal; color: @light-color; .text-shadow(0 - @l, fadeout(@dark-color, 50%));}
 .ui-state-hover a, .ui-state-hover a:hover { color: @light-color; text-decoration: none; .text-shadow(0 - @l, fadeout(@dark-color, 50%)); }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: @l solid @green2; .gradient(@green1,@green2); font-weight: normal; color: @light-color; text-shadow: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: @l solid @grey6; .gradient(@grey5,@grey6); font-weight: normal; color: @light-color; text-shadow: none; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: @light-color; text-decoration: none; text-shadow: none; }
 .ui-widget :active { outline: none; }
 
@@ -291,7 +291,7 @@
 .ui-corner-all { -moz-border-radius:@rad;-webkit-border-radius:@rad;border-radius:@rad;}
 
 /* Overlays */
-.ui-widget-overlay { background: @base-color6; .opacity(0.3); }
+.ui-widget-overlay { background: @grey6; .opacity(0.3); }
 .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }/*
  * jQuery UI Resizable 1.8.9
  *
@@ -488,10 +488,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs .ui-tabs-nav { margin: 0; border: 0; padding: 0; .rounded-corners(0); background: transparent none; filter: 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: @l; margin: 0 @h 0 0; border-bottom-width: @l; padding: 0; white-space: nowrap; }
 .ui-tabs .ui-tabs-nav li a { float: left; padding: @line/4 @block; text-decoration: none; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-tabs .ui-tabs-nav li.ui-state-disabled, .ui-tabs .ui-tabs-nav li.ui-state-processing { border: @l solid @base-color2; border-bottom: @l solid @light-color; color: @dark-color; .gradient(@base-color, @light-color); cursor: text; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-tabs .ui-tabs-nav li.ui-state-disabled, .ui-tabs .ui-tabs-nav li.ui-state-processing { border: @l solid @grey2; border-bottom: @l solid @light-color; color: @dark-color; .gradient(@grey0, @light-color); cursor: text; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { color: @dark-color; cursor: text; background: transparent none; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.ui-tabs .ui-tabs-panel { display: block;  border: @l solid @base-color2;  padding: @line @block; background: @light-color; }
+.ui-tabs .ui-tabs-panel { display: block;  border: @l solid @grey2;  padding: @line @block; background: @light-color; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
 /*
  * jQuery UI Datepicker 1.8.9
@@ -502,7 +502,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
-.ui-datepicker { width: 17em; border: 1px solid @base-color3; padding: @h @h 0; display: none; .box-shadow();}
+.ui-datepicker { width: 17em; border: 1px solid @grey3; padding: @h @h 0; display: none; .box-shadow();}
 .ui-datepicker .ui-datepicker-header { position:relative; padding: @h 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
 .ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: @l; }
