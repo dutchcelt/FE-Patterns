@@ -45,7 +45,6 @@
         .text-shadow(@l, @light-color);
         background: @grey1;
         background-color: fadeout(@grey6, 85%);
-
         }
     .content hgroup h1 {
         font-family: @typeface-brand;
@@ -57,6 +56,7 @@
         }  
     .content > section {
         float: left;
+        margin-top: @line;
         margin-right: @block;
         width: @text-block/2;
         width: 33%;
@@ -90,7 +90,19 @@
         border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
-
+        
+    //  This sprite is for mixins only // using Pseudo-elements
+    //  Utilising jQUERY UI's icons
+    .inline-sprite {
+        position: absolute;
+        top: @h - @h*1.15;
+        left:0;
+        content: "";
+        padding: 8px;
+        background-image: url(../images/icons/ui-icons_2d2d2d_256x240.png);
+        }
+        
+        
 /*  Tab & intro content */
     
     .content .ui-tabs-panel {
@@ -127,17 +139,43 @@
     .bootsteps{
         float: left;
         list-style: none;
-        margin: 0;
+        margin: @line 0 0;
         padding: 0;
         width: 60%;
         }
     .bootsteps li{
+        position: relative;
         margin: 0 0 @line;
-        padding: @em @block;
-        .h5;
-        .rounded-corners(@rad);
+        padding: @line @block @line @block*1.2;
+        .h4;
+       .rounded-corners(@rad);
         background: @light-color;
         .box-shadow();
+        }
+    .bootsteps li:after{
+        position: absolute;
+        top: 0 - @line/3;
+        left:0 - @w;
+        width: @block;
+        height: @em;
+        text-align: center;
+        .h5;
+        font-family: @typeface-header;
+        padding: 0 @block/5 @line/8;
+        .rounded-corners(@block);
+        color: @light-color;
+        .text-shadow(0 - @l, @dark-color);
+        .gradient(@grey5,@grey6);
+        .box-shadow();
+        }
+    .bootsteps li:nth-child(1):after{
+        content: "1";
+        }
+    .bootsteps li:nth-child(2):after{
+        content: "2";
+        }
+    .bootsteps li:nth-child(3):after{
+        content: "3";
         }
         
         

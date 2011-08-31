@@ -446,21 +446,26 @@ header .logo{margin:0;padding:0;font-size:2.1em;font-weight:normal;line-height:1
 .content hgroup{margin:0 0 1em;padding:1em 24px;margin-right:-24px;margin-left:-24px;text-shadow:0 1px 1px #ffffff;background:#e6e6e6;background-color:rgba(56, 56, 56, 0.15000000000000002);}
 .content hgroup h1{font-family:"OstrichBlack",Arial,sans-serif;padding-bottom:0.125em;}
 .content hgroup h5{font-size:1em;color:#707070;}
-.content>section{float:left;margin-right:24px;width:28800%;width:33%;}
+.content>section{float:left;margin-top:1em;margin-right:24px;width:28800%;width:33%;}
 .content>.info{width:auto;max-width:52em;}
 body>footer{position:relative;top:1.4000000000000001em;clear:both;border-top:1px dotted rgba(34, 34, 34, 0.19999999999999996);padding:1.4000000000000001em 24px;text-align:center;}
 .message{margin:1.4000000000000001em 24px 0;padding:0.7000000000000001em 12px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;}
 .message .ui-icon{float:left;margin-right:6px;}
 .details{max-width:57600%;}
 .details .buttons{margin-bottom:-1em;border-top:1px dotted #383838;padding-bottom:0;}
+.inline-sprite{position:absolute;top:-0.02999999999999997em;left:0;content:"";padding:8px;background-image:url(../images/icons/ui-icons_2d2d2d_256x240.png);}
 .content .ui-tabs-panel{width:100%;overflow:hidden;}
 .tabs hgroup{background:transparent;}
 p canvas,p img{float:left;margin:0 12px 0 0;}
 canvas,figure{border:1px solid #383838;max-width:57600%;background-color:#383838;}
 figure img{float:none;margin:0;padding:0;width:100%;}
 figcaption{margin:0;padding:0;text-align:center;white-space:nowrap;color:#e6e6e6;background-color:#383838;}
-.bootsteps{float:left;list-style:none;margin:0;padding:0;width:60%;}
-.bootsteps li{margin:0 0 1em;padding:1.4000000000000001em 24px;font-size:1.2600000000000002em;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;background:#ffffff;-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);}
+.bootsteps{float:left;list-style:none;margin:1em 0 0;padding:0;width:60%;}
+.bootsteps li{position:relative;margin:0 0 1em;padding:1em 24px 1em 28.799999999999997px;font-size:1.4000000000000001em;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;background:#ffffff;-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);}
+.bootsteps li:after{position:absolute;top:-0.3333333333333333em;left:-12px;width:24px;height:1.4000000000000001em;text-align:center;font-size:1.2600000000000002em;font-family:"LobsterTwoBoldItalic",Georgia,serif;padding:0 4.8px 0.125em;-moz-border-radius:24px;-webkit-border-radius:24px;border-radius:24px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;color:#ffffff;text-shadow:0 -1px 1px #222222;background-color:#707070;background-image:-moz-linear-gradient(top, #707070 0%, #383838 100%);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #707070), color-stop(100%, #383838));background-image:-ms-linear-gradient(top, #707070 0%, #383838 100%);background-image:linear-gradient(top, #707070 0%, #383838 100%);-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);}
+.bootsteps li:nth-child(1):after{content:"1";}
+.bootsteps li:nth-child(2):after{content:"2";}
+.bootsteps li:nth-child(3):after{content:"3";}
 .content .dataTables_wrapper{float:left;clear:none;_height:302px;}
 .content .dataTables_wrapper table{margin:0;clear:none;width:auto;}
 .dataTables_wrapper col.id{width:10%;}

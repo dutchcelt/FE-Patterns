@@ -13,17 +13,9 @@
             if (index>0) { regOb(f); } else { $.getScript("scripts/swfobject/swfobject.js",function(){ regOb(f); }); }
         });
 
-        $('.combobox').each(function(){$(this).combobox()});
         $( "input[name*='date'],input[name*='Date'],.date" ).each(function(){$(this).datepicker({ dateFormat: 'dd-mm-yy' })});
         $(".button,[type=submit],button,[type=button]").button();
-        
-        /*  Fixing IE6 & IE7 <button> bug
-        
-        $(".buttons").delegate("button", "click", function(){
-            $('button').attr("disabled","disabled");
-            $(this).removeAttr("disabled");
-        }); */
-        
+                
         // ADDING ICONS TO BUTTONS
         $(".add").button({icons:{primary:"ui-icon-plus"}});
         $(".edit").button({icons:{primary:"ui-icon-pencil"}});
