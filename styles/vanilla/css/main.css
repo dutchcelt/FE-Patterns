@@ -360,7 +360,7 @@ button.ui-button::-moz-focus-inner{border:0;padding:0;}
 .ui-tabs .ui-tabs-nav li a,.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a{cursor:pointer;}
 .ui-tabs .ui-tabs-panel{display:block;border:1px solid #d1d1d1;padding:1em 24px;background:#ffffff;}
 .ui-tabs .ui-tabs-hide{display:none !important;}
-.ui-datepicker{width:17em;border:1px solid #b8b8b8;padding:0.2em 0.2em 0;display:none;-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.5);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.5);box-shadow:0 1px 1px rgba(34, 34, 34, 0.5);}
+.ui-datepicker{width:17em;border:1px solid #b8b8b8;padding:0.2em 0.2em 0;display:none;-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);}
 .ui-datepicker .ui-datepicker-header{position:relative;padding:0.2em 0;}
 .ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{position:absolute;top:2px;width:1.8em;height:1.8em;}
 .ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{top:1px;}
@@ -460,7 +460,7 @@ canvas,figure{border:1px solid #383838;max-width:57600%;background-color:#383838
 figure img{float:none;margin:0;padding:0;width:100%;}
 figcaption{margin:0;padding:0;text-align:center;white-space:nowrap;color:#e6e6e6;background-color:#383838;}
 .bootsteps{float:left;list-style:none;margin:0;padding:0;width:60%;}
-.bootsteps li{margin:0 0 1em;padding:1.4000000000000001em 24px;font-size:1.2600000000000002em;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;background:#ffffff;}
+.bootsteps li{margin:0 0 1em;padding:1.4000000000000001em 24px;font-size:1.2600000000000002em;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;background:#ffffff;-moz-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);-webkit-box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);box-shadow:0 1px 1px rgba(34, 34, 34, 0.19999999999999996);}
 .content .dataTables_wrapper{float:left;clear:none;_height:302px;}
 .content .dataTables_wrapper table{margin:0;clear:none;width:auto;}
 .dataTables_wrapper col.id{width:10%;}
@@ -476,6 +476,7 @@ nav ul .active:before{position:absolute;top:-1px;left:40%;display:block;content:
 .tabs{float:left;width:60%;}
 .tabs ul{background-color:transparent;}
 .tabs>div>:last-child:after{clear:both;display:block;margin-bottom:-1.4000000000000001em;content:".";visibility:hidden;height:0;line-height:0;}
+#accordion{float:left;width:60%;}
 .buttons{margin-right:-6px;padding:1em 0;height:2.8000000000000003em;text-align:right;}
 .buttons .print{float:left;overflow:hidden;}
 fieldset .help{color:#999999;}

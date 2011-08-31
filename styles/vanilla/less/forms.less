@@ -67,7 +67,7 @@
         display: inline;
         }
     fieldset > div {
-        padding-bottom: @interline/1.5;
+        padding-bottom: @line/1.5;
         float: @label-orientation;
         width: 100%;
         }
@@ -99,13 +99,13 @@
     ::-webkit-validation-bubble {}
     ::-webkit-validation-bubble-arrow-clipper {}
     ::-webkit-validation-bubble-arrow {
-        margin-bottom: 0 - @interline/2;
+        margin-bottom: 0 - @line/2;
         .box-shadow(0,0,0,0);
         background: @error;
         }
     ::-webkit-validation-bubble-message {
-        padding: @interline/4 @block/2;
-        .rounded-corners(@grid);
+        padding: @line/4 @block/2;
+        .rounded-corners(@w);
         .box-shadow(0,0,0,0);
         color: @light-color;
         background: @error;

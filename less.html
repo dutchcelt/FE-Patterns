@@ -1,14 +1,49 @@
-/*  ###########################################################################
-    Author:     Lunatech
-    date:       January 2011
-    ########################################################################### */
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <title>Lunatech Labs - Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/vanilla/css/main.css">
+        <script src="scripts/modernizr.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script src="scripts/init.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+<body>
     
+    <header>
+        <div class="logo">Front-end Patterns</div>
+    </header>
     
-//  LESS LIBRARY ##############################################################
-//  THESE ARE THE VARIABLES TO SKIN THIS PROJECT ##############################
-
-
-
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="text.html">Content</a></li>
+            <li><a href="forms.html">Forms</a></li>
+            <li><a href="table.html">Tables</a></li>
+            <li><a href="usage.html">Usage</a></li>
+            <li class="active"><a href="less.html">LESS</a></li>
+        </ul>
+    </nav>
+    
+            
+    <article class="content">
+        <hgroup>
+            <h1>LESS</h1>
+            <h5>Maintainable CSS!</h5>
+        </hgroup>
+        <section>
+            <p>
+                One of the big problems CSS has is that it isn’t very maintainable. It can very easily get away from you. LESS allows you define variable for any property value or even the entire contents of an existing rule. Creating a custom skin for a web site has never been this easy.<br/>
+                The most important units are actually @view and @font-scale. You may also notice that all vertical units are relative and horizontal units are absolute (pixels). This is due to the web’s nature of content being vertical and constrained in the width. Using media queries will allow you to create semi fluid layout.
+            </p>
+        </section>
+    
+            <div id="accordion">
+                <div>
+                    <h3><a href="#">Grid units</a></h3>
+                    <code>
 //  Base units that set overal proportions ------------------------------------
 
     @view:                  1200;           // VIEWPORT target based on pixels
@@ -22,40 +57,33 @@
     
     @l:                     1px;            // Line
     @rad:                   @w/3;           // Standard radius
-    
-    
+                    </code>
+                </div>
+                <div>
+                    <h3><a href="#">Typography</a></h3>
+                    <code>
 //  Font elements -------------------------------------------------------------
     
     @font-root: "../fonts/";
     
     @font-face {
-        font-family: 'OstrichBlack';
-        src: url('@{font-root}ostrich-black.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+        ...
         }
     @font-face {
-        font-family: 'LobsterTwoBoldItalic';
-        src: url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+        ...
         }
                 
-    @font-scale:            82.5%;          // Used on the body element
-    @transport:             1.6;            // For line height (no units!)
-    @line:                  @h*5;           // Interline: usually a single em
+    @font-scale:            82.5%;
+    @transport:             1.6;
+    @line:                  @h*5;
     @typeface:              Arial, sans-serif;
     @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
     @typeface-brand:        "OstrichBlack", Arial, sans-serif;
-    
-    
-//  Basic colour values -------------------------------------------------------
-
-    @light-color:           #ffffff;
-    @dark-color:            #222222;
-    @text-color:            #333333;
-    
-    
+                    </code>
+                </div>
+                <div>
+                    <h3><a href="#">Colours</a></h3>
+                    <code>
 //  Color sets ----------------------------------------------------------------
     
     @brand-color:           #7abcff;
@@ -87,7 +115,6 @@
     @ui-highlight2:         darken(@ui-highlight1, 25%);        @ui-error2:                  darken(@ui-error1, 15%);
     @ui-highlight3:         darken(@ui-highlight2, 5%);         @ui-error3:                  darken(@ui-error2, 5%);
 
-    
 //  Link colour values --------------------------------------------------------
 
     @link-color:            #0080ff;
@@ -95,8 +122,11 @@
     @link-color-hover:      @link-color;
     @link-color-active:     @link-color;
     
-    
-
+                    </code>
+                </div>
+                <div>
+                    <h3><a href="#">Forms</a></h3>
+                    <code>
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block;
@@ -111,22 +141,28 @@
     @label-orientation:     none; /* float value: left, right, none */
     
     @label-text-orientation:left;
-
-
+                    </code>
+                </div>
+                <div>
+                    <h3><a href="#">Boxes &amp; panels</a></h3>
+                    <code>
 //  Box elements --------------------------------------------------------------
 
     .panel {
         margin: 0 0 @line ;
         padding: @line @block;
         }
-        
-
+                    </code>
+                </div>
+                <div>
+                    <h3><a href="#">Mixin functions</a></h3>
+                    <code>
 //  Basic UI elements ---------------------------------------------------------
 
     .text-shadow(@loc, @color) {
         text-shadow: 0 @loc @l @color;
         }
-    .box-shadow(@x:0,@y:@l,@blur:@l,@color:fadeout(@dark-color,80%)) {
+    .box-shadow(@x:0,@y:@l,@blur:@l,@color:fadeout(@dark-color,50%)) {
         -moz-box-shadow: @arguments;
         -webkit-box-shadow: @arguments;
         box-shadow: @arguments;
@@ -144,9 +180,9 @@
         -moz-border-radius:@arguments;
         -webkit-border-radius:@arguments;
         border-radius:@arguments;
-		-moz-background-clip   : padding;
-		-webkit-background-clip: padding-box;
-		background-clip        : padding-box;
+        -moz-background-clip   : padding;
+        -webkit-background-clip: padding-box;
+        background-clip        : padding-box;
         }
     .columns(@col:2) {
         -moz-column-count: @col; 
@@ -158,14 +194,26 @@
         }
     .clear-fix {
         content: ".";
-    	display: block;
-    	clear: both;
-    	visibility: hidden;
-    	line-height: 0;
-    	height: 0;
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
         }
         
     .opacity(@alpha:0.5) {  
         opacity: @arguments; 
         filter:e("Alpha(Opacity=")@arguments e(")");
-        }
+        }                    </code>
+                </div>
+            </div>
+
+
+    </article>
+    
+    <footer>
+            <p>2011 Lunatech Labs</p>
+    </footer>
+    
+</body>
+</html>

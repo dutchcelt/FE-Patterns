@@ -59,26 +59,26 @@
 .ui-widget { font-family: @typeface; font-size: 1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: @typeface; font-size: 1em; }
-.ui-widget-content { border: @ui-line solid @base-color1; color: @text-color; background: @light-color; }
+.ui-widget-content { border: @l solid @base-color1; color: @text-color; background: @light-color; }
 .ui-widget-content a { color: @text-color; }
-.ui-widget-header { border: @ui-line solid @base-color1; .gradient(@base-color,@base-color1); color: @text-color; font-weight: bold; .text-shadow(@bottom, @light-color);}
+.ui-widget-header { border: @l solid @base-color1; .gradient(@base-color,@base-color1); color: @text-color; font-weight: bold; .text-shadow(@l, @light-color);}
 .ui-widget-header a { color: @text-color; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: @ui-line solid @base-color2; .gradient(@light-color,@base-color1); font-weight: normal; color: @text-color; .text-shadow(@bottom, @light-color); }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: @l solid @base-color2; .gradient(@light-color,@base-color1); font-weight: normal; color: @text-color; .text-shadow(@l, @light-color); }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: @text-color; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: @ui-line solid @blue2; .gradient(@blue1,@blue2); font-weight: normal; color: @light-color; .text-shadow(@top, fadeout(@dark-color, 50%));}
-.ui-state-hover a, .ui-state-hover a:hover { color: @light-color; text-decoration: none; .text-shadow(@top, fadeout(@dark-color, 50%)); }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: @ui-line solid @green2; .gradient(@green1,@green2); font-weight: normal; color: @light-color; text-shadow: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: @l solid @blue2; .gradient(@blue1,@blue2); font-weight: normal; color: @light-color; .text-shadow(0 - @l, fadeout(@dark-color, 50%));}
+.ui-state-hover a, .ui-state-hover a:hover { color: @light-color; text-decoration: none; .text-shadow(0 - @l, fadeout(@dark-color, 50%)); }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: @l solid @green2; .gradient(@green1,@green2); font-weight: normal; color: @light-color; text-shadow: none; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: @light-color; text-decoration: none; text-shadow: none; }
 .ui-widget :active { outline: none; }
 
 /* Interaction Cues
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  { border: @ui-line solid @ui-highlight3; .gradient(@ui-highlight1,@ui-highlight2); font-weight: bold; color: @text-color; }
-.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: @text-color; .text-shadow(@bottom, @light-color); }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error { border: @ui-line solid @ui-error3; .gradient(@ui-error1,@ui-error2); font-weight: bold; color: @light-color;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  { border: @l solid @ui-highlight3; .gradient(@ui-highlight1,@ui-highlight2); font-weight: bold; color: @text-color; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: @text-color; .text-shadow(@l, @light-color); }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error { border: @l solid @ui-error3; .gradient(@ui-error1,@ui-error2); font-weight: bold; color: @light-color;}
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: @light-color; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
@@ -308,7 +308,7 @@
 .ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
 .ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
 .ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
-.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: @ui-line; bottom: @ui-line; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: @l; bottom: @l; }
 .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
 .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
 .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}/*
@@ -332,13 +332,13 @@
  */
 /* IE/Win - Fix animation bug - #4615 */
 .ui-accordion { width: 100%; }
-.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: @ui-line; zoom: 1; }
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: @l; zoom: 1; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
-.ui-accordion .ui-accordion-header a { display: block; padding: @interline/3 @block/2 @interline/3 @block; }
+.ui-accordion .ui-accordion-header a { display: block; padding: @line/3 @block/2 @line/3 @block; }
 .ui-accordion-icons .ui-accordion-header a { padding-left: @block; }
-.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: @block/4; top: 0; margin-top: @interline/2; }
-.ui-accordion .ui-accordion-content { padding: @interline @block; border-top: 0; margin-top: -2px; position: relative; top: @ui-line; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: @block/4; top: 0; margin-top: @line/2; }
+.ui-accordion .ui-accordion-content { padding: @line @block; border-top: 0; margin-top: -2px; position: relative; top: @l; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
 .ui-accordion .ui-accordion-content-active { display: block; }
 /*
  * jQuery UI Autocomplete 1.8.9
@@ -410,10 +410,10 @@ button.ui-button-icons-only { width: @block*1.2; }
 
 /*button text element */
 .ui-button .ui-button-text { display: block;}
-.ui-button-text-only .ui-button-text { padding: @unit*2 @block/2; }
-.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: @unit*2; text-indent: -9999999px; }
-.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: @unit*2 @block/2 @unit*2 @block; }
-.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: @unit*2 @block @unit*2 @block/2; }
+.ui-button-text-only .ui-button-text { padding: @h*2 @block/2; }
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: @h*2; text-indent: -9999999px; }
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: @h*2 @block/2 @h*2 @block; }
+.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: @h*2 @block @h*2 @block/2; }
 .ui-button-text-icons .ui-button-text { padding-left: @block; padding-right: @block; }
 /* no icon support for input elements, provide padding by default */
 input.ui-button { padding: @em/4 @block/2; }
@@ -440,14 +440,14 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Dialog#theming
  */
-.ui-dialog { position: absolute; padding: @unit; width: 300px; overflow: hidden; }
+.ui-dialog { position: absolute; padding: @h; width: 300px; overflow: hidden; }
 .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
 .ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
-.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: @ui-line; height: 18px; }
-.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: @ui-line; }
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: @l; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: @l; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
 .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
-.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: @ui-line 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: @l 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
 .ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
@@ -486,12 +486,12 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  */
 .ui-tabs { position: relative; border: 0; padding: 0; zoom: 1; background: transparent none; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; border: 0; padding: 0; .rounded-corners(0); background: transparent none; filter: 0; }
-.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: @ui-line; margin: 0 @unit 0 0; border-bottom-width: @line; padding: 0; white-space: nowrap; }
-.ui-tabs .ui-tabs-nav li a { float: left; padding: @interline/4 @block; text-decoration: none; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-tabs .ui-tabs-nav li.ui-state-disabled, .ui-tabs .ui-tabs-nav li.ui-state-processing { border: @ui-line solid @base-color2; border-bottom: @ui-line solid @light-color; color: @dark-color; .gradient(@base-color, @light-color); cursor: text; }
+.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: @l; margin: 0 @h 0 0; border-bottom-width: @l; padding: 0; white-space: nowrap; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: @line/4 @block; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-tabs .ui-tabs-nav li.ui-state-disabled, .ui-tabs .ui-tabs-nav li.ui-state-processing { border: @l solid @base-color2; border-bottom: @l solid @light-color; color: @dark-color; .gradient(@base-color, @light-color); cursor: text; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { color: @dark-color; cursor: text; background: transparent none; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.ui-tabs .ui-tabs-panel { display: block;  border: @ui-line solid @base-color2;  padding: @interline @block; background: @light-color; }
+.ui-tabs .ui-tabs-panel { display: block;  border: @l solid @base-color2;  padding: @line @block; background: @light-color; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
 /*
  * jQuery UI Datepicker 1.8.9
@@ -502,10 +502,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
-.ui-datepicker { width: 17em; border: 1px solid @base-color3; padding: @unit @unit 0; display: none; .box-shadow();}
-.ui-datepicker .ui-datepicker-header { position:relative; padding: @unit 0; }
+.ui-datepicker { width: 17em; border: 1px solid @base-color3; padding: @h @h 0; display: none; .box-shadow();}
+.ui-datepicker .ui-datepicker-header { position:relative; padding: @h 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
-.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: @ui-line; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: @l; }
 .ui-datepicker .ui-datepicker-prev { left:2px; }
 .ui-datepicker .ui-datepicker-next { right:2px; }
 .ui-datepicker .ui-datepicker-prev-hover { left:1px; }
@@ -518,10 +518,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-datepicker select.ui-datepicker-year { width: 49%;}
 .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
 .ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
-.ui-datepicker td { border: 0; padding: @ui-line; }
-.ui-datepicker td span, .ui-datepicker td a { display: block; padding: @unit; text-align: right; text-decoration: none; }
-.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 @unit; border-left: 0; border-right: 0; border-bottom: 0; }
-.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em @unit .4em; cursor: pointer; padding: @unit .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker td { border: 0; padding: @l; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: @h; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 @h; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em @h .4em; cursor: pointer; padding: @h .6em .3em .6em; width:auto; overflow:visible; }
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
 
 /* with multiple calendars */
@@ -540,8 +540,8 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-datepicker-rtl { direction: rtl; }
 .ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
 .ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
-.ui-datepicker-rtl .ui-datepicker-prev:hover { right: @ui-line; left: auto; }
-.ui-datepicker-rtl .ui-datepicker-next:hover { left: @ui-line; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: @l; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: @l; right: auto; }
 .ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
 .ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }

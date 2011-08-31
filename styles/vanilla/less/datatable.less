@@ -23,7 +23,7 @@
         margin-left: -125px;
         margin-top: -15px;
         padding: 14px 0 2px 0;
-        border: @line solid @grey2;
+        border: @l solid @grey2;
         text-align: center;
         color: @grey3;
         font-size: 14px;
@@ -69,12 +69,12 @@
     
     .dataTables_wrapper table thead th {
         padding: (@em/4) (@block/1.5) (@em/4) (@block/2.5);
-        border-bottom: @line solid @grey1;
+        border-bottom: @l solid @grey1;
         cursor: pointer;
         }   
     .dataTables_wrapper table tfoot th {
         padding: (@em/4) (@block/1.5) (@em/4) (@block/2.5);
-        border-top: @line solid @grey1;
+        border-top: @l solid @grey1;
         }
     
     .dataTables_wrapper table td {
@@ -97,9 +97,9 @@
         }
     .dataTables_wrapper table td.dataTables_empty h4 { 
         margin: 0 auto;
-        border-top: @ui-line solid @yellow2;
-        border-right: @ui-line solid @yellow2;
-        border-left: @ui-line solid @yellow2;
+        border-top: @l solid @yellow2;
+        border-right: @l solid @yellow2;
+        border-left: @l solid @yellow2;
         padding: 0.5em @block/2 0; 
         max-width: 600px;
         background: @yellow1; 
@@ -149,14 +149,14 @@
 /*  Misc */
      
     .fg-toolbar {
-        border: @line solid @base-color;
-        padding: @unit @block/2;
+        border: @l solid @base-color;
+        padding: @h @block/2;
         min-height: (@em*1.6);
         background: @base-color none;
         filter: 0;
         }
     .dataTables_paginate .fg-button {
-        margin: 0 0 0 0 - @ui-line;
+        margin: 0 0 0 0 - @l;
         }
     .fg-button {
         padding: 0 @block/2;
@@ -167,7 +167,7 @@
         }
     
     .dataTables_scrollBody {
-        *margin-top: @top;
+        *margin-top: 0 - @l;
         }
     
     .dataTables_empty {

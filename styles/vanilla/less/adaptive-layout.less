@@ -10,8 +10,8 @@
             -webkit-text-size-adjust: none;
         }
         body {
-            min-width:  @grid * 26 - @block;
-            max-width:  @grid * 40;
+            min-width:  @w * 26 - @block;
+            max-width:  @w * 40;
         }
         body > header {
             padding: @em/2 0 0;
@@ -39,7 +39,7 @@
         }    
         .content .tabs li,
         .content .tabs li a{
-            padding: @unit @grid/4;
+            padding: @h @w/4;
         }    
         .content .ui-tabs-panel {
             float: none;
@@ -59,18 +59,18 @@
         
     @media screen and (min-width: 768px) and (max-width: 960px){
         body {
-            min-width:  @grid * 64 - @block*2;
-            max-width:  @grid * 80;
+            min-width:  @w * 64 - @block*2;
+            max-width:  @w * 80;
         }
         .csscolumns .content .tabs li,
         .csscolumns .content .tabs li a{
-            padding: @unit @grid/3;
+            padding: @h @w/3;
         }    
     }
     @media screen and (min-width: 960px) {
         body {
-            min-width:  @grid * 80 - @block*2;
-            max-width:  @grid * 100;
+            min-width:  @w * 80 - @block*2;
+            max-width:  @w * 100;
         }
     }
     

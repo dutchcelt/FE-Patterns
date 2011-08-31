@@ -14,13 +14,13 @@
     body { 
         margin: 0 auto;
         color: @text-color;
-        min-width:  @grid * 26;
-        max-width:  @grid * 100;
+        min-width:  @w * 26;
+        max-width:  @w * 100;
         background-color: @base-color;
         background-image: url(../images/backgrounds/back.png);
         }
     body > header {
-        border-bottom: @line solid @grey5;
+        border-bottom: @l solid @grey5;
         padding: @em/2 @block 0;
         height: @em*3;
         overflow: hidden;
@@ -42,14 +42,14 @@
         .panel;
         margin-right: 0 - @block;
         margin-left: 0 - @block;
-        .text-shadow(@bottom, @light-color);
+        .text-shadow(@l, @light-color);
         background: @grey1;
         background-color: fadeout(@base-color6, 85%);
 
         }
     .content hgroup h1 {
         font-family: @typeface-brand;
-        padding-bottom: @interline/8;
+        padding-bottom: @line/8;
         }      
     .content hgroup h5 {
         .h6;
@@ -69,7 +69,7 @@
         position: relative;
         top: @em;
         clear: both;
-        border-top: @line dotted fadeout(@dark-color, 80%);
+        border-top: @l dotted fadeout(@dark-color, 80%);
         padding: @em @block;
         text-align: center;
         }
@@ -86,8 +86,8 @@
         max-width: @text-block;  
         }
     .details .buttons{
-        margin-bottom: 0 - @interline;
-        border-top: @line dotted @grey6;
+        margin-bottom: 0 - @line;
+        border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
 
@@ -106,7 +106,7 @@
         }
     canvas,
     figure {
-        border: @line solid @grey6;
+        border: @l solid @grey6;
         max-width: @text-block;
         background-color: @grey6;
         }
@@ -132,11 +132,12 @@
         width: 60%;
         }
     .bootsteps li{
-        margin: 0 0 @interline;
+        margin: 0 0 @line;
         padding: @em @block;
         .h5;
         .rounded-corners(@rad);
         background: @light-color;
+        .box-shadow();
         }
         
         
@@ -185,7 +186,7 @@
         line-height: @transport * 1.2;
         text-transform: uppercase;
         color: @grey2;
-        .text-shadow(@top, darken(@blue2, 50%));
+        .text-shadow(0 - @l, darken(@blue2, 50%));
         }    
     nav ul li a {
         padding: 0 @block/2 0 0
@@ -230,13 +231,20 @@
         height: 0;
         line-height: 0;
         }
-    
+
+
+/*  Accordion */
+
+    #accordion {
+        float: left;
+        width: 60%;
+        }
         
 /*  Forms & Buttons */   
      
     .buttons  {
-        margin-right: 0 - @grid/2;
-        padding: @interline 0;
+        margin-right: 0 - @w/2;
+        padding: @line 0;
         height: @em*2;
         text-align: right;
         }  
@@ -267,13 +275,13 @@
         }
         
     .ui-autocomplete-input { 
-        padding: @unit/2 @unit; 
+        padding: @h/2 @h; 
         -moz-border-radius:0;
         -webkit-border-radius:0;
         border-radius:0;
-        -moz-box-shadow: inset 0 @ui-line @ui-line*2 @grey4;
-        -webkit-box-shadow: inset 0 @ui-line @ui-line*2 @grey4;
-        box-shadow: inset 0 @ui-line @ui-line*2 @grey4;
+        -moz-box-shadow: inset 0 @l @l*2 @grey4;
+        -webkit-box-shadow: inset 0 @l @l*2 @grey4;
+        box-shadow: inset 0 @l @l*2 @grey4;
         border: 0;
         border-bottom: line solid @grey1;
         width:93%;
@@ -282,7 +290,7 @@
         background: @light-color;
         }
     .ui-autocomplete-input + .ui-button { 
-        top: @interline/4;
+        top: @line/4;
         right: 0;
         padding: 0;width: @block; height: @em; overflow: hidden;
         }
@@ -294,8 +302,8 @@
 /*  Messages */
 
     .warning {
-        margin: @interline 0 @em; 
-        padding: @interline @grid;
+        margin: @line 0 @em; 
+        padding: @line @w;
         }
     .notes {
         float: none;
