@@ -36,7 +36,7 @@
             <p>The most important mark up to implement consistently are forms. Allow the CSS to take control and keep the HTML simple and the same throughout your all your projects. </p>
             <p>Think carefully about the buttons you will need. If can use only the button tag &lt;button&gt; do so, they will give you the most control. Remember that IE6 and 7 have a bug with buttons tags in that they send all the value.</p>
             <p>Beware of HTML5 input types, browsers are still inconsistent. The date input type doesn't work very well and has been omitted from these patterns. The examples here have been tested and little or no problems.</p>
-            <p><strong>Note:</strong> Client-side validation has not yet been implemented.</p>
+            <p><strong>Note:</strong> Client-side validation has not yet been implemented. Looking into using the <a href="http://html5pattern.com/" title="HTML5Pattern a source of regularly used Inputs-Patterns">HTML5 pattern attribute</a></p>
         </section>
 
         <div class="tabs">
@@ -92,7 +92,7 @@
                         <h4>Datepicker</h4>
                         <div>
                             <label for="d01">Date</label>
-                            <input type="text" id="d01" class="date"/>
+                            <input type="text" id="d01" class="date" pattern="([1-9]|0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|[1-9]|1[012])[- /.](19|20)\d\d"/>
                         </div>
                     </fieldset>
                 </form>
