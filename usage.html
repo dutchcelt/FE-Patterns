@@ -35,41 +35,42 @@
                 <h5>LESS is all you need</h5>
             </hgroup>
             <section class="info">
+                <p><strong>Building something with the Web Stack you do not need much. HTML, CSS and, maybe, JavaScript. The common HTML patterns we use can be found in '<a href="text.html">Content</a>', '<a href="forms.html">Forms</a>'. '<a href="table.html">Tables</a>' &amp; '<a href="layout.html">Layout</a>' and please feel free to use these in your projects. The '<a href="less.html">LESS</a>' section is the hero of our UI patterns and accelerates front-end production considerably.</strong></p>
                 <p>
                     There are number of files you should use and some that you can omit all together. In fact you don't need most of the files. 
                     JavaScript, images, css and fonts you can just skip because these tend to be project or even company specific. 
                 </p>
-                <h3>The four LESS files you need:</h3>
+                <h3>LESS files you really need:</h3>
                 <ol>
-                    <li>lib.less</li>
-                    <li>base.less</li>
-                    <li>forms.less</li>
-                    <li>main.less</li>
+                    <li><strong>lib.less</strong> (contains all variables and mixins)</li>
+                    <li><strong>base.less</strong> (reset and realign HTML tags across browsers)</li>
+                    <li><strong>forms.less</strong> (basic form settings like label alignment)</li>
+                    <li><strong>main.less</strong> (loads all the LESS files in to single CSS file) </li>
                 </ol>
                 <h4>The Lib file</h4>
                 <p>
                     The file might look a little excessive. Feel free to pare it down too your own needs.
-                    Remember the lib file should <strong>not</strong> parse out any actual css code and only sets variables and mixins for use in the other files
+                    Remember the lib file should <strong>not</strong> parse out any actual css code and only set variables and mixins for use in the other files.
                 </p>
                 <h4>The base file</h4>
                 <p>
-                    This file sets most of the patterns you will ever need. Any additional patterns should be done in your project files as these will tend to specific to it's identity.
+                    This file (re)sets the standard HTML patterns for most browsers. Any additional patterns should be done in your project files as these will tend to specific to it's identity.
                 </p>
                 <p>One exception to this could be the header tags (h1, h2, h3 etc.) These have set sizes and may prove to be more effective to change them here rather than overriding them elsewhere.</p>
                 <h4>The form file</h4>
                 <p>
-                    The form file will render all your consistently across browsers. The lib file contains a form section that will allow you to change the position of the label with out altering anything in this file. It's best to leave this file untouched.
+                    The form file will render all forms and input fields consistently across browsers. The lib file contains a form section that will allow you to change the position of the label with out altering anything in this file. It's best to leave this file untouched.
                 </p>
                 <h4>The main file</h4>
                 <p>
-                    This is the file where you'll include all the file you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/vanilla/css/main.css). 
+                    This is the file where you'll include all the files you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/vanilla/css/main.css). 
                     Either way all relative image paths should be the same "../images/".
                 </p>
                 
                 <h3>JavaScript</h3>
                 <p>
-                    Considering the fact that jQuery is so popular and useful I've added it to this project as an example. Along with other jQuery plugins that have proven there worth; jQuery UI, Validator and DataTables. 
-                    Last but not least I've added Modernizr to enable HTML5 goodness for those who are unfortunate to have an old browser. 
+                    Considering the fact that <a href="http://jquery.com/">jQuery</a> is so popular and useful I've added it to this project as an example. Along with other jQuery plugins that have proven there worth; <a href="http://jqueryui.com/">jQuery UI</a>, <a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation/">Validator</a> and <a href="http://www.datatables.net/">DataTables</a>. 
+                    Last but not least I've added <a href="http://www.modernizr.com/">Modernizr</a> to enable HTML5 goodness for those who are unfortunate to have an old browser. 
                 </p>
             </section>
             
