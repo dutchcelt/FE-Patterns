@@ -1,6 +1,5 @@
 /*  ###########################################################################
-    Author:     Lunatech
-    date:       January 2011
+    Author:     Lunatech Research
     ########################################################################### */
     
     
@@ -149,6 +148,18 @@
         column-count: @col; 
         column-gap: @w; 
         }
+        
+    .display-box(@orient:horizontal) {
+        display: -moz-box;
+        display: -webkit-box;
+        -moz-box-orient: @arguments;
+        -webkit-box-orient: @arguments;
+        }
+    .box-flex(@flex:1) {
+        -moz-box-flex: @arguments;
+        -webkit-box-flex: @arguments;
+        }
+
     .clear-fix {
         content: ".";
     	display: block;

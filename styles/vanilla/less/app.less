@@ -1,6 +1,5 @@
 /*  ###########################################################################
-    Author:     Lunatech Labs
-    date:       January 2011
+    Author:     Lunatech Research
     ########################################################################### */
 
 //  This LESS file is only used for this project. Each project would require
@@ -347,6 +346,33 @@
         float: none;
         overflow: hidden;
         }
+    code,
     .notes .note {
         color: darken(@green2,10%);
         }
+    code strong {
+        color: @red2;
+        }
+
+
+/*  Examples boxes */
+    .examples {
+        width: 100% !important;
+        }
+    .examples ul {
+        margin: 0;
+        .display-box();
+        }
+    .examples li {
+        display: block;
+        .box-flex();
+        .panel;
+        margin-left: @w;
+        .rounded-corners(@rad);
+        background-color: @light-color;
+        .box-shadow();
+        }
+    .examples li:first-child {
+        margin-left: 0;
+        }
+    
