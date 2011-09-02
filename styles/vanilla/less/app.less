@@ -89,18 +89,7 @@
         border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
-        
-    //  This sprite is for mixins only // using Pseudo-elements
-    //  Utilising jQUERY UI's icons
-    .inline-sprite {
-        position: absolute;
-        top: @h - @h*1.15;
-        left:0;
-        content: "";
-        padding: 8px;
-        background-image: url(../images/icons/ui-icons_2d2d2d_256x240.png);
-        }
-        
+                
         
 /*  Tab & intro content */
     
@@ -367,6 +356,7 @@
         .display-box();
         }
     .examples li {
+        position: relative;
         display: block;
         .box-flex();
         .panel;
@@ -374,6 +364,11 @@
         .rounded-corners(@rad);
         background-color: @light-color;
         .box-shadow();
+        }
+    .examples li:after {
+        .icon(@line*1.6,94%);
+        .ui-icon-script;
+        .opacity(0.3);
         }
     .examples li:first-child {
         margin-left: 0;
