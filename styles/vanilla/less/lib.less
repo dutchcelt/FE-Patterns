@@ -25,19 +25,19 @@
     
 //  Font elements -------------------------------------------------------------
     
-    @font-root: "../fonts/";
+    @font-root:             "../fonts/";
     
     @font-face {
-        font-family: 'OstrichBlack';
-        src: url('@{font-root}ostrich-black-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+        font-family:        'OstrichBlack';
+        src:                url('@{font-root}ostrich-black-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
         }
     @font-face {
-        font-family: 'LobsterTwoBoldItalic';
-        src: url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
+        font-family:        'LobsterTwoBoldItalic';
+        src:                url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
         }
                 
     @font-scale:            82.5%;          // Used on the body element
@@ -92,7 +92,7 @@
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block;
-    @field-width:           @text-block;
+    @field-width:           @form-width;
     
     @input-padding-height:  @em/4;
     @input-padding-width:   @block/6;
@@ -108,8 +108,8 @@
 //  Box elements --------------------------------------------------------------
 
     .panel {
-        margin: 0 0 @line ;
-        padding: @line @block;
+        margin:             0 0 @line ;
+        padding:            @line @block;
         }
 
 
@@ -117,82 +117,84 @@
     
     //  Icons for :before or :after & set parent element to position relative
     
+    @icon-root:                 "../images/icons/";
+    
     //  Arguments:
     //  1. absolute position top (default: 0px)
     //  2. absolute position left (default: 0px)
     //  3. filename to icon(s) (default: jQUERY UI's icons)
     //  4. Icon size (default: 16px)
     
-    @icon-root: "../images/icons/";
-
-    .icon(@postop:0,@posleft:0,@file:'ui-icons_454545_256x240.png',@icon-size:16px) {
-        position: absolute;
-        top: @postop;
-        left:@posleft;
-        content: "";
-        padding: @icon-size/2;
-        background-image: url('@{icon-root}@{file}');
-        background-repeat: no-repeat;
+    .icon(@postop:0, @posleft:0, @file:'ui-icons_454545_256x240.png', @icon-size:16px) {
+        position:               absolute;
+        top:                    @postop;
+        left:                   @posleft;
+        content:                "";
+        padding:                @icon-size/2;
+        background-image:       url('@{icon-root}@{file}');
+        background-repeat:      no-repeat;
         }
 
 
 //  Basic UI elements ---------------------------------------------------------
 
     .text-shadow(@loc, @color) {
-        text-shadow: 0 @loc @l @color;
+        text-shadow:            0 @loc @l @color;
         }
     .box-shadow(@x:0,@y:@l,@blur:@l,@color:fadeout(@dark-color,80%)) {
-        -moz-box-shadow: @arguments;
-        -webkit-box-shadow: @arguments;
-        box-shadow: @arguments;
+        -moz-box-shadow:        @arguments;
+        -webkit-box-shadow:     @arguments;
+        box-shadow:             @arguments;
         }
     .gradient(@start,@stop){
-        background-color: @start;
-        background-image: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
-        background-image: -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
-        background-image: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
-        /* IE HACK!!*/
-        //filter: e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
+        background-image:       -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
+        background-image:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
+        background-image:       -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
+        background-image:       linear-gradient(top, @start 0%, @stop 100%); /* w3c */
+                                // IE HACK!!
+        //filter:               e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
         }   
-    .rounded-corners(@rad) {
-        -moz-border-radius:@arguments;
-        -webkit-border-radius:@arguments;
-        border-radius:@arguments;
-		-moz-background-clip   : padding;
-		-webkit-background-clip: padding-box;
-		background-clip        : padding-box;
+        
+    .rounded-corners(@r:@rad) {
+        -moz-border-radius:     @arguments;
+        -webkit-border-radius:  @arguments;
+        border-radius:          @arguments;
+                                // Background clip to allow borders to blend properly with the background
+        -moz-background-clip:   padding; 
+        -webkit-background-clip:padding-box;
+        background-clip:        padding-box;
         }
+        
     .columns(@col:2) {
-        -moz-column-count: @col; 
-        -moz-column-gap: @w; 
-        -webkit-column-count: @col; 
-        -webkit-column-gap: @w; 
-        column-count: @col; 
-        column-gap: @w; 
+        -moz-column-count:      @col; 
+        -moz-column-gap:        @w; 
+        -webkit-column-count:   @col; 
+        -webkit-column-gap:     @w; 
+        column-count:           @col; 
+        column-gap:             @w; 
         }
         
     .display-box(@orient:horizontal) {
-        display: -moz-box;
-        display: -webkit-box;
-        -moz-box-orient: @arguments;
-        -webkit-box-orient: @arguments;
+        display:                -moz-box;
+        display:                -webkit-box;
+        -moz-box-orient:        @arguments;
+        -webkit-box-orient:     @arguments;
         }
     .box-flex(@flex:1) {
-        -moz-box-flex: @arguments;
-        -webkit-box-flex: @arguments;
+        -moz-box-flex:          @arguments;
+        -webkit-box-flex:       @arguments;
         }
 
     .clear-fix {
-        content: ".";
-    	display: block;
-    	clear: both;
-    	visibility: hidden;
-    	line-height: 0;
-    	height: 0;
+        content:                ".";
+        display:               block;
+        clear:                 both;
+        visibility:            hidden;
+        line-height:           0;
+        height:                0;
         }
         
     .opacity(@alpha:0.5) {  
-        opacity: @arguments; 
-        filter:e("Alpha(Opacity=")@arguments e(")");
+        opacity:                @arguments; 
+        filter:                 e("Alpha(Opacity=")@arguments e(")");
         }
