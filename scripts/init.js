@@ -1,8 +1,7 @@
 /*  ###########################################################################
     Author:     Lunatech Research
     ########################################################################### */
-
-
+    
     $(document).ready(function() {
     
         // LOAD FLASH OBJECT (SWF FILE)
@@ -43,7 +42,8 @@
         $('.tabs').each(function(){
           $(this).tabs();
         })
-
+        
+        
         $(".datatable").each(function(){
             $(this).dataTable( {
                 "bJQueryUI": true,

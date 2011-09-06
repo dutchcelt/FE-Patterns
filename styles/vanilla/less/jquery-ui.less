@@ -78,7 +78,7 @@
 ----------------------------------*/
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  { border: @l solid @ui-highlight3; .gradient(@ui-highlight1,@ui-highlight2); font-weight: bold; color: @text-color; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: @text-color; .text-shadow(@l, @light-color); }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error { border: @l solid @ui-error3; .gradient(@ui-error1,@ui-error2); font-weight: bold; color: @light-color;}
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error { background-color: @ui-error1; font-weight: bold; color: @light-color;}
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: @light-color; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
@@ -484,7 +484,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Tabs#theming
  */
-.ui-tabs { position: relative; border: 0; padding: 0; zoom: 1; background: transparent none; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs { border: 0; padding: 0; zoom: 1; background: transparent none; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; border: 0; padding: 0; .rounded-corners(0); background: transparent none; filter: 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: @l; margin: 0 @h 0 0; border-bottom-width: @l; padding: 0; white-space: nowrap; }
 .ui-tabs .ui-tabs-nav li a { float: left; padding: @line/4 @block; text-decoration: none; }

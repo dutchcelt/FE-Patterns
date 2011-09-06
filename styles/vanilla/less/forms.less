@@ -20,6 +20,12 @@
         width: @label-width;
         text-align: @label-text-orientation;
         }
+    .input-text {   
+        border: 0 none transparent;
+        padding: @line/4 @block/8;
+        //line-height: @transport;
+        .box-shadow(0, @l, @l*3, @grey6, inset);
+        }
     input[type=search],
     input[type=url],
     input[type=email],
@@ -29,12 +35,14 @@
     input[type=text]{
         float: @label-orientation;
         width: @text-input-width;
+        .input-text;
         }
     input[type=number],
     input[type^=date],
     input[type=time] {
         float: @label-orientation;
         width: @text-input-width*0.325;
+        .input-text;
         }
     input[type=checkbox],
     input[type=radio]{
@@ -56,6 +64,7 @@
     textarea {
         float: @label-orientation;
         width: @text-input-width;
+        .input-text;
         }
     input[type=checkbox] {
         float: left;
@@ -98,13 +107,15 @@
     ::-webkit-validation-bubble {}
     ::-webkit-validation-bubble-arrow-clipper {}
     ::-webkit-validation-bubble-arrow {
-        margin-bottom: 0 - @line/2;
+        margin-bottom: 0 - @line;
+        border: 0;
         .box-shadow(0,0,0,0);
         background: @error;
         }
     ::-webkit-validation-bubble-message {
         padding: @line/4 @block/2;
         .rounded-corners(@w);
+        border: 0;
         .box-shadow(0,0,0,0);
         color: @light-color;
         background: @error;
