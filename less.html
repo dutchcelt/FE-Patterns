@@ -24,6 +24,7 @@
             <li><a href="forms.html">Forms</a></li>
             <li><a href="table.html">Tables</a></li>
             <li><a href="layout.html">Layout</a></li>
+            <li><a href="boxes.html">Boxes</a></li>
             <li class="active"><a href="less.html">LESS</a></li>
         </ul>
     </nav>
@@ -195,15 +196,36 @@
                                 // IE HACK!!
         //filter:               e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
         }   
-        
+    
+    .background-clip {
+        // Background clip to allow borders to blend properly with the background
+        -moz-background-clip:   padding; 
+        -webkit-background-clip:padding-box;
+        background-clip:        padding-box;
+        }
     .rounded-corners(@r:@rad) {
         -moz-border-radius:     @arguments;
         -webkit-border-radius:  @arguments;
         border-radius:          @arguments;
-                                // Background clip to allow borders to blend properly with the background
-        -moz-background-clip:   padding; 
-        -webkit-background-clip:padding-box;
-        background-clip:        padding-box;
+        .background-clip;
+        }
+    .rounded-corners-top(@r:@rad) {
+        -webkit-border-top-left-radius: @arguments;
+        -webkit-border-top-right-radius: @arguments;
+        -moz-border-radius-topleft: @arguments;
+        -moz-border-radius-topright: @arguments;
+        border-top-left-radius: @arguments;
+        border-top-right-radius: @arguments;  
+        .background-clip;
+        }
+    .rounded-corners-bottom(@r:@rad) {
+        -webkit-border-bottom-right-radius: @arguments;
+        -webkit-border-bottom-left-radius: @arguments;
+        -moz-border-radius-bottomright: @arguments;
+        -moz-border-radius-bottomleft: @arguments;
+        border-bottom-right-radius: @arguments;
+        border-bottom-left-radius: @arguments;
+        .background-clip;
         }
         
     .columns(@col:2) {
@@ -238,7 +260,8 @@
     .opacity(@alpha:0.5) {  
         opacity:                @arguments; 
         filter:                 e("Alpha(Opacity=")@arguments e(")");
-        }                    </code>
+        }
+                    </code>
                 </div>
             </div>
 

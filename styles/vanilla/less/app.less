@@ -7,9 +7,8 @@
 //  The 'main.less' file is where you can add as many files you want.
 
  
-/*  Mockup Layout */
+/*  Layout */
     
-
     body { 
         margin: 0 auto;
         color: @text-color;
@@ -176,7 +175,7 @@
         float:left;
         clear: none;
         _height: 302px;
-    }
+        }
     .content .dataTables_wrapper table {
         margin: 0;
         clear: none;
@@ -321,7 +320,43 @@
         }
 
 
-/*  Examples boxes */
+/*  Boxes */
+
+    .box {
+        .panel;
+        .rounded-corners();
+        background-color: @light-color;
+        .box-shadow();
+        }
+        
+    .panel-box {
+        .box;
+        .text-shadow(@l,@light-color);
+        background-color: @grey1;
+        }
+    .panel-box header {
+        .panel-inset;
+        .rounded-corners-top();
+        .gradient(@light-color,@grey2);
+        }
+    .panel-box footer {
+        .panel-inset;
+        .rounded-corners-bottom();
+        background-color: @grey2;
+        }
+    .panel-box header ~ section {
+        padding: @line 0;
+        }
+    .highlighted {
+        background-color: @yellow1;
+        .gradient(@yellow1,@yellow2);
+        }
+    .highlighted header {
+        color: @light-color;
+        .text-shadow(0 - @l,@dark-color);
+        .gradient(@grey5,@grey6);
+        }
+
     .examples {
         width: 100% !important;
         }
@@ -333,18 +368,16 @@
         position: relative;
         display: block;
         .box-flex();
-        .panel;
         margin-left: @w;
-        .rounded-corners();
-        background-color: @light-color;
-        .box-shadow();
         }
-    .examples li:after {
+    .examples .box:after {
         .icon(@line*1.6,94%);
         .ui-icon-script;
         .opacity(0.3);
         }
-    .examples li:first-child {
+    .examples .box:first-child {
         margin-left: 0;
         }
     
+        
+        

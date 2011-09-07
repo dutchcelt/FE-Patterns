@@ -24,6 +24,7 @@
             <li class="active"><a href="forms.html">Forms</a></li>
             <li><a href="table.html">Tables</a></li>
             <li><a href="layout.html">Layout</a></li>
+            <li><a href="boxes.html">Boxes</a></li>
             <li><a href="less.html">LESS</a></li>
         </ul>
     </nav>
@@ -128,38 +129,46 @@
     
                 <section class="notes">
                     <code class="note">
-&lt;form&gt;
+&lt;form novalidate&gt;
+    &lt;h4&gt;Contact form&lt;/h4&gt;
     &lt;fieldset&gt;
         &lt;div&gt;
-            &lt;label for="id01"&gt;Name *&lt;/label&gt;
-            &lt;input type="text" id="id01" required /&gt;
+            &lt;label for=&quot;id00&quot;&gt;ID&lt;/label&gt;
+            &lt;input type=&quot;text&quot; id=&quot;id00&quot; value=&quot;0001 (readonly id)&quot; readonly /&gt;
         &lt;/div&gt;
         &lt;div&gt;
-            &lt;label for="id02"&gt;E-mail *&lt;/label&gt;
-            &lt;input type="email" id="id02" required /&gt;
+            &lt;label for=&quot;id01&quot;&gt;Name *&lt;/label&gt;
+            &lt;input type=&quot;text&quot; id=&quot;id01&quot; required /&gt;
         &lt;/div&gt;
         &lt;div&gt;
-            &lt;label for="id03"&gt;Subject&lt;/label&gt;
-            &lt;input type="text" id="id03" /&gt;
+            &lt;label for=&quot;id02&quot;&gt;E-mail *&lt;/label&gt;
+            &lt;input type=&quot;email&quot; id=&quot;id02&quot; required /&gt;
         &lt;/div&gt;
         &lt;div&gt;
-            &lt;label for="id04"&gt;Message *&lt;/label&gt;
-            &lt;textarea id="id04" rows="10" cols="20" required&gt;&lt;/textarea&gt;
+            &lt;label for=&quot;id03&quot;&gt;URL (optional)&lt;/label&gt;
+            &lt;input type=&quot;url&quot; id=&quot;id03&quot; placeholder=&quot;http://&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;id04&quot;&gt;Subject&lt;/label&gt;
+            &lt;input type=&quot;text&quot; id=&quot;id04&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;id05&quot;&gt;Message *&lt;/label&gt;
+            &lt;textarea id=&quot;id05&quot; rows=&quot;10&quot; cols=&quot;20&quot; required&gt;&lt;/textarea&gt;
         &lt;/div&gt;
         &lt;div&gt;
             &lt;label&gt;Do you wish to receive our newletter?&lt;/label&gt;
             &lt;div&gt;
-                &lt;input type="radio" name="radio" id="id05" /&gt;
-                &lt;label for="id05"&gt;Yes&lt;/label&gt;
-                &lt;input type="radio" name="radio" id="id06" /&gt;
-                &lt;label for="id06"&gt;No&lt;/label&gt;
+                &lt;input type=&quot;radio&quot; name=&quot;radio&quot; id=&quot;id06&quot; /&gt;&lt;label for=&quot;id06&quot;&gt;Yes&lt;/label&gt;
+                &lt;input type=&quot;radio&quot; name=&quot;radio&quot; id=&quot;id07&quot; /&gt;&lt;label for=&quot;id07&quot;&gt;No&lt;/label&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/fieldset&gt;
-    &lt;div class="buttons"&gt;
-        &lt;button type="submit" class="save" value="Save"&gt;Save&lt;/button&gt;
-        &lt;button type="button" class="cancel"value="Cancel"&gt;Cancel&lt;/button&gt;
+    &lt;div class=&quot;buttons&quot;&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;save&quot; value=&quot;Save&quot;&gt;Save&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;cancel&quot;value=&quot;Cancel&quot;&gt;Cancel&lt;/button&gt;
     &lt;/div&gt;
+    &lt;p&gt;* These fields are required.&lt;/p&gt;
 &lt;/form&gt;
                 </code>
                 </section>
@@ -179,18 +188,22 @@
                             <input type="email" id="id02" required />
                         </div>
                         <div>
-                            <label for="id03">Subject</label>
-                            <input type="text" id="id03" />
+                            <label for="id03">URL (optional)</label>
+                            <input type="url" id="id03" placeholder="http://" />
                         </div>
                         <div>
-                            <label for="id04">Message *</label>
-                            <textarea id="id04" rows="10" cols="20" required></textarea>
+                            <label for="id04">Subject</label>
+                            <input type="text" id="id04" />
+                        </div>
+                        <div>
+                            <label for="id05">Message *</label>
+                            <textarea id="id05" rows="10" cols="20" required></textarea>
                         </div>
                         <div>
                             <label>Do you wish to receive our newletter?</label>
                             <div>
-                                <input type="radio" name="radio" id="id05" /><label for="id05">Yes</label>
-                                <input type="radio" name="radio" id="id06" /><label for="id06">No</label>
+                                <input type="radio" name="radio" id="id06" /><label for="id06">Yes</label>
+                                <input type="radio" name="radio" id="id07" /><label for="id07">No</label>
                             </div>
                         </div>
                     </fieldset>
