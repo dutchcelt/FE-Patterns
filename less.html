@@ -143,9 +143,16 @@
                     <code>
 //  Box elements --------------------------------------------------------------
 
-    .panel {
-        margin: 0 0 @line ;
-        padding: @line @block;
+    .box {
+        margin:             0 0 @line ;
+        padding:            @line @block;
+        }
+        
+    //  Use this to have block elements override the '.panel' padding.    
+    //  This is great for headings, &lt;header&gt; and &lt;footer&gt; tags.
+    .box-inset {
+        margin:             0 - @line 0 - @block;
+        padding:            @line/2 @block;
         }
                     </code>
                 </div>
