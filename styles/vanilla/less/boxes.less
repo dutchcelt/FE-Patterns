@@ -1,0 +1,48 @@
+/*  ###########################################################################
+    Author:     Lunatech Research
+    ########################################################################### */
+
+
+
+/*  Boxes */
+
+    .panel {
+        .box;
+        .rounded-corners();
+        background-color: @light-color;
+        .box-shadow();
+        }
+    .panel > footer,
+    .panel > header {
+        .box-inset;
+        }
+    .panel :first-child {
+        .rounded-corners-top();
+        }
+    .panel :last-child {
+        .rounded-corners-bottom();
+        }
+    .panel > header ~ section {
+        padding: @line 0;
+        }
+        
+    .widgit  {
+        .text-shadow(@l,@light-color);
+        background-color: @grey1;
+        }
+    .widgit header {
+        .gradient(@light-color,@grey2);
+        }
+    .widgit footer {
+        background-color: @grey2;
+        }
+        
+    .highlighted {
+        background-color: @yellow1;
+        .gradient(@yellow1,@yellow2);
+        }
+    .highlighted header {
+        color: @light-color;
+        .text-shadow(0 - @l,@dark-color);
+        .gradient(@grey5,@grey6);
+        }
