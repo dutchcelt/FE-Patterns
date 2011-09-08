@@ -153,6 +153,7 @@
         box-shadow:             @arguments;
         }
     .gradient(@start,@stop){
+        background-color:       @stop;
         background-image:       -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
         background-image:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
         background-image:       -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
