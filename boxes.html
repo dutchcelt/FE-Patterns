@@ -46,11 +46,11 @@
             </section>
             <section class="examples">
             <ul class="">
-                <li class="box">
+                <li class="panel">
                     <h3>Simple box</h3>
                     <code>
 &lt;body&gt;
-    &lt;section class=&quot;box&quot;&gt;
+    &lt;section class=&quot;panel&quot;&gt;
         &lt;h3&gt;Simple box&lt;/h3&gt;
         &lt;p&gt;lorem&#8230;&lt;/p&gt;
     &lt;/section&gt;
@@ -58,20 +58,31 @@
                     </code>
                     <h5>Less code:</h5>
                     <code>
-.box {
-    .panel;
+.panel {
+    .box;
     .rounded-corners();
     background-color: @light-color;
     .box-shadow();
     }
+.panel > header {
+    .box-inset;
+    .rounded-corners-top();
+    }
+.panel > footer {
+    .box-inset;
+    .rounded-corners-bottom();
+    }
+.panel > header ~ section {
+    padding: @line 0;
+    }
                     </code>                
                 </li>
-                <li class="panel-box">
+                <li class="panel widgit">
                     <header><h3>Box with header and footer*</h3></header>
                     <section>
                         <code>
 &lt;body&gt;
-    &lt;section class=&quot;panel-box&quot;&gt;
+    &lt;section class=&quot;panel widgit&quot;&gt;
         &lt;header&gt;
             &lt;h3&gt;Box with header and footer*&lt;/h3&gt;
         &lt;/header&gt;
@@ -81,35 +92,31 @@
 &lt;/body&gt;
                         </code>
                         <h5>Less code:</h5>
+                        <p>
+                            The '.widgit' class extends '.panel'. <br>
+                            In this case '.widgit' only overrides the colour.
+                        </p>
                         <code>
-.panel-box {
-    .box;
+.widgit  {
     .text-shadow(@l,@light-color);
     background-color: @grey1;
     }
-.panel-box header {
-    .panel-inset;
-    .rounded-corners-top();
+.widgit header {
     .gradient(@light-color,@grey2);
     }
-.panel-box footer {
-    .panel-inset;
-    .rounded-corners-bottom();
+.widgit footer {
     background-color: @grey2;
-    }
-.panel-box header ~ section {
-    padding: @line 0;
     }
                         </code>    
                     </section>
                     <footer>* Optional text</footer>            
                 </li>
-                <li class="panel-box highlighted">
+                <li class="panel widgit highlighted">
                     <header><h3>Highlighted box</h3></header>
                     <section>
                         <code>
 &lt;body&gt;
-    &lt;section class=&quot;panel-box highlighted&quot;&gt;
+    &lt;section class=&quot;panel widgit highlighted&quot;&gt;
         &lt;header&gt;
             &lt;h3&gt;Highlighted box&lt;/h3&gt;
         &lt;/header&gt;

@@ -37,7 +37,7 @@
         padding: 0 @block @em;
         }
     .content hgroup {
-        .panel;
+        .box;
         margin-right: 0 - @block;
         margin-left: 0 - @block;
         .text-shadow(@l, @light-color);
@@ -322,31 +322,35 @@
 
 /*  Boxes */
 
-    .box {
-        .panel;
+    .panel {
+        .box;
         .rounded-corners();
         background-color: @light-color;
         .box-shadow();
         }
+    .panel > header {
+        .box-inset;
+        .rounded-corners-top();
+        }
+    .panel > footer {
+        .box-inset;
+        .rounded-corners-bottom();
+        }
+    .panel > header ~ section {
+        padding: @line 0;
+        }
         
-    .panel-box {
-        .box;
+    .widgit  {
         .text-shadow(@l,@light-color);
         background-color: @grey1;
         }
-    .panel-box header {
-        .panel-inset;
-        .rounded-corners-top();
+    .widgit header {
         .gradient(@light-color,@grey2);
         }
-    .panel-box footer {
-        .panel-inset;
-        .rounded-corners-bottom();
+    .widgit footer {
         background-color: @grey2;
         }
-    .panel-box header ~ section {
-        padding: @line 0;
-        }
+        
     .highlighted {
         background-color: @yellow1;
         .gradient(@yellow1,@yellow2);
@@ -370,13 +374,13 @@
         .box-flex();
         margin-left: @w;
         }
-    .examples .box:after {
+    .examples .panel:first-child {
+        margin-left: 0;
+        }
+    .examples .panel:first-child:after {
         .icon(@line*1.6,94%);
         .ui-icon-script;
         .opacity(0.3);
-        }
-    .examples .box:first-child {
-        margin-left: 0;
         }
     
         
