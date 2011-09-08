@@ -64,7 +64,7 @@
             }
    }
         
-    @media screen and (min-width: 768px) and (max-width: 960px){
+    @media screen and (min-width: 680px) and (max-width: 960px){
         body {
             min-width:  @w * 64 - @block*2;
             max-width:  @w * 80;
@@ -73,6 +73,14 @@
         .csscolumns .content .tabs li a{
             padding: @h @w/3;
         }    
+        .examples ul {
+            .display-box(vertical);
+            }
+
+        .examples li {
+            margin: @line 0 0;
+            .box-flex(0);
+            }
     }
     @media screen and (min-width: 960px) {
         body {
