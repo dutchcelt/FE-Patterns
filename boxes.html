@@ -52,8 +52,7 @@
                     <code>
 &lt;body&gt;
     &lt;section class=&quot;panel&quot;&gt;
-        &lt;h3&gt;Simple box&lt;/h3&gt;
-        &lt;p&gt;lorem&#8230;&lt;/p&gt;
+        &#8230; general markup &#8230;
     &lt;/section&gt;
 &lt;/body&gt;
                     </code>
@@ -65,12 +64,13 @@
     background-color: @light-color;
     .box-shadow();
     }
-.panel > header {
+.panel > footer, .panel > header {
     .box-inset;
+    }
+.panel :first-child {
     .rounded-corners-top();
     }
-.panel > footer {
-    .box-inset;
+.panel :last-child {
     .rounded-corners-bottom();
     }
 .panel > header ~ section {
