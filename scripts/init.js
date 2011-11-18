@@ -67,7 +67,7 @@
         //  DATATABLE (lazyloaded)
         $(".datatable").each(function(){
             var $elem = $(this);
-            require(["datatables"], function(){
+            require(["jquery-ui","datatables"], function(){
                 $elem.dataTable( {
                     "bJQueryUI": true,
                     "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
