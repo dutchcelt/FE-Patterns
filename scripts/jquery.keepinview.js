@@ -51,7 +51,7 @@
                     }
                 } else if (orientation==="top" && offset.top !=0) {
                     if( ($(window).scrollTop())+edgeOffset > offset.top ) { 
-                        fixCSS(topOffset);
+                        fixCSS(edgeOffset);
                     } else { 
                         clearCSS();
                     }
