@@ -60,7 +60,14 @@
         $('.tabs').each(function(){
             var $elem = $(this);
             require(["jquery-ui"], function(){
-                $elem.tabs();
+                $elem.tabs({
+                    create: function(event, ui) {
+                        //  Lazyload hack!
+                        //  .tabs in CSS is set to hidden. 
+                        //  Show tabs on creation as to avoid flash of unstyled content
+                        $elem.css('visibility','visible');
+                    }
+                });
             });
         });
         

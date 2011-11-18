@@ -2477,6 +2477,9 @@ nav ul .active:before {
   float: left;
   width: 60%;
 }
+.js .tabs {
+  visibility: hidden;
+}
 .tabs ul {
   background-color: transparent;
 }
