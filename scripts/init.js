@@ -21,7 +21,6 @@
                     $elem.button();
 
                     // ADDING ICONS TO BUTTONS
-                    if($elem.is(".open")){$elem.button().click(function(){$(this).closest('.quick-add').find('.objectForm').toggle('slow');});}
                     if($elem.is(".document,.report")){$elem.button({icons:{primary:"ui-icon-document"}});}
                     if($elem.is(".add")){$elem.button({icons:{primary:"ui-icon-plus"}});}
                     if($elem.is(".edit")){$elem.button({icons:{primary:"ui-icon-pencil"}});}
