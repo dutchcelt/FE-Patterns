@@ -17,20 +17,6 @@
   font-weight: normal;
   font-style: normal;
 }
-/*                      TYPOGRAPHIC FONT SIZES:
-                            6pt:    nonpareil
-                            7pt:    minion
-                            8pt:    brevier 
-                            9pt:    galliard
-                            10pt:   garamond
-                            11pt:   small pica
-                            12pt:   pica
-                            14pt:   augustin
-                            18pt:   great primer
-                            21pt:   double pica
-                            24pt:   two-line pica
-                            36pt:   double great primer
-                            */
 /* float value: left, right, none */
 .box {
   margin: 0 0 1em;
@@ -191,24 +177,40 @@ q:after {
 blockquote, q {
   quotes: "" "";
 }
-/*  headings ------------------------------------------------------------------ */
+/*  headings ------------------------------------------------------------------ 
+    
+    TYPOGRAPHIC FONT SCALE:
+    6pt:    nonpareil       ->      0.6 em
+    7pt:    minion          ->      0.7 em
+    8pt:    brevier         ->      0.8 em
+    9pt:    galliard        ->      0.9 em
+    10pt:   garamond        ->        1 em / 100%
+    11pt:   small pica      ->      1.1 em
+    12pt:   pica            ->      1.2 em
+    14pt:   augustin        ->      1.4 em
+    18pt:   great primer    ->      1.8 em
+    21pt:   double pica     ->      2.1 em
+    24pt:   two-line pica   ->      2.4 em
+    36pt:   double great primer ->  3.6 em
+    
+    */
 h1, .h1 {
-  font-size: 2.1em;
+  font-size: 2.4em;
 }
 h2, .h2 {
-  font-size: 1.8200000000000003em;
+  font-size: 2.1em;
 }
 h3, .h3 {
-  font-size: 1.5400000000000003em;
+  font-size: 1.8em;
 }
 h4, .h4 {
-  font-size: 1.4000000000000001em;
+  font-size: 1.4em;
 }
 h5, .h5 {
-  font-size: 1.2600000000000002em;
+  font-size: 1.2em;
 }
 h6, .h6 {
-  font-size: 1em;
+  font-size: 1.1em;
 }
 /*  tables still need 'cellspacing="0"' in the markup ------------------------- */
 table {
@@ -2220,7 +2222,7 @@ body > header {
 header .logo {
   margin: 0;
   padding: 0;
-  font-size: 2.1em;
+  font-size: 2.4em;
   font-weight: normal;
   line-height: 1.6;
   font-family: "LobsterTwoBoldItalic", Georgia, serif;
@@ -2244,7 +2246,7 @@ header .logo {
   padding-bottom: 0.125em;
 }
 .content hgroup h5 {
-  font-size: 1em;
+  font-size: 1.1em;
   color: #707070;
 }
 .content > section {
@@ -2328,7 +2330,7 @@ figcaption {
   position: relative;
   margin: 0 0 1em;
   padding: 1em 24px 1em 28.799999999999997px;
-  font-size: 1.4000000000000001em;
+  font-size: 1.4em;
   border-radius: 4px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
@@ -2345,7 +2347,7 @@ figcaption {
   width: 24px;
   height: 1.4000000000000001em;
   text-align: center;
-  font-size: 1.2600000000000002em;
+  font-size: 1.2em;
   font-family: "LobsterTwoBoldItalic", Georgia, serif;
   padding: 0 4.8px 0.125em;
   border-radius: 24px;

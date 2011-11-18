@@ -101,27 +101,43 @@
         }
     
         
-/*  headings ------------------------------------------------------------------ */
+/*  headings ------------------------------------------------------------------ 
     
+    TYPOGRAPHIC FONT SCALE:
+    6pt:    nonpareil       ->      0.6 em
+    7pt:    minion          ->      0.7 em
+    8pt:    brevier         ->      0.8 em
+    9pt:    galliard        ->      0.9 em
+    10pt:   garamond        ->        1 em / 100%
+    11pt:   small pica      ->      1.1 em
+    12pt:   pica            ->      1.2 em
+    14pt:   augustin        ->      1.4 em
+    18pt:   great primer    ->      1.8 em
+    21pt:   double pica     ->      2.1 em
+    24pt:   two-line pica   ->      2.4 em
+    36pt:   double great primer ->  3.6 em
+    
+    */
+                
     // Added OO CSS classes to enable consistant and interchangable headings
 
     h1, .h1 {
-        font-size:  @em*1.5;
+        font-size:  2.4em; //two-line pica
         }
     h2, .h2 {
-        font-size:  @em*1.3;
+        font-size:  2.1em; //double pica
         }
     h3, .h3 {
-        font-size:  @em*1.1;
+        font-size:  1.8em; //great primer
         }
     h4, .h4 {
-        font-size:  @em;
+        font-size:  1.4em; //augustin
         }
     h5, .h5 {
-        font-size:  @em*0.9;
+        font-size:  1.2em; //pica
         }
     h6, .h6 {
-        font-size:  @em/@em;
+        font-size:  1.1em; //small pica
         }
     
     
