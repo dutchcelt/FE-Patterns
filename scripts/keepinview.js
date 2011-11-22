@@ -1,4 +1,4 @@
-/*  ###########################################################################
+/*! ###########################################################################
     Author:     Lunatech Research
                 Egor Kloos
     date:       October 2011
@@ -7,57 +7,67 @@
     define(['keepinview'], function ($) {
     
         (function($){
-      
-            // STICKY ELEMENTS (FIXED ON SCROLL)
-            
-            $.fn.keepInView = function(orientation,edgeOffset) {
-                edgeOffset = (edgeOffset) ? edgeOffset : 0;
-                var element = $(this);
-                var offset = element.offset();
-                var cssPosition = {
-                    type: element.css('position'),
-                    top: element.css('top'),
-                    left: element.css('left')
-                };
-                var marginOffset = (cssPosition.left==="auto") ? parseInt(element.css('marginLeft'),10) : 0;
-                var h = element.height(),
-                    w = element.width();
+                  
+            $.fn.keepInView = function(options) {
                 
-                var setCSS = function(){
-                    element.css({ 
+                var $elem = $(this);
+                
+                var defaults = {
+                    // Position will be fixed regardless of scroll position when set to true 
+                    fixed: false, 
+                    // Vertical offset that applies to both top and bottom;
+                    edgeOffset : 0, 
+                    // override z-index if you can't or don't want to set this with CSS
+                    zindex : $elem.css('zIndex') 
+                };
+                
+                var options = $.extend(defaults, options);
+                
+                var offset = $elem.offset(); 
+                var cssPosition = {
+                    type: $elem.css('position'),
+                    top: $elem.css('top'),
+                    left: $elem.css('left'),
+                    zindex: $elem.css('zIndex')
+                };
+                var marginOffset = (cssPosition.left==="auto") ? parseInt($elem.css('marginLeft'),10) : 0;
+                var h = $elem.height(),
+                    w = $elem.width();
+                
+                var prepCSS = function(){
+                    $elem.css({ 
                         position: 'fixed',
                         left:       offset.left-marginOffset+'px',
                         width:      w,
-                        height:     h 
+                        height:     h,
+                        zIndex:     options.zindex
                     });
                 };
                 var fixCSS = function(t){
-                    element.css({ 
+                    $elem.css({ 
                         top:        t+'px'
                     });
                 };
                 var clearCSS = function(){
-                    element.css({ 
+                    $elem.css({ 
                         position:   cssPosition.type,
                         left:       cssPosition.left,
-                        top:        cssPosition.top 
+                        top:        cssPosition.top,
+                        zIndex:     cssPosition.zindex
                     });
                 };
                 
                 function setElem(){
-                    setCSS();
-                    if (orientation==="bottom" && offset.top !==0) {
-                        if( $(window).height() < parseInt(offset.top + element.outerHeight() - Math.abs($(window).scrollTop())+edgeOffset,10) ) { 
-                            fixCSS(($(window).height()-element.outerHeight()-edgeOffset));
-                        } else { 
-                            clearCSS();
-                        }
-                    } else if (orientation==="top" && offset.top !==0) {
-                        if( ($(window).scrollTop())+edgeOffset > offset.top ) { 
-                            fixCSS(edgeOffset);
-                        } else { 
-                            clearCSS();
-                        }
+                    prepCSS();
+                    if( $(window).height() < parseInt(offset.top + $elem.outerHeight() - Math.abs($(window).scrollTop())+options.edgeOffset,10)  && !options.fixed ) { 
+                        fixCSS(($(window).height()-$elem.outerHeight()-options.edgeOffset));
+                    } else if( ($(window).scrollTop())+options.edgeOffset > offset.top && !options.fixed) { 
+                        fixCSS(options.edgeOffset);
+                    } else if( options.fixed ) { 
+                        fixCSS(options.edgeOffset);
+                        $(window).unbind('resize scroll');
+                    } else { 
+                        clearCSS();
                     }
                 }
                 

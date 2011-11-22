@@ -86,7 +86,15 @@
             });
         });
         
-        
+        //  Don't let the nav scroll out of view - keepinview.js (lazyloaded)
+        $("body > nav").each(function(){
+            var $elem = $(this);
+            require(["keepinview"], function(){
+                $elem.keepInView({zindex:4242});
+            });
+        });
+
+
         // LOAD FLASH OBJECT (SWF FILE)
         $("object > param[value$='swf']").each(function(index){
             var f = $(this).closest('object').attr('id');
