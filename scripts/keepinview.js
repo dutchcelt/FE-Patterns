@@ -17,8 +17,12 @@
                     fixed: false, 
                     // Vertical offset that applies to both top and bottom;
                     edgeOffset : 0, 
-                    // override z-index if you can't or don't want to set this with CSS
-                    zindex : $elem.css('zIndex') 
+                    // Override z-index if you can't or don't want to set this with CSS
+                    zindex : $elem.css('zIndex'),
+                    // Override all scripted positions with your own custom CSS classname
+                    // The set classname will be triggered when element scrolls out of view 
+                    // The Script will add a suffix of '-top' or '-bottom'
+                    customClass: false
                 };
                 
                 var options = $.extend(defaults, options);
@@ -58,16 +62,32 @@
                 };
                 
                 function setElem(){
-                    prepCSS();
-                    if( $(window).height() < parseInt(offset.top + $elem.outerHeight() - Math.abs($(window).scrollTop())+options.edgeOffset,10)  && !options.fixed ) { 
-                        fixCSS(($(window).height()-$elem.outerHeight()-options.edgeOffset));
-                    } else if( ($(window).scrollTop())+options.edgeOffset > offset.top && !options.fixed) { 
-                        fixCSS(options.edgeOffset);
-                    } else if( options.fixed ) { 
-                        fixCSS(options.edgeOffset);
-                        $(window).unbind('resize scroll');
-                    } else { 
-                        clearCSS();
+                
+                    var scrolledOutAt = "";
+                    if ( $(window).height() < parseInt(offset.top + $elem.outerHeight() - Math.abs($(window).scrollTop())+options.edgeOffset,10)  && !options.fixed ) { 
+                        scrolledOutAt = "bottom"; 
+                    } else if ( ($(window).scrollTop())+options.edgeOffset > offset.top && !options.fixed) { 
+                        scrolledOutAt = "top"; 
+                    }; 
+                    
+                    if(!options.customClass){ 
+                        prepCSS(); 
+                        if (scrolledOutAt==="bottom"){
+                            fixCSS(($(window).height()-$elem.outerHeight()-options.edgeOffset));
+                        } else if (scrolledOutAt==="top"){ 
+                            fixCSS(options.edgeOffset);
+                        } else if (options.fixed){ 
+                            fixCSS(options.edgeOffset);
+                            $(window).unbind('resize scroll');
+                        } else {
+                            clearCSS();
+                        }
+                    } else {
+                        if (scrolledOutAt==="bottom" || scrolledOutAt==="top"){
+                            $elem.addClass(options.customClass+"-"+scrolledOutAt);
+                        } else if (!scrolledOutAt) {
+                            $elem.removeClass(options.customClass+"-top").removeClass(options.customClass+"-bottom");
+                        }
                     }
                 }
                 
