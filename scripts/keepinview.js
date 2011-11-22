@@ -66,7 +66,8 @@
                     var scrolledOutAt = "";
                     if ( $(window).height() < parseInt(offset.top + $elem.outerHeight() - Math.abs($(window).scrollTop())+options.edgeOffset,10)  && !options.fixed ) { 
                         scrolledOutAt = "bottom"; 
-                    } else if ( ($(window).scrollTop())+options.edgeOffset > offset.top && !options.fixed) { 
+                    };
+                    if ( ($(window).scrollTop())+options.edgeOffset > offset.top && !options.fixed) { 
                         scrolledOutAt = "top"; 
                     }; 
                     
