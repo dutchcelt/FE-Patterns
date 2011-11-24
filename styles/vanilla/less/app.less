@@ -18,7 +18,7 @@
         background-image: url(../images/backgrounds/back.png);
         }
     body > header {
-        border-bottom: @l solid @grey5;
+        //border-bottom: @l solid @grey5;
         padding: @em/2 @block 0;
         height: @em*3;
         overflow: hidden;
@@ -205,6 +205,7 @@
         list-style: none;
         min-height: @em*1.2;
         .gradient(@grey5,@grey6);
+        overflow: hidden;
         }    
     nav ul li {
         position: relative;
@@ -240,6 +241,9 @@
         height:0;
         width:0;
         }  
+    nav ul li:last-child {
+        float: right;
+        }
         
            
 /*  Tabs */

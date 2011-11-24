@@ -2214,7 +2214,6 @@ body {
   background-image: url(../images/backgrounds/back.png);
 }
 body > header {
-  border-bottom: 1px solid #707070;
   padding: 0.7000000000000001em 24px 0;
   height: 4.2em;
   overflow: hidden;
@@ -2440,6 +2439,7 @@ figcaption {
   background-image: linear-gradient(top, #707070 0%, #383838 100%);
   /* w3c */
 
+  overflow: hidden;
 }
 nav ul li {
   position: relative;
@@ -2471,6 +2471,9 @@ nav ul .active:before {
   border-width: 4px;
   height: 0;
   width: 0;
+}
+nav ul li:last-child {
+  float: right;
 }
 /*  Tabs */
 .tabs {
