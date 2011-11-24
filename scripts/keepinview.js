@@ -2,6 +2,7 @@
     Author:     Lunatech Research
                 Egor Kloos
     Date:       November 2011
+    git:        https://github.com/dutchcelt/Keep-in-View
     ########################################################################### */
 
     define(['keepinview'], function ($) {
