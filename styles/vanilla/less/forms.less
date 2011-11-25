@@ -26,6 +26,9 @@
         //line-height: @transport;
         .box-shadow(0, @l, @l*3, @grey6, inset);
         }
+    input {
+        vertical-align: baseline;
+        }
     input[type=search],
     input[type=url],
     input[type=email],
@@ -60,11 +63,14 @@
         float: @label-orientation;
         width: auto;
         min-width: @text-input-width*0.655;
+        vertical-align: baseline;
         }
     textarea {
         float: @label-orientation;
         width: @text-input-width;
         .input-text;
+        vertical-align: baseline;
+        overflow: auto;
         }
     input[type=checkbox] {
         float: left;
@@ -87,9 +93,21 @@
         float: none;
         display: inline;
         }
+    input[type=reset],
     input[type=button],
     input[type=submit] {
+        -webkit-appearance: button;
         width: auto;
+        overflow: visible;
+        }
+    input[type="search"] {
+        -webkit-appearance: textfield;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        }
+    input[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
         }
     select[multiple]{ 
         width: @text-input-width*0.655;
