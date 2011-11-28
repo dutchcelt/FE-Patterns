@@ -115,7 +115,7 @@
     
         
             // Load JavaScript generated UI elements
-            $('body').each(function(){$(this).trigger('buttonLoader')});
+            $(".button,input[type='submit'],button,input[type='button']").eq(0).each(function(){$('body').trigger('buttonLoader')});
     
             $("tbody").delegate("tr", "hover", function(){
                 $('td', this).toggleClass("hover");
