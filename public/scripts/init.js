@@ -3,8 +3,7 @@
     
     Copyright (c) 2009-2011 Lunatech Research, Egor Kloos
     
-    * Modernizr and jQuery are included to reduce the number HTML of static script tags in the  HTML file.
-    * Also both scripts need to load well before any of the other dependencies.
+    * Modernizr is included beacuse it needs to load well before any of the other dependencies.
     */
 
 
