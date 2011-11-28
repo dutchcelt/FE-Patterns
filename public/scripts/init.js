@@ -114,14 +114,7 @@
                 });
             });
     
-    
-            // LOAD FLASH OBJECT (SWF FILE)
-            $("object > param[value$='swf']").each(function(index){
-                var f = $(this).closest('object').attr('id');
-                function regOb(f){ swfobject.registerObject(f, "9.0.0", "scripts/swfobject/expressInstall.swf");}
-                if (index>0) { regOb(f); } else { $.getScript("scripts/swfobject/swfobject.js",function(){ regOb(f); }); }
-            });
-    
+        
             // Load JavaScript generated UI elements
             $('body').each(function(){$(this).trigger('buttonLoader')});
     
