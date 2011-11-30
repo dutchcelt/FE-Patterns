@@ -19,7 +19,7 @@
     
     // INIT
     
-    require(["jquery"], function(){
+    require(["jquery","jquery-ui"], function(){
         
         $(document).ready(function() {
         
