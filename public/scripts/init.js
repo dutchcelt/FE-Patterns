@@ -124,7 +124,7 @@
                 $("input[placeholder]").removeAttr('placeholder');
             }
             
-            $("canvas.dummy").each(function(){
+            $("html.canvas canvas.dummy").each(function(){
                 var el = $(this).get()[0];
                 var ctx = el.getContext('2d');
                 ctx.fillStyle = '#08f';
