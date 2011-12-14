@@ -45,18 +45,18 @@
                 <div>
                     <h3><a href="#">Grid units</a></h3>
                     <code>
-//  Base units that set overal proportions ------------------------------------
+//  Base units that set overall proportions ------------------------------------
 
     @view:                  1200;           // VIEWPORT target based on pixels
-    @w:                     @view / 100px;  // Smallest horisontal unit
+    @w:                     @view / 100px;  // Smallest horizontal unit
     @h:                     0.2em;          // Smallest vertical unit
-    @em:                    @h*7;           // Line transport
+    @em:                    @h*7;           // Vertical space or leading
     
-    @block:                 @w * 2;         // White space for paddings etc
+    @block:                 @w * 2;         // White space for paddings or margins
     @text-block:            @view * 48%;    // alt: 52em; 
     @max-width:             @view * 1px;    // alt: @w * 80 = 960
     
-    @l:                     1px;            // Line
+    @l:                     1px;            // Line or border
     @rad:                   @w/3;           // Standard radius
                     </code>
                 </div>
@@ -65,26 +65,39 @@
                     <code>
 //  Font elements -------------------------------------------------------------
     
-    @font-root: "../fonts/";
-    
+    @font-root:             &quot;../fonts/&quot;;
+                            
     @font-face {
-        ...
+        font-family:        'OstrichBlack';
+        src:                url('@{font-root}ostrich-black-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
         }
     @font-face {
-        ...
+        font-family:        'LobsterTwoBoldItalic';
+        src:                url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
         }
-                
-    @font-scale:            82.5%;
-    @transport:             1.6;
-    @line:                  @h*5;
+
+    @font-scale:            82.5%;          // Used on the body element
+    @transport:             1.6;            // For line height (no units!)
+    @line:                  @h*5;           // Interline: For web it's usually 1em
     @typeface:              Arial, sans-serif;
-    @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
-    @typeface-brand:        "OstrichBlack", Arial, sans-serif;
+    @typeface-header:       &quot;LobsterTwoBoldItalic&quot;, Georgia, serif;
+    @typeface-brand:        &quot;OstrichBlack&quot;, Arial, sans-serif;
                     </code>
                 </div>
                 <div>
                     <h3><a href="#">Colours</a></h3>
                     <code>
+//  Basic colour values -------------------------------------------------------
+
+    @light-color:           #ffffff;
+    @dark-color:            #222222;
+    @text-color:            #333333;
+    
+    
 //  Color sets ----------------------------------------------------------------
     
     @brand-color:           #7abcff;
@@ -116,7 +129,7 @@
     @link-color-visited:    #8000ff;
     @link-color-hover:      @link-color;
     @link-color-active:     @link-color;
-                    </code>
+                        </code>
                 </div>
                 <div>
                     <h3><a href="#">Forms</a></h3>
@@ -124,7 +137,7 @@
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block;
-    @field-width:           @text-block;
+    @field-width:           @form-width;
     
     @input-padding-height:  @em/4;
     @input-padding-width:   @block/6;
@@ -159,22 +172,22 @@
                     <h3><a href="#">Icons</a></h3>
                     <code>
 //  ICONS ---------------------------------------------------------------------
-
-//  Icons for :before or :after & set parent element to position relative
-
-    @icon-root:                 "../images/icons/";
-
+    
+    //  Icons for :before or :after & set parent element to position relative
+    
+    @icon-root:                 &quot;../images/icons/&quot;;
+    
     //  Arguments:
     //  1. absolute position top (default: 0px)
     //  2. absolute position left (default: 0px)
     //  3. filename to icon(s) (default: jQUERY UI's icons)
     //  4. Icon size (default: 16px)
-
+    
     .icon(@postop:0, @posleft:0, @file:'ui-icons_454545_256x240.png', @icon-size:16px) {
         position:               absolute;
         top:                    @postop;
         left:                   @posleft;
-        content:                "";
+        content:                &quot;&quot;;
         padding:                @icon-size/2;
         background-image:       url('@{icon-root}@{file}');
         background-repeat:      no-repeat;
@@ -195,12 +208,13 @@
         box-shadow:             @arguments;
         }
     .gradient(@start,@stop){
+        background-color:       @stop;
         background-image:       -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
         background-image:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
         background-image:       -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
         background-image:       linear-gradient(top, @start 0%, @stop 100%); /* w3c */
                                 // IE HACK!!
-        //filter:               e("progid:DXImageTransform.Microsoft.Gradient( StartColorStr=")@start e(", EndColorStr=")@stop e(",GradientType=0 )");/* ie */
+        //filter:               e(&quot;progid:DXImageTransform.Microsoft.Gradient( StartColorStr=&quot;)@start e(&quot;, EndColorStr=&quot;)@stop e(&quot;,GradientType=0 )&quot;);/* ie */
         }   
     
     .background-clip {
@@ -210,25 +224,15 @@
         background-clip:        padding-box;
         }
     .rounded-corners(@r:@rad) {
-        -moz-border-radius:     @arguments;
-        -webkit-border-radius:  @arguments;
         border-radius:          @arguments;
         .background-clip;
         }
     .rounded-corners-top(@r:@rad) {
-        -webkit-border-top-left-radius: @arguments;
-        -webkit-border-top-right-radius: @arguments;
-        -moz-border-radius-topleft: @arguments;
-        -moz-border-radius-topright: @arguments;
         border-top-left-radius: @arguments;
         border-top-right-radius: @arguments;  
         .background-clip;
         }
     .rounded-corners-bottom(@r:@rad) {
-        -webkit-border-bottom-right-radius: @arguments;
-        -webkit-border-bottom-left-radius: @arguments;
-        -moz-border-radius-bottomright: @arguments;
-        -moz-border-radius-bottomleft: @arguments;
         border-bottom-right-radius: @arguments;
         border-bottom-left-radius: @arguments;
         .background-clip;
@@ -255,7 +259,7 @@
         }
 
     .clear-fix {
-        content:                ".";
+        content:                &quot;.&quot;;
         display:               block;
         clear:                 both;
         visibility:            hidden;
@@ -265,7 +269,7 @@
         
     .opacity(@alpha:0.5) {  
         opacity:                @arguments; 
-        filter:                 e("Alpha(Opacity=")@arguments e(")");
+        filter:                 e(&quot;Alpha(Opacity=&quot;)@arguments e(&quot;)&quot;);
         }
                     </code>
                 </div>
