@@ -129,12 +129,12 @@
         padding: 0;
         width: 60%;
         }
-    .bootsteps li{
+    .bootsteps li {
         position: relative;
-        margin: 0 0 @line;
         padding: @line @block @line @block*1.2;
         .h4;
-       .rounded-corners();
+        margin: 0 0 @line; // overriding margin for .h4
+        .rounded-corners();
         background: @light-color;
         .box-shadow();
         }
@@ -325,7 +325,7 @@
         }
 
 
-/*  Boxes */
+/*  Blocks */
 
     .content .examples {
         clear: both;
