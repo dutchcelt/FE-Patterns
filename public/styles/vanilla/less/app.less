@@ -46,7 +46,7 @@
         }
     .content hgroup h1 {
         font-family: @typeface-brand;
-        padding-bottom: @line/8;
+        padding-bottom: @interline/8;
         }      
     .content hgroup h5 {
         .h6;
@@ -83,7 +83,7 @@
         max-width: @text-block;  
         }
     .details .buttons{
-        margin-bottom: 0 - @line;
+        margin-bottom: 0 - @interline;
         border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
@@ -125,29 +125,29 @@
     .bootsteps{
         float: left;
         list-style: none;
-        margin: @line 0 0;
+        margin: @interline 0 0;
         padding: 0;
         width: 60%;
         }
     .bootsteps li {
         position: relative;
-        padding: @line @block @line @block*1.2;
+        padding: @interline @block @interline @block*1.2;
         .h4;
-        margin: 0 0 @line; // overriding margin for .h4
+        margin: 0 0 @interline; // overriding margin for .h4
         .rounded-corners();
         background: @light-color;
         .box-shadow();
         }
     .bootsteps li:after{
         position: absolute;
-        top: 0 - @line/3;
+        top: 0 - @interline/3;
         left:0 - @w;
         width: @block;
         height: @em;
         text-align: center;
         .h5;
         font-family: @typeface-header;
-        padding: 0 @block/5 @line/8;
+        padding: 0 @block/5 @interline/8;
         .rounded-corners(@block);
         color: @light-color;
         .text-shadow(0 - @l, @dark-color);
@@ -277,7 +277,7 @@
      
     .buttons  {
         margin-right: 0 - @w/2;
-        padding: @line 0;
+        padding: @interline 0;
         height: @em*2;
         text-align: right;
         }  
@@ -309,8 +309,8 @@
 /*  Messages */
 
     .warning {
-        margin: @line 0 @em; 
-        padding: @line @w;
+        margin: @interline 0 @em; 
+        padding: @interline @w;
         }
     .notes {
         float: none;
@@ -346,7 +346,7 @@
         margin-left: 0;
         }
     .examples .panel:first-child:after {
-        .icon(@line*1.6,94%);
+        .icon(@interline*1.6,94%);
         .ui-icon-script;
         .opacity(0.3);
         }

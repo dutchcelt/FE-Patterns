@@ -335,10 +335,10 @@
 .ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: @l; zoom: 1; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
-.ui-accordion .ui-accordion-header a { display: block; padding: @line/3 @block/2 @line/3 @block; }
+.ui-accordion .ui-accordion-header a { display: block; padding: @interline/3 @block/2 @interline/3 @block; }
 .ui-accordion-icons .ui-accordion-header a { padding-left: @block; }
-.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: @block/4; top: 0; margin-top: @line/2; }
-.ui-accordion .ui-accordion-content { padding: @line @block; border-top: 0; margin-top: -2px; position: relative; top: @l; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: @block/4; top: 0; margin-top: @interline/2; }
+.ui-accordion .ui-accordion-content { padding: @interline @block; border-top: 0; margin-top: -2px; position: relative; top: @l; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
 .ui-accordion .ui-accordion-content-active { display: block; }
 /*
  * jQuery UI Autocomplete 1.8.9
@@ -487,11 +487,11 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs { border: 0; padding: 0; zoom: 1; background: transparent none; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; border: 0; padding: 0; .rounded-corners(0); background: transparent none; filter: 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: @l; margin: 0 @h 0 0; border-bottom-width: @l; padding: 0; white-space: nowrap; }
-.ui-tabs .ui-tabs-nav li a { float: left; padding: @line/4 @block; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: @interline/4 @block; text-decoration: none; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-tabs .ui-tabs-nav li.ui-state-disabled, .ui-tabs .ui-tabs-nav li.ui-state-processing { border: @l solid @grey2; border-bottom: @l solid @light-color; color: @dark-color; .gradient(@grey0, @light-color); cursor: text; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { color: @dark-color; cursor: text; background: transparent none; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-.ui-tabs .ui-tabs-panel { display: block;  border: @l solid @grey2;  padding: @line @block; background: @light-color; }
+.ui-tabs .ui-tabs-panel { display: block;  border: @l solid @grey2;  padding: @interline @block; background: @light-color; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
 /*
  * jQuery UI Datepicker 1.8.9

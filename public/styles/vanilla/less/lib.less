@@ -13,7 +13,7 @@
     @view:                  1200;           // VIEWPORT target based on pixels
     @w:                     @view / 100px;  // Smallest horizontal unit
     @h:                     0.2em;          // Smallest vertical unit
-    @em:                    @h*7;           // Vertical space or leading
+    @em:                    @h*7;           // Vertical space for boundries like top & bottom padding
     
     @block:                 @w * 2;         // White space for paddings or margins
     @text-block:            @view * 48%;    // alt: 52em; 
@@ -42,7 +42,7 @@
 
     @font-scale:            82.5%;          // Used on the body element
     @transport:             1.6;            // For line height (no units!)
-    @line:                  @h*5;           // Interline: For web it's usually 1em
+    @interline:             @h*5;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
     @typeface:              Arial, sans-serif;
     @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
     @typeface-brand:        "OstrichBlack", Arial, sans-serif;
@@ -108,15 +108,15 @@
 //  Box elements --------------------------------------------------------------
 
     .box {
-        margin:             0 0 @line ;
-        padding:            @line @block;
+        margin:             0 0 @interline ;
+        padding:            @interline @block;
         }
         
     //  Use this to have block elements override the '.panel' padding.    
     //  This is great for headings, <header> and <footer> tags.
     .box-inset {
-        margin:             0 - @line 0 - @block;
-        padding:            @line/2 @block;
+        margin:             0 - @interline 0 - @block;
+        padding:            @interline/2 @block;
         }
 
 //  ICONS ---------------------------------------------------------------------
