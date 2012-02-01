@@ -69,7 +69,18 @@
                     This is the file where you'll include all the files you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/vanilla/css/main.css). 
                     Either way all relative image paths should be the same "../images/".
                 </p>
-                
+
+                <h3>How to compile LESS into CSS</h3>                
+                <p>
+                    After you modify the LESS files, you need to run a LESS processor on the main.less file to generate the CSS. It is only necessary to run LESS on main.less since this file automatically imports the other files in the right order.
+                </p>
+                <p>
+                   There is a large choice of LESS processors. If you like the command line, you can use the one that comes with <a href="http://lesscss.org/#-server-side-usage">LESS itself</a>. You will need to have <a href="http://nodejs.org/">Node.js</a> installed to use the CLI tool.
+                </p>
+                <p>
+                  If you want a GUI and use a Mac, you can try <a href="http://incident57.com/less/">LESS.app</a>  (which does not require additional downloads).
+                </p>
+         
                 <h3>JavaScript</h3>
                 <p>
                     Considering the fact that <a href="http://jquery.com/">jQuery</a> is so popular and useful I've added it to this project as an example. Along with other jQuery plugins that have proven there worth; <a href="http://jqueryui.com/">jQuery UI</a>, <a href="https://github.com/dutchcelt/Keep-in-View/">Keep in View</a> and <a href="http://www.datatables.net/">DataTables</a>. 
