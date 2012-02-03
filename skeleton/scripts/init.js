@@ -10,7 +10,7 @@
         
         $(document).ready(function() {
         
-            // place dom ready jwuery scripts here
+            // place DOM ready jQuery scripts here
     
         });    
 
