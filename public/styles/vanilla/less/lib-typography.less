@@ -1,0 +1,48 @@
+/*  ###########################################################################
+    Author:     Lunatech Research
+    ########################################################################### */
+    
+    
+        
+/*  Font elements ------------------------------------------------------------- */
+
+    @font-root:             "../fonts/";
+                            
+    @font-face {
+        font-family:        'OstrichBlack';
+        src:                url('@{font-root}ostrich-black-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
+        }
+    @font-face {
+        font-family:        'LobsterTwoBoldItalic';
+        src:                url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
+        font-weight:        normal;
+        font-style:         normal;
+        }
+
+    @body-scale:            82.5%;          // Used on the body element
+    @transport:             1.6;            // For line height (no units!)
+    @interline:             @h*5;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
+    @typeface:              Arial, sans-serif;
+    @typeface-header:       "LobsterTwoBoldItalic", Georgia, serif;
+    @typeface-brand:        "OstrichBlack", Arial, sans-serif;
+    
+    @type-scale:            1;              // garamond
+    @header-weight:         normal;
+    
+
+/*  TYPOGRAPHIC FONT SCALE ---------------------------------------------------- */
+    
+    .nonpareil              { font-size: @type-scale * 0.6em; }
+    .minion                 { font-size: @type-scale * 0.7em; }
+    .brevier                { font-size: @type-scale * 0.8em; }
+    .galliard               { font-size: @type-scale * 0.9em; }
+    .garamond               { font-size: @type-scale *   1em; }
+    .small-pica             { font-size: @type-scale * 1.1em; }
+    .pica                   { font-size: @type-scale * 1.2em; }
+    .augustin               { font-size: @type-scale * 1.4em; }
+    .great-primer           { font-size: @type-scale * 1.8em; }
+    .double-pica            { font-size: @type-scale * 2.1em; }
+    .two-line-pica          { font-size: @type-scale * 2.4em; }
+    .double-great-primer    { font-size: @type-scale * 3.6em; }

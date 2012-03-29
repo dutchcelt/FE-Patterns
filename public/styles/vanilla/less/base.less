@@ -28,7 +28,7 @@
         margin: 0;
         font-style: normal;
         font-weight: normal;
-        font-size: @font-scale;
+        font-size: @body-scale;
         line-height: @transport;
         font-family: @typeface;
         text-rendering: optimizeLegibility;
@@ -97,23 +97,7 @@
         }
 
         
-/*  Headings ------------------------------------------------------------------ 
-    
-    TYPOGRAPHIC FONT SCALE:
-    
-    6pt:    nonpareil           ->      0.6 em
-    7pt:    minion              ->      0.7 em
-    8pt:    brevier             ->      0.8 em
-    9pt:    galliard            ->      0.9 em
-    10pt:   garamond            ->        1 em / 100%
-    11pt:   small pica          ->      1.1 em
-    12pt:   pica                ->      1.2 em
-    14pt:   augustin            ->      1.4 em
-    18pt:   great primer        ->      1.8 em
-    21pt:   double pica         ->      2.1 em
-    24pt:   two-line pica       ->      2.4 em
-    36pt:   double great primer ->      3.6 em
-    
+/*  Headings ------------------------------------------------------------------     
                 
     1.  Added OO CSS classes to enable consistant and interchangable headings
         These can be used internally via LESS to extend more cleanly 
@@ -121,37 +105,40 @@
     
     */
 
-    @font-size: 1em;
-
+    .h0 {
+        margin: 0; 
+        .double-great-primer;
+        font-weight: @header-weight;
+        }
     h1, .h1 {
         margin: 0; 
-        font-size: @font-size * 2.4; //two-line pica
-        font-weight: normal;
+        .two-line-pica;
+        font-weight: @header-weight;
         }
     h2, .h2 {
         margin: 0; 
-        font-size: @font-size * 2.1; //double pica
-        font-weight: normal;
+        .double-pica;
+        font-weight: @header-weight;
         }
     h3, .h3 {
         margin: 0; 
-        font-size: @font-size * 1.8; //great primer
-        font-weight: normal;
+        .great-primer;
+        font-weight: @header-weight;
         }
     h4, .h4 {
         margin: 0; 
-        font-size: @font-size * 1.4; //augustin
-        font-weight: normal;
+        .augustin;
+        font-weight: @header-weight;
         }
     h5, .h5 {
         margin: 0; 
-        font-size: @font-size * 1.2; //pica
-        font-weight: normal;
+        .pica;
+        font-weight: @header-weight;
         }
     h6, .h6 {
         margin: 0; 
-        font-size: @font-size * 1.1; //small pica
-        font-weight: normal;
+        .small-pica;
+        font-weight: @header-weight;
         }
     
     
