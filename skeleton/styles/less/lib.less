@@ -29,13 +29,32 @@
                             
     @font-face {}
 
-    @font-scale:            82.5%;          // Used on the body element
+    @body-scale:            100%;          // Used on the body element
     @transport:             1.6;            // For line height (no units!)
     @interline:             @h*5;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
     @typeface:              Arial, sans-serif;
     @typeface-header:       Georgia, serif;
     @typeface-brand:        Arial, sans-serif;
     
+    @em-scale:              0.9em;
+    @header-weight:         normal;
+    @header-lineheight:     1.2;
+    
+
+/*  TYPOGRAPHIC FONT SCALE ---------------------------------------------------- */
+    
+    .nonpareil              { font-size: @em-scale * 0.6; }
+    .minion                 { font-size: @em-scale * 0.7; }
+    .brevier                { font-size: @em-scale * 0.8; }
+    .galliard               { font-size: @em-scale * 0.9; }
+    .garamond               { font-size: @em-scale *   1; }
+    .small-pica             { font-size: @em-scale * 1.1; }
+    .pica                   { font-size: @em-scale * 1.2; }
+    .augustin               { font-size: @em-scale * 1.4; }
+    .great-primer           { font-size: @em-scale * 1.8; }
+    .double-pica            { font-size: @em-scale * 2.1; }
+    .two-line-pica          { font-size: @em-scale * 2.4; }
+    .double-great-primer    { font-size: @em-scale * 3.6; }
     
 //  Basic colour values -------------------------------------------------------
 

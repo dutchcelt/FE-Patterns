@@ -28,40 +28,36 @@
         margin: 0;
         font-style: normal;
         font-weight: normal;
-        font-size: @font-scale;
+        font-size: @body-scale;
         line-height: @transport;
         font-family: @typeface;
         text-rendering: optimizeLegibility;
         }
     ul, ol {
-        margin:0 0 @interline @em;
+        margin-left: 0;
         padding: 0;
         }
     li ul, li ol {
-        margin: 0 0 0 @em;
+        margin-left: @em;
         }
     ol ol {
-        margin-left: @em*1.1;
+        margin-left: @em;
         list-style-type:lower-alpha;
         }
     ol ol ol {
-        margin-left: @em*@transport;
+        margin-left: @em;
         list-style-type:lower-roman;
         }
     dl {
-        margin:0 0 @interline 0;
-        padding: 0;
-        }
-    dl {
-        margin:0 0 @interline 0;
+        margin-left: 0;
         padding: 0;
         }
     dt{ 
-        margin: 0;
+        margin-left: 0;
         font-weight: bold;
         }
     dd {
-        margin:0 0 0 @em;
+        margin-left: 0;
         display: list-item;
         list-style-type:disc;
         font-style: italic;
@@ -72,10 +68,9 @@
         -ms-interpolation-mode: bicubic;
         }
     code {
-        display: block;
         white-space: pre;
-        }    
-        
+        } 
+                
     hgroup {
         padding: 0 0 @em 0;
         line-height: 1;
@@ -97,23 +92,7 @@
         }
 
         
-/*  Headings ------------------------------------------------------------------ 
-    
-    TYPOGRAPHIC FONT SCALE:
-    
-    6pt:    nonpareil           ->      0.6 em
-    7pt:    minion              ->      0.7 em
-    8pt:    brevier             ->      0.8 em
-    9pt:    galliard            ->      0.9 em
-    10pt:   garamond            ->        1 em / 100%
-    11pt:   small pica          ->      1.1 em
-    12pt:   pica                ->      1.2 em
-    14pt:   augustin            ->      1.4 em
-    18pt:   great primer        ->      1.8 em
-    21pt:   double pica         ->      2.1 em
-    24pt:   two-line pica       ->      2.4 em
-    36pt:   double great primer ->      3.6 em
-    
+/*  Headings ------------------------------------------------------------------     
                 
     1.  Added OO CSS classes to enable consistant and interchangable headings
         These can be used internally via LESS to extend more cleanly 
@@ -121,35 +100,47 @@
     
     */
 
+    .h0 {
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .double-great-primer;
+        line-height: @header-lineheight;
+        }
     h1, .h1 {
-        margin: 0; 
-        font-size:  2.4em; //two-line pica
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .two-line-pica;
+        line-height: @header-lineheight;
         }
     h2, .h2 {
-        margin: 0; 
-        font-size:  2.1em; //double pica
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .double-pica;
+        line-height: @header-lineheight;
         }
     h3, .h3 {
-        margin: 0; 
-        font-size:  1.8em; //great primer
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .great-primer;
+        line-height: @header-lineheight;
         }
     h4, .h4 {
-        margin: 0; 
-        font-size:  1.4em; //augustin
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .augustin;
+        line-height: @header-lineheight;
         }
     h5, .h5 {
-        margin: 0; 
-        font-size:  1.2em; //pica
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .pica;
+        line-height: @header-lineheight;
         }
     h6, .h6 {
-        margin: 0; 
-        font-size:  1.1em; //small pica
-        font-weight: normal;
+        margin: @interline 0 0 0; 
+        font-weight: @header-weight;
+        .small-pica;
+        line-height: @header-lineheight;
         }
     
     
