@@ -4,8 +4,8 @@
         <title>Lunatech Labs - Front-end Patterns</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0;">
-        <link rel="stylesheet" type="text/css" media="screen" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -55,29 +55,29 @@
 
                 <h4>Remove the default CSS stylesheet, scripts and images</h4>
                 
-                <p>Delete the contents of the Play project’s <tt>public/</tt> folder, which will be replaced by LESS stylesheets.</p>
+                <p>Delete the contents of the Play project’s <code>public/</code> folder, which will be replaced by LESS stylesheets.</p>
                 
                 
                 <h4>Copy JavaScript, font and image files</h4>
                 
-                <p>Copy the <tt>scripts</tt>, <tt>styles/vanilla/fonts</tt> and <tt>styles/vanilla/images</tt> folders to the Play project’s <tt>public</tt> folder.</p>
+                <p>Copy the <code>scripts</code>, <code>styles/vanilla/fonts</code> and <code>styles/vanilla/images</code> folders to the Play project’s <code>public</code> folder.</p>
                 
                 
                 <h4>Copy the LESS source files</h4>
 
-				<p>Copy the LESS source files from <tt>styles/vanilla/less/*.less</tt> to a new <tt>app/assets/stylesheets</tt> folder. Play will use the LESS compiler to compile these files, and make the resulting CSS available to your view templates.</p>
+				<p>Copy the LESS source files from <code>styles/vanilla/less/*.less</code> to a new <code>app/assets/stylesheets</code> folder. Play will use the LESS compiler to compile these files, and make the resulting CSS available to your view templates.</p>
 
 
                 <h4>Prefix included LESS files’ names with an underscore</h4>
                 
-				<p>In <tt>app/assets/stylesheets</tt>, for each file except <tt>main.less</tt>, prefix the file name with an underscore and edit the file names in the <tt>@import</tt> statements in <tt>main.less</tt>. This stops Play trying to compile these files, which will fail, because they depend on each other. Instead, compiling <tt>main.less</tt> will result in the other files being compiled via the <tt>@import</tt> statements.</p>
+				<p>In <code>app/assets/stylesheets</code>, for each file except <code>main.less</code>, prefix the file name with an underscore and edit the file names in the <code>@import</code> statements in <code>main.less</code>. This stops Play trying to compile these files, which will fail, because they depend on each other. Instead, compiling <code>main.less</code> will result in the other files being compiled via the <code>@import</code> statements.</p>
 
 
                 <h4>Replace the main page template</h4>
                 
-                <p>Replace the contents of <tt>app/views/main.scala.html</tt> with the following template. This template adds a <tt>subtitle</tt> parameter, includes the JavaScript files and replaces the body with a default template.</p>
+                <p>Replace the contents of <code>app/views/main.scala.html</code> with the following template. This template adds a <code>subtitle</code> parameter, includes the JavaScript files and replaces the body with a default template.</p>
                 
-                <code>@(title: String, subtitle: String)(content: Html)
+                <code class="block panel">@(title: String, subtitle: String)(content: Html)
 @import play.api.Play.current
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -115,9 +115,9 @@
             
             <h4>Replace the default index page</h4>
             
-			<p>Replace the contents of <tt>app/views/index.scala.html</tt> with the following template.</p>
+			<p>Replace the contents of <code>app/views/index.scala.html</code> with the following template.</p>
                 
-			<code>@(message: String)
+			<code class="block panel">@(message: String)
 @main("Home", "Welcome to Front-End Patterns") {
    &lt;p&gt;@message&lt;/p&gt;
 }</code>

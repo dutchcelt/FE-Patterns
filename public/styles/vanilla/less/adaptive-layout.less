@@ -3,7 +3,7 @@
     ########################################################################### */
 
 
-    @media screen and (max-width: 680px) {
+    @media (max-width: 680px) {
         html {
             padding: 0 0 @em/2;
             -webkit-text-size-adjust: none;
@@ -18,14 +18,18 @@
         .content {
             padding: @em/2 @block/2;
         }
+        header .logo {
+            padding: 0 0 0 @block;
+            }
         .content hgroup {
             margin: 0 - @em/2 0 - @block/2 @block;
-            padding: @em/2 @block/2;
+            padding: @em/2 @block*1.5;
         }
         .content > section {
             float: none;
             padding: 0;
-            margin-right: 0;
+            margin-right: @block;
+            margin-left: @block;
             width: auto;
         }    
         .content section p {
@@ -35,6 +39,7 @@
             float: none;
             margin-right: 0;
             width: auto;
+            font-size: 0.8em;
         }    
         .content .tabs li,
         .content .tabs li a{
@@ -46,7 +51,7 @@
             width: auto;
             }
         nav ul {
-            padding: 0 @block/4;
+            padding: 0 @block * 1.5;
         }    
         nav ul li a {
             padding: 0 @block/4 0 0
@@ -67,7 +72,7 @@
             }
    }
         
-    @media screen and (min-width: 680px) and (max-width: 960px){
+    @media (min-width: 680px) and (max-width: 960px){
         body {
             min-width:  @w * 64 - @block*2;
             max-width:  @w * 80;
@@ -85,7 +90,7 @@
             .box-flex(0);
             }
     }
-    @media screen and (min-width: 960px) {
+    @media (min-width: 960px) {
         body {
             min-width:  @w * 80 - @block*2;
             max-width:  @w * 100;

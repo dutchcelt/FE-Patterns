@@ -4,8 +4,8 @@
         <title>Lunatech Labs - Front-end Patterns</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width; initial-scale=1.0;">
-        <link rel="stylesheet" type="text/css" media="screen" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -49,7 +49,7 @@
             <section class="examples">
             <ul class="">
                 <li class="panel">
-                    <h3>Simple box</h3>
+                    <header><h3>Simple box</h3></header>
                     <code>
 &lt;body&gt;
     &lt;section class=&quot;panel&quot;&gt;
@@ -79,12 +79,12 @@
     }
                     </code>                
                 </li>
-                <li class="panel widgit">
+                <li class="panel widget">
                     <header><h3>Box with header and footer*</h3></header>
                     <section>
                         <code>
 &lt;body&gt;
-    &lt;section class=&quot;panel widgit&quot;&gt;
+    &lt;section class=&quot;panel widget&quot;&gt;
         &lt;header&gt;
             &lt;h3&gt;Box with header and footer*&lt;/h3&gt;
         &lt;/header&gt;
@@ -95,30 +95,30 @@
                         </code>
                         <h5>Less code:</h5>
                         <p>
-                            The '.widgit' class extends '.panel'. <br>
-                            In this case '.widgit' only overrides the colour.
+                            The '.widget' class extends '.panel'. <br>
+                            In this case '.widget' only overrides the colour.
                         </p>
                         <code>
-.widgit  {
+.widget  {
     .text-shadow(@l,@light-color);
     background-color: @grey1;
     }
-.widgit header {
+.widget header {
     .gradient(@light-color,@grey2);
     }
-.widgit footer {
+.widget footer {
     background-color: @grey2;
     }
                         </code>    
                     </section>
                     <footer>* Optional text</footer>            
                 </li>
-                <li class="panel widgit highlighted">
+                <li class="panel widget highlighted">
                     <header><h3>Highlighted box</h3></header>
                     <section>
                         <code>
 &lt;body&gt;
-    &lt;section class=&quot;panel widgit highlighted&quot;&gt;
+    &lt;section class=&quot;panel widget highlighted&quot;&gt;
         &lt;header&gt;
             &lt;h3&gt;Highlighted box&lt;/h3&gt;
         &lt;/header&gt;

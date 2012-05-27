@@ -18,38 +18,38 @@
         background-image: url(../images/backgrounds/back.png);
         }
     body > header {
-        //border-bottom: @l solid @grey5;
-        padding: @em/2 @block 0;
         height: @em*3;
         overflow: hidden;
         }
     header .logo {
-        margin: 0;
-        padding: 0;
         .h1;
+        margin: 0;
+        padding: 0 0 0 @block *2;
         font-weight: normal;
-        line-height: @transport;
+        line-height: 1.8;
         font-family: @typeface-header;
         color: @red2;
         background: transparent;
         }
-    .content {
-        padding: 0 @block @em;
+    .content > section {
+        margin-left: @block*2;
         }
     .content hgroup {
-        .box;
-        margin-right: 0 - @block;
-        margin-left: 0 - @block;
+        padding: @interline @block * 2;
+        margin-bottom: @interline;
         .text-shadow(@l, @light-color);
         background: @grey1;
         background-color: fadeout(@grey6, 85%);
         }
     .content hgroup h1 {
+        margin: 0;
+        line-height: 1;
         font-family: @typeface-brand;
-        padding-bottom: @interline/8;
         }      
     .content hgroup h5 {
         .h6;
+        margin: 0;
+        line-height: 1.6;
         color: @grey5;
         }  
     .content > section {
@@ -69,6 +69,7 @@
         border-top: @l dotted fadeout(@dark-color, 80%);
         padding: @em @block;
         text-align: center;
+        font-size: 0.8em;
         }
     .message {
         margin: @em @block 0;
@@ -94,6 +95,7 @@
     .content .ui-tabs-panel {
         width: 100%;
         overflow: hidden;
+        .box-sizing(border-box);
         }
     .tabs hgroup {
         background: transparent;
@@ -145,7 +147,8 @@
         width: @block;
         height: @em;
         text-align: center;
-        .h5;
+        font-size: 1.2em;
+        line-height: 1.5;
         font-family: @typeface-header;
         padding: 0 @block/5 @interline/8;
         .rounded-corners(@block);
@@ -199,7 +202,7 @@
     nav ul {
         clear: both;
         margin: 0;
-        padding: 0 @block;
+        padding: 0 @block*2;
         display: block;
         list-style: none;
         min-height: @em*1.2;
@@ -211,7 +214,7 @@
         float: left;
         display: block;
         font-size: 0.9em;
-        line-height: @transport * 1.2;
+        line-height: @transport * 1.4;
         text-transform: uppercase;
         color: @grey2;
         .text-shadow(0 - @l, darken(@blue2, 50%));
@@ -230,7 +233,7 @@
         }    
     nav ul .active:before {
         position: absolute;
-        top: -1px;
+        top: 0;
         left:40%;
         display: block;
         content: " ";  
@@ -242,6 +245,7 @@
         }  
     nav ul li:last-child {
         float: right;
+        margin-right: -(@block);
         }
         
            
@@ -249,6 +253,8 @@
     
     .tabs {
         float: left;
+        //margin-top: @interline;
+        margin: @interline -(@block);
         width: 60%;
         visibility: hidden;
         }
@@ -270,7 +276,11 @@
 
     #accordion {
         float: left;
+        margin-top: @interline;
         width: 60%;
+        }
+    #accordion .block {
+        display: block;
         }
         
 /*  Forms & Buttons */   
@@ -329,6 +339,7 @@
 
     .content .examples {
         clear: both;
+        margin-left: 0;
         width: 100%;
         }
     .examples ul {
@@ -341,15 +352,14 @@
         display: block;
         .box-flex();
         margin-left: @w;
+        overflow: hidden;
         }
     .examples .panel:first-child {
         margin-left: 0;
         }
-    .examples .panel:first-child:after {
-        .icon(@interline*1.6,94%);
-        .ui-icon-script;
-        .opacity(0.3);
+    .examples header h3 { 
+        margin: 0; 
+        padding: @interline/4 0;
         }
-    
         
         

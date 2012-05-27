@@ -25,15 +25,23 @@
     .panel > header ~ section {
         padding: @interline 0;
         }
-        
-    .widgit  {
+    .block {
+        // used having code display as a block of code
+        display: block;
+        }   
+    .block.panel {
+        width: 100%;
+        overflow: auto;
+    }
+    
+    .widget  {
         .text-shadow(@l,@light-color);
         background-color: @grey1;
         }
-    .widgit header {
+    .widget header {
         .gradient(@light-color,@grey2);
         }
-    .widgit footer {
+    .widget footer {
         background-color: @grey2;
         }
         

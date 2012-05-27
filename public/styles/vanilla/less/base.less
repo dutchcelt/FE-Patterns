@@ -34,34 +34,30 @@
         text-rendering: optimizeLegibility;
         }
     ul, ol {
-        margin:0 0 @interline @em;
+        margin-left: 0;
         padding: 0;
         }
     li ul, li ol {
-        margin: 0 0 0 @em;
+        margin-left: @em;
         }
     ol ol {
-        margin-left: @em*1.1;
+        margin-left: @em;
         list-style-type:lower-alpha;
         }
     ol ol ol {
-        margin-left: @em*@transport;
+        margin-left: @em;
         list-style-type:lower-roman;
         }
     dl {
-        margin:0 0 @interline 0;
-        padding: 0;
-        }
-    dl {
-        margin:0 0 @interline 0;
+        margin-left: 0;
         padding: 0;
         }
     dt{ 
-        margin: 0;
+        margin-left: 0;
         font-weight: bold;
         }
     dd {
-        margin:0 0 0 @em;
+        margin-left: 0;
         display: list-item;
         list-style-type:disc;
         font-style: italic;
@@ -72,10 +68,9 @@
         -ms-interpolation-mode: bicubic;
         }
     code {
-        display: block;
         white-space: pre;
-        }    
-        
+        } 
+                
     hgroup {
         padding: 0 0 @em 0;
         line-height: 1;
@@ -106,39 +101,46 @@
     */
 
     .h0 {
-        margin: 0; 
-        .double-great-primer;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .double-great-primer;
+        line-height: @header-lineheight;
         }
     h1, .h1 {
-        margin: 0; 
-        .two-line-pica;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .two-line-pica;
+        line-height: @header-lineheight;
         }
     h2, .h2 {
-        margin: 0; 
-        .double-pica;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .double-pica;
+        line-height: @header-lineheight;
         }
     h3, .h3 {
-        margin: 0; 
-        .great-primer;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .great-primer;
+        line-height: @header-lineheight;
         }
     h4, .h4 {
-        margin: 0; 
-        .augustin;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .augustin;
+        line-height: @header-lineheight;
         }
     h5, .h5 {
-        margin: 0; 
-        .pica;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .pica;
+        line-height: @header-lineheight;
         }
     h6, .h6 {
-        margin: 0; 
-        .small-pica;
+        margin: @interline 0 0 0; 
         font-weight: @header-weight;
+        .small-pica;
+        line-height: @header-lineheight;
         }
     
     
