@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lunatech Labs - Front-end Patterns</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script type="text/javascript" data-main="public/scripts/init" src="public/scripts/require.js"></script>
+        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
 <body>
     
@@ -27,6 +27,7 @@
             <li><a href="layout.html">Layout</a></li>
             <li><a href="boxes.html">Boxes</a></li>
             <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
             <li><a href="play.html">Play</a></li>
         </ul>
     </nav>
@@ -53,13 +54,21 @@
                 <li><a href="#tabs-3">Miscellaneous</a></li-->
             </ul>
             <div id="tab01">
-                     <section class="notes">
+                
+                <form novalidate="novalidate">
+                    <fieldset>
+                        <h4>Text field</h4>
                     <code class="note">
 &lt;div&gt;
     &lt;label for="txt01"&gt;Name *&lt;/label&gt;
     &lt;input type="text" id="txt01" required /&gt;
 &lt;/div&gt;
                 </code>
+                        <div>
+                            <label for="txt01">Label text</label>
+                            <input type="text" id="txt01" required />
+                        </div>
+                        <h4>Radio or checkbox entry</h4>
                 <code class="note">
 &lt;div&gt;
     &lt;label&gt;Do you wish to receive our newletter?&lt;/label&gt;
@@ -71,22 +80,6 @@
     &lt;/div&gt;
 &lt;/div&gt;
                 </code>
-                <code class="note">
-&lt;div&gt;
-    &lt;label for=&quot;d01&quot;&gt;Date&lt;/label&gt;
-    &lt;input type=&quot;text&quot; id=&quot;d01&quot; class=&quot;date&quot;/&gt;
-&lt;/div&gt;
-                </code>
-                </section>
-                
-                <form novalidate>
-                    <fieldset>
-                        <h4>Text field</h4>
-                        <div>
-                            <label for="txt01">Label text</label>
-                            <input type="text" id="txt01" required />
-                        </div>
-                        <h4>Radio or checkbox entry</h4>
                         <div>
                             <label>Label text</label>
                             <div>
@@ -95,6 +88,12 @@
                             </div>
                         </div>
                         <h4>Datepicker</h4>
+                <code class="note">
+&lt;div&gt;
+    &lt;label for=&quot;d01&quot;&gt;Date&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;d01&quot; class=&quot;date&quot;/&gt;
+&lt;/div&gt;
+                </code>
                         <div>
                             <label for="d01">Date</label>
                             <input type="text" id="d01" class="date" pattern="([1-9]|0[1-9]|[12][0-9]|3[01])[- /.]([1-9]|0[1-9]|1[012])[- /.](19|20)\d\d"/>
@@ -104,24 +103,22 @@
 
             </div>
             <div id="tab02">
-                <section class="notes">
-                    <code class="note">
-&lt;div class="buttons"&gt;
-    &lt;button type="submit" class="save" value="Save"&gt;Save&lt;/button&gt;
-    &lt;button type="button" class="delete value="Delete"&gt;Delete&lt;/button&gt;
-    &lt;button type="button" class="cancel value="Cancel"&gt;Cancel&lt;/button&gt;
-    &lt;button type="button" class="print" value="Print"&gt;Print&lt;/button&gt;
-&lt;/div&gt;
-                </code>
-                </section>
-                <form novalidate>
+                <form novalidate="novalidate">
                     <h4>Buttons (right aligned)</h4>
                     <fieldset>
+                    <code class="note">
+&lt;div class="buttons"&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn seperate&quot; value=&quot;Print&quot;&gt;&lt;i class=&quot;icon-print&quot;&gt;&lt;/i&gt;&amp;nbsp;Print&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; value=&quot;Delete&quot;&gt;&lt;i class=&quot;icon-trash&quot;&gt;&lt;/i&gt;&amp;nbsp;Delete&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; value=&quot;Cancel&quot;&gt;&lt;i class=&quot;icon-ban-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;Cancel&lt;/button&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn default&quot; value=&quot;Save&quot;&gt;&lt;i class=&quot;icon-save&quot;&gt;&lt;/i&gt;&amp;nbsp;Save&lt;/button&gt;
+&lt;/div&gt;
+                </code>
                     <div class="buttons">
-                        <button type="submit" class="save" value="Save">Save</button>
-                        <button type="button" class="delete" value="Delete">Delete</button>
-                        <button type="button" class="button cancel" value="Cancel">Cancel</button>
-                        <button type="button" class="print" value="Print">Print</button>
+                        <button type="button" class="btn seperate" value="Print"><i class="icon-print"></i>&nbsp;Print</button>
+                        <button type="button" class="btn" value="Delete"><i class="icon-trash"></i>&nbsp;Delete</button>
+                        <button type="button" class="btn" value="Cancel"><i class="icon-ban-circle"></i>&nbsp;Cancel</button>
+                        <button type="submit" class="btn default" value="Save"><i class="icon-save"></i>&nbsp;Save</button>
                     </div>
                     </fieldset>
                 </form>
@@ -129,7 +126,9 @@
             </div>
             <div id="tab03">
     
-                <section class="notes">
+                <form novalidate="novalidate">
+                    <h4>Contact form</h4>
+                    <fieldset>
                     <code class="note">
 &lt;form novalidate&gt;
     &lt;h4&gt;Contact form&lt;/h4&gt;
@@ -167,16 +166,12 @@
         &lt;/div&gt;
     &lt;/fieldset&gt;
     &lt;div class=&quot;buttons&quot;&gt;
-        &lt;button type=&quot;submit&quot; class=&quot;save&quot; value=&quot;Save&quot;&gt;Save&lt;/button&gt;
-        &lt;button type=&quot;button&quot; class=&quot;cancel&quot;value=&quot;Cancel&quot;&gt;Cancel&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn&quot; value=&quot;Cancel&quot;&gt;&lt;i class=&quot;icon-ban-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;Cancel&lt;/button&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;btn default&quot; value=&quot;Save&quot;&gt;&lt;i class=&quot;icon-save&quot;&gt;&lt;/i&gt;&amp;nbsp;Save&lt;/button&gt;
     &lt;/div&gt;
     &lt;p&gt;* These fields are required.&lt;/p&gt;
 &lt;/form&gt;
                 </code>
-                </section>
-                <form novalidate>
-                    <h4>Contact form</h4>
-                    <fieldset>
                         <div>
                             <label for="id00">ID</label>
                             <input type="text" id="id00" value="0001 (readonly id)" readonly />
@@ -210,8 +205,8 @@
                         </div>
                     </fieldset>
                     <div class="buttons">
-                        <button type="submit" class="save" value="Save">Save</button>
-                        <button type="button" class="cancel"value="Cancel">Cancel</button>
+                        <button type="button" class="btn" value="Cancel"><i class="icon-ban-circle"></i>&nbsp;Cancel</button>
+                        <button type="submit" class="btn default" value="Save"><i class="icon-save"></i>&nbsp;Save</button>
                     </div>
                     <p>* These fields are required.</p>
                 </form>
@@ -227,7 +222,7 @@
     </article>
     
     <footer>
-            <p>Copyright &copy; 2011-2012, C. Egor Kloos, Lunatech Research B.V. All rights reserved.</p>
+            <p>Copyright &copy; 2011-2012, C. Egor Kloos. All rights reserved.</p>
     </footer>
     
 </body>

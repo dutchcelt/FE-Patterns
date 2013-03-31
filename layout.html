@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lunatech Labs - Front-end Patterns</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script type="text/javascript" data-main="public/scripts/init" src="public/scripts/require.js"></script>
+        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
     <body>
         
@@ -27,6 +27,7 @@
                 <li class="active"><a href="layout.html">Layout</a></li>
                 <li><a href="boxes.html">Boxes</a></li>
                 <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
                 <li><a href="play.html">Play</a></li>
             </ul>
         </nav>
@@ -39,7 +40,7 @@
             </hgroup>
             <section class="info">
                 <p>Here you can see that we're avoiding the cascade to create the layout. In most cases this is a bad thing to do. However, a layout generally only needs to be defined once and its rules don't need to be inherited. Using child and sibling selectors are very useful in this regard.</p>
-                <p>You can also see the maximum number of selectors in a rule. We've found that using more than four selectors is a good indicator of a problem with the implemented cascade. So keep your <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html" title="Andy Clarke's blog">specificity</a> as low as possible.</p>
+                <p>You can also see the maximum number of selectors in a rule. We've found that using more than three selectors is a good indicator of a problem with the implemented cascade. So keep your <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html" title="Andy Clarke's blog">specificity</a> as low as possible.</p>
             </section>
             <section class="examples">
             <ul class="">
@@ -49,7 +50,7 @@
 &lt;body&gt;
     &lt;div class="site"&gt;
         &lt;header&gt;&lt;/header&gt;
-        &lt;section&gt;
+        &lt;section class="content"&gt;
             &lt;article&gt;&lt;/article&gt;
         &lt;/section&gt;
         &lt;aside&gt;&lt;/aside&gt;
@@ -67,12 +68,12 @@
 .site > footer {
     clear:both;
     }
-.site > section {
+.content {
     <strong>float: right;</strong>
     width: 66.66%;
     overflow: hidden;
     }
-.site > aside {
+.content > aside {
     float: left;
     width: 33.33%
     overflow: hidden;
@@ -85,7 +86,7 @@
 &lt;body&gt;
     &lt;div class="site"&gt;
         &lt;header&gt;&lt;/header&gt;
-        &lt;section&gt;
+        &lt;section class="content"&gt;
             &lt;article&gt;&lt;/article&gt;
         &lt;/section&gt;
         &lt;aside&gt;&lt;/aside&gt;
@@ -103,12 +104,12 @@
 .site > footer {
     clear:both;
     }
-.site > section {
+.content {
     <strong>float: left;</strong>
     width: 66.66%;
     overflow: hidden;
     }
-.site > aside {
+.content > aside {
     float: left;
     width: 33.33%;
     overflow: hidden;
@@ -121,7 +122,7 @@
 &lt;body&gt;
     &lt;div class="site"&gt;
         &lt;header&gt;&lt;/header&gt;
-        &lt;section&gt;
+        &lt;section class="content"&gt;
             &lt;section&gt;
                 &lt;article&gt;&lt;/article&gt;
             &lt;/section&gt;
@@ -142,22 +143,22 @@
 .site > footer {
     clear:both;
     }
-.site > section {
+.content {
     float: right;
     width: 75%;
     overflow: hidden;
     }
-.site > aside {
+.content > aside {
     float: left;
     width: 25%;
     overflow: hidden;
     }
-<strong>.site > section > section {
+<strong>.content > section {
     float: left;
     width: 66.66%;
     overflow: hidden;
     }
-.site > section > section + aside {
+.content > section + aside {
     float: left;
     width: 33.33%;
     overflow: hidden;
@@ -171,7 +172,7 @@
         </article>
         
         <footer>
-            <p>Copyright &copy; 2011-2012, C. Egor Kloos, Lunatech Research B.V. All rights reserved.</p>
+            <p>Copyright &copy; 2011-2012, C. Egor Kloos. All rights reserved.</p>
         </footer>
         
     </body>

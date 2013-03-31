@@ -1,0 +1,5 @@
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### *///  LAZY LOADING ##############################################################
+// AMD ROUTING 
+function lazyLoad(){var e=this.elem,t=this.func;require(this.amd,function(){if(t){var n=window[t];typeof n=="function"&&n(e)}})}function loadLazyScripts(e){var t=e.concat();setTimeout(function(){var e=t.shift();e.elem.length>0&&lazyLoad.call(e);t.length>0&&setTimeout(arguments.callee,0)},0)}require.config({baseUrl:"/scripts/minified",paths:{jquery:"jquery-1.9.1-min",keepinview:"keepinview-min",datatable:"jquery.dataTables-min","fep-functions":"fep-functions-min"}});require(["jquery"],function(){$("html").attr("class","js");var e=[{elem:$("nav"),amd:["keepinview","fep-functions"],func:"fepKeepInView"},{elem:$(".tabs"),amd:["fep-functions"],func:"fepTabs"},{elem:$(".datatable"),amd:["datatable","fep-functions"],func:"fepDatatable"},{elem:$("canvas"),amd:["fep-functions"],func:"fepCanvas"}];$(document).ready(function(){loadLazyScripts(e)})});

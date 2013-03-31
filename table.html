@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lunatech Labs - Front-end Patterns</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script type="text/javascript" data-main="public/scripts/init" src="public/scripts/require.js"></script>
+        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
     <body>
         
@@ -27,6 +27,7 @@
                 <li><a href="layout.html">Layout</a></li>
                 <li><a href="boxes.html">Boxes</a></li>
                 <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
                 <li><a href="play.html">Play</a></li>
             </ul>
         </nav>
@@ -132,7 +133,7 @@
     &lt;/thead&gt;
     &lt;tfoot&gt;
         &lt;tr&gt;
-            &lt;td colspan=&quot;4&quot; class=&quot;ui-state-default&quot;&gt;Footer&lt;/td&gt;
+            &lt;td colspan=&quot;4&quot; &gt;Footer&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
     &lt;tbody&gt;
@@ -140,14 +141,14 @@
             &lt;td&gt;101a&lt;/td&gt;
             &lt;td&gt;Firstname ... 01&lt;/td&gt;
             &lt;td&gt;00-00-0000&lt;/td&gt;
-            &lt;td&gt;&lt;a href=&quot;#&quot; class=&quot;ui-icon ui-icon-trash&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&quot;#&quot; class=&quot;icon-trash&quot; title=&quot;delete&quot;&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         ...
     &lt;/tbody&gt;
 &lt;/table&gt;
                         </code>
                     </section>
-                    <h4>Datatable & jQuery UI scripted tables</h4>
+                    <h4>Datatable scripted tables (with Font Awesome icons)</h4>
                     <table cellspacing="0" class="datatable">
                         <col class="id"/>
                         <col class="title"/>
@@ -163,7 +164,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="4" class="ui-state-default">Footer</td>
+                                <td colspan="4" class="">Footer</td>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -171,22 +172,22 @@
                                 <td>101a</td>
                                 <td>Firstname Middlename Middlename Surname 01</td>
                                 <td>00-00-0000</td>
-                                <td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                             <tr>
-                                <td>101b</td><td>Firstname Middlename Middlename Surname 04</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td>101b</td><td>Firstname Middlename Middlename Surname 04</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                             <tr>
-                                <td>101c</td><td>Firstname Middlename Middlename Surname 02</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td>101c</td><td>Firstname Middlename Middlename Surname 02</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                             <tr>
-                                <td>101d</td><td>Firstname Middlename Middlename Surname 06</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td>101d</td><td>Firstname Middlename Middlename Surname 06</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                             <tr>
-                                <td>101e</td><td>Firstname Middlename Middlename Surname 03</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td>101e</td><td>Firstname Middlename Middlename Surname 03</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                             <tr>
-                                <td>101f</td><td>Firstname Middlename Middlename Surname 05</td><td>00-00-0000</td><td><a href="#" class="ui-icon ui-icon-trash">delete</a></td>
+                                <td>101f</td><td>Firstname Middlename Middlename Surname 05</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -196,7 +197,7 @@
         </article>
         
         <footer>
-            <p>Copyright &copy; 2011-2012, C. Egor Kloos, Lunatech Research B.V. All rights reserved.</p>
+            <p>Copyright &copy; 2011-2012, C. Egor Kloos. All rights reserved.</p>
         </footer>
         
     </body>

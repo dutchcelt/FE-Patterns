@@ -1,0 +1,136 @@
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+
+
+/*  BUTTONS ------------------------------------------------------------------- */
+
+    //  Button contour fallback requires a border for browser that don't support
+    //  box shadow. An override for mordern browsers is supplied below
+    .btn {
+        margin-left: 0.5em;
+        .border-radius();
+        border: @l solid @grey3; // Button contour fallback 
+        outline: none;
+        padding: @h*1.5 @block/2;
+        font-size: 1em;
+        font-family: @typeface-header;
+        .appearance(none);
+        .gradient(@light-color,@grey1);
+        .box-shadow(0 0 1px 1px rgba(0,0,0,0.2), 0 1px 3px 0 rgba(0,0,0,0.6) );
+        text-shadow: 0 1px 0 @light-color;
+        cursor: pointer;
+        &:before {
+            margin-right: 0.33em;
+            font-size: 0.9em;
+            }
+        &:hover {
+            color: @light-color;
+            border-color: @green2; // Button contour fallback
+            .gradient(@green1,@green2);
+            .box-shadow(0 0 1px 1px @green2, 0 1px 3px 0 rgba(0,0,0,0.8) );
+            text-shadow: 0 -1px 0 @grey8;
+            }
+        }
+    
+    .btn.default {
+        color: @light-color;
+        border-color: @blue2; // Button contour fallback
+        .gradient(@blue1,darken(@blue2,10%));
+        .box-shadow(0 0 1px 1px darken(@blue2,0), 0 1px 3px 1px rgba(0,0,0,0.8) );
+        text-shadow: 0 -1px 0 @blue2;
+        &:hover {
+            border-color: darken(@blue2,20%); // Button contour fallback
+            .box-shadow(0 0 1px 1px darken(@blue2,20%), 0 1px 3px 1px rgba(0,0,0,0.8) );
+            .gradient(darken(@blue1,15%),darken(@blue2,25%));
+            }
+    }
+    .buttons .seperate {
+        float: left;
+        margin-right: 0.5em;
+        margin-left: 0;
+        overflow: hidden;
+        }
+    
+    // Modern browser override
+    @media screen and (color) { 
+        .btn { 
+            border: 0; 
+            } 
+        }
+        
+/*  Accordion */
+
+    #accordion {
+        float: left;
+        margin-top: @interline;
+        .box-span(8);
+        }
+    #accordion .block {
+        display: block;
+        }
+
+
+/*  Tabs */
+    
+    .tabs {
+        position: relative;
+        float: left;
+        display: block;
+        margin-top: @em;
+        .border-radius();
+        .box-sizing(border-box);
+        }
+    .tabs > ul {
+        margin: 0px -3px;
+        padding: 0 3px;
+        display: block;
+        height: 2.55em;
+        overflow: hidden;
+        //.gradient(@grey2,@grey1);
+        //.box-shadow(inset 0 1px 3px 1px rgba(0,0,0,0.3));
+        }
+    .tabs > ul li {
+        float: left;
+        display: block;
+        font-family: @typeface-header;
+    }
+    .tabs > ul a {
+        display: inline-block;
+        padding: @interline/2 @block;
+        color: @text-color;
+        text-shadow: 0 1px 0 @light-color;
+        cursor: pointer;
+    }
+    .tabs > ul .active{
+        position: relative;
+        bottom: -1px;
+        z-index: 2;
+        .border-radius(top);
+        background-color: @light-color;
+        .box-shadow(0 1px 3px 1px rgba(0,0,0,0.2));
+    }
+    .tabs > div[id*='tab'] {
+        .box();
+        .box-span(8);
+        position: absolute;
+        display: none;
+        .border-radius(bottom);
+        float: left;
+        background: @light-color;
+        .box-shadow(0 1px 3px 1px rgba(0,0,0,0.2));
+        .box-sizing(border-box);
+    }
+    .tabs > div:target {
+        display: block;
+    }
+    .tabs > div > :last-child:after {
+        clear: both;
+        display: block;
+        margin-bottom: 0 - @em;
+        content: ".";
+        visibility: hidden;
+        height: 0;
+        line-height: 0;
+        }
+

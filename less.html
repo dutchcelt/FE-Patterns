@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lunatech Labs - Front-end Patterns</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script type="text/javascript" data-main="public/scripts/init" src="public/scripts/require.js"></script>
+        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
 <body>
     
@@ -27,6 +27,7 @@
             <li><a href="layout.html">Layout</a></li>
             <li><a href="boxes.html">Boxes</a></li>
             <li class="active"><a href="less.html">LESS</a></li>
+            <li><a href="styleguide.html">Style Guide</a></li>
             <li><a href="play.html">Play</a></li>
         </ul>
     </nav>
@@ -34,7 +35,7 @@
             
     <article class="content">
         <hgroup>
-            <h1>LESS</h1>
+            <h1>Less</h1>
             <h5>Maintainable CSS!</h5>
         </hgroup>
         <section>
@@ -47,14 +48,14 @@
     
             <div id="accordion">
                 <div>
-                    <h3><a href="#">Grid units</a></h3>
+                    <h3><a href="#">Layout </a></h3>
                     <code class="block">
 //  Base units that set overall proportions ------------------------------------
 
     @view:                  1200;           // VIEWPORT target based on pixels
     @w:                     @view / 100px;  // Smallest horizontal unit
     @h:                     0.2em;          // Smallest vertical unit
-    @em:                    @h*7;           // Vertical space or leading
+    @em:                    @h*7;           // Vertical space for boundries like top & bottom padding
     
     @block:                 @w * 2;         // White space for paddings or margins
     @text-block:            @view * 48%;    // alt: 52em; 
@@ -62,6 +63,38 @@
     
     @l:                     1px;            // Line or border
     @rad:                   @w/3;           // Standard radius
+    
+    
+//  Form elements -------------------------------------------------------------
+
+    @form-width:            @text-block;
+    @field-width:           @form-width;
+    
+    @input-padding-height:  @em/4;
+    @input-padding-width:   @block/6;
+    @text-input-padding:    @input-padding-height @input-padding-width;
+    
+    @label-width:           100%;
+    @text-input-width:      100%;
+    @label-orientation:     none; /* float value: left, right, none */
+    
+    @label-text-orientation:left;
+
+
+//  Box elements --------------------------------------------------------------
+
+    .box {
+        margin:             0 0 @interline ;
+        padding:            @interline @block;
+        }
+        
+    //  Use this to have block elements override the '.panel' padding.    
+    //  This is great for headings, &lt;header&gt; and &lt;footer&gt; tags.
+    .box-inset {
+        margin:             0 - @interline 0 - @block;
+        padding:            @interline/2 @block;
+        }
+
                     </code>
                 </div>
                 <div>
@@ -72,24 +105,37 @@
     @font-root:             &quot;../fonts/&quot;;
                             
     @font-face {
-        font-family:        'OstrichBlack';
-        src:                url('@{font-root}ostrich-black-webfont.woff') format('woff');
-        font-weight:        normal;
-        font-style:         normal;
-        }
-    @font-face {
-        font-family:        'LobsterTwoBoldItalic';
-        src:                url('@{font-root}LobsterTwo-BoldItalic-webfont.woff') format('woff');
+        font-family:        'fontname';
+        src:                url('@{font-root}fontname.woff') format('woff');
         font-weight:        normal;
         font-style:         normal;
         }
 
-    @font-scale:            82.5%;          // Used on the body element
-    @transport:             1.6;            // For line height (no units!)
-    @interline:                  @h*5;           // Interline: For web it's usually 1em
-    @typeface:              Arial, sans-serif;
-    @typeface-header:       &quot;LobsterTwoBoldItalic&quot;, Georgia, serif;
-    @typeface-brand:        &quot;OstrichBlack&quot;, Arial, sans-serif;
+    @body-scale:            100%;          // Used on the body element
+    @transport:             1.5;            // For line height (no units!)
+    @interline:             @h*5;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
+    @typeface:              "fontname", Arial, sans-serif;
+    @typeface-header:       "fontname", Arial, sans-serif;
+    
+    @em-scale:              0.9em;
+    @header-weight:         normal;
+    @header-lineheight:     1.4;
+    
+
+/*  TYPOGRAPHIC FONT SCALE (DO NOT EDIT) ----------------------------------------- */
+    
+    .nonpareil              { font-size: @em-scale * 0.6; }
+    .minion                 { font-size: @em-scale * 0.7; }
+    .brevier                { font-size: @em-scale * 0.8; }
+    .galliard               { font-size: @em-scale * 0.9; }
+    .garamond               { font-size: @em-scale *   1; }
+    .small-pica             { font-size: @em-scale * 1.1; }
+    .pica                   { font-size: @em-scale * 1.2; }
+    .augustin               { font-size: @em-scale * 1.4; }
+    .great-primer           { font-size: @em-scale * 1.8; }
+    .double-pica            { font-size: @em-scale * 2.1; }
+    .two-line-pica          { font-size: @em-scale * 2.4; }
+    .double-great-primer    { font-size: @em-scale * 3.6; }
                     </code>
                 </div>
                 <div>
@@ -98,8 +144,8 @@
 //  Basic colour values -------------------------------------------------------
 
     @light-color:           #ffffff;
-    @dark-color:            #222222;
-    @text-color:            #333333;
+    @dark-color:            #252b2c;
+    @text-color:            @dark-color;
     
     
 //  Color sets ----------------------------------------------------------------
@@ -118,15 +164,20 @@
     @red1:                  #f83f21;
     @red2:                  darken(@red1, 15%);
     
-    @grey0:                 #fafafa;                            @error:                 #cd0a0a;     
-    @grey1:                 darken(@grey0, 8%);                 @ui-highlight1:         @yellow1;
-    @grey2:                 darken(@grey0, 16%);                @ui-highlight2:         darken(@ui-highlight1, 25%);
-    @grey3:                 darken(@grey0, 26%);                @ui-highlight3:         darken(@ui-highlight2, 5%);
-    @grey4:                 darken(@grey0, 38%);                @ui-error1:             @red1;
-    @grey5:                 darken(@grey0, 54%);                @ui-error2:             darken(@ui-error1, 15%);
-    @grey6:                 darken(@grey0, 76%);                @ui-error3:             darken(@ui-error2, 5%);
+    @error:                 #cd0a0a;   
    
-    
+    @grey9:                 @dark-color; // Dark tone first as its hue is easier to control
+    @grey8:                 lighten(@grey9,10%);
+    @grey7:                 lighten(@grey9,20%);
+    @grey6:                 lighten(@grey9,30%);
+    @grey5:                 lighten(@grey9,40%);
+    @grey4:                 lighten(@grey9,50%);
+    @grey3:                 lighten(@grey9,60%);
+    @grey2:                 lighten(@grey9,65%);
+    @grey1:                 lighten(@grey9,70%);
+    @grey0:                 lighten(@grey9,78%);
+
+
 //  Link colour values --------------------------------------------------------
 
     @link-color:            #0080ff;
@@ -136,96 +187,49 @@
                         </code>
                 </div>
                 <div>
-                    <h3><a href="#">Forms</a></h3>
-                    <code class="block">
-//  Form elements -------------------------------------------------------------
-
-    @form-width:            @text-block;
-    @field-width:           @form-width;
-    
-    @input-padding-height:  @em/4;
-    @input-padding-width:   @block/6;
-    @text-input-padding:    @input-padding-height @input-padding-width;
-    
-    @label-width:           100%;
-    @text-input-width:      100%;
-    @label-orientation:     none; /* float value: left, right, none */
-    
-    @label-text-orientation:left;
-                    </code>
-                </div>
-                <div>
-                    <h3><a href="#">Boxes &amp; panels</a></h3>
-                    <code class="block">
-//  Box elements --------------------------------------------------------------
-
-    .box {
-        margin:             0 0 @interline ;
-        padding:            @interline @block;
-        }
-        
-    //  Use this to have block elements override the '.panel' padding.    
-    //  This is great for headings, &lt;header&gt; and &lt;footer&gt; tags.
-    .box-inset {
-        margin:             0 - @interline 0 - @block;
-        padding:            @interline/2 @block;
-        }
-                    </code>
-                </div>
-                <div>
                     <h3><a href="#">Icons</a></h3>
                     <code class="block">
-//  ICONS ---------------------------------------------------------------------
-    
-    //  Icons for :before or :after & set parent element to position relative
-    
-    @icon-root:                 &quot;../images/icons/&quot;;
-    
-    //  Arguments:
-    //  1. absolute position top (default: 0px)
-    //  2. absolute position left (default: 0px)
-    //  3. filename to icon(s) (default: jQUERY UI's icons)
-    //  4. Icon size (default: 16px)
-    
-    .icon(@postop:0, @posleft:0, @file:'ui-icons_454545_256x240.png', @icon-size:16px) {
-        position:               absolute;
-        top:                    @postop;
-        left:                   @posleft;
-        content:                &quot;&quot;;
-        padding:                @icon-size/2;
-        background-image:       url('@{icon-root}@{file}');
-        background-repeat:      no-repeat;
-        }
+/*  Font Awesome
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/
+*/
                     </code>
                 </div>
                 <div>
                     <h3><a href="#">Mixin functions</a></h3>
                     <code class="block">
-//  Basic UI elements ---------------------------------------------------------
+//  Mixins --------------------------------------------------------------------
 
-    .text-shadow(@loc, @color) {
-        text-shadow:            0 @loc @l @color;
+    .text-shadow(@arguments) {
+        text-shadow:            @arguments;
         }
-    .box-shadow(@x:0,@y:@l,@blur:@l,@color:fadeout(@dark-color,80%)) {
-        -moz-box-shadow:        @arguments;
-        -webkit-box-shadow:     @arguments;
-        box-shadow:             @arguments;
+    .box-shadow(@shadowA, @shadowB:X, ...){
+        // Multiple shadow solution from http://toekneestuck.com/blog/2012/05/15/less-css-arguments-variable/
+        @props: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+        -webkit-box-shadow:     @props;
+           -moz-box-shadow:     @props;
+            -ms-box-shadow:     @props;
+             -o-box-shadow:     @props;
+                box-shadow:     @props;
         }
     .gradient(@start,@stop){
-        background-color:       @stop;
+        background-color:       @start;
+        background-image:       -webkit-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
         background-image:       -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
-        background-image:       -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop)); /* webkit */
         background-image:       -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
+        background-image:       -o-linear-gradient(top, @start 0%, @stop 100%); /* opera */
         background-image:       linear-gradient(top, @start 0%, @stop 100%); /* w3c */
-                                // IE HACK!!
-        //filter:               e(&quot;progid:DXImageTransform.Microsoft.Gradient( StartColorStr=&quot;)@start e(&quot;, EndColorStr=&quot;)@stop e(&quot;,GradientType=0 )&quot;);/* ie */
         }   
-    
-    .background-clip {
+
+    .background-clip() {
         // Background clip to allow borders to blend properly with the background
-        -moz-background-clip:   padding; 
-        -webkit-background-clip:padding-box;
-        background-clip:        padding-box;
+        -webkit-background-clip: padding-box;
+           -moz-background-clip: padding;
+            -ms-background-clip: padding-box;
+             -o-background-clip: padding-box;
+                background-clip: padding-box;
         }
     .rounded-corners(@r:@rad) {
         border-radius:          @arguments;
@@ -241,40 +245,104 @@
         border-bottom-left-radius: @arguments;
         .background-clip;
         }
+    .rounded-corners-left(@r:@rad) {
+        border-top-left-radius: @arguments;
+        border-bottom-left-radius: @arguments;  
+        .background-clip;
+        }
+    .rounded-corners-right(@r:@rad) {
+        border-top-right-radius: @arguments;
+        border-bottom-right-radius: @arguments;  
+        .background-clip;
+        }
+    
+    .clearfix {
+        *zoom: 1;
+        &:before,
+        &:after {
+            display: table;
+            content: "";
+            // Fixes Opera/contenteditable bug:
+            // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+            line-height: 0;
+            }
+        &:after {
+            clear: both;
+            }
+        }      
         
+    .opacity(@alpha:0.5) { 
+        @ieopacity:             @arguments * 100;
+        opacity:                @arguments; 
+        filter:                 ~"Alpha(Opacity=@{ieopacity})";
+        }
+        
+    .transition(@transition:none) {
+    	-webkit-transition:     @arguments;
+    	   -moz-transition:     @arguments;
+    	    -ms-transition:     @arguments;
+    	     -o-transition:     @arguments;
+    	        transition:     @arguments;
+    	        }
+    
+    .appearance(@arguments) {
+        -webkit-appearance:     @arguments;
+           -moz-appearance:     @arguments;
+            -ms-appearance:     @arguments;
+             -o-appearance:     @arguments;
+                appearance:     @arguments;
+                }
+    
+    .transform(@arguments) {
+        -webkit-transform:      @arguments;
+           -moz-transform:      @arguments;
+            -ms-transform:      @arguments;
+             -o-transform:      @arguments;
+                transform:      @arguments;
+                }
+                
+    .box-sizing(@box:content-box){
+        -webkit-box-sizing:     @arguments; /* content-box */
+           -moz-box-sizing:     @arguments;
+            -ms-box-sizing:     @arguments;
+             -o-box-sizing:     @arguments;
+                box-sizing:     @arguments;
+                }
+
+    // WARNING STILL BUGGY! ==============================
     .columns(@col:2) {
-        -moz-column-count:      @col; 
-        -moz-column-gap:        @w; 
         -webkit-column-count:   @col; 
         -webkit-column-gap:     @w; 
-        column-count:           @col; 
-        column-gap:             @w; 
-        }
-        
+           -moz-column-count:   @col; 
+           -moz-column-gap:     @w; 
+            -ms-column-count:   @col; 
+            -ms-column-gap:     @w; 
+             -o-column-count:   @col; 
+             -o-column-gap:     @w; 
+                column-count:   @col; 
+                column-gap:     @w; 
+                }
+    
+    // WARNING STILL VERY EXPERIMENTAL! ==================
     .display-box(@orient:horizontal) {
-        display:                -moz-box;
-        display:                -webkit-box;
-        -moz-box-orient:        @arguments;
+                   display:     -webkit-box;
+                   display:     -moz-box;
+                   display:     -ms-box;
+                   display:     -o-box;
+                   display:     box;
         -webkit-box-orient:     @arguments;
-        }
+           -moz-box-orient:     @arguments;
+            -ms-box-orient:     @arguments;
+             -o-box-orient:     @arguments;
+                box-orient:     @arguments;
+                }
     .box-flex(@flex:1) {
-        -moz-box-flex:          @arguments;
-        -webkit-box-flex:       @arguments;
-        }
-
-    .clear-fix {
-        content:                &quot;.&quot;;
-        display:               block;
-        clear:                 both;
-        visibility:            hidden;
-        line-height:           0;
-        height:                0;
-        }
-        
-    .opacity(@alpha:0.5) {  
-        opacity:                @arguments; 
-        filter:                 e(&quot;Alpha(Opacity=&quot;)@arguments e(&quot;)&quot;);
-        }
+          -webkit-box-flex:     @arguments;
+             -moz-box-flex:     @arguments;
+              -ms-box-flex:     @arguments;
+               -o-box-flex:     @arguments;
+                  box-flex:     @arguments;
+                  }
                     </code>
                 </div>
             </div>
@@ -283,7 +351,7 @@
     </article>
     
     <footer>
-            <p>Copyright &copy; 2011-2012, C. Egor Kloos, Lunatech Research B.V. All rights reserved.</p>
+            <p>Copyright &copy; 2011-2012, C. Egor Kloos. All rights reserved.</p>
     </footer>
     
 </body>

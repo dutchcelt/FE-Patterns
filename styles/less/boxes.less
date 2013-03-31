@@ -1,0 +1,53 @@
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+
+
+
+/*  Boxes */
+
+    .panel {
+        .box;
+        .border-radius();
+        background-color: @light-color;
+        }
+    .panel > footer,
+    .panel > header {
+        .box-inset;
+        }
+    .panel :first-child {
+        .border-radius(top);
+        }
+    .panel :last-child {
+        .border-radius(bottom);
+        }
+    .panel > header ~ section {
+        padding: @interline 0;
+        }
+    .block {
+        // used having code display as a block of code
+        display: block;
+        }   
+    .block.panel {
+        width: 140%;
+        overflow: auto;
+    }
+    
+    .widget  {
+        background-color: @grey1;
+        }
+    .widget header {
+        .gradient(@light-color,@grey2);
+        }
+    .widget footer {
+        background-color: @grey2;
+        }
+        
+    .highlighted {
+        background-color: @yellow1;
+        .gradient(@yellow1,@yellow2);
+        }
+    .highlighted header {
+        color: @light-color;
+        .gradient(@grey6,@grey8);
+        }

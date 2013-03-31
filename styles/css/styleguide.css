@@ -1,0 +1,1890 @@
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/* float value: left, right, none */
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  Font elements ------------------------------------------------------------- */
+@font-face {
+  font-family: 'PTSerif';
+  src: url('../fonts/PTF55F-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSerif';
+  src: url('../fonts/PTF56F-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PTSerif';
+  src: url('../fonts/PTF75F-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSerif';
+  src: url('../fonts/PTF76F-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PTSerifCaption';
+  src: url('../fonts/PTZ55F-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSerifCaption';
+  src: url('../fonts/PTZ56F-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../fonts/SourceSansPro-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../fonts/SourceSansPro-It-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../fonts/SourceSansPro-Bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url('../fonts/SourceSansPro-BoldIt-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'SourceSansProLight';
+  src: url('../fonts/SourceSansPro-Light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSansProLight';
+  src: url('../fonts/SourceSansPro-LightIt-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+/*  TYPOGRAPHIC FONT SCALE (DO NOT EDIT) ----------------------------------------- */
+.nonpareil {
+  font-size: 6px;
+  font-size: 0.6em;
+}
+.minion {
+  font-size: 7px;
+  font-size: 0.7em;
+}
+.brevier {
+  font-size: 8px;
+  font-size: 0.8em;
+}
+.galliard {
+  font-size: 9px;
+  font-size: 0.9em;
+}
+.garamond {
+  font-size: 10px;
+  font-size: 1em;
+}
+.small-pica {
+  font-size: 11px;
+  font-size: 1.1em;
+}
+.pica {
+  font-size: 12px;
+  font-size: 1.2em;
+}
+.augustin {
+  font-size: 14px;
+  font-size: 1.4em;
+}
+.great-primer {
+  font-size: 18px;
+  font-size: 1.8em;
+}
+.double-pica {
+  font-size: 21px;
+  font-size: 2.1em;
+}
+.two-line-pica {
+  font-size: 24px;
+  font-size: 2.4em;
+}
+.double-great-primer {
+  font-size: 36px;
+  font-size: 3.6em;
+}
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  HTML5 display-role reset for older browsers ------------------------------- */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+/*  Basic front-end patterns  ------------------------------------------------- */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  line-height: 1.6;
+  font-family: "PTSerif", Georgia, Times, serif;
+  text-rendering: optimizeLegibility;
+}
+ul,
+ol {
+  margin-left: 1.5em;
+  padding: 0;
+}
+li ul,
+li ol {
+  margin-left: 1.5em;
+}
+ol ol {
+  margin-left: 1.5em;
+  list-style-type: lower-alpha;
+}
+ol ol ol {
+  margin-left: 1.5em;
+  list-style-type: lower-roman;
+}
+dl {
+  margin-left: 1.5em;
+  padding: 0;
+}
+dt {
+  margin-left: 0;
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+  display: list-item;
+  list-style-type: disc;
+  font-style: italic;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+code {
+  white-space: pre;
+}
+hgroup {
+  padding: 0 0 1.5em 0;
+}
+blockquote {
+  text-align: right;
+  font-style: italic;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+blockquote,
+q {
+  quotes: "" "";
+}
+[hidden] {
+  display: none;
+}
+/*  Headings ------------------------------------------------------------------     
+                
+    1.  Added OO CSS classes to enable consistant and interchangable headings
+        These can be used internally via LESS to extend more cleanly 
+    2.  Setting margin to zero seems to be more usefull across typograhpic patterns
+    
+    */
+.h0 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 36px;
+  font-size: 3.6em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h1,
+.h1 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 24px;
+  font-size: 2.4em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h2,
+.h2 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 21px;
+  font-size: 2.1em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h3,
+.h3 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 18px;
+  font-size: 1.8em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h4,
+.h4 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 14px;
+  font-size: 1.4em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h5,
+.h5 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 12px;
+  font-size: 1.2em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h6,
+.h6 {
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 11px;
+  font-size: 1.1em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+/*  Heading groups ------------------------------------------------------------ */
+hgroup .h0,
+hgroup h1,
+hgroup .h1,
+hgroup h2,
+hgroup .h2,
+hgroup h3,
+hgroup .h3,
+hgroup h4,
+hgroup .h4,
+hgroup h5,
+hgroup .h5,
+hgroup h6,
+hgroup .h6 {
+  margin: 0;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+h1 + p,
+h1 + ul,
+h1 + ol,
+h2 + p,
+h2 + ul,
+h2 + ol,
+h3 + p,
+h3 + ul,
+h3 + ol,
+h4 + p,
+h4 + ul,
+h4 + ol,
+h5 + p,
+h5 + ul,
+h5 + ol,
+h6 + p,
+h6 + ul,
+h6 + ol {
+  margin-top: 0;
+}
+/*  tables still need 'cellspacing="0"' in the markup ------------------------- */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption,
+th,
+td {
+  padding: 0.25em 1rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.2;
+  background: inherit;
+}
+th {
+  font-weight: bold;
+}
+/*  links --------------------------------------------------------------------- */
+a {
+  text-decoration: none;
+  color: #0080ff;
+  background-repeat: no-repeat;
+}
+a:visited {
+  color: #8000ff;
+}
+a:hover {
+  text-decoration: none;
+  color: #0080ff;
+  outline: 0;
+}
+a:active {
+  text-decoration: none;
+  color: #0080ff;
+  outline: 0;
+}
+a:focus {
+  outline: thin dotted;
+}
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  FORMS [WARNING! low specificity!]------------------------------------------ */
+form {
+  margin: 0;
+  padding: 0 0 0.75em 0;
+  max-width: 100%;
+}
+fieldset {
+  margin: 0;
+  border: 0 none;
+  padding: 0 0 0.75em 0;
+}
+label {
+  clear: left;
+  float: none;
+  display: block;
+  padding-right: 1rem;
+  width: 100%;
+  text-align: left;
+}
+input {
+  vertical-align: baseline;
+}
+input[type=search],
+input[type=url],
+input[type=email],
+input[type=url],
+input[type=email],
+input[type=password],
+input[type=text] {
+  float: none;
+  width: 100%;
+}
+input[type=number],
+input[type^=date],
+input[type=time] {
+  float: none;
+  width: 32.5%;
+}
+input[type=checkbox],
+input[type=radio] {
+  width: auto;
+}
+input[type=checkbox] + label {
+  float: none;
+  display: inline;
+}
+input[type="radio"] + label {
+  display: inline;
+  float: none;
+}
+select {
+  float: none;
+  width: auto;
+  min-width: 65.5%;
+  vertical-align: baseline;
+}
+textarea {
+  float: none;
+  width: 100%;
+  vertical-align: baseline;
+  overflow: auto;
+}
+input[type=checkbox] {
+  float: left;
+}
+div > div > input[type=radio],
+div > div > input[type=checkbox] {
+  float: none;
+  display: inline;
+}
+fieldset > div {
+  padding-bottom: 0.6666666666666666em;
+  float: none;
+  width: 100%;
+}
+fieldset > div > div {
+  float: none;
+  width: 100%;
+}
+div > div > label {
+  float: none;
+  display: inline;
+}
+input[type=reset],
+input[type=button],
+input[type=submit] {
+  -webkit-appearance: button;
+  width: auto;
+  overflow: visible;
+  cursor: pointer;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+select[multiple] {
+  width: 65.5%;
+}
+:invalid {
+  color: #cd0a0a;
+}
+:valid {
+  color: #252b2c;
+}
+:read-only {
+  border: 0;
+  padding: 0;
+}
+/*  Font Awesome 3.0
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/
+
+    License
+    -------------------------------------------------------
+    • The Font Awesome font is licensed under the SIL Open Font License - http://scripts.sil.org/OFL
+    • Font Awesome CSS, LESS, and SASS files are licensed under the MIT License -
+      http://opensource.org/licenses/mit-license.html
+    • The Font Awesome pictograms are licensed under the CC BY 3.0 License - http://creativecommons.org/licenses/by/3.0/
+    • Attribution is no longer required in Font Awesome 3.0, but much appreciated:
+      "Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
+
+    Contact
+    -------------------------------------------------------
+    Email: dave@davegandy.com
+    Twitter: http://twitter.com/fortaweso_me
+    Work: Lead Product Designer @ http://kyruus.com
+
+    */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/*  Font Awesome styles
+    ------------------------------------------------------- */
+/* includes sprites.less reset */
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none !important;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  text-decoration: inherit;
+  display: inline-block;
+  speak: none;
+}
+/* makes sure icons active on rollover in links */
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline-block;
+}
+/* makes the font 33% larger relative to the icon container */
+.icon-large:before {
+  vertical-align: -10%;
+  font-size: 1.3333333333333333em;
+}
+.btn [class^="icon-"],
+.nav [class^="icon-"],
+.btn [class*=" icon-"],
+.nav [class*=" icon-"] {
+  display: inline;
+  /* keeps button heights with and without icons the same */
+
+  line-height: .6em;
+}
+.btn [class^="icon-"].icon-spin,
+.nav [class^="icon-"].icon-spin,
+.btn [class*=" icon-"].icon-spin,
+.nav [class*=" icon-"].icon-spin {
+  display: inline-block;
+}
+li [class^="icon-"],
+li [class*=" icon-"] {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+li [class^="icon-"].icon-large,
+li [class*=" icon-"].icon-large {
+  /* increased font size for icon-large */
+
+  width: 1.5625em;
+}
+ul.icons {
+  list-style-type: none;
+  text-indent: -0.75em;
+}
+ul.icons li [class^="icon-"],
+ul.icons li [class*=" icon-"] {
+  width: .75em;
+}
+.icon-muted {
+  color: #eeeeee;
+}
+.icon-border {
+  border: solid 1px #eeeeee;
+  padding: .2em .25em .15em;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.icon-2x {
+  font-size: 2em;
+}
+.icon-2x.icon-border {
+  border-width: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.icon-3x {
+  font-size: 3em;
+}
+.icon-3x.icon-border {
+  border-width: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.icon-4x {
+  font-size: 4em;
+}
+.icon-4x.icon-border {
+  border-width: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+[class^="icon-"].pull-left,
+[class*=" icon-"].pull-left {
+  margin-right: .35em;
+}
+[class^="icon-"].pull-right,
+[class*=" icon-"].pull-right {
+  margin-left: .35em;
+}
+.btn [class^="icon-"].pull-left.icon-2x,
+.btn [class*=" icon-"].pull-left.icon-2x,
+.btn [class^="icon-"].pull-right.icon-2x,
+.btn [class*=" icon-"].pull-right.icon-2x {
+  margin-top: .35em;
+}
+.btn [class^="icon-"].icon-spin.icon-large,
+.btn [class*=" icon-"].icon-spin.icon-large {
+  height: .75em;
+}
+.btn.btn-small [class^="icon-"].pull-left.icon-2x,
+.btn.btn-small [class*=" icon-"].pull-left.icon-2x,
+.btn.btn-small [class^="icon-"].pull-right.icon-2x,
+.btn.btn-small [class*=" icon-"].pull-right.icon-2x {
+  margin-top: .45em;
+}
+.btn.btn-large [class^="icon-"].pull-left.icon-2x,
+.btn.btn-large [class*=" icon-"].pull-left.icon-2x,
+.btn.btn-large [class^="icon-"].pull-right.icon-2x,
+.btn.btn-large [class*=" icon-"].pull-right.icon-2x {
+  margin-top: .2em;
+}
+.icon-spin {
+  display: inline-block;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+/*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+    readers do not read off random characters that represent icons */
+.icon-glass:before {
+  content: "\f000";
+}
+.icon-music:before {
+  content: "\f001";
+}
+.icon-search:before {
+  content: "\f002";
+}
+.icon-envelope:before {
+  content: "\f003";
+}
+.icon-heart:before {
+  content: "\f004";
+}
+.icon-star:before {
+  content: "\f005";
+}
+.icon-star-empty:before {
+  content: "\f006";
+}
+.icon-user:before {
+  content: "\f007";
+}
+.icon-film:before {
+  content: "\f008";
+}
+.icon-th-large:before {
+  content: "\f009";
+}
+.icon-th:before {
+  content: "\f00a";
+}
+.icon-th-list:before {
+  content: "\f00b";
+}
+.icon-ok:before {
+  content: "\f00c";
+}
+.icon-remove:before {
+  content: "\f00d";
+}
+.icon-zoom-in:before {
+  content: "\f00e";
+}
+.icon-zoom-out:before {
+  content: "\f010";
+}
+.icon-off:before {
+  content: "\f011";
+}
+.icon-signal:before {
+  content: "\f012";
+}
+.icon-cog:before {
+  content: "\f013";
+}
+.icon-trash:before {
+  content: "\f014";
+}
+.icon-home:before {
+  content: "\f015";
+}
+.icon-file:before {
+  content: "\f016";
+}
+.icon-time:before {
+  content: "\f017";
+}
+.icon-road:before {
+  content: "\f018";
+}
+.icon-download-alt:before {
+  content: "\f019";
+}
+.icon-download:before {
+  content: "\f01a";
+}
+.icon-upload:before {
+  content: "\f01b";
+}
+.icon-inbox:before {
+  content: "\f01c";
+}
+.icon-play-circle:before {
+  content: "\f01d";
+}
+.icon-repeat:before {
+  content: "\f01e";
+}
+/* \f020 doesn't work in Safari. all shifted one down */
+.icon-refresh:before {
+  content: "\f021";
+}
+.icon-list-alt:before {
+  content: "\f022";
+}
+.icon-lock:before {
+  content: "\f023";
+}
+.icon-flag:before {
+  content: "\f024";
+}
+.icon-headphones:before {
+  content: "\f025";
+}
+.icon-volume-off:before {
+  content: "\f026";
+}
+.icon-volume-down:before {
+  content: "\f027";
+}
+.icon-volume-up:before {
+  content: "\f028";
+}
+.icon-qrcode:before {
+  content: "\f029";
+}
+.icon-barcode:before {
+  content: "\f02a";
+}
+.icon-tag:before {
+  content: "\f02b";
+}
+.icon-tags:before {
+  content: "\f02c";
+}
+.icon-book:before {
+  content: "\f02d";
+}
+.icon-bookmark:before {
+  content: "\f02e";
+}
+.icon-print:before {
+  content: "\f02f";
+}
+.icon-camera:before {
+  content: "\f030";
+}
+.icon-font:before {
+  content: "\f031";
+}
+.icon-bold:before {
+  content: "\f032";
+}
+.icon-italic:before {
+  content: "\f033";
+}
+.icon-text-height:before {
+  content: "\f034";
+}
+.icon-text-width:before {
+  content: "\f035";
+}
+.icon-align-left:before {
+  content: "\f036";
+}
+.icon-align-center:before {
+  content: "\f037";
+}
+.icon-align-right:before {
+  content: "\f038";
+}
+.icon-align-justify:before {
+  content: "\f039";
+}
+.icon-list:before {
+  content: "\f03a";
+}
+.icon-indent-left:before {
+  content: "\f03b";
+}
+.icon-indent-right:before {
+  content: "\f03c";
+}
+.icon-facetime-video:before {
+  content: "\f03d";
+}
+.icon-picture:before {
+  content: "\f03e";
+}
+.icon-pencil:before {
+  content: "\f040";
+}
+.icon-map-marker:before {
+  content: "\f041";
+}
+.icon-adjust:before {
+  content: "\f042";
+}
+.icon-tint:before {
+  content: "\f043";
+}
+.icon-edit:before {
+  content: "\f044";
+}
+.icon-share:before {
+  content: "\f045";
+}
+.icon-check:before {
+  content: "\f046";
+}
+.icon-move:before {
+  content: "\f047";
+}
+.icon-step-backward:before {
+  content: "\f048";
+}
+.icon-fast-backward:before {
+  content: "\f049";
+}
+.icon-backward:before {
+  content: "\f04a";
+}
+.icon-play:before {
+  content: "\f04b";
+}
+.icon-pause:before {
+  content: "\f04c";
+}
+.icon-stop:before {
+  content: "\f04d";
+}
+.icon-forward:before {
+  content: "\f04e";
+}
+.icon-fast-forward:before {
+  content: "\f050";
+}
+.icon-step-forward:before {
+  content: "\f051";
+}
+.icon-eject:before {
+  content: "\f052";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-plus-sign:before {
+  content: "\f055";
+}
+.icon-minus-sign:before {
+  content: "\f056";
+}
+.icon-remove-sign:before {
+  content: "\f057";
+}
+.icon-ok-sign:before {
+  content: "\f058";
+}
+.icon-question-sign:before {
+  content: "\f059";
+}
+.icon-info-sign:before {
+  content: "\f05a";
+}
+.icon-screenshot:before {
+  content: "\f05b";
+}
+.icon-remove-circle:before {
+  content: "\f05c";
+}
+.icon-ok-circle:before {
+  content: "\f05d";
+}
+.icon-ban-circle:before {
+  content: "\f05e";
+}
+.icon-arrow-left:before {
+  content: "\f060";
+}
+.icon-arrow-right:before {
+  content: "\f061";
+}
+.icon-arrow-up:before {
+  content: "\f062";
+}
+.icon-arrow-down:before {
+  content: "\f063";
+}
+.icon-share-alt:before {
+  content: "\f064";
+}
+.icon-resize-full:before {
+  content: "\f065";
+}
+.icon-resize-small:before {
+  content: "\f066";
+}
+.icon-plus:before {
+  content: "\f067";
+}
+.icon-minus:before {
+  content: "\f068";
+}
+.icon-asterisk:before {
+  content: "\f069";
+}
+.icon-exclamation-sign:before {
+  content: "\f06a";
+}
+.icon-gift:before {
+  content: "\f06b";
+}
+.icon-leaf:before {
+  content: "\f06c";
+}
+.icon-fire:before {
+  content: "\f06d";
+}
+.icon-eye-open:before {
+  content: "\f06e";
+}
+.icon-eye-close:before {
+  content: "\f070";
+}
+.icon-warning-sign:before {
+  content: "\f071";
+}
+.icon-plane:before {
+  content: "\f072";
+}
+.icon-calendar:before {
+  content: "\f073";
+}
+.icon-random:before {
+  content: "\f074";
+}
+.icon-comment:before {
+  content: "\f075";
+}
+.icon-magnet:before {
+  content: "\f076";
+}
+.icon-chevron-up:before {
+  content: "\f077";
+}
+.icon-chevron-down:before {
+  content: "\f078";
+}
+.icon-retweet:before {
+  content: "\f079";
+}
+.icon-shopping-cart:before {
+  content: "\f07a";
+}
+.icon-folder-close:before {
+  content: "\f07b";
+}
+.icon-folder-open:before {
+  content: "\f07c";
+}
+.icon-resize-vertical:before {
+  content: "\f07d";
+}
+.icon-resize-horizontal:before {
+  content: "\f07e";
+}
+.icon-bar-chart:before {
+  content: "\f080";
+}
+.icon-twitter-sign:before {
+  content: "\f081";
+}
+.icon-facebook-sign:before {
+  content: "\f082";
+}
+.icon-camera-retro:before {
+  content: "\f083";
+}
+.icon-key:before {
+  content: "\f084";
+}
+.icon-cogs:before {
+  content: "\f085";
+}
+.icon-comments:before {
+  content: "\f086";
+}
+.icon-thumbs-up:before {
+  content: "\f087";
+}
+.icon-thumbs-down:before {
+  content: "\f088";
+}
+.icon-star-half:before {
+  content: "\f089";
+}
+.icon-heart-empty:before {
+  content: "\f08a";
+}
+.icon-signout:before {
+  content: "\f08b";
+}
+.icon-linkedin-sign:before {
+  content: "\f08c";
+}
+.icon-pushpin:before {
+  content: "\f08d";
+}
+.icon-external-link:before {
+  content: "\f08e";
+}
+.icon-signin:before {
+  content: "\f090";
+}
+.icon-trophy:before {
+  content: "\f091";
+}
+.icon-github-sign:before {
+  content: "\f092";
+}
+.icon-upload-alt:before {
+  content: "\f093";
+}
+.icon-lemon:before {
+  content: "\f094";
+}
+.icon-phone:before {
+  content: "\f095";
+}
+.icon-check-empty:before {
+  content: "\f096";
+}
+.icon-bookmark-empty:before {
+  content: "\f097";
+}
+.icon-phone-sign:before {
+  content: "\f098";
+}
+.icon-twitter:before {
+  content: "\f099";
+}
+.icon-facebook:before {
+  content: "\f09a";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-unlock:before {
+  content: "\f09c";
+}
+.icon-credit-card:before {
+  content: "\f09d";
+}
+.icon-rss:before {
+  content: "\f09e";
+}
+.icon-hdd:before {
+  content: "\f0a0";
+}
+.icon-bullhorn:before {
+  content: "\f0a1";
+}
+.icon-bell:before {
+  content: "\f0a2";
+}
+.icon-certificate:before {
+  content: "\f0a3";
+}
+.icon-hand-right:before {
+  content: "\f0a4";
+}
+.icon-hand-left:before {
+  content: "\f0a5";
+}
+.icon-hand-up:before {
+  content: "\f0a6";
+}
+.icon-hand-down:before {
+  content: "\f0a7";
+}
+.icon-circle-arrow-left:before {
+  content: "\f0a8";
+}
+.icon-circle-arrow-right:before {
+  content: "\f0a9";
+}
+.icon-circle-arrow-up:before {
+  content: "\f0aa";
+}
+.icon-circle-arrow-down:before {
+  content: "\f0ab";
+}
+.icon-globe:before {
+  content: "\f0ac";
+}
+.icon-wrench:before {
+  content: "\f0ad";
+}
+.icon-tasks:before {
+  content: "\f0ae";
+}
+.icon-filter:before {
+  content: "\f0b0";
+}
+.icon-briefcase:before {
+  content: "\f0b1";
+}
+.icon-fullscreen:before {
+  content: "\f0b2";
+}
+.icon-group:before {
+  content: "\f0c0";
+}
+.icon-link:before {
+  content: "\f0c1";
+}
+.icon-cloud:before {
+  content: "\f0c2";
+}
+.icon-beaker:before {
+  content: "\f0c3";
+}
+.icon-cut:before {
+  content: "\f0c4";
+}
+.icon-copy:before {
+  content: "\f0c5";
+}
+.icon-paper-clip:before {
+  content: "\f0c6";
+}
+.icon-save:before {
+  content: "\f0c7";
+}
+.icon-sign-blank:before {
+  content: "\f0c8";
+}
+.icon-reorder:before {
+  content: "\f0c9";
+}
+.icon-list-ul:before {
+  content: "\f0ca";
+}
+.icon-list-ol:before {
+  content: "\f0cb";
+}
+.icon-strikethrough:before {
+  content: "\f0cc";
+}
+.icon-underline:before {
+  content: "\f0cd";
+}
+.icon-table:before {
+  content: "\f0ce";
+}
+.icon-magic:before {
+  content: "\f0d0";
+}
+.icon-truck:before {
+  content: "\f0d1";
+}
+.icon-pinterest:before {
+  content: "\f0d2";
+}
+.icon-pinterest-sign:before {
+  content: "\f0d3";
+}
+.icon-google-plus-sign:before {
+  content: "\f0d4";
+}
+.icon-google-plus:before {
+  content: "\f0d5";
+}
+.icon-money:before {
+  content: "\f0d6";
+}
+.icon-caret-down:before {
+  content: "\f0d7";
+}
+.icon-caret-up:before {
+  content: "\f0d8";
+}
+.icon-caret-left:before {
+  content: "\f0d9";
+}
+.icon-caret-right:before {
+  content: "\f0da";
+}
+.icon-columns:before {
+  content: "\f0db";
+}
+.icon-sort:before {
+  content: "\f0dc";
+}
+.icon-sort-down:before {
+  content: "\f0dd";
+}
+.icon-sort-up:before {
+  content: "\f0de";
+}
+.icon-envelope-alt:before {
+  content: "\f0e0";
+}
+.icon-linkedin:before {
+  content: "\f0e1";
+}
+.icon-undo:before {
+  content: "\f0e2";
+}
+.icon-legal:before {
+  content: "\f0e3";
+}
+.icon-dashboard:before {
+  content: "\f0e4";
+}
+.icon-comment-alt:before {
+  content: "\f0e5";
+}
+.icon-comments-alt:before {
+  content: "\f0e6";
+}
+.icon-bolt:before {
+  content: "\f0e7";
+}
+.icon-sitemap:before {
+  content: "\f0e8";
+}
+.icon-umbrella:before {
+  content: "\f0e9";
+}
+.icon-paste:before {
+  content: "\f0ea";
+}
+.icon-lightbulb:before {
+  content: "\f0eb";
+}
+.icon-exchange:before {
+  content: "\f0ec";
+}
+.icon-cloud-download:before {
+  content: "\f0ed";
+}
+.icon-cloud-upload:before {
+  content: "\f0ee";
+}
+.icon-user-md:before {
+  content: "\f0f0";
+}
+.icon-stethoscope:before {
+  content: "\f0f1";
+}
+.icon-suitcase:before {
+  content: "\f0f2";
+}
+.icon-bell-alt:before {
+  content: "\f0f3";
+}
+.icon-coffee:before {
+  content: "\f0f4";
+}
+.icon-food:before {
+  content: "\f0f5";
+}
+.icon-file-alt:before {
+  content: "\f0f6";
+}
+.icon-building:before {
+  content: "\f0f7";
+}
+.icon-hospital:before {
+  content: "\f0f8";
+}
+.icon-ambulance:before {
+  content: "\f0f9";
+}
+.icon-medkit:before {
+  content: "\f0fa";
+}
+.icon-fighter-jet:before {
+  content: "\f0fb";
+}
+.icon-beer:before {
+  content: "\f0fc";
+}
+.icon-h-sign:before {
+  content: "\f0fd";
+}
+.icon-plus-sign-alt:before {
+  content: "\f0fe";
+}
+.icon-double-angle-left:before {
+  content: "\f100";
+}
+.icon-double-angle-right:before {
+  content: "\f101";
+}
+.icon-double-angle-up:before {
+  content: "\f102";
+}
+.icon-double-angle-down:before {
+  content: "\f103";
+}
+.icon-angle-left:before {
+  content: "\f104";
+}
+.icon-angle-right:before {
+  content: "\f105";
+}
+.icon-angle-up:before {
+  content: "\f106";
+}
+.icon-angle-down:before {
+  content: "\f107";
+}
+.icon-desktop:before {
+  content: "\f108";
+}
+.icon-laptop:before {
+  content: "\f109";
+}
+.icon-tablet:before {
+  content: "\f10a";
+}
+.icon-mobile-phone:before {
+  content: "\f10b";
+}
+.icon-circle-blank:before {
+  content: "\f10c";
+}
+.icon-quote-left:before {
+  content: "\f10d";
+}
+.icon-quote-right:before {
+  content: "\f10e";
+}
+.icon-spinner:before {
+  content: "\f110";
+}
+.icon-circle:before {
+  content: "\f111";
+}
+.icon-reply:before {
+  content: "\f112";
+}
+.icon-github-alt:before {
+  content: "\f113";
+}
+.icon-folder-close-alt:before {
+  content: "\f114";
+}
+.icon-folder-open-alt:before {
+  content: "\f115";
+}
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+/*  Layout */
+body {
+  margin: 0 auto;
+  color: #252b2c;
+  min-width: 20rem;
+  max-width: 75rem;
+  background: #3c4648 url(../images/backgrounds/back.png) repeat 0 0;
+  background-attachment: fixed;
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body > header {
+  height: 4.5em;
+  overflow: hidden;
+  background: #3c4648 url(../images/backgrounds/back.png) repeat 0 0;
+  background-attachment: fixed;
+}
+header .logo {
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0 0 0 2rem;
+  letter-spacing: 3px;
+  font-weight: normal;
+  line-height: 3;
+  text-transform: uppercase;
+  font-family: "SourceSansProLight", Helvetica, Arial, sans-serif;
+  color: #f83f21;
+  text-shadow: 0 1px 0 #252b2c;
+  background: transparent;
+}
+.content {
+  background: #eef0f1;
+  overflow: hidden;
+}
+.content > hgroup {
+  margin: 0;
+  padding: 1em 2rem 1.5em;
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 1em;
+  padding-bottom: 1.5em;
+  background: #d8ddde;
+  background-color: rgba(107, 124, 127, 0.15000000000000002);
+  background-color: #252b2c;
+  color: #ffffff;
+}
+.content > hgroup h1 {
+  margin-top: 0.25em;
+  font-size: 1.6em;
+  line-height: 1.4;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+.content > hgroup h5 {
+  font-style: italic;
+  font-family: "PTSerif", Georgia, Times, serif;
+  color: #a0adb0;
+}
+.content > section {
+  margin: 0;
+  padding: 1em 2rem 1.5em;
+  display: inline-block;
+  padding: 1em;
+  width: 24rem;
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+}
+.content > .info {
+  width: auto;
+  min-width: 25em;
+  max-width: 40em;
+  overflow: visible;
+}
+body > footer {
+  position: relative;
+  top: 1.5em;
+  clear: both;
+  border-top: 1px dotted rgba(37, 43, 44, 0.19999999999999996);
+  padding: 1.5em 2rem;
+  text-align: center;
+  font-size: 0.8em;
+  color: #859598;
+}
+.message {
+  margin: 1.5em 2rem 0;
+  padding: 0.75em 1rem;
+  border-radius: 0.3333333333333333rem;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.message .ui-icon {
+  float: left;
+  margin-right: 0.5rem;
+}
+.details {
+  max-width: 30em;
+}
+.details .buttons {
+  margin-bottom: -1em;
+  border-top: 1px dotted #6b7c7f;
+  padding-bottom: 0;
+}
+/*  Tab & intro content */
+p canvas,
+p img {
+  float: left;
+  margin: 0 1rem 0 0;
+}
+canvas,
+figure {
+  border: 1px solid #6b7c7f;
+  max-width: 30em;
+  background-color: #6b7c7f;
+}
+figure img {
+  float: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+figcaption {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  white-space: nowrap;
+  color: #d8ddde;
+  background-color: #6b7c7f;
+}
+.bootsteps {
+  float: right;
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
+  width: 66.66%;
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.bootsteps li {
+  position: relative;
+  padding: 1em 2rem 1em 6rem;
+  margin: 1em 0 0.5em 0;
+  font-weight: normal;
+  font-size: 14px;
+  font-size: 1.4em;
+  line-height: 1.2;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+  margin: 0 0 1em;
+  border-radius: 0.3333333333333333rem;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  -ms-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  background-clip: padding-box;
+  background: #ffffff;
+  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+.bootsteps li i:first-child {
+  position: absolute;
+  top: 0.2em;
+  left: 0.2em;
+  font-size: 2em;
+}
+.bootsteps li:hover i:first-child {
+  color: #c62106;
+}
+/*  Datatables */
+.content .dataTables_wrapper {
+  float: left;
+  clear: none;
+  _height: 302px;
+}
+.content .dataTables_wrapper table {
+  margin: 0;
+  clear: none;
+  width: auto;
+}
+.dataTables_wrapper col.id {
+  width: 10%;
+}
+.dataTables_wrapper col.title {
+  width: auto;
+}
+.dataTables_wrapper col.date {
+  width: 15%;
+}
+.dataTables_wrapper col.actions {
+  width: 2%;
+}
+/*  Navigaiton */header + nav {
+  background-color: #546163;
+  background-image: -webkit-linear-gradient(top, #546163 0%, #3c4648 100%);
+  /* webkit */
+
+  background-image: -moz-linear-gradient(top, #546163 0%, #3c4648 100%);
+  /* firefox */
+
+  background-image: -ms-linear-gradient(top, #546163 0%, #3c4648 100%);
+  /* ie10 */
+
+  background-image: -o-linear-gradient(top, #546163 0%, #3c4648 100%);
+  /* opera */
+
+  background-image: linear-gradient(top, #546163 0%, #3c4648 100%);
+  /* w3c */
+
+  z-index: 4242;
+}
+nav ul {
+  margin: 0 2rem;
+  padding: 0;
+  display: block;
+  list-style: none;
+  min-height: 1.7999999999999998em;
+}
+nav ul li {
+  position: relative;
+  display: inline-block;
+  font-size: 0.825em;
+  line-height: 2.5600000000000005;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d8ddde;
+  text-shadow: 0 -1px 0 #252b2c;
+}
+nav ul li a {
+  padding: 0 1rem 0 0;
+}
+nav ul li a,
+nav ul li a:visited {
+  color: #cad1d2;
+}
+nav ul li a:hover,
+nav ul li a:active,
+nav ul li.active a {
+  color: #7abcff;
+}
+nav ul li:last-child {
+  float: right;
+}
+/*  Forms & Buttons */.buttons {
+  margin-right: -0.5rem;
+  padding: 1em 0;
+  height: 3em;
+  text-align: right;
+}
+fieldset {
+  width: 100%;
+  font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
+}
+fieldset .help {
+  color: #a0adb0;
+}
+input[placeholder] + .help {
+  display: none;
+}
+fieldset .error {
+  padding-right: 1rem;
+  font-weight: bold;
+  color: #cd0a0a;
+}
+/*  Messages */
+.warning {
+  margin: 1em 0 1.5em;
+  padding: 1em 1rem;
+}
+code,
+.note {
+  color: #369649;
+  display: block;
+  font-style: normal;
+  font-size: 12.222222222222221px;
+  line-height: 22px;
+  font-family: Monaco,Monospace;
+  background-color: transparent;
+  background-image: -webkit-repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
+  background-image: -moz-repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
+  background-image: -ms-repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
+  background-image: -o-repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
+  background-image: repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
+  padding: 0em 1em;
+  overflow: auto;
+}
+code strong {
+  color: #c62106;
+}
+/*  Blocks */
+.content .examples {
+  clear: both;
+  margin-left: 0;
+  width: 100%;
+}
+.examples ul {
+  margin: 0;
+  width: 100% ;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  box-orient: horizontal;
+}
+.examples li {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  margin-left: 1rem;
+  overflow: hidden;
+}
+.examples .panel:first-child {
+  margin-left: 0;
+}
+.examples header h3 {
+  margin: 0;
+  padding: 0.25em 0;
+}
+.box {
+  display: inline-block;
+  padding: 1em;
+}
+.colour:nth-child(2) {
+  background: #252b2c;
+}
+.colour:nth-child(3) {
+  background: #3c4648;
+}
+.colour:nth-child(4) {
+  background: #546163;
+}
+.colour:nth-child(5) {
+  background: #6b7c7f;
+}
+.colour:nth-child(6) {
+  background: #859598;
+}
+.colour:nth-child(7) {
+  background: #a0adb0;
+}
+.colour:nth-child(8) {
+  background: #bcc5c7;
+}
+.colour:nth-child(9) {
+  background: #cad1d2;
+}
+.colour:nth-child(10) {
+  background: #d8ddde;
+}
+.colour:nth-child(11) {
+  background: #eef0f1;
+}
+.black {
+  background: black;
+}
+.white {
+  background: white;
+}

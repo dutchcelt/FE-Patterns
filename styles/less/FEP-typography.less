@@ -1,0 +1,118 @@
+/*  ###########################################################################
+    Author:     C. Egor Kloos - DutchCelt Design
+    ########################################################################### */
+    
+    
+        
+/*  Font elements ------------------------------------------------------------- */
+
+    @font-root:             "../fonts/";
+        
+    @font-face {
+        font-family: 'PTSerif';
+        src: url('@{font-root}PTF55F-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'PTSerif';
+        src: url('@{font-root}PTF56F-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'PTSerif';
+        src: url('@{font-root}PTF75F-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'PTSerif';
+        src: url('@{font-root}PTF76F-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: italic;
+    }
+    @font-face {
+        font-family: 'PTSerifCaption';
+        src: url('@{font-root}PTZ55F-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    
+    }
+    
+    @font-face {
+        font-family: 'PTSerifCaption';
+        src: url('@{font-root}PTZ56F-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'SourceSansPro';
+        src: url('@{font-root}SourceSansPro-Regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'SourceSansPro';
+        src: url('@{font-root}SourceSansPro-It-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+    @font-face {
+        font-family: 'SourceSansPro';
+        src: url('@{font-root}SourceSansPro-Bold-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'SourceSansPro';
+        src: url('@{font-root}SourceSansPro-BoldIt-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: italic;
+    }
+    @font-face {
+        font-family: 'SourceSansProLight';
+        src: url('@{font-root}SourceSansPro-Light-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'SourceSansProLight';
+        src: url('@{font-root}SourceSansPro-LightIt-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+
+    @body-scale:            100%;          // Used on the body element
+    @transport:             1.6;           // For line height (no units!)
+    @interline:             1em;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
+    @typeface:              "PTSerif", Georgia, Times, serif;
+    @typeface-header:       "SourceSansPro", Helvetica, Arial, sans-serif;
+    @typeface-header-light: "SourceSansProLight", Helvetica, Arial, sans-serif;
+    @typeface-brand:        "SourceSansPro", Helvetica, Arial, sans-serif;
+    @typeface-alt:          "PTSerifCaption", Georgia, Times, serif;
+    
+    @font-scale:            1;
+    @header-weight:         normal;
+    @header-lineheight:     1.2;
+    
+
+/*  TYPOGRAPHIC FONT SCALE (DO NOT EDIT) ----------------------------------------- */
+    
+    .nonpareil              { .font-size(@font-scale * 0.6); }
+    .minion                 { .font-size(@font-scale * 0.7); }
+    .brevier                { .font-size(@font-scale * 0.8); }
+    .galliard               { .font-size(@font-scale * 0.9); }
+    .garamond               { .font-size(@font-scale *   1); }
+    .small-pica             { .font-size(@font-scale * 1.1); }
+    .pica                   { .font-size(@font-scale * 1.2); }
+    .augustin               { .font-size(@font-scale * 1.4); }
+    .great-primer           { .font-size(@font-scale * 1.8); }
+    .double-pica            { .font-size(@font-scale * 2.1); }
+    .two-line-pica          { .font-size(@font-scale * 2.4); }
+    .double-great-primer    { .font-size(@font-scale * 3.6); }

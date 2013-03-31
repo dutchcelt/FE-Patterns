@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Lunatech Labs - Front-end Patterns</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="public/styles/vanilla/css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script type="text/javascript" data-main="public/scripts/init" src="public/scripts/require.js"></script>
+        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
     <body>
         
@@ -27,6 +27,7 @@
                 <li><a href="layout.html">Layout</a></li>
                 <li><a href="boxes.html">Boxes</a></li>
                 <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
                 <li><a href="play.html">Play</a></li>
             </ul>
         </nav>
@@ -45,9 +46,9 @@
                 </p>
                 <h3>LESS files you really need:</h3>
                 <ol>
-                    <li><strong>lib-*.less</strong> (A collection of library files that contain all variables and mixins)</li>
-                    <li><strong>base.less</strong> (A patterned reset to help HTML tags behave a little more predictable across browsers)</li>
-                    <li><strong>forms.less</strong> (basic form settings like label alignment)</li>
+                    <li><strong>FEP-*.less</strong> (A collection of library files that contain all variables and mixins)</li>
+                    <li><strong>FEP-base.less</strong> (A patterned reset to help HTML tags behave a little more predictable across browsers)</li>
+                    <li><strong>FEP-forms.less</strong> (basic form settings like label alignment)</li>
                     <li><strong>main.less</strong> (loads all the LESS files in to single CSS file) </li>
                 </ol>
                 
@@ -67,7 +68,7 @@
                 </p>
                 <h4>The main file</h4>
                 <p>
-                    This is the file where you'll include all the files you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/vanilla/css/main.css). 
+                    This is the file where you'll include all the files you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/legacy/css/main.css). 
                     Either way all relative image paths should be the same "../images/".
                 </p>
 
@@ -95,7 +96,7 @@
         </article>
         
         <footer>
-            <p>Copyright &copy; 2011-2012, C. Egor Kloos, Lunatech Research B.V. All rights reserved.</p>
+            <p>Copyright &copy; 2011-2012, C. Egor Kloos. All rights reserved.</p>
         </footer>
         
     </body>
