@@ -35,7 +35,7 @@
     }(function ($) {
     
         $.fn.keepInView = function(settings) {
-            
+
             return this.each(function() {
             
                 var $elem = $(this);

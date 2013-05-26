@@ -1,0 +1,4 @@
+/*  ###########################################################################
+    Author:    C. Egor Kloos - DutchCelt Design
+    ########################################################################### */// We like javascript. Add 'js' class to use for styling
+$("html").attr("class","js");fep.lazyLoadArray=[{elem:$(".tabs"),amd:["fep-functions"],func:"fepTabs"},{elem:$("nav"),amd:["keepinview"],plugin:"keepInView",opts:{zindex:"424"}},{elem:$(".datatable"),amd:["datatable","fep-functions"],plugin:"dataTable",opts:{aLengthMenu:[[5,10,20,-1],[5,10,20,"All"]],iDisplayLength:5,bLengthChange:!0,sPaginationType:"full_numbers",aoColumns:[null,null,null,{bSortable:!1}]}},{elem:$("body"),amd:["fep-functions"],module:"testScript",opts:{test:"hello!"},method:["run"]}];
