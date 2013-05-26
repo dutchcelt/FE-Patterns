@@ -13,7 +13,7 @@
             "config": "config-min",
             "keepinview": "keepinview-min",
             "datatable": "jquery.dataTables-min",
-            "fep-functions": "fep-functions-min"
+            "modules": "modules-min"
         }
     });
     

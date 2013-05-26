@@ -22,7 +22,7 @@
         
             {   // Tabs - Using a custom function
                 elem: $(".tabs"),
-                amd:  ['fep-functions'], 
+                amd:  ['modules'], 
                 func: 'fepTabs' 
             },
             
@@ -34,7 +34,7 @@
             },
             {   // DataTable script - Triggering a jquery plugin 
                 elem: $(".datatable"),
-                amd:  ['datatable','fep-functions'], 
+                amd:  ['datatable'], 
                 plugin: 'dataTable',
                 opts: {
                     "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
@@ -47,7 +47,7 @@
             
             {   // Canvas placeholder
                 elem: $("canvas"),
-                amd:  ['fep-functions'], 
+                amd:  ['modules'], 
                 module: 'fepCanvas',
                 method: ["run"]
             }
