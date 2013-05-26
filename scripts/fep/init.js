@@ -37,7 +37,7 @@
 
     //  Lazy loading all the required script for the current document.
     //  See config.js to add your own scripts and enter any new file in the above AMD routing.
-   ;(function(){
+   ;(function(fep){
         fep.lazyload = function( array ) {
             var fn = {
                 loadScript: function(){

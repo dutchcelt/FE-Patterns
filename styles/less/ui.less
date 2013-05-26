@@ -81,7 +81,7 @@
         .border-radius();
         .box-sizing(border-box);
         }
-    .tabs > ul {
+    .tabs-list {
         margin: 0px -3px;
         padding: 0 3px;
         display: block;
@@ -90,19 +90,19 @@
         //.gradient(@grey2,@grey1);
         //.box-shadow(inset 0 1px 3px 1px rgba(0,0,0,0.3));
         }
-    .tabs > ul li {
+    .tabs-tab {
         float: left;
         display: block;
         font-family: @typeface-header;
     }
-    .tabs > ul a {
+    .tabs-tab-link {
         display: inline-block;
         padding: @interline/2 @block;
         color: @text-color;
         text-shadow: 0 1px 0 @light-color;
         cursor: pointer;
     }
-    .tabs > ul .active{
+    .tabs-tab.active{
         position: relative;
         bottom: -1px;
         z-index: 2;
@@ -110,7 +110,7 @@
         background-color: @light-color;
         .box-shadow(0 1px 3px 1px rgba(0,0,0,0.2));
     }
-    .tabs > div[id*='tab'] {
+    .tabs-pane {
         .box();
         .box-span(8);
         position: absolute;
@@ -121,10 +121,10 @@
         .box-shadow(0 1px 3px 1px rgba(0,0,0,0.2));
         .box-sizing(border-box);
     }
-    .tabs > div:target {
+    .tabs-pane:target {
         display: block;
     }
-    .tabs > div > :last-child:after {
+    .tabs-pane > :last-child:after {
         clear: both;
         display: block;
         margin-bottom: 0 - @em;
