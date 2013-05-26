@@ -16,15 +16,19 @@
                 http://alistapart.com/article/the-design-of-code-organizing-javascript
      */
      
-    fep.config = function(){
+    fep.config = {
         
-        return [
-        
+        getArray : function(){ return [
+            
+            ////// Regular functions //////////////////////////////////////////
+            
             {   // Tabs - Using a custom function
                 elem: $(".tabs"),
                 amd:  ['modules'], 
                 func: 'fepTabs' 
             },
+            
+            ////// jQuery plugins ////////////////////////////////////////////
             
             {   // Keep navigation in view - Triggering a jquery plugin
                 elem: $("nav"),
@@ -32,6 +36,7 @@
                 plugin: 'keepInView',
                 opts: { 'zindex': '424' } 
             },
+            
             {   // DataTable script - Triggering a jquery plugin 
                 elem: $(".datatable"),
                 amd:  ['datatable'], 
@@ -45,6 +50,8 @@
                 } 
             },
             
+            ////// jQuery modules ////////////////////////////////////////////
+            
             {   // Canvas placeholder
                 elem: $("canvas"),
                 amd:  ['modules'], 
@@ -52,6 +59,6 @@
                 method: ["run"]
             }
             
-        ];
-        
+        ]}
+
     }

@@ -11,4 +11,4 @@
      *  module: These are scoped functions attached to jquery using the module pattern.
                 You can pass and element, options and a method to invoke.
                 http://alistapart.com/article/the-design-of-code-organizing-javascript
-     */fep.config=function(){return[{elem:$(".tabs"),amd:["modules"],func:"fepTabs"},{elem:$("nav"),amd:["keepinview"],plugin:"keepInView",opts:{zindex:"424"}},{elem:$(".datatable"),amd:["datatable"],plugin:"dataTable",opts:{aLengthMenu:[[5,10,20,-1],[5,10,20,"All"]],iDisplayLength:5,bLengthChange:!0,sPaginationType:"full_numbers",aoColumns:[null,null,null,{bSortable:!1}]}},{elem:$("canvas"),amd:["modules"],module:"fepCanvas",method:["run"]}]};
+     */fep.config={getArray:function(){return[{elem:$(".tabs"),amd:["modules"],func:"fepTabs"},{elem:$("nav"),amd:["keepinview"],plugin:"keepInView",opts:{zindex:"424"}},{elem:$(".datatable"),amd:["datatable"],plugin:"dataTable",opts:{aLengthMenu:[[5,10,20,-1],[5,10,20,"All"]],iDisplayLength:5,bLengthChange:!0,sPaginationType:"full_numbers",aoColumns:[null,null,null,{bSortable:!1}]}},{elem:$("canvas"),amd:["modules"],module:"fepCanvas",method:["run"]}]}};
