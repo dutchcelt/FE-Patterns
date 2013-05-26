@@ -3,26 +3,31 @@
     ########################################################################### */
 
         
-    /*  Loading DOM elements into an array of objects that will initiate lazy loading and execution.
+    /*  Loading DOM elements into an array of objects that will initiate lazy 
+        loading and execution.
     
-     *  elem:   The jquery selector that triggers the lazy load and gets passed to 'func', 'plugin' or 'module'
+     *  elem:   The jquery selector that triggers the lazy load and gets 
+                passed to 'func', 'plugin' or 'module'
      *  amd:    Asyncronous Script Modules (AMD) that is required to load 
      
      *  func:   The function to execute (mostly found in fep-functions.js)
-     *  plugin: Use this if you need to tigger a conventional jQuery plugin that can be chained
-                Yoy can pass options to the plugin if needed.
-     *  module: These are scoped functions attached to jquery using the module pattern.
+     *  plugin: Use this if you need to tigger a conventional jQuery plugin 
+                that can be chained
+                You can pass options to the plugin if needed.
+     *  module: These are scoped functions attached to jquery using the 
+                module pattern.
                 You can pass and element, options and a method to invoke.
-                http://alistapart.com/article/the-design-of-code-organizing-javascript
+                
+        http://alistapart.com/article/the-design-of-code-organizing-javascript
      */
      
-    fep.config = {
+    FEP.config  = {
         
-        getArray : function(){ return [
+        getArray: function(){ return [
             
             ////// Regular functions //////////////////////////////////////////
             
-            {   // Tabs - Using a custom function
+            {   // Tabs 
                 elem: $(".tabs"),
                 amd:  ['modules'], 
                 func: 'fepTabs' 
@@ -30,14 +35,14 @@
             
             ////// jQuery plugins ////////////////////////////////////////////
             
-            {   // Keep navigation in view - Triggering a jquery plugin
+            {   // Keep navigation in view 
                 elem: $("nav"),
                 amd:  ['keepinview'], 
                 plugin: 'keepInView',
                 opts: { 'zindex': '424' } 
             },
             
-            {   // DataTable script - Triggering a jquery plugin 
+            {   // DataTable script  
                 elem: $(".datatable"),
                 amd:  ['datatable'], 
                 plugin: 'dataTable',

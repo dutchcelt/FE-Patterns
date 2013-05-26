@@ -18,7 +18,7 @@
     });
     
     // Initiate the namespace for Front-end Patterns (FEP)
-    var fep = {};
+    var FEP = {};
 
     require(['jquery', 'config'],function(){ 
 
@@ -28,8 +28,8 @@
             // We like javascript. Add 'js' class to use for styling
             $("html").attr('class','js'); 
             
-            var getAllScripts = fep.lazyload;
-            getAllScripts.init( fep.config.getArray() );
+            var getAllScripts = FEP.lazyload;
+            getAllScripts.init( FEP.config.getArray() );
 
         });
             
@@ -38,7 +38,7 @@
     //  Lazy loading all the required script for the current document.
     //  See config.js to add your own scripts and enter any new file in the above AMD routing.
     
-    fep.lazyload = ( function(){
+    FEP.lazyload = ( function(){
         var fn = {
             loadScript: function(){
 
