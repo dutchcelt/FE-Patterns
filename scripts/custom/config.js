@@ -23,47 +23,51 @@
      
     FEP.config  = {
         
-        getArray: function(){ return [
+        getArray: function(){ 
+        
+            return [
             
-            ////// Regular functions //////////////////////////////////////////
+                ////// Regular functions //////////////////////////////////////////
+                
+                {   // Tabs 
+                    elem: $(".tabs"),
+                    amd:  ['modules'], 
+                    func: 'fepTabs' 
+                },
+                
+                ////// jQuery plugins ////////////////////////////////////////////
+                
+                {   // Keep navigation in view 
+                    elem: $("nav"),
+                    amd:  ['keepinview'], 
+                    plugin: 'keepInView',
+                    opts: { 'zindex': '424' } 
+                },
+                
+                {   // DataTable script  
+                    elem: $(".datatable"),
+                    amd:  ['datatable'], 
+                    plugin: 'dataTable',
+                    opts: {
+                        "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                        "iDisplayLength": 5,
+                        "bLengthChange": true,
+                        "sPaginationType": "full_numbers",
+                        "aoColumns": [ null, null, null, { "bSortable": false } ]
+                    } 
+                },
+                
+                ////// jQuery modules ////////////////////////////////////////////
+                
+                {   // Canvas placeholder
+                    elem: $("canvas"),
+                    amd:  ['modules'], 
+                    module: 'fepCanvas',
+                    method: ["run"]
+                }
+                
+            ];
             
-            {   // Tabs 
-                elem: $(".tabs"),
-                amd:  ['modules'], 
-                func: 'fepTabs' 
-            },
-            
-            ////// jQuery plugins ////////////////////////////////////////////
-            
-            {   // Keep navigation in view 
-                elem: $("nav"),
-                amd:  ['keepinview'], 
-                plugin: 'keepInView',
-                opts: { 'zindex': '424' } 
-            },
-            
-            {   // DataTable script  
-                elem: $(".datatable"),
-                amd:  ['datatable'], 
-                plugin: 'dataTable',
-                opts: {
-                    "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
-                    "iDisplayLength": 5,
-                    "bLengthChange": true,
-                    "sPaginationType": "full_numbers",
-                    "aoColumns": [ null, null, null, { "bSortable": false } ]
-                } 
-            },
-            
-            ////// jQuery modules ////////////////////////////////////////////
-            
-            {   // Canvas placeholder
-                elem: $("canvas"),
-                amd:  ['modules'], 
-                module: 'fepCanvas',
-                method: ["run"]
-            }
-            
-        ]}
+        }
 
     }

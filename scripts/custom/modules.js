@@ -26,11 +26,12 @@
             event.preventDefault();
             $("li",$fepElements).removeClass("active");
             $(this).closest('li').addClass("active");
-            $("div[id*='tab']",event.delegateTarget).hide();
+            $( ".target", event.delegateTarget ).removeClass( "target" ).show();
             $(this.hash).show(0,function(){
                 var h = $(this).outerHeight() + 120;
                 $(event.delegateTarget).css("height",h+"px");
             });
+            $( ".tabs-pane", event.delegateTarget ).not(this.hash).hide();
         });
         $("ul li:first a",$fepElements).trigger('click');
     }

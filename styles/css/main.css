@@ -2417,11 +2417,11 @@ code strong {
   background-image: linear-gradient(top, #ffffff 0%, #d8ddde 100%);
   /* w3c */
 
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
-  -ms-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
-  -o-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.3);
   text-shadow: 0 1px 0 #ffffff;
   cursor: pointer;
 }
@@ -2448,11 +2448,11 @@ code strong {
   background-image: linear-gradient(top, #57c26c 0%, #369649 100%);
   /* w3c */
 
-  -webkit-box-shadow: 0 0 1px 1px #369649, 0 1px 3px 0 rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0 0 1px 1px #369649, 0 1px 3px 0 rgba(0, 0, 0, 0.8);
-  -ms-box-shadow: 0 0 1px 1px #369649, 0 1px 3px 0 rgba(0, 0, 0, 0.8);
-  -o-box-shadow: 0 0 1px 1px #369649, 0 1px 3px 0 rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 1px 1px #369649, 0 1px 3px 0 rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 1px 1px #369649, 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1px 1px #369649, 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 0 1px 1px #369649, 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 1px 1px #369649, 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px 1px #369649, 0 1px 1px 0 rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0 #3c4648;
 }
 .btn.default {
@@ -2474,20 +2474,20 @@ code strong {
   background-image: linear-gradient(top, #7abcff 0%, #007cfa 100%);
   /* w3c */
 
-  -webkit-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -ms-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -o-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 1px 1px #2e95ff, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 1px 1px #2e95ff, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px 1px #2e95ff, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0 #2e95ff;
 }
 .btn.default:hover {
   border-color: #0063c7;
-  -webkit-box-shadow: 0 0 1px 1px #0063c7, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0 0 1px 1px #0063c7, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -ms-box-shadow: 0 0 1px 1px #0063c7, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  -o-box-shadow: 0 0 1px 1px #0063c7, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 1px 1px #0063c7, 0 1px 3px 1px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 1px 1px #0063c7, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 1px 1px #0063c7, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 0 1px 1px #0063c7, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 1px 1px #0063c7, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px 1px #0063c7, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
   background-color: #2e95ff;
   background-image: -webkit-linear-gradient(top, #2e95ff 0%, #0056ad 100%);
   /* webkit */
@@ -2589,7 +2589,6 @@ code strong {
   margin: 0;
   padding: 1em 2rem 1.5em;
   width: 48rem;
-  position: absolute;
   display: none;
   border-bottom-right-radius:  0.3333333333333333rem;
   border-bottom-left-radius:  0.3333333333333333rem;
@@ -2601,7 +2600,6 @@ code strong {
   -webkit-border-radius: bottom;
   -moz-border-radius: bottom;
   border-radius: bottom;
-  float: left;
   background: #ffffff;
   -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
@@ -2616,9 +2614,15 @@ code strong {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
+.target,
 .tabs-pane:target {
   display: block;
 }
+/*
+    .tabs-pane:nth-of-type(1) {
+        display: block;
+    }
+*/
 .tabs-pane > :last-child:after {
   clear: both;
   display: block;

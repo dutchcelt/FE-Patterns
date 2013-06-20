@@ -45,7 +45,7 @@
         .box-sizing(border-box);
         }
         
-    //  Use this to have block elements override the '.panel' padding.    
+    //  Use this to have block elements override the '.box' padding.    
     //  This is great for headings, <header> and <footer> tags.
     .box-inset() {
         margin: -(@interline) -(@block);
@@ -53,7 +53,7 @@
         .box-sizing(border-box);
         }
     
-    .box-offset() {
+    .box-offset(@arguments) {
         margin-left: @arguments * @grid-span;
         }
         
