@@ -14,9 +14,9 @@
      *  plugin: Use this if you need to tigger a conventional jQuery plugin 
                 that can be chained
                 You can pass options to the plugin if needed.
-     *  module: These are scoped functions attached to jquery using the 
-                module pattern.
-                You can pass and element, options and a method to invoke.
+     *  module: These are functions scoped to the FEP namespace and using 
+                the module pattern. You can pass a jQuery selector, 
+                an options object and a method to invoke.
                 
         http://alistapart.com/article/the-design-of-code-organizing-javascript
      */
@@ -57,12 +57,12 @@
                     } 
                 },
                 
-                ////// jQuery modules ////////////////////////////////////////////
+                ////// FEP modules ///////////////////////////////////////////////
                 
                 {   // Canvas placeholder
                     elem: $("canvas"),
                     amd:  ['modules'], 
-                    module: 'fepCanvas',
+                    module: 'fakeCanvas',
                     method: ["run"]
                 }
                 

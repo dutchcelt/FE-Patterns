@@ -395,7 +395,6 @@ a:focus {
 form {
   margin: 0;
   padding: 0 0 0.75em 0;
-  max-width: 100%;
 }
 fieldset {
   margin: 0;
@@ -421,12 +420,14 @@ input[type=email],
 input[type=password],
 input[type=text] {
   float: none;
+  padding: 0.375em 0.3333333333333333rem;
   width: 100%;
 }
 input[type=number],
 input[type^=date],
 input[type=time] {
   float: none;
+  padding: 0.375em 0.3333333333333333rem;
   width: 32.5%;
 }
 input[type=checkbox],
@@ -448,9 +449,16 @@ select {
   vertical-align: baseline;
 }
 textarea {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  -ms-appearance: textfield;
+  -o-appearance: textfield;
+  appearance: textfield;
   float: none;
+  padding: 0.375em 0.3333333333333333rem;
   width: 100%;
   vertical-align: baseline;
+  line-height: 1.6;
   overflow: auto;
 }
 input[type=checkbox] {
@@ -478,15 +486,21 @@ input[type=reset],
 input[type=button],
 input[type=submit] {
   -webkit-appearance: button;
+  -moz-appearance: button;
+  -ms-appearance: button;
+  -o-appearance: button;
+  appearance: button;
   width: auto;
   overflow: visible;
   cursor: pointer;
 }
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
+  -moz-appearance: textfield;
+  -ms-appearance: textfield;
+  -o-appearance: textfield;
+  appearance: textfield;
+  padding: 0.375em 0.3333333333333333rem;
 }
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -503,6 +517,39 @@ select[multiple] {
 :read-only {
   border: 0;
   padding: 0;
+}
+form {
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+form fieldset,
+form div,
+form input,
+form select,
+form textarea,
+form button,
+form p,
+form span,
+form label {
+  -webkit-box-sizing: border-box;
+  /* content-box */
+
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+fieldset,
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
 }
 /*  Font Awesome 3.0
     the iconic font designed for use with Twitter Bootstrap
@@ -1567,6 +1614,8 @@ header .logo {
 .content > section {
   margin: 0;
   padding: 1em 2rem 1.5em;
+  /* content-box */
+
   display: inline-block;
   padding: 1em;
   width: 24rem;
@@ -1806,6 +1855,9 @@ code,
   background-image: repeating-linear-gradient(top, transparent 0px, transparent 22px, rgba(0, 0, 0, 0.05) 22px, rgba(0, 0, 0, 0.05) 44px);
   padding: 0em 1em;
   overflow: auto;
+}
+.tabs-pane .note {
+  width: 42rem;
 }
 code strong {
   color: #c62106;

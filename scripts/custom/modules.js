@@ -4,9 +4,9 @@
     Example wrapper to enable lazy loading from init.js:
     var fepFunctionName = function($fepElements){ ... }
     
-    You can also use a jQuery module pattern:
-    ;(function ( $, window, document, undefined ) {
-        $.NAMEOFMODULE = function( elem, opts ) {
+    You can also use a module pattern scoped to FEP:
+    ;(function ( FEP, $, window, document, undefined ) {
+        FEP.NAMEOFMODULE = function( elem, opts ) {
             var module = {
                 opts : $.extend( {}, opts ),
                 run: function( ) { ... }
@@ -15,9 +15,8 @@
                 run: module.run
             };
         }
-    })( jQuery, window, document );
+    })( FEP, jQuery, window, document );
     ########################################################################### */
-
 
     // TABS
     var fepTabs = function($fepElements){
@@ -36,11 +35,10 @@
         $("ul li:first a",$fepElements).trigger('click');
     }
     
+    //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP
+    ;(function ( FEP, $, window, document, undefined ) {
     
-    //  FAKE CANVAS PLACEHOLDER - Using the module pattern
-    ;(function ( $, window, document, undefined ) {
-    
-        $.fepCanvas = function( elem ) {
+        FEP.fakeCanvas = function( elem ) {
             var module = {
                 paint: function( ) {
                     var el = elem.get()[0];
@@ -62,7 +60,5 @@
                 run: module.paint
             };
         }
-    })( jQuery, window, document );
-    
-    
+    })( FEP, jQuery, window, document );
     
