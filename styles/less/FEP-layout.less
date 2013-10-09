@@ -14,7 +14,7 @@
     @grid-span:             @view / 12rem;
     
     @block:                 @w * 2;         // White space for paddings or margins
-    @text-block:            30em;           // http://www.maxdesign.com.au/articles/em/
+    @text-block:            42em;           // http://www.maxdesign.com.au/articles/em/
     @max-width:             @view * 1rem;    // alt: @w * 80 = 960
     
     @l:                     1px;            // Line or border
@@ -64,7 +64,13 @@
         
     .text-block(@multiplier:1) {
         width: auto;
-        min-width: 25em * @multiplier;
-        max-width: 40em * @multiplier;
+        min-width: @text-block * @multiplier;
+        max-width: @text-block * @multiplier;
+        }
+    
+    .text-block( @multiplier : 4 ) {
+        width: auto;
+        min-width: @text-block - ( @em *  @multiplier );
+        max-width: @text-block + ( @em *  @multiplier );
         }
     
