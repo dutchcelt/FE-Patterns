@@ -12,7 +12,7 @@
      
      *  func:   The function to execute (mostly found in fep-functions.js)
      *  plugin: Use this if you need to tigger a conventional jQuery plugin 
-                that can be chained
+                function that can be chained.
                 You can pass options to the plugin if needed.
      *  module: These are functions scoped to the FEP namespace and using 
                 the module pattern. You can pass a jQuery selector, 
@@ -27,7 +27,7 @@
         
             return [
             
-                ////// Regular functions //////////////////////////////////////////
+                ////// Regular (global) functions ////////////////////////////////
                 
                 {   // Tabs 
                     elem: $(".tabs"),
@@ -42,6 +42,13 @@
                     amd:  ['keepinview'], 
                     plugin: 'keepInView',
                     opts: { 'zindex': '424' } 
+                },
+                
+                {   // Keep navigation in view 
+                    elem: $(".date"),
+                    amd:  ['date','dater'], 
+                    plugin: 'dater',
+                    opts: { 'format':"MM-dd-yyyy" } 
                 },
                 
                 {   // DataTable script  

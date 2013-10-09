@@ -19,20 +19,20 @@
     ########################################################################### */
 
     // TABS
-    var fepTabs = function($fepElements){
-        $("ul li:first",$fepElements).addClass('active');
-        $($fepElements).on("click","a",function(event){
+    var fepTabs = function( $fepElements ){
+        $( ".tabs-tab:first", $fepElements ).addClass('active');
+        $($fepElements).on("click",".tabs-tab-link",function(event){
             event.preventDefault();
-            $("li",$fepElements).removeClass("active");
-            $(this).closest('li').addClass("active");
+            $(".tabs-tab",$fepElements).removeClass("active");
+            $( event.target ).closest('.tabs-tab').addClass("active");
             $( ".target", event.delegateTarget ).removeClass( "target" ).show();
-            $(this.hash).show(0,function(){
+            $( this.hash ).show( 0,function(){
                 var h = $(this).outerHeight() + 120;
-                $(event.delegateTarget).css("height",h+"px");
+                $( event.delegateTarget ).css("height",h+"px");
             });
             $( ".tabs-pane", event.delegateTarget ).not(this.hash).hide();
         });
-        $("ul li:first a",$fepElements).trigger('click');
+        $(".tabs-tab:first .tabs-tab-link", $fepElements ).trigger( 'click' );
     }
     
     //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP

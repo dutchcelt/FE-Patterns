@@ -1629,9 +1629,11 @@ header .logo {
   float: left;
 }
 .content > .info {
+  min-width: 42em;
+  max-width: 42em;
   width: auto;
-  min-width: 25em;
-  max-width: 40em;
+  min-width: 36em;
+  max-width: 48em;
   overflow: visible;
 }
 body > footer {
@@ -1659,7 +1661,7 @@ body > footer {
   margin-right: 0.5rem;
 }
 .details {
-  max-width: 30em;
+  max-width: 42em;
 }
 .details .buttons {
   margin-bottom: -1em;
@@ -1675,7 +1677,7 @@ p img {
 canvas,
 figure {
   border: 1px solid #6b7c7f;
-  max-width: 30em;
+  max-width: 42em;
   background-color: #6b7c7f;
 }
 figure img {
