@@ -12,6 +12,8 @@
             "jquery": "jquery-2.0.3.min",
             "config": "config-min",
             "keepinview": "keepinview-min",
+            "date": "date-min",
+            "dater": "dater-min",
             "datatable": "jquery.dataTables-min",
             "modules": "modules-min"
         }
@@ -21,7 +23,7 @@
     //  Also used to scope modules
     var FEP = {};
     
-    require(['jquery', 'config'],function(){ 
+    require( [ 'jquery', 'config' ], function(){ 
 
         //  JQUERY DOMREADY 
         $(document).ready(function(){
@@ -70,12 +72,24 @@
                     //  Custom FEP module
                     if ( module !== void 0 ) {
                         if( typeof FEP[module] === 'function' ) {
-                            elem.each(function( index, domElem ){
-                                var mod = FEP[module]( $(domElem), opts );
+                        
+                            var elems = $.makeArray( elem ); 
+                            var iterator = function(){
+                            
+                                var el = elems.shift();                    
+                                var mod = FEP[module]( $(el), opts );
                                 for( n = 0, l = method.length; n < l; n++ ){
                                     mod[method[n]]();
                                 }
-                            });
+                                
+                                //  Iterate through the functions/methods for the module
+                                if ( elems.length > 0 ){
+                                    setTimeout( iterator, 25 );
+                                }
+                                
+                            };
+                            iterator();
+                            
                         }
         
                     }
@@ -89,20 +103,23 @@
                 // Asyncronous invocation 
                 
                 var iterator = function(){
-                
-                    var item = items.shift();
+            
+                    var start = +new Date();
+            
+                    do {
                     
-                    //  Check if the current object returns any DOM elements from the jQuery selector
-                    if( item.elem.length > 0 ){
+                        var item = items.shift();
                         //  Invoke lazyLoad method with the current object 
-                        fn.loadScript.call( item );
-                    }
-                    
-                    //  Iterate through the objects in the array 
-                    if ( items.length > 0 ){
-                        setTimeout( iterator, 0 );
-                    }
-                    
+                        if( item.elem.length > 0 ){
+                            //  Invoke lazyLoad method with the current object 
+                            fn.loadScript.call( item );
+                        }
+                        
+                    } while (items.length > 0 && (+new Date() - start < 50)); // increase to 100ms if needed.
+            
+                    if (items.length > 0){
+                        setTimeout(iterator, 25);
+                    } 
                 };
                 iterator();
             }
