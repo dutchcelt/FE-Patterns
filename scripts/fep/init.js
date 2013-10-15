@@ -109,9 +109,8 @@
                     do {
                     
                         var item = items.shift();
-                        //  Invoke lazyLoad method with the current object 
+                        //  Invoke lazyLoad method with the current item 
                         if( item.elem.length > 0 ){
-                            //  Invoke lazyLoad method with the current object 
                             fn.loadScript.call( item );
                         }
                         
