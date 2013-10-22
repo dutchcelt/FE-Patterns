@@ -6,10 +6,10 @@
 //  its own 'app.less' file or whatever you will call it. 
 //  The 'main.less' file is where you can add as many files you want.
 
- 
+
 /*  Layout */
-    
-    body { 
+
+    body {
         margin: 0 auto;
         color: @text-color;
         min-width:  @w * 20;
@@ -23,6 +23,7 @@
         overflow: hidden;
         background: @grey8 url(../images/backgrounds/back.png) repeat 0 0;
         background-attachment: fixed;
+        .box-sizing(border-box);
         }
     header .logo {
         font-size: 1.4em;
@@ -42,38 +43,61 @@
         background: @grey0;
         overflow: hidden;
     }
-        
-    .content > hgroup {
+
+  .content > header,
+  .content > hgroup {
         .box();
         padding-bottom: @em;
         background: @grey1;
-        background-color: fadeout(@grey6, 85%);
         background-color: @grey9;
         color: @light-color;
         }
+    .content > header h1,
     .content > hgroup h1 {
-        margin-top: 0.25em;
-        //font-weight: bold;
-        font-size: 1.6em;
-        line-height: 1.4;
+      margin: 0.5em 0 -(@em/2);
+        .great-primer();
         font-family: @typeface-brand;
         color: @light-color;
-        }      
-    .content > hgroup h5 {
+        }
+  .content > header h5,
+  .content > hgroup h5 {
         font-style: italic;
         font-family: @typeface;
         color: @grey4;
-        }  
+        }
     .content > section {
         .box();
-        .box-span(4);
+        //.box-span(4);
         .box-sizing(border-box);
         float: left;
-        }    
+        }
     .content > .info {
         .text-block();
         overflow: visible;
-        }    
+        }
+    .fep-header{
+      .augustin;
+    }
+    .fep-text{
+      .columns(2);
+    }
+.fep-section {
+  .box();
+  padding-left: 0;
+  float: left;
+  width: 33.3333%;
+}
+.fep-header {
+  clear: both;
+}
+.fep-intro{
+  font-family: @typeface-brand;
+}
+.fep-code-header {
+  .small-pica;
+  margin: @em/2 0;
+  padding: 0;
+}
     body > footer {
         position: relative;
         top: @em;
@@ -88,23 +112,23 @@
         margin: @em @block 0;
         padding: @em/2 @block/2;
         .border-radius();
-        }    
+        }
     .message .ui-icon {
         float: left;
         margin-right: @block/4;
         }
     .details {
-        max-width: @text-block;  
+        max-width: @text-block;
         }
     .details .buttons{
         margin-bottom: 0 - @interline;
         border-top: @l dotted @grey6;
         padding-bottom: 0;
         }
-                
-        
+
+
 /*  Tab & intro content */
-    
+
     p canvas, p img {
         float: left;
         margin: 0 @block/2 0 0;
@@ -128,7 +152,7 @@
         white-space: nowrap;
         color: @grey1;
         background-color: @grey6;
-        }   
+        }
     .bootsteps{
         float: right;
         list-style: none;
@@ -155,8 +179,8 @@
     .bootsteps li:hover i:first-child{
         color: @red2;
         }
-        
-        
+
+
 /*  Datatables */
 
     .content .dataTables_wrapper {
@@ -169,7 +193,7 @@
         clear: none;
         width: auto;
         }
-    
+
     .dataTables_wrapper col.id{
         width: 10%;
         }
@@ -183,19 +207,19 @@
         width: 2%;
         }
 
-/*  Navigaiton */    
+/*  Navigaiton */
 
     header + nav {
         .gradient(@grey7,@grey8);
         z-index: 4242;
-        }    
+        }
     nav ul {
         margin: 0 @block;
         padding: 0;
         display: block;
         list-style: none;
         min-height: @em*1.2;
-        }    
+        }
     nav ul li {
         position: relative;
         display: inline-block;
@@ -206,34 +230,34 @@
         letter-spacing: @l;
         color: @grey1;
         text-shadow: 0 -1px 0 @dark-color;
-        }    
+        }
     nav ul li a {
         padding: 0 @block/2 0 0
         }
     nav ul li a,
     nav ul li a:visited {
         color: @grey2;
-        }    
+        }
     nav ul li a:hover,
     nav ul li a:active,
     nav ul li.active a{
         color: @blue1;
-        }    
+        }
     nav ul li:last-child {
         float: right;
         }
-        
-           
 
-        
-/*  Forms & Buttons */   
-     
+
+
+
+/*  Forms & Buttons */
+
     .buttons  {
         margin-right: 0 - @w/2;
         padding: @interline 0;
         height: @em*2;
         text-align: right;
-        }  
+        }
     fieldset {
         width: 100%;
         font-family: @typeface-header;
@@ -244,18 +268,18 @@
     input[placeholder]+.help {
         display: none;
         }
-      
+
     fieldset .error {
         padding-right: @block/2;
         font-weight: bold;
         color: @error;
         }
-      
-        
+
+
 /*  Messages */
 
     .warning {
-        margin: @interline 0 @em; 
+        margin: @interline 0 @em;
         padding: @interline @w;
         }
     code,
@@ -264,13 +288,13 @@
         display:block;
         .zebra-stripes(transparent,rgba(0,0,0,0.05),22px);
         padding:0em 1em;
-        overflow:auto;        
+        overflow:auto;
         }
-        
+
     .tabs-pane .note {
         .box-span(7);
-    } 
-    
+    }
+
     code strong {
         color: @red2;
         }
@@ -298,8 +322,8 @@
     .examples .panel:first-child {
         margin-left: 0;
         }
-    .examples header h3 { 
-        margin: 0; 
+    .examples header h3 {
+        margin: 0;
         padding: @interline/4 0;
         }
         

@@ -19,24 +19,28 @@
                 <li class="active"><a href="usage.html">Usage</a></li>
                 <li><a href="library.html">Library</a></li>
                 <li><a href="basics.html">Basics</a></li>
+                <li><a href="forms.html">Forms</a></li>
                 <li><a href="typography.html">Typography</a></li>
                 <li><a href="widgets.html">UI widgets</a></li>
-                <li><a href="bootstrap.html">Twitter</a></li>
+                <li><a href="bootstrap.html"><i class="icon-twitter-sign"></i> Twitter</a></li>
             </ul>
         </nav>
 
         <article class="content">
 
-            <hgroup>
+            <header>
                 <h1>Getting started</h1>
                 <h5>LESS is all you need</h5>
-            </hgroup>
-            <section class="info">
+            </header>
+            <section>
                 <p><strong>Building something with the Web Stack you do not need much. HTML, CSS and, maybe, JavaScript. The common HTML patterns we use can be found in '<a href="text.html">Content</a>', '<a href="forms.html">Forms</a>'. '<a href="table.html">Tables</a>' &amp; '<a href="layout.html">Layout</a>' and please feel free to use these in your projects. The '<a href="less.html">LESS</a>' section is the hero of our UI patterns and accelerates front-end production considerably.</strong></p>
                 <p>
-                    There are number of files you should use and some that you can omit all together. In fact you don't need most of the files. 
+                    There are number of files you should use and some that you can omit all together. In fact you don't need most of the files.
                     JavaScript, images, css and fonts you can just skip because these tend to be project or even company specific. To this end there is a <a href="skeleton.zip"><strong>skeleton</strong></a> setup for you to <strong>bootstrap</strong> new projects.
                 </p>
+
+            </section>
+            <section class="info">
                 <h3>LESS files you really need:</h3>
                 <ol>
                     <li><strong>FEP-*.less</strong> (A collection of library files that contain all variables and mixins)</li>
@@ -65,17 +69,6 @@
                     Either way all relative image paths should be the same "../images/".
                 </p>
 
-                <h3>How to compile LESS into CSS</h3>                
-                <p>
-                    After you modify the LESS files, you need to run a LESS processor on the main.less file to generate the CSS. It is only necessary to run LESS on main.less since this file automatically imports the other files in the right order.
-                </p>
-                <p>
-                   There is a large choice of LESS processors. If you like the command line, you can use the one that comes with <a href="http://lesscss.org/#-server-side-usage">LESS itself</a>. You will need to have <a href="http://nodejs.org/">Node.js</a> installed to use the CLI tool.
-                </p>
-                <p>
-                  If you want a GUI and use a Mac, you can try <a href="http://incident57.com/less/">LESS.app</a>  (which does not require additional downloads).
-                </p>
-         
                 <h3>JavaScript</h3>
                 <p>
                     Considering the fact that <a href="http://jquery.com/">jQuery</a> is so popular and useful I've added it to this project. Along with some jQuery plugins to utilise common usage patterns; <a href="https://github.com/dutchcelt/Keep-in-View/">Keep in View</a> and <a href="http://www.datatables.net/">DataTables</a>. 

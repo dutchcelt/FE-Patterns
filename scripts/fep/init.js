@@ -20,8 +20,8 @@ require.config({
 });
 
 //  Initiate the namespace for Front-end Patterns (FEP)
-//  Also used to scope modules
-var FEP = {};
+//  Also used to scope modules and feature detection
+var FEP = { 'supports' : {} };
 
 require([ 'jquery', 'config' ], function () {
 

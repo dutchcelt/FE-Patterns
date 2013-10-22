@@ -19,19 +19,72 @@
                 <li><a href="usage.html">Usage</a></li>
                 <li><a href="library.html">Library</a></li>
                 <li class="active"><a href="basics.html">Basics</a></li>
+                <li><a href="forms.html">Forms</a></li>
                 <li><a href="typography.html">Typography</a></li>
                 <li><a href="widgets.html">UI widgets</a></li>
-                <li><a href="bootstrap.html">Twitter</a></li>
+                <li><a href="bootstrap.html"><i class="icon-twitter-sign"></i> Twitter</a></li>
             </ul>
         </nav>
                 
         <article class="content">
-            <hgroup>
+            <header>
                 <h1>Pattern? What pattern?</h1>
                 <h5>It's pretty simple actually.</h5>
-            </hgroup>
-            <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur id nemo suscipit? Atque beatae consectetur corporis eos illo ipsam molestias nobis nostrum officiis porro, provident, repellendus veritatis. Cumque, quod.</section>
+            </header>
 
+            <!--<section><ul><li>boxes</li></ul></section>-->
+            <div class="tabs">
+                <ul class="tabs-list">
+                    <li class="tabs-tab active"><a href="#tabs-0" class="tabs-tab-link">Boxes</a></li>
+                    <li class="tabs-tab"><a href="#tabs-1" class="tabs-tab-link">Layout</a></li>
+                    <li class="tabs-tab"><a href="#tabs-2" class="tabs-tab-link">Colour</a></li>
+                    <li class="tabs-tab"><a href="#tabs-3" class="tabs-tab-link">Grid</a></li>
+                </ul>
+                <div id="tabs-0" class="tabs-pane target">
+                    <p class="fep-text">Panels, boxes, widgets highlighted sections, basically anything that could contain text and a background of some sort. Some sites don’t have them some do and web applications nearly alway have them. They also appear across a number of contexts so defining a pattern is of great value.
+                    </p>
+                    <h2 class="fep-header">Standard box</h2>
+                    <div class="fep-section fep-intro">
+                        Each 'box' consists of both margin and padding. In other css markup systems we see the use of 'pod' like in SMACSS.
+                    </div>
+                    <div class="fep-section fep-code">
+                            <h3 class="fep-code-header">HTML</h3>
+<code>&lt;section class=&quot;box&quot;&gt;
+    &#8230; general markup &#8230;
+&lt;/section&gt;</code>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<code>.box(){}</code>                    </div>
+
+
+                    <h2 class="fep-header">Box inset</h2>
+                    <div class="fep-section fep-intro">
+                        If you need to override the padding of the outer box you can use the 'box&#8209;inset' class.
+                    </div>
+
+                    <div class="fep-section fep-code">
+<code>&lt;section class=&quot;box&quot;&gt;
+    &lt;header class=&quot;box-inset&quot;&gt;
+        &#8230; header text &#8230;
+    &lt;/header&gt;
+    &lt;p&gt;
+        &#8230; paragraph text &#8230;
+    &lt;/p&gt;
+&lt;/section&gt;</code>
+                    </div>
+                </div>
+                <div id="tabs-1" class="tabs-pane">
+                    <p>The weakest link when it come to the web is layout. Help is on the way but it not here yet. For those building enterprise based web applications then it will be a much longer wait.
+                        Sometimes a predefined grid can work but usually it's more trouble then it's worth. So defining a pattern that can map to a grid can be way more powerful.
+                    </p><p>
+                        We can think of grids in a number of ways. Either in a sequence of columns or in proportional sections like halves, thirds, quarters and so on. You can map one to the other so think about this when implementing a layout in terms of a grid.</p>
+                </div>
+                <div id="tabs-2" class="tabs-pane">
+                    <p>The initial use case for preprocessors is for repeating colours and the need to be able to change these after implementing them. The ability to have gradations based on a single value is a huge time saver. Light, dark, warning, highlight and prime colours are colours you nearly always need.</p>
+                </div>
+                <div id="tabs-3" class="tabs-pane"></div>
+            </div>
         </article>
         
         <footer>

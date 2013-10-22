@@ -42,12 +42,12 @@
         background-image:       -o-linear-gradient(top, @start 0%, @stop 100%); /* opera */
         background-image:       linear-gradient(top, @start 0%, @stop 100%); /* w3c */
         }   
-    .zebra-stripes(@odd,@even,@line) {
+    .zebra-stripes(@even,@odd,@line) {
         font-style: normal;
         font-size: @line/1.8;
         line-height: @line;
         font-family: Monaco,Monospace;
-        background-color:        @odd;
+        background-color:        @even;
         @prop:                   top, @odd 0px, @odd @line, @even @line, @even @line*2;
         background-image:        -webkit-repeating-linear-gradient(@prop);
         background-image:        -moz-repeating-linear-gradient(@prop);

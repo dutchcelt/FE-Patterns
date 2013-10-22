@@ -6,9 +6,10 @@
 /*  Boxes */
 
     .panel {
-        .box;
+        .box()  ;
         .border-radius();
         background-color: @light-color;
+        .box-sizing(border-box);
         }
     .panel > footer,
     .panel > header {
@@ -26,7 +27,8 @@
     .block {
         // used having code display as a block of code
         display: block;
-        }   
+        .box-sizing(border-box);
+        }
     .block.panel {
         width: 140%;
         overflow: auto;
