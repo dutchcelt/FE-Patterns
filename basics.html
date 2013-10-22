@@ -5,7 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
-        <script type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
+        <script defer type="text/javascript" src="scripts/minified/prism-min.js"></script>
+        <script defer type="text/javascript" src="scripts/minified/jquery-2.0.3.min.js"></script>
+        <script defer type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
     </head>
     <body>
         
@@ -45,33 +47,43 @@
                     </p>
                     <h2 class="fep-header">Standard box</h2>
                     <div class="fep-section fep-intro">
-                        Each 'box' consists of both margin and padding. In other css markup systems we see the use of 'pod' like in SMACSS.
+                        <p>Each 'box' consists of both margin and padding. In other css markup systems we see the use of 'pod' like in SMACSS.</p>
                     </div>
                     <div class="fep-section fep-code">
                             <h3 class="fep-code-header">HTML</h3>
-<code>&lt;section class=&quot;box&quot;&gt;
+<pre><code class="language-markup">&lt;section class=&quot;box&quot;&gt;
     &#8230; general markup &#8230;
-&lt;/section&gt;</code>
+&lt;/section&gt;</code></pre>
                     </div>
                     <div class="fep-section fep-code">
                         <h3 class="fep-code-header">LESS</h3>
-<code>.box(){}</code>                    </div>
+<pre><code class="language-css">margin: 0;
+padding: @interline @block @em;
+.box-sizing(border-box);</code></pre>
+                    </div>
 
 
                     <h2 class="fep-header">Box inset</h2>
                     <div class="fep-section fep-intro">
-                        If you need to override the padding of the outer box you can use the 'box&#8209;inset' class.
+                        <p>If you need to override the padding of the outer box you can use the 'box&#8209;inset' class. This is useful because you don't need to know what the padding is as it is set by a variable in '.box'.</p>
                     </div>
 
                     <div class="fep-section fep-code">
-<code>&lt;section class=&quot;box&quot;&gt;
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;section class=&quot;box&quot;&gt;
     &lt;header class=&quot;box-inset&quot;&gt;
         &#8230; header text &#8230;
     &lt;/header&gt;
     &lt;p&gt;
         &#8230; paragraph text &#8230;
     &lt;/p&gt;
-&lt;/section&gt;</code>
+&lt;/section&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">margin: -(@interline) -(@block) -(@em);
+padding: @interline/2 @block;
+.box-sizing(border-box);</code></pre>
                     </div>
                 </div>
                 <div id="tabs-1" class="tabs-pane">

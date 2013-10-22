@@ -48,7 +48,7 @@
     //  Use this to have block elements override the '.box' padding.    
     //  This is great for headings, <header> and <footer> tags.
     .box-inset() {
-        margin: -(@interline) -(@block);
+        margin: -(@interline) -(@block) -(@em);
         padding: @interline/2 @block;
         .box-sizing(border-box);
         }

@@ -83,18 +83,22 @@
     }
 .fep-section {
   .box();
+  padding-top: 0;
   padding-left: 0;
   float: left;
   width: 33.3333%;
 }
 .fep-header {
   clear: both;
+  margin: 0;
+  overflow: hidden;
 }
 .fep-intro{
+    padding-top: @em * 1.5;
   font-family: @typeface-brand;
 }
 .fep-code-header {
-  .small-pica;
+  .garamond;
   margin: @em/2 0;
   padding: 0;
 }
@@ -284,9 +288,9 @@
         }
     code,
     .note {
-        color: @green2;
+        //color: @green2;
         display:block;
-        .zebra-stripes(transparent,rgba(0,0,0,0.05),22px);
+       .zebra-stripes(transparent,rgba(0,0,0,0.05),22px);
         padding:0em 1em;
         overflow:auto;
         }
@@ -296,7 +300,7 @@
     }
 
     code strong {
-        color: @red2;
+        //color: @red2;
         }
 
 

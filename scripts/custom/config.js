@@ -28,13 +28,13 @@
             return [
             
                 ////// Regular (global) functions ////////////////////////////////
-                
+
                 {   // Tabs 
                     elem: $(".tabs"),
-                    amd:  ['modules'], 
-                    func: 'fepTabs' 
+                    amd:  ['modules'],
+                    func: 'fepTabs'
                 },
-                
+
                 ////// jQuery plugins ////////////////////////////////////////////
                 
                 {   // Keep navigation in view 
