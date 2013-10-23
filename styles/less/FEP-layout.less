@@ -8,13 +8,13 @@
 
     @view:                  72;             // VIEWPORT target based on a rem of 16px (default browser setting)
     @w:                     1rem;           // Smallest horizontal unit
-    @h:                     0.25em;         // Smallest vertical unit
+    @h:                     0.25rem;         // Smallest vertical unit
     @em:                    @h*6;           // Typographical based spacer
     
     @grid-span:             @view / 12rem;
     
     @block:                 @w * 2;         // White space for paddings or margins
-    @text-block:            42em;           // http://www.maxdesign.com.au/articles/em/
+    @text-block:            @grid-span * 7; // http://www.maxdesign.com.au/articles/em/
     @max-width:             @view * 1rem;    // alt: @w * 80 = 960
     
     @l:                     1px;            // Line or border
@@ -41,14 +41,14 @@
 
     .box() {
         margin: 0;
-        padding: @interline @block @em;
+        padding: @interline @block @interline;
         .box-sizing(border-box);
         }
         
     //  Use this to have block elements override the '.box' padding.    
     //  This is great for headings, <header> and <footer> tags.
     .box-inset() {
-        margin: -(@interline) -(@block) -(@em);
+        margin: -(@interline) -(@block) -(@interline);
         padding: @interline/2 @block;
         .box-sizing(border-box);
         }

@@ -2,53 +2,83 @@
     Author:    C. Egor Kloos - DutchCelt Design
     ########################################################################### */
 
-
 /*  Boxes */
 
-    .panel {
-        .box()  ;
-        .border-radius();
-        background-color: @light-color;
-        .box-sizing(border-box);
-        }
-    .panel > footer,
-    .panel > header {
-        .box-inset;
-        }
-    .panel :first-child {
-        .border-radius(top);
-        }
-    .panel :last-child {
-        .border-radius(bottom);
-        }
-    .panel > header ~ section {
-        padding: @interline 0;
-        }
-    .block {
-        // used having code display as a block of code
-        display: block;
-        .box-sizing(border-box);
-        }
-    .block.panel {
-        width: 140%;
-        overflow: auto;
-    }
-    
-    .widget  {
-        background-color: @grey1;
-        }
-    .widget header {
-        .gradient(@light-color,@grey2);
-        }
-    .widget footer {
-        background-color: @grey2;
-        }
-        
-    .highlighted {
-        background-color: @yellow1;
-        .gradient(@yellow1,@yellow2);
-        }
-    .highlighted header {
-        color: @light-color;
-        .gradient(@grey6,@grey8);
-        }
+//.panel( @color: @grey0 ) {
+//    .box();
+//    .border-radius(@em / 2);
+//    .gradient(@color, darken(@color, 10%));
+//}
+//
+//.panel > footer,
+//.panel > header {
+//    .box-inset;
+//}
+//
+//.panel :first-child {
+//    .border-radius(top);
+//}
+//
+//.panel :last-child {
+//    .border-radius(bottom);
+//}
+//
+//.panel > header ~ section {
+//    padding: @interline 0;
+//}
+
+.panel() {
+    .box();
+    .border-radius(@em / 2);
+    .gradient(@grey0, @grey1);
+}
+
+.panel( dark; ) {
+    .gradient(@grey6, @dark-color);
+}
+
+.panel( light; ) {
+    .gradient(@light-color, @grey1);
+}
+
+.panel( transparent; ) {
+    background-image: none;
+}
+
+.panel( @color1; @color2; ) {
+    .gradient(@color1, @color2);
+}
+
+.block {
+    // used having code display as a block of code
+    display: block;
+    .box-sizing(border-box);
+}
+
+.block.panel {
+    width: 140%;
+    overflow: auto;
+}
+
+.widget {
+    .panel();
+}
+
+.widget header {
+    .box-inset();
+    background-color: @grey2;
+}
+
+.widget footer {
+    .box-inset();
+    background-color: @grey2;
+}
+
+.highlighted {
+    .panel( dark );
+}
+
+.highlighted header {
+    color: @light-color;
+    .gradient(@grey6, @grey8);
+}

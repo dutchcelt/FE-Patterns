@@ -86,8 +86,9 @@ header .logo {
     .augustin;
 }
 
-.fep-text {
+.fep-intro {
     margin-bottom: @em;
+    padding-right: @em;
     .garamond;
     max-width: @text-block;
     font-family: @typeface-alt;
@@ -95,7 +96,6 @@ header .logo {
 
 .fep-section {
     .box();
-    padding-top: 0;
     padding-left: 0;
     float: left;
     width: 33.3333%;
@@ -105,20 +105,20 @@ header .logo {
     clear: both;
     margin: 0;
     overflow: hidden;
-    &:first-of-type {
-        border-top: @l solid @grey2;
-        padding-top: @interline;
-    }
+    border-top: @l solid @grey2;
+    padding:0;
+    padding-top: @em/2;
 }
 
-.fep-intro {
-    padding-top: @em * 1.5;
+.fep-text {
+    padding-top: 0;
+    padding-bottom: 0;
     font-family: @typeface-brand;
 }
 
 .fep-code-header {
     .garamond;
-    margin: @em/2 0;
+    margin: -(@em * 1.6) 0 @em/1.4;
     padding: 0;
 }
 

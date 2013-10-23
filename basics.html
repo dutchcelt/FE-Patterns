@@ -5,7 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
-        <script async type="text/javascript" src="scripts/minified/jquery-2.0.3.min.js"></script>
         <script async type="text/javascript" data-main="scripts/minified/init-min" src="scripts/minified/require-min.js"></script>
         <script defer type="text/javascript" src="scripts/minified/prism-min.js"></script>
     </head>
@@ -43,35 +42,45 @@
                     <li class="tabs-tab"><a href="#tabs-3" class="tabs-tab-link">Grid</a></li>
                 </ul>
                 <div id="tabs-0" class="tabs-pane target">
-                    <p class="fep-text">Panels, boxes, widgets highlighted sections, basically anything that could contain text and a background of some sort. Some sites don’t have them some do and web applications nearly alway have them. They also appear across a number of contexts so defining a pattern is of great value.
+                    <p class="fep-intro">Panels, boxes, widgets highlighted sections, basically anything that could contain text and a background of some sort. Some sites don’t have them some do and web applications nearly alway have them. They also appear across a number of contexts so defining a pattern is of great value.
                     </p>
+
+
                     <h2 class="fep-header">Standard box</h2>
-                    <div class="fep-section fep-intro">
-                        <p>Each 'box' consists of both margin and padding. In other css markup systems we see the use of 'pod' like in SMACSS.</p>
+                    <div class="fep-section fep-text">
+                        <p>Each 'box' consists of both margin and padding. In other css markup systems we see the use of the classname 'pod' like in SMACSS. Here our 'box' is abstracted away into 'content'.<br> It's also important to realise then some cases you will need to use a 'div' instead of a 'section'</p>
                     </div>
                     <div class="fep-section fep-code">
                             <h3 class="fep-code-header">HTML</h3>
-<pre><code class="language-markup">&lt;section class=&quot;box&quot;&gt;
+<pre><code class="language-markup">&lt;section class=&quot;content&quot;&gt;
     &#8230; general markup &#8230;
 &lt;/section&gt;</code></pre>
                     </div>
                     <div class="fep-section fep-code">
                         <h3 class="fep-code-header">LESS</h3>
-<pre><code class="language-css">margin: 0;
-padding: @interline @block @em;
-.box-sizing(border-box);</code></pre>
+<pre><code class="language-css">.box() {
+    margin: 0;
+    padding: @interline @block @em;
+    .box-sizing( border-box );
+    }
+
+.content {
+    .box();
+    }</code></pre>
                     </div>
 
 
+
                     <h2 class="fep-header">Box inset</h2>
-                    <div class="fep-section fep-intro">
+                    <div class="fep-section fep-text">
                         <p>If you need to override the padding of the outer box you can use the 'box&#8209;inset' class. This is useful because you don't need to know what the padding is as it is set by a variable in '.box'.</p>
+                        <p><strong>Tip</strong>: Don't user more than a single decender selector. Keep it short!</p>
                     </div>
 
                     <div class="fep-section fep-code">
                         <h3 class="fep-code-header">HTML</h3>
-<pre><code class="language-markup">&lt;section class=&quot;box&quot;&gt;
-    &lt;header class=&quot;box-inset&quot;&gt;
+<pre><code class="language-markup">&lt;section class=&quot;content&quot;&gt;
+    &lt;header&gt;
         &#8230; header text &#8230;
     &lt;/header&gt;
     &lt;p&gt;
@@ -81,19 +90,107 @@ padding: @interline @block @em;
                     </div>
                     <div class="fep-section fep-code">
                         <h3 class="fep-code-header">LESS</h3>
-<pre><code class="language-css">margin: -(@interline) -(@block) -(@em);
-padding: @interline/2 @block;
-.box-sizing(border-box);</code></pre>
+<pre><code class="language-css">.box-inset() {
+    margin: -(@interline) -(@block) -(@em);
+    padding: @interline/2 @block;
+    .box-sizing( border-box );
+    }
+.content header {
+    .box-inset();
+    }</code></pre>
                     </div>
+
+                    <h2 class="fep-header">Widget</h2>
+                    <div class="fep-section fep-text"><p>A widget is defined through the 'panel' function/mixin and contains a 'box' mixin. The 'panel' is in effect an extention of 'box' with some specific properties that a widget could use. The 'widget' then gets its own class definition with panel and optionaly some parent classes to give context. </p>
+                    <p><a href="http://lesscss.org/#-pattern-matching-and-guard-expressions">Pattern matching</a> can be very useful for creating a number of styles variations. The downside the css output can get rather large. So keep an eye on your CSS when nesting mixins like this.</p>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;section class=&quot;dashboard&quot;&gt;
+    &lt;div class=&quot;widget&quot;&gt;
+        &lt;header&gt;
+            &#8230; header text &#8230;
+        &lt;/header&gt;
+        &lt;form&gt;
+            &#8230; form &#8230;
+        &lt;/form&gt;
+        &lt;footer&gt;
+            &#8230; footer markup &#8230;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;aside&gt;
+    &lt;div class=&quot;widget&quot;&gt;
+        &#8230; widget markup &#8230;
+    &lt;/div&gt;
+&lt;/aside&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">.panel() {
+    .box();
+    .border-radius( @em / 2 );
+    header, footer {
+        .box-inset();
+        }
+    }
+.panel( dark; ) {
+    .gradient( @grey6, @grey7 );
+    }
+.panel( light; ) {
+    .gradient( @grey0, @grey1 );
+    }
+.panel( bordered; ) {
+    border: @l solid @grey1;
+    }
+.panel( @color1; @color2; ) {
+    .gradient( @color1, @color2 );
+    }
+
+.dashboard{
+    .panel( light );
+    }
+.widget{
+    font-family: @typeface-brand;
+    .content &   { .panel( bordered ); }
+    .dashboard & { .panel( dark ); }
+    aside &      { .panel( @grey2; @grey3 ); }
+    }</code></pre>
+                    </div>
+
                 </div>
                 <div id="tabs-1" class="tabs-pane">
-                    <p>The weakest link when it come to the web is layout. Help is on the way but it not here yet. For those building enterprise based web applications then it will be a much longer wait.
+                    <p class="fep-intro">The weakest link when it come to the web is layout. Help is on the way but it not here yet. For those building enterprise based web applications then it will be a much longer wait.
                         Sometimes a predefined grid can work but usually it's more trouble then it's worth. So defining a pattern that can map to a grid can be way more powerful.
-                    </p><p>
+                    </p><p class="fep-intro">
                         We can think of grids in a number of ways. Either in a sequence of columns or in proportional sections like halves, thirds, quarters and so on. You can map one to the other so think about this when implementing a layout in terms of a grid.</p>
+
+                    <h2 class="fep-header">Pattern title</h2>
+                    <div class="fep-section fep-text">text</div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;div&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">div { display: block; }</code></pre>
+                    </div>
                 </div>
                 <div id="tabs-2" class="tabs-pane">
-                    <p>The initial use case for preprocessors is for repeating colours and the need to be able to change these after implementing them. The ability to have gradations based on a single value is a huge time saver. Light, dark, warning, highlight and prime colours are colours you nearly always need.</p>
+                    <p class="fep-intro">The initial use case for preprocessors is for repeating colours and the need to be able to change these after implementing them. The ability to have gradations based on a single value is a huge time saver. Light, dark, warning, highlight and prime colours are colours you nearly always need.</p>
+
+                    <h2 class="fep-header">Pattern title</h2>
+                    <div class="fep-section fep-text">text</div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;div&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">div { display: block; }</code></pre>
+                    </div>
+
                 </div>
                 <div id="tabs-3" class="tabs-pane"></div>
             </div>
