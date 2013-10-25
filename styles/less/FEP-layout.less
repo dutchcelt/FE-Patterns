@@ -1,8 +1,8 @@
 /*  ###########################################################################
     Author:     C. Egor Kloos - DutchCelt Design
     ########################################################################### */
-    
-    
+
+
 
 //  Base units that set overall proportions ------------------------------------
 
@@ -10,30 +10,30 @@
     @w:                     1rem;           // Smallest horizontal unit
     @h:                     0.25rem;         // Smallest vertical unit
     @em:                    @h*6;           // Typographical based spacer
-    
+
     @grid-span:             @view / 12rem;
-    
+
     @block:                 @w * 2;         // White space for paddings or margins
     @text-block:            @grid-span * 7; // http://www.maxdesign.com.au/articles/em/
     @max-width:             @view * 1rem;    // alt: @w * 80 = 960
-    
+
     @l:                     1px;            // Line or border
     @rad:                   @w/3;           // Standard radius
-    
-    
+
+
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block;
     @field-width:           @form-width;
-    
+
     @input-padding-height:  @em/4;
     @input-padding-width:   @block/6;
     @text-input-padding:    @input-padding-height @input-padding-width;
-    
+
     @label-width:           100%;
     @text-input-width:      100%;
     @label-orientation:     none; /* float value: left, right, none */
-    
+
     @label-text-orientation:left;
 
 
@@ -44,30 +44,42 @@
         padding: @interline @block @interline;
         .box-sizing(border-box);
         }
-        
-    //  Use this to have block elements override the '.box' padding.    
+
+    //  Use this to have block elements override the '.box' padding.
     //  This is great for headings, <header> and <footer> tags.
     .box-inset() {
         margin: -(@interline) -(@block) -(@interline);
         padding: @interline/2 @block;
         .box-sizing(border-box);
         }
-    
-    .box-offset(@arguments) {
-        margin-left: @arguments * @grid-span;
+
+    .box-offset( @units ) {
+        margin-left: ( @units * @grid-span );
         }
-        
-    .box-span(@arguments) {
-        width: @arguments * @grid-span;
-        }
-        
-        
+.box-span( @units; @offset: 0;  ){
+    width: ( ( @units * @grid-span ) - ( @offset * @grid-span ) );
+}
+
+
+.box-to-grid( @columns; @gutterSize: @block ){
+    @responsiveColumn: ( 100 / @columns );
+    @columnAdjust: ( ( ( @columns - 1 ) * @gutterSize ) / @columns ) ;
+    float: left;
+    display: inline-block;
+    margin-left: @gutterSize;
+    width: calc( ~"@{responsiveColumn}% - @{columnAdjust}" ) ;
+    &:nth-of-type( @{columns}n+1 ){
+        clear: left;
+        margin-left: 0;
+    }
+}
+
     .text-block(@multiplier:1) {
         width: auto;
         min-width: @text-block * @multiplier;
         max-width: @text-block * @multiplier;
         }
-    
+
     .text-block( @multiplier : 4 ) {
         width: auto;
         min-width: @text-block - ( @em *  @multiplier );

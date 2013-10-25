@@ -72,8 +72,6 @@ header .logo {
 
 .content > section {
     .box();
-    //.box-span(4);
-    .box-sizing(border-box);
     float: left;
 }
 
@@ -95,12 +93,18 @@ header .logo {
 }
 
 .fep-section {
-    .box();
-    padding-left: 0;
-    float: left;
-    width: 33.3333%;
+    padding: @interline 0;
+    .box-to-grid(3);
 }
-
+.fep-text-pair + .fep-section {
+    width: -webkit-calc( 66.6666% - ( @block / 2 ) ) ;
+    clear: none !important;
+    margin-left: @block;
+}
+.fep-text-pair {
+    clear: left;
+    margin-left: 0;
+}
 .fep-header {
     clear: both;
     margin: 0;

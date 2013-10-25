@@ -64,7 +64,7 @@
     .box-sizing( border-box );
     }
 
-.content {
+    .content {
     .box();
     }</code></pre>
                     </div>
@@ -74,7 +74,7 @@
                     <h2 class="fep-header">Box inset</h2>
                     <div class="fep-section fep-text">
                         <p>If you need to override the padding of the outer box you can use the 'box&#8209;inset' class. This is useful because you don't need to know what the padding is as it is set by a variable in '.box'.</p>
-                        <p><strong>Tip</strong>: Don't user more than a single decender selector. Keep it short!</p>
+                        <p><strong>Tip</strong>: Don't use more than a single decedent selector. Keep it short!</p>
                     </div>
 
                     <div class="fep-section fep-code">
@@ -100,8 +100,8 @@
     }</code></pre>
                     </div>
 
-                    <h2 class="fep-header">Widget</h2>
-                    <div class="fep-section fep-text"><p>A widget is defined through the 'panel' function/mixin and contains a 'box' mixin. The 'panel' is in effect an extention of 'box' with some specific properties that a widget could use. The 'widget' then gets its own class definition with panel and optionaly some parent classes to give context. </p>
+                    <h2 class="fep-header">Widget Panels</h2>
+                    <div class="fep-section fep-text"><p>A widget is defined through the 'panel' (parametric) mixin and contains a 'box' mixin. The 'panel' is in effect an extention of 'box' with some specific properties that a widget could use. The 'widget' then gets its own class definition with panel and optionaly some parent classes to give context. </p>
                     <p><a href="http://lesscss.org/#-pattern-matching-and-guard-expressions">Pattern matching</a> can be very useful for creating a number of styles variations. The downside the css output can get rather large. So keep an eye on your CSS when nesting mixins like this.</p>
                     </div>
                     <div class="fep-section fep-code">
@@ -180,19 +180,124 @@
                 <div id="tabs-2" class="tabs-pane">
                     <p class="fep-intro">The initial use case for preprocessors is for repeating colours and the need to be able to change these after implementing them. The ability to have gradations based on a single value is a huge time saver. Light, dark, warning, highlight and prime colours are colours you nearly always need.</p>
 
-                    <h2 class="fep-header">Pattern title</h2>
-                    <div class="fep-section fep-text">text</div>
+                    <h2 class="fep-header">Basic colour values</h2>
+                    <div class="fep-section fep-text fep-text-pair">text</div>
                     <div class="fep-section fep-code">
-                        <h3 class="fep-code-header">HTML</h3>
-<pre><code class="language-markup">&lt;div&gt;</code></pre>
+                        <h3 class="fep-code-header">LESS variables</h3>
+<pre><code class="language-css">@light-color:           #ffffff;
+@dark-color:            #252b2c;
+@text-color:            @dark-color;</code></pre>
                     </div>
+
+
+    <h2 class="fep-header">Color sets</h2>
+    <div class="fep-section fep-text fep-text-pair">text</div>
+    <div class="fep-section fep-code">
+        <h3 class="fep-code-header">LESS variables</h3>
+<pre><code class="language-css">@brand-color:           #7abcff;
+
+@blue1:                 @brand-color;
+@blue2:                 darken(@blue1, 15%);
+
+@green1:                #57c26c;
+@green2:                darken(@green1, 15%);
+
+@yellow1:               #ffe362;
+@yellow2:               darken(@yellow1, 25%);
+
+@red1:                  #f83f21;
+@red2:                  darken(@red1, 15%);
+
+@error:                 #cd0a0a;
+
+@grey9:                 @dark-color; // Dark tone first as its hue is easier to control
+@grey8:                 lighten(@grey9,10%);
+@grey7:                 lighten(@grey9,20%);
+@grey6:                 lighten(@grey9,30%);
+@grey5:                 lighten(@grey9,40%);
+@grey4:                 lighten(@grey9,50%);
+@grey3:                 lighten(@grey9,60%);
+@grey2:                 lighten(@grey9,65%);
+@grey1:                 lighten(@grey9,70%);
+@grey0:                 lighten(@grey9,78%);</code></pre>
+    </div>
+
+
+                    <h2 class="fep-header">Link colour values</h2>
+                    <div class="fep-section fep-text fep-text-pair">text</div>
                     <div class="fep-section fep-code">
-                        <h3 class="fep-code-header">LESS</h3>
-<pre><code class="language-css">div { display: block; }</code></pre>
+                        <h3 class="fep-code-header">LESS variables</h3>
+<pre><code class="language-css">@link-color:            #0080ff;
+@link-color-visited:    #8000ff;
+@link-color-hover:      @link-color;
+@link-color-active:     @link-color;</code></pre>
                     </div>
 
                 </div>
-                <div id="tabs-3" class="tabs-pane"></div>
+                <div id="tabs-3" class="tabs-pane">
+                    <p class="fep-intro">
+                        Implementing a web based grid today is largely a bungled affair in that you only need to reflect the parts that visibly align with the underlying grid. Almost all of the grid is never seen by the user, so you don't need to implement that part.
+                        Were grid systems gain traction is that they give designers and developers a common vocabulary. This is useful, inserting a full grid system usually isn't. Until the flex module is available across the actively used browsers we need an alternative light weight way to represent the grid that is obvious and easy to implement.</p>
+
+
+                    <h2 class="fep-header">Grid sizing and offset</h2>
+                    <div class="fep-section fep-text">
+                        <p>On the web a grid is effective a width unit. Depending on the design you can determin what that unit is and how it is subdevided.</p> </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;div class="widget"&gt;
+    &#8230; general markup &#8230;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">.box-span( @units; @offset: 0;  ){
+    width: ( ( @arguments * @grid-span ) - ( @offset * @grid-span ) );
+}
+.box-offset( @arguments ) {
+    margin-left: ( @arguments * @grid-span );
+    }
+.widget{
+    @offset: 1;
+    .box-offset( @offset );
+    .box-span( 3, @offset );
+}</code></pre>
+                    </div>
+
+                    <h2 class="fep-header">Grid columns</h2>
+                    <div class="fep-section fep-text">
+                        <p>We don't have flex box, but this will do. In fact this very page uses this solution.</p> </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">HTML</h3>
+<pre><code class="language-markup">&lt;div class="widget"&gt;
+    &#8230; general markup &#8230;
+&lt;/div&gt;
+&lt;div class="widget"&gt;
+    &#8230; general markup &#8230;
+&lt;/div&gt;
+&lt;div class="widget"&gt;
+    &#8230; general markup &#8230;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="fep-section fep-code">
+                        <h3 class="fep-code-header">LESS</h3>
+<pre><code class="language-css">.box-to-grid( @columns; @gutterSize: @block ){
+    @responsiveColumn: ( 100 / @columns );
+    @columnAdjust: ( ( ( @columns - 1 ) * @gutterSize ) / @columns ) ;
+    float: left;
+    display: inline-block;
+    margin-left: @gutterSize;
+    width: calc( ~"@{responsiveColumn}% - @{columnAdjust}" ) ;
+    &:nth-of-type( @{columns}n+1 ){
+        clear: left;
+        margin-left: 0;
+    }
+}
+.widget{
+    .box-columns(3);
+}</code></pre>
+                    </div>
+                </div>
             </div>
         </article>
         

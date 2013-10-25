@@ -29,22 +29,22 @@
             
                 ////// Regular (global) functions ////////////////////////////////
 
-                {   // Tabs 
+                {   // Tabs
                     elem: $(".tabs"),
                     amd:  ['modules'],
                     func: 'fepTabs'
                 },
 
                 ////// jQuery plugins ////////////////////////////////////////////
-                
+
                 {   // Keep navigation in view 
                     elem: $("nav"),
-                    amd:  ['keepinview'], 
+                    amd:  ['keepinview'],
                     plugin: 'keepInView',
                     opts: { 'zindex': '4242' }
                 },
-                
-                {   // Keep navigation in view 
+
+                {   // Keep navigation in view
                     elem: $(".date"),
                     amd:  ['date','dater'], 
                     plugin: 'dater',
