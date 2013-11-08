@@ -6,9 +6,9 @@
 
 //  Base units that set overall proportions ------------------------------------
 
-    @view:                  72;             // VIEWPORT target based on a rem of 16px (default browser setting)
+    @view:                  72;             // VIEWPORT target based on 1rem or 16px (default browser setting)
     @w:                     1rem;           // Smallest horizontal unit
-    @h:                     0.25rem;         // Smallest vertical unit
+    @h:                     0.25rem;        // Smallest vertical unit
     @em:                    @h*6;           // Typographical based spacer
 
     @grid-span:             @view / 12rem;
@@ -39,12 +39,14 @@
 
 //  Box elements --------------------------------------------------------------
 
-    .box() {
-        margin: 0;
-        padding: @interline @block @interline;
-        .box-sizing(border-box);
-        }
-
+.box() {
+    margin: 0;
+    padding: @interline @block @interline;
+    .box-sizing(border-box);
+}
+.box( size;  @unit: 1; ) {
+    width: ( @grid-span * @unit );
+}
     //  Use this to have block elements override the '.box' padding.
     //  This is great for headings, <header> and <footer> tags.
     .box-inset() {
@@ -53,10 +55,10 @@
         .box-sizing(border-box);
         }
 
-    .box-offset( @units ) {
-        margin-left: ( @units * @grid-span );
-        }
-.box-span( @units; @offset: 0;  ){
+.grid-offset( @units ) {
+    margin-left: ( @units * @grid-span );
+    }
+.grid-span( @units; @offset: 0;  ){
     width: ( ( @units * @grid-span ) - ( @offset * @grid-span ) );
 }
 

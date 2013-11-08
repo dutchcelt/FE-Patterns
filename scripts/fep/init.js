@@ -135,7 +135,7 @@ FEP.lazyload = (function () {
 
 /*  Polyfills ################################################################# */
 
-//  Prototypal inheritance! 
+//  Prototypal inheritance!
 
 if (typeof Object.create !== "function") {
     Object.create = function (o) {

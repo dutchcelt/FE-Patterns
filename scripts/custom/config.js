@@ -37,7 +37,7 @@
 
                 ////// jQuery plugins ////////////////////////////////////////////
 
-                {   // Keep navigation in view 
+                {   // Keep navigation in view
                     elem: $("nav"),
                     amd:  ['keepinview'],
                     plugin: 'keepInView',
@@ -46,9 +46,9 @@
 
                 {   // Keep navigation in view
                     elem: $(".date"),
-                    amd:  ['date','dater'], 
+                    amd:  ['date','dater'],
                     plugin: 'dater',
-                    opts: { 'format':"MM-dd-yyyy" } 
+                    opts: { 'format':"MM-dd-yyyy" }
                 },
                 
                 {   // DataTable script  

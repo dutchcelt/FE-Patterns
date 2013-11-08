@@ -63,8 +63,10 @@
     padding: @interline @block @em;
     .box-sizing( border-box );
     }
-
-    .content {
+.box( size;  @unit: 1; ) {
+    width: ( @grid-span * @unit );
+    }
+.content {
     .box();
     }</code></pre>
                     </div>
@@ -161,7 +163,7 @@
 
                 </div>
                 <div id="tabs-1" class="tabs-pane">
-                    <p class="fep-intro">The weakest link when it come to the web is layout. Help is on the way but it not here yet. For those building enterprise based web applications then it will be a much longer wait.
+                    <p class="fep-intro">The weakest link when it comes to the web is layout. Help is on the way but it's not here yet. For those building enterprise based web applications it will be a much longer wait.
                         Sometimes a predefined grid can work but usually it's more trouble then it's worth. So defining a pattern that can map to a grid can be way more powerful.
                     </p><p class="fep-intro">
                         We can think of grids in a number of ways. Either in a sequence of columns or in proportional sections like halves, thirds, quarters and so on. You can map one to the other so think about this when implementing a layout in terms of a grid.</p>
@@ -251,16 +253,16 @@
                     </div>
                     <div class="fep-section fep-code">
                         <h3 class="fep-code-header">LESS</h3>
-<pre><code class="language-css">.box-span( @units; @offset: 0;  ){
-    width: ( ( @arguments * @grid-span ) - ( @offset * @grid-span ) );
+<pre><code class="language-css">.grid-span( @multiplier; @offset: 0;  ){
+    width: ( ( @multiplier * @grid-span ) - ( @offset * @grid-span ) );
 }
-.box-offset( @arguments ) {
-    margin-left: ( @arguments * @grid-span );
+.grid-offset( @multiplier ) {
+    margin-left: ( @multiplier * @grid-span );
     }
 .widget{
-    @offset: 1;
-    .box-offset( @offset );
-    .box-span( 3, @offset );
+    @offset: 1; /* number of grid units */
+    .grid-offset( @offset );
+    .grid-span( 3, @offset );
 }</code></pre>
                     </div>
 
@@ -294,7 +296,7 @@
     }
 }
 .widget{
-    .box-columns(3);
+    .box-to-grid(3);
 }</code></pre>
                     </div>
                 </div>
