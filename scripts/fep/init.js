@@ -2,6 +2,7 @@
 //  Author:    C. Egor Kloos - DutchCelt Design
 //  ###########################################################################
 
+"use strict";
 
 //  LAZY LOADING ##############################################################
 
@@ -12,11 +13,12 @@ require.config({
         "jquery": "jquery-2.0.3.min",
         "config": "config-min",
         "keepinview": "keepinview-min",
-        "date": "date-min",
+        "moment": "moment-min",
         "dater": "dater-min",
         "datatable": "jquery.dataTables-min",
         "modules": "modules-min"
     }
+
 });
 
 //  Initiate the namespace for Front-end Patterns (FEP)
@@ -32,7 +34,6 @@ require([ 'jquery', 'config' ], function () {
         $("html").attr('class', 'js');
 
         FEP.lazyload.init(FEP.config.getArray());
-
     });
 
 });
@@ -42,6 +43,9 @@ require([ 'jquery', 'config' ], function () {
 //  See config.js to add your own scripts and enter any new file in the above AMD routing.
 
 FEP.lazyload = (function () {
+
+    "use strict";
+
     var fn = {
         loadScript: function () {
 
@@ -135,17 +139,6 @@ FEP.lazyload = (function () {
 
 /*  Polyfills ################################################################# */
 
-//  Prototypal inheritance!
-
-if (typeof Object.create !== "function") {
-    Object.create = function (o) {
-        function F() {
-        }
-        F.prototype = o;
-        return new F();
-    };
-}
-
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
 
@@ -179,3 +172,58 @@ if (typeof Object.create !== "function") {
             clearTimeout(id);
         };
 }());
+
+//  Console fallback.
+
+(function (fallback) {
+
+    fallback = fallback || function () { };
+
+    // function to trap most of the console functions from the FireBug Console API.
+    var trap = function () {
+        // create an Array from the arguments Object
+        var args = Array.prototype.slice.call(arguments);
+        // console.raw captures the raw args, without converting toString
+        console.raw.push(args);
+        var message = args.join(' ');
+        console.messages.push(message);
+        fallback(message);
+    };
+
+    // redefine console
+    if (typeof console === 'undefined') {
+        console = {
+            messages: [],
+            raw: [],
+            dump: function() { return console.messages.join('\n'); },
+            log: trap,
+            debug: trap,
+            info: trap,
+            warn: trap,
+            error: trap,
+            assert: trap,
+            clear: function() {
+                console.messages.length = 0;
+                console.row.length = 0 ;
+            },
+            dir: trap,
+            dirxml: trap,
+            trace: trap,
+            group: trap,
+            groupCollapsed: trap,
+            groupEnd: trap,
+            time: trap,
+            timeEnd: trap,
+            timeStamp: trap,
+            profile: trap,
+            profileEnd: trap,
+            count: trap,
+            exception: trap,
+            table: trap
+        };
+    }
+
+})(null); // to define a fallback function, replace null with the name of the function (ex: alert)
+
+
+

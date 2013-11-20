@@ -12,7 +12,7 @@
         .border-radius();
         border: @l solid @grey3; // Button contour fallback 
         outline: none;
-        padding: @h*1.5 @block/2;
+        padding: ( @h * 1.5 ) ( @block / 2 );
         font-size: 1em;
         font-family: @typeface-header;
         .appearance(none);
@@ -37,7 +37,8 @@
             outline-offset: -2px;
             }
         }
-    
+
+
     .btn.default {
         color: @light-color;
         border-color: @blue2; // Button contour fallback
@@ -105,7 +106,7 @@
     }
     .tabs-tab-link {
         display: inline-block;
-        padding: @interline/2 @block;
+        padding: ( @interline / 2 ) @block;
         color: @text-color;
         //text-shadow: 0 1px 0 @light-color;
         cursor: pointer;
@@ -138,15 +139,10 @@
     .tabs-pane:target {
         display: block;
     }
-/*
-    .tabs-pane:nth-of-type(1) {
-        display: block;
-    }
-*/
     .tabs-pane > :last-child:after {
         clear: both;
         display: block;
-        margin-bottom: 0 - @em;
+        margin-bottom: ( 0 - @em );
         content: ".";
         visibility: hidden;
         height: 0;

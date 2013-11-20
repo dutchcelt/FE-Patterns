@@ -36,7 +36,7 @@
     }
     
     //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP
-    ;(function ( FEP, $, window, document, undefined ) {
+    ;(function ( FEP, $ ) {
     
         FEP.fakeCanvas = function( elem ) {
             var module = {
@@ -60,5 +60,5 @@
                 run: module.paint
             };
         }
-    })( FEP, jQuery, window, document );
+    })( FEP, jQuery );
 

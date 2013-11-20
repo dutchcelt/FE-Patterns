@@ -8,9 +8,9 @@
 
 
     .FEP-header(@arguments){
-        margin: @interline/2 0;
+        margin: ( @interline / 2 ) 0;
         @font-size: @fontsize-adjust * @arguments;
-        font: @header-style @header-variant @header-weight ~"@{font-size}/@{header-lineheight}" @typeface-header;
+        font: @header-style @header-variant @header-weight ( @font-size / @header-lineheight ) @typeface-header;
     }
     
     .font-size(@sizeValue){
@@ -44,7 +44,7 @@
         }   
     .zebra-stripes(@even,@odd,@line) {
         font-style: normal;
-        font-size: @line/1.8;
+        font-size: ( @line / 1.8 );
         line-height: @line;
         font-family: Monaco,Monospace;
         background-color:        @even;
@@ -73,9 +73,10 @@
         border-radius:           @arguments;
         .background-clip;
         }
+
     .border-radius(top, @r:@rad) {
         border-top-left-radius:  @arguments;
-        border-top-right-radius: @arguments;  
+        border-top-right-radius: @arguments;
         .background-clip;
         }
     .border-radius(bottom, @r:@rad) {
@@ -83,18 +84,19 @@
         border-bottom-left-radius: @arguments;
         .background-clip;
         }
-    .border-radius(left, @r:@rad) {
+
+    .border-radius(left-side, @r:@rad) {
         border-top-left-radius:  @arguments;
-        border-bottom-left-radius: @arguments;  
+        border-bottom-left-radius: @arguments;
         .background-clip;
         }
-    .border-radius(right, @r:@rad) {
+    .border-radius(right-side, @r:@rad) {
         border-top-right-radius: @arguments;
-        border-bottom-right-radius: @arguments;  
+        border-bottom-right-radius: @arguments;
         .background-clip;
         }
-        
-    // NOTE: These rules are slightly redundant but are here for coding consistancy.
+
+    // NOTE: These rules are slightly redundant but are here for coding consistency.
     .border-radius(top-right, @r:@rad) {
         border-top-right-radius: @arguments;
         .background-clip;
@@ -111,8 +113,8 @@
         border-bottom-left-radius: @arguments;
         .background-clip;
         }
-        
-    
+
+
     .clearfix {
         *zoom: 1;
         &:before,
@@ -129,7 +131,7 @@
         }      
           
     .opacity(@alpha:0.5) { 
-        @ieopacity:             @arguments * 100;
+        @ieopacity:             ( @arguments * 100 );
         opacity:                @arguments; 
         filter:                 ~"Alpha(Opacity=@{ieopacity})";
         }
@@ -149,7 +151,7 @@
              -o-appearance:     @arguments;
                 appearance:     @arguments;
                 }
-    
+
     .transform(@arguments) {
         -webkit-transform:      @arguments;
            -moz-transform:      @arguments;

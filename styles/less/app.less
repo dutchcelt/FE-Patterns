@@ -11,8 +11,8 @@
 body {
     margin: 0 auto;
     color: @text-color;
-    min-width: @w * 20;
-    max-width: @w * 75;
+    min-width: ( @w * 20 );
+    max-width: ( @w * 75 );
     background: @grey8 url(../images/backgrounds/back.png) repeat 0 0;
     background-attachment: fixed;
     .box-sizing(border-box);
@@ -30,7 +30,7 @@ header .logo {
     font-size: 1.4em;
     margin: 0;
     padding: 0 0 0 @block;
-    letter-spacing: @l*3;
+    letter-spacing: ( @l * 3 );
     font-weight: normal;
     line-height: 3;
     text-transform: uppercase;
@@ -57,7 +57,7 @@ header .logo {
 
 .content > header h1,
 .content > hgroup h1 {
-    margin: 0.5em 0 -(@em/2);
+    margin: 0.5em 0 -( @em / 2 );
     .great-primer();
     font-family: @typeface-brand;
     color: @light-color;
@@ -94,7 +94,7 @@ header .logo {
 
 .fep-section {
     padding: @interline 0;
-    .box-to-grid(3);
+    .box-to-grid( 3 );
 }
 .fep-text-pair + .fep-section {
     width: -webkit-calc( 66.6666% - ( @block / 2 ) ) ;
@@ -111,7 +111,7 @@ header .logo {
     overflow: hidden;
     border-top: @l solid @grey2;
     padding:0;
-    padding-top: @em/2;
+    padding-top: ( @em / 2 );
 }
 
 .fep-text {
@@ -122,7 +122,7 @@ header .logo {
 
 .fep-code-header {
     .garamond;
-    margin: -(@em * 1.6) 0 @em/1.4;
+    margin: ( -( @em * 1.6 ) ) 0 ( @em / 1.4 );
     padding: 0;
 }
 
@@ -139,13 +139,13 @@ body > footer {
 
 .message {
     margin: @em @block 0;
-    padding: @em/2 @block/2;
+    padding: ( @em / 2) ( @block / 2 );
     .border-radius();
 }
 
 .message .ui-icon {
     float: left;
-    margin-right: @block/4;
+    margin-right: ( @block / 4 );
 }
 
 .details {
@@ -153,7 +153,7 @@ body > footer {
 }
 
 .details .buttons {
-    margin-bottom: 0 - @interline;
+    margin-bottom: ( 0 - @interline );
     border-top: @l dotted @grey6;
     padding-bottom: 0;
 }
@@ -162,7 +162,7 @@ body > footer {
 
 p canvas, p img {
     float: left;
-    margin: 0 @block/2 0 0;
+    margin: 0 ( @block / 2 ) 0 0;
 }
 
 canvas,
@@ -260,14 +260,14 @@ nav ul {
     padding: 0;
     display: block;
     list-style: none;
-    min-height: @em*1.2;
+    min-height: ( @em * 1.2 );
 }
 
 nav ul li {
     position: relative;
     display: inline-block;
     font-size: 0.825em;
-    line-height: @transport * 1.6;
+    line-height: ( @transport * 1.6 );
     font-family: @typeface-header;
     text-transform: uppercase;
     letter-spacing: @l;
@@ -276,7 +276,7 @@ nav ul li {
 }
 
 nav ul li a {
-    padding: 0 @block/2 0 0
+    padding: 0 ( @block / 2 ) 0 0
 }
 
 nav ul li a,
@@ -297,7 +297,7 @@ nav ul li:last-child {
 /*  Forms & Buttons */
 
 .buttons {
-    margin-right: 0 - @w/2;
+    margin-right: ( 0 - @w / 2 );
     padding: @interline 0;
     height: @em*2;
     text-align: right;
@@ -317,7 +317,7 @@ input[placeholder] + .help {
 }
 
 fieldset .error {
-    padding-right: @block/2;
+    padding-right: ( @block / 2 );
     font-weight: bold;
     color: @error;
 }
@@ -374,7 +374,7 @@ code strong {
 
 .examples header h3 {
     margin: 0;
-    padding: @interline/4 0;
+    padding: ( @interline / 4 ) 0;
 }
         
         

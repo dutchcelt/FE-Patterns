@@ -44,13 +44,13 @@
                     opts: { 'zindex': '4242' }
                 },
 
-                {   // Keep navigation in view
+                {   // Datepicker
                     elem: $(".date"),
-                    amd:  ['date','dater'],
+                    amd:  ['jquery','moment','dater'],
                     plugin: 'dater',
-                    opts: { 'format':"MM-dd-yyyy" }
+                    opts: { 'format':"DD-MM-YYYY", placeholder: "DD-MM-YYYY" }
                 },
-                
+
                 {   // DataTable script  
                     elem: $(".datatable"),
                     amd:  ['datatable'], 
