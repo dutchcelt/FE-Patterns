@@ -24,44 +24,45 @@
     // TABS
 
     var fepTabs = function( $fepElements ){
-            alert("test")
-        var tabevent;
-        var hash = window.location.hash;
-            var hashThis = function( $elem, cb ){
-                var scrollLocation;
-                $( $elem ).on( "loadhash click",".tabs-tab-link", function( event ){
-                    event.preventDefault();
-                    tabevent = event
-                    scrollLocation = $( window ).scrollTop();
-                    hash = $( event.target ).attr('href');
+    
+        var tabevent, 
+            hash = window.location.hash;
+            
+        var hashThis = function( $elem, cb ){
+            var scrollLocation;
+            $( $elem ).on( "loadhash click",".tabs-tab-link", function( event ){
+                event.preventDefault();
+                tabevent = event
+                scrollLocation = $( window ).scrollTop();
+                hash = $( event.target ).attr('href');
+                if( event.type === "loadhash"){
+                    $( window).trigger( "hashash" );
+                } else {
                     window.location.hash = hash.substr(1);
-                    if( event.type === "loadhash"){
-                        $( window).trigger( "hashash" );
-                    };
-                });
-                $( window ).on( "hashash hashchange", function( event ){
-                    $( window ).scrollTop( scrollLocation );
-                    if( typeof cb === "function" ){
-                        cb();
-                    }
-                });
-            };
-            hashThis( $fepElements, function(){
-                $(".tabs-tab",$fepElements).removeClass("active");
-                $( tabevent.target ).closest('.tabs-tab').addClass("active");
-                $( ".target", tabevent.delegateTarget ).removeClass( "target" ).show();
-                //console.log(this.hash)
-                $( this.hash ).show( 0,function(){
-                    var h = $(this).outerHeight() + 120;
-                    $( tabevent.delegateTarget ).css("height",h+"px");
-                });
-                $(".tabs-tab-link[href='"window.location.hash+"']" ).trigger( 'click' );
+                };
             });
-            if( window.location.hash ){
-                $(".tabs-tab-link[href='#tabs-0']").trigger( 'click' );
-            } else {
-                $(".tabs-tab-link[href='"window.location.hash+"']" ).trigger( 'loadhash' );
-            }
+            $( window ).on( "hashash hashchange", function( event ){
+                $( window ).scrollTop( scrollLocation );
+                if( typeof cb === "function" ){
+                    cb();
+                }
+            });
+        };
+        
+        hashThis( $fepElements, function(){
+            $(".tabs-tab",$fepElements).removeClass("active");
+            $( tabevent.target ).closest('.tabs-tab').addClass("active");
+            $( this.hash ).show( 0,function(){
+                var h = $(this).outerHeight() + 120;
+                $( tabevent.delegateTarget ).css("height",h+"px");
+            });
+        });
+        
+        if( !window.location.hash ){
+            $(".tabs-tab-link[href='#tabs-0']").trigger( 'click' );
+        } else {
+            $(".tabs-tab-link[href='" + window.location.hash+"']" ).trigger( 'loadhash' );
+        }
 
     }
 

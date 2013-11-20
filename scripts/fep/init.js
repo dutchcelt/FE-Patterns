@@ -10,7 +10,7 @@
 require.config({
     baseUrl: "/scripts/minified",
     paths: {
-        "jquery": "jquery-2.0.3.min",
+        "jquery": "jquery-2.0.3-min",
         "config": "config-min",
         "keepinview": "keepinview-min",
         "moment": "moment-min",
