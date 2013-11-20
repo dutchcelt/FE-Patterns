@@ -25,6 +25,8 @@
 
     var fepTabs = function( $fepElements ){
     
+        "use strict";
+        
         var tabevent, 
             hash = window.location.hash;
             
@@ -36,7 +38,7 @@
                 scrollLocation = $( window ).scrollTop();
                 hash = $( event.target ).attr('href');
                 if( event.type === "loadhash"){
-                    $( window).trigger( "hashash" );
+                    $( window ).trigger( "hashash" );
                 } else {
                     window.location.hash = hash.substr(1);
                 };
@@ -52,10 +54,6 @@
         hashThis( $fepElements, function(){
             $(".tabs-tab",$fepElements).removeClass("active");
             $( tabevent.target ).closest('.tabs-tab').addClass("active");
-            $( this.hash ).show( 0,function(){
-                var h = $(this).outerHeight() + 120;
-                $( tabevent.delegateTarget ).css("height",h+"px");
-            });
         });
         
         if( !window.location.hash ){
@@ -69,6 +67,8 @@
     //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP
     ;(function ( FEP, $ ) {
     
+        "use strict";
+        
         FEP.fakeCanvas = function( elem ) {
             var module = {
                 paint: function( ) {
