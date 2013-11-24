@@ -1,0 +1,8 @@
+/node_modules/
+/dist/
+/bower_components/
+/app/styles/font-awesome/
+/app/styles/css/
+/app/scripts/minified/
+/.tmp/
+/.idea/
