@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
+        <script type="text/javascript" data-main="/scripts/minified/init" src="/scripts/minified/require.js"></script>
+    </head>
+    <body>
+        
+        <header>
+            <div class="logo">Front-end Patterns</div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="text.html">Content</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="table.html">Tables</a></li>
+                <li class="active"><a href="layout.html">Layout</a></li>
+                <li><a href="boxes.html">Boxes</a></li>
+                <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
+            </ul>
+        </nav>
+
+        <article class="content">
+
+            <hgroup>
+                <h1>Which side is your content on?</h1>
+                <h5>Holding it all together!</h5>
+            </hgroup>
+            <section class="info">
+                <p>Here you can see that we're avoiding the cascade to create the layout. In most cases this is a bad thing to do. However, a layout generally only needs to be defined once and its rules don't need to be inherited. Using child and sibling selectors are very useful in this regard.</p>
+                <p>You can also see the maximum number of selectors in a rule. We've found that using more than three selectors is a good indicator of a problem with the implemented cascade. So keep your <a href="http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html" title="Andy Clarke's blog">specificity</a> as low as possible.</p>
+            </section>
+            <section class="examples">
+            <ul class="">
+                <li class="panel">
+                    <header><h3>2 column, left sidebar</h3></header>
+                    <code>
+&lt;body&gt;
+    &lt;div class="site"&gt;
+        &lt;header&gt;&lt;/header&gt;
+        &lt;section class="content"&gt;
+            &lt;article&gt;&lt;/article&gt;
+        &lt;/section&gt;
+        &lt;aside&gt;&lt;/aside&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                    </code>
+                    <h5>Less code:</h5>
+                    <code>
+.site {
+    margin: 0 auto;
+    max-width: @max-width;
+    }
+.site > header, 
+.site > footer {
+    clear:both;
+    }
+.content {
+    <strong>float: right;</strong>
+    width: 66.66%;
+    overflow: hidden;
+    }
+.content > aside {
+    float: left;
+    width: 33.33%
+    overflow: hidden;
+    }
+                    </code>                
+                </li>
+                <li class="panel">
+                    <header><h3>2 columns, right sidebar</h3></header>
+                    <code>
+&lt;body&gt;
+    &lt;div class="site"&gt;
+        &lt;header&gt;&lt;/header&gt;
+        &lt;section class="content"&gt;
+            &lt;article&gt;&lt;/article&gt;
+        &lt;/section&gt;
+        &lt;aside&gt;&lt;/aside&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                    </code>
+                    <h5>Less code:</h5>
+                    <code>
+.site {
+    margin: 0 auto;
+    max-width: @max-width;
+    }
+.site > header, 
+.site > footer {
+    clear:both;
+    }
+.content {
+    <strong>float: left;</strong>
+    width: 66.66%;
+    overflow: hidden;
+    }
+.content > aside {
+    float: left;
+    width: 33.33%;
+    overflow: hidden;
+    }
+                    </code>                
+                </li>
+                <li class="panel">
+                    <header><h3>3 columns, 2 sidebars</h3></header>
+                    <code>
+&lt;body&gt;
+    &lt;div class="site"&gt;
+        &lt;header&gt;&lt;/header&gt;
+        &lt;section class="content"&gt;
+            &lt;section&gt;
+                &lt;article&gt;&lt;/article&gt;
+            &lt;/section&gt;
+            &lt;aside&gt;&lt;/aside&gt;
+        &lt;/section&gt;
+        &lt;aside&gt;&lt;/aside&gt;
+        &lt;footer&gt;&lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                    </code>
+                    <h5>Less code:</h5>
+                    <code>
+.site {
+    margin: 0 auto;
+    max-width: @max-width;
+    }
+.site > header, 
+.site > footer {
+    clear:both;
+    }
+.content {
+    float: right;
+    width: 75%;
+    overflow: hidden;
+    }
+.content > aside {
+    float: left;
+    width: 25%;
+    overflow: hidden;
+    }
+<strong>.content > section {
+    float: left;
+    width: 66.66%;
+    overflow: hidden;
+    }
+.content > section + aside {
+    float: left;
+    width: 33.33%;
+    overflow: hidden;
+    }
+</strong>                    </code>                
+                </li>
+            </ul>
+            
+            </section>
+            
+        </article>
+        
+        <footer>
+            <p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
+        </footer>
+        
+    </body>
+</html>

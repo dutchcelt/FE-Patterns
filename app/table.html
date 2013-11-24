@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Front-end Patterns</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
+        <script type="text/javascript" data-main="/scripts/minified/init" src="/scripts/minified/require.js"></script>
+    </head>
+    <body>
+        
+        <header>
+            <div class="logo">Front-end Patterns</div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="usage.html">Usage</a></li>
+                <li><a href="text.html">Content</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li class="active"><a href="table.html">Tables</a></li>
+                <li><a href="layout.html">Layout</a></li>
+                <li><a href="boxes.html">Boxes</a></li>
+                <li><a href="less.html">LESS</a></li>
+                <li><a href="styleguide.html">Style Guide</a></li>
+            </ul>
+        </nav>
+        
+                
+        <article class="content">
+            <hgroup>
+                <h1>Tables</h1>
+                <h5>For all your tabular data!</h5>
+            </hgroup>
+        
+            <section>
+                <p>Tables have been abused over the years and have led to some of the most convoluted, unmaintainable and inaccessible markup. The Web standards movement has been able to stamp out these table based layouts. Tables are sane again and provide us with some of the most powerful markup.  </p>
+            </section>
+    
+            <div class="tabs">
+                <ul class="tabs-list">
+                    <li class="tabs-tab active"><a href="#tabs-0" class="tabs-tab-link">Basic</a></li>
+                    <li class="tabs-tab"><a href="#tabs-1" class="tabs-tab-link">Datatable</a></li>
+                </ul>
+                <div id="tabs-0" class="tabs-pane target">
+                    <section class="notes">
+                        <code class="note">
+&lt;table cellspacing=&quot;0&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;date&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;&nbsp;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;4&quot;&gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+        &lt;tr class=&quot;odd&quot;&gt;
+            &lt;td&gt;A101&lt;/td&gt;&lt;td&gt;Name 01&lt;/td&gt;&lt;td&gt;00-00-0000&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        ...
+        &lt;tr class=&quot;even&quot;&gt;
+            &lt;td&gt;A106&lt;/td&gt;&lt;td&gt;Name 06&lt;/td&gt;&lt;td&gt;00-00-0000&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                        </code>
+                    </section>
+                    <h4>Standard table</h4>
+                    <table cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">date</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Footer</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr class="odd">
+                                <td>A101</td><td>Name 01</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A102</td><td>Name 02</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>A103</td><td>Name 03</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A104</td><td>Name 04</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="odd">
+                                <td>A105</td><td>Name 05</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                            <tr class="even">
+                                <td>A106</td><td>Name 06</td><td>00-00-0000</td><td><a href="#">delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tabs-1" class="tabs-pane">
+                    <section class="notes">
+                        <code class="note">
+&lt;table cellspacing=&quot;0&quot; class=&quot;datatable&quot;&gt;
+    &lt;col class=&quot;id&quot;/&gt;
+    &lt;col class=&quot;title&quot;/&gt;
+    &lt;col class=&quot;date&quot;/&gt;
+    &lt;col class=&quot;actions&quot;/&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Title&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;date&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;&nbsp;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan=&quot;4&quot; &gt;Footer&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;101a&lt;/td&gt;
+            &lt;td&gt;Firstname ... 01&lt;/td&gt;
+            &lt;td&gt;00-00-0000&lt;/td&gt;
+            &lt;td&gt;&lt;a href=&quot;#&quot; class=&quot;icon-trash&quot; title=&quot;delete&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        ...
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                        </code>
+                    </section>
+                    <h4>Datatable scripted tables (with Font Awesome icons)</h4>
+                    <table cellspacing="0" class="datatable">
+                        <colgroup>
+                            <col class="id"/>
+                            <col class="title"/>
+                            <col class="date"/>
+                            <col class="actions"/>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">date</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="">Footer</td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>101a</td>
+                                <td>Firstname Middlename Middlename Surname 01</td>
+                                <td>00-00-0000</td>
+                                <td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                            <tr>
+                                <td>101b</td><td>Firstname Middlename Middlename Surname 04</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                            <tr>
+                                <td>101c</td><td>Firstname Middlename Middlename Surname 02</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                            <tr>
+                                <td>101d</td><td>Firstname Middlename Middlename Surname 06</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                            <tr>
+                                <td>101e</td><td>Firstname Middlename Middlename Surname 03</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                            <tr>
+                                <td>101f</td><td>Firstname Middlename Middlename Surname 05</td><td>00-00-0000</td><td><a href="#" class="icon-trash" title="delete"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </article>
+        
+        <footer>
+            <p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
+        </footer>
+        
+    </body>
+</html>

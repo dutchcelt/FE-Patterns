@@ -1,0 +1,49 @@
+///////////////////////////////////////////////////////////////////////////////
+/*  Author:    C. Egor Kloos - DutchCelt Design */
+///////////////////////////////////////////////////////////////////////////////
+
+
+//  Basic colour values -------------------------------------------------------
+
+@light-color: hsla(360, 100%, 100%, 1);
+@dark-color: hsla(199, 9%, 16%, 1);
+@text-color: @dark-color;
+
+//  Color sets ----------------------------------------------------------------
+
+@brand-color: hsla(210, 100%, 74%, 1);
+
+@blue1: @brand-color;
+@blue2: darken(@blue1, 15%);
+
+@green1: hsla(132, 47%, 55%, 1);
+@green2: darken(@green1, 15%);
+
+@yellow1: hsla(49, 100%, 69%, 1);
+@yellow2: darken(@yellow1, 25%);
+
+@red1: hsla(8, 94%, 55%, 1);
+@red2: darken(@red1, 15%);
+
+@error: hsl(0, 90%, 42%);
+
+@grey9: @dark-color;
+// Dark tone first as its hue is easier to control
+@grey8: lighten(@grey9, 10%);
+@grey7: lighten(@grey9, 20%);
+@grey6: lighten(@grey9, 30%);
+@grey5: lighten(@grey9, 40%);
+@grey4: lighten(@grey9, 50%);
+@grey3: lighten(@grey9, 60%);
+@grey2: lighten(@grey9, 65%);
+@grey1: lighten(@grey9, 70%);
+@grey0: lighten(@grey9, 78%);
+
+//  Link colour values --------------------------------------------------------
+
+@link-color: hsla(210, 100%, 50%, 1);
+@link-color-visited: hsla(270, 100%, 50%, 1);
+@link-color-hover: @link-color;
+@link-color-active: @link-color;
+    
+

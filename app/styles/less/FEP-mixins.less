@@ -1,0 +1,209 @@
+///////////////////////////////////////////////////////////////////////////////
+/*  Author:    C. Egor Kloos - DutchCelt Design */
+///////////////////////////////////////////////////////////////////////////////
+
+
+//  Mixins --------------------------------------------------------------------
+
+.FEP-header(@arguments) {
+	margin: ( @interline / 2 ) 0;
+	@font-size: @fontsize-adjust * @arguments;
+	font: @header-style @header-variant @header-weight ( @font-size / @header-lineheight ) @typeface-header;
+	}
+
+.font-size(@sizeValue) {
+	@relVal: @sizeValue;
+	@fixVal: (@sizeValue * 10);
+	font-size: ~"@{fixVal}px";
+	font-size: ~"@{relVal}em";
+	}
+
+.text-shadow(@arguments) {
+	text-shadow: @arguments;
+	}
+
+.box-shadow(@shadowA, @shadowB:X, ...) {
+	// Multiple shadow solution from http://toekneestuck.com/blog/2012/05/15/less-css-arguments-variable/
+	@props: ~"@{arguments}.replace(/[\[\]]|\,\sX/g, '')";
+	-webkit-box-shadow: @props;
+	-moz-box-shadow: @props;
+	-ms-box-shadow: @props;
+	-o-box-shadow: @props;
+	box-shadow: @props;
+	}
+
+.gradient(@start,@stop) {
+	background-color: @start;
+	background-image: -webkit-linear-gradient(top, @start 0%, @stop 100%); /* webkit */
+	background-image: -moz-linear-gradient(top, @start 0%, @stop 100%); /* firefox */
+	background-image: -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
+	background-image: -o-linear-gradient(top, @start 0%, @stop 100%); /* opera */
+	background-image: linear-gradient(top, @start 0%, @stop 100%); /* w3c */
+	}
+
+.zebra-stripes(@even,@odd,@line) {
+	font-style: normal;
+	font-size: ( @line / 1.8 );
+	line-height: @line;
+	font-family: Monaco, Monospace;
+	background-color: @even;
+	@prop: top, @odd 0px, @odd @line, @even @line, @even @line*2;
+	background-image: -webkit-repeating-linear-gradient(@prop);
+	background-image: -moz-repeating-linear-gradient(@prop);
+	background-image: -ms-repeating-linear-gradient(@prop);
+	background-image: -o-repeating-linear-gradient(@prop);
+	background-image: repeating-linear-gradient(@prop);
+	}
+
+.background-clip() {
+	// Background clip to allow borders to blend properly with the background
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	-ms-background-clip: padding-box;
+	-o-background-clip: padding-box;
+	background-clip: padding-box;
+	}
+
+.border-radius(@r:@rad) {
+	border-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(all, @r:@rad) {
+	border-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(top, @r:@rad) {
+	border-top-left-radius: @arguments;
+	border-top-right-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(bottom, @r:@rad) {
+	border-bottom-right-radius: @arguments;
+	border-bottom-left-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(left-side, @r:@rad) {
+	border-top-left-radius: @arguments;
+	border-bottom-left-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(right-side, @r:@rad) {
+	border-top-right-radius: @arguments;
+	border-bottom-right-radius: @arguments;
+	.background-clip;
+	}
+
+// NOTE: These rules are slightly redundant but are here for coding consistency.
+.border-radius(top-right, @r:@rad) {
+	border-top-right-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(top-left, @r:@rad) {
+	border-top-left-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(bottom-right, @r:@rad) {
+	border-bottom-right-radius: @arguments;
+	.background-clip;
+	}
+
+.border-radius(bottem-left, @r:@rad) {
+	border-bottom-left-radius: @arguments;
+	.background-clip;
+	}
+
+.clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+		// Fixes Opera/contenteditable bug:
+		// http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+		line-height: 0;
+		}
+	&:after {
+		clear: both;
+		}
+	}
+
+.opacity(@alpha:0.5) {
+	@ieopacity: ( @arguments * 100 );
+	opacity: @arguments;
+	filter: ~"Alpha(Opacity=@{ieopacity})";
+	}
+
+.transition(@transition:none) {
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-ms-transition: @arguments;
+	-o-transition: @arguments;
+	transition: @arguments;
+	}
+
+.appearance(@arguments) {
+	-webkit-appearance: @arguments;
+	-moz-appearance: @arguments;
+	-ms-appearance: @arguments;
+	-o-appearance: @arguments;
+	appearance: @arguments;
+	}
+
+.transform(@arguments) {
+	-webkit-transform: @arguments;
+	-moz-transform: @arguments;
+	-ms-transform: @arguments;
+	-o-transform: @arguments;
+	transform: @arguments;
+	}
+
+.box-sizing(@box:content-box) {
+	-webkit-box-sizing: @arguments; /* content-box */
+	-moz-box-sizing: @arguments;
+	-ms-box-sizing: @arguments;
+	-o-box-sizing: @arguments;
+	box-sizing: @arguments;
+	}
+
+// WARNING STILL BUGGY! ==============================
+.columns(@col:2) {
+	-webkit-column-count: @col;
+	-webkit-column-gap: @w;
+	-moz-column-count: @col;
+	-moz-column-gap: @w;
+	-ms-column-count: @col;
+	-ms-column-gap: @w;
+	-o-column-count: @col;
+	-o-column-gap: @w;
+	column-count: @col;
+	column-gap: @w;
+	}
+
+// WARNING STILL VERY EXPERIMENTAL! ==================
+.display-box(@orient:horizontal) {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: -o-box;
+	display: box;
+	-webkit-box-orient: @arguments;
+	-moz-box-orient: @arguments;
+	-ms-box-orient: @arguments;
+	-o-box-orient: @arguments;
+	box-orient: @arguments;
+	}
+
+.box-flex(@flex:1) {
+	-webkit-box-flex: @arguments;
+	-moz-box-flex: @arguments;
+	-ms-box-flex: @arguments;
+	-o-box-flex: @arguments;
+	box-flex: @arguments;
+	}
