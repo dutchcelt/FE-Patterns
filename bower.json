@@ -1,0 +1,23 @@
+{
+	"name"           : "FE-Patterns",
+	"owner"          : "dutchcelt",
+	"package"        : "FE-Patterns",
+	"version"        : "2.0.0",
+	"dependencies"   : {
+		"requirejs"   : "~2.1.9",
+		"jquery"      : "~2.0.3",
+		"font-awesome": "~4.0.3",
+		"momentjs"    : "~2.4.0"
+	},
+	"devDependencies": { },
+	"exportsOverride": {
+		"font-awesome": {
+			"less": "less/*",
+			"fonts": "fonts/*"
+		},
+		"requirejs": {
+			"js": "require.js"
+		}
+	}
+
+}
