@@ -114,7 +114,7 @@ module.exports = function( grunt ){
 						cleancss: true
 					},
 					files  : {
-						"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
+						"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.dist %>/styles/less/main.less"
 					}
 				}
 			},
@@ -175,6 +175,7 @@ module.exports = function( grunt ){
 							dest  : '<%= FEP.dist %>',
 							src   : [
 								'*.{ico,png,txt}',
+								'styles/less/*',
 								'styles/fonts/{,*/}*.{svg,woff,eot,ttf,otf,txt}',
 								'styles/images/{,*/}*.{jpg,gif,png,webp}',
 								'*.html',
@@ -248,9 +249,9 @@ module.exports = function( grunt ){
 	grunt.registerTask( 'build', [
 		'clean:dist',
 		'bower',
+		'copy:dist',
 		'concurrent:dist',
 		'uglify:dist',
-		'copy:dist',
 		'less:dist'
 		//, 'requirejs:dist'
 	] );
