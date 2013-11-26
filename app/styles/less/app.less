@@ -21,8 +21,7 @@ body {
 body > header {
 	height: @em*3;
 	overflow: hidden;
-	background: @grey8 url(../images/backgrounds/back.png) repeat 0 0;
-	background-attachment: fixed;
+	background-color: @grey8 ;
 	.box-sizing(border-box);
 	}
 
@@ -259,11 +258,11 @@ header + nav {
 	}
 
 nav ul {
-	margin: 0 @block;
+	margin: 0 ( @block / 2 );
 	padding: 0;
 	display: block;
 	list-style: none;
-	min-height: ( @em * 1.2 );
+	//min-height: ( @em * 1.2 );
 	overflow: hidden;
 	}
 
@@ -281,7 +280,7 @@ nav ul li {
 	}
 
 nav ul li a {
-	padding: 0 ( @block / 2 ) 0 0
+	padding: ( @interline / 2 ) ( @block / 2 );
 	}
 
 nav ul li a,

@@ -131,29 +131,28 @@
 
 .tabs-pane {
 	.box();
-	//.grid-span(8);
-	//position: absolute;
 	display: none;
-	//.border-radius(bottom);
-	//float: left;
 	background: @light-color;
-	//.box-shadow(0 1px 3px 1px rgba(0,0,0,0.2));
 	.box-sizing(border-box);
 	.clearfix;
 	}
-
+.tabs-pane:first-of-type {
+	display: block;
+	visibility: hidden;
+	}
+.loaded .tabs-pane {
+	display: none;
+	visibility: visible;
+	}
 //.target,
-.tabs-pane:target {
+.loaded .tabs-pane:target {
 	display: block;
 	}
 
-.tabs-pane:not( :target ) {
-	display: none;
-	}
 
 .tabs-pane > :last-child:after {
 	clear: both;
-	display: block;
+	display: table;
 	margin-bottom: ( 0 - @em );
 	content: ".";
 	visibility: hidden;
