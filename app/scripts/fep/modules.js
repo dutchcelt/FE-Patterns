@@ -48,6 +48,7 @@ var fepTabs = function( $fepElements ) {
 			;
 		} );
 		$( window ).on( "hashash hashchange", function( event ) {
+			event.preventDefault();
 			$( window ).scrollTop( scrollLocation );
 			if( typeof cb === "function" ) {
 				cb();
@@ -65,7 +66,7 @@ var fepTabs = function( $fepElements ) {
 		$( ".tabs-tab-link[href='" + window.location.hash + "']" ).trigger( 'click' );
 	} );
 	if( !window.location.hash ) {
-		$( ".tabs-tab-link[href='#tabs-0']" ).trigger( 'click' );
+		$( ".tabs-tab-link[href]:eq(0)" ).trigger( 'click' );
 	} else {
 		$( ".tabs-tab-link[href='" + window.location.hash + "']").trigger( 'loadhash' );
 	}
@@ -75,7 +76,7 @@ var fepTabs = function( $fepElements ) {
 
 //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP
 
-(function( FEP, $ ) {
+;(function( FEP, $ ) {
 
 	"use strict";
 

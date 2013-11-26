@@ -32,6 +32,7 @@
     "grunt-contrib-watch": "~0.5.1",
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.2.0",
-    "grunt-bower-task": "~0.3.4"
+    "grunt-bower-task": "~0.3.4",
+    "grunt-retire": "~0.1.17"
   }
 }

@@ -28,8 +28,8 @@ module.exports = function( grunt ){
 					files: ['<%= FEP.app %>/styles/less{,*/}*.less'],
 					tasks: ['less:app']
 				},
-				scripts    : {
-					files: ['<%= FEP.app %>/scripts/fep{,*/}*.js','<%= FEP.app %>/lib{,*/}*.js'],
+				scripts   : {
+					files: ['<%= FEP.app %>/scripts/fep{,*/}*.js', '<%= FEP.app %>/lib{,*/}*.js'],
 					tasks: ['copy:app']
 				},
 				livereload: {
@@ -46,10 +46,7 @@ module.exports = function( grunt ){
 			},
 			connect: {
 				options   : {
-					port      : 9000,
-					livereload: 35729,
-					// change this to '0.0.0.0' to access the server from outside
-					hostname  : 'localhost'
+					livereload: true,
 				},
 				livereload: {
 					options: {
@@ -119,11 +116,11 @@ module.exports = function( grunt ){
 				}
 			},
 			uglify: {
-				dist  : {
+				dist: {
 					files: [
 						{
 							expand : true,
-							src    : ['.tmp/**/*.js','<%= FEP.app %>/lib/**/*.js','<%= FEP.app %>/scripts/fep/**/*.js'],
+							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/**/*.js'],
 							dest   : '<%= FEP.dist %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
@@ -133,22 +130,22 @@ module.exports = function( grunt ){
 			},
 			// Put files not handled in other tasks here
 			copy  : {
-				app  : {
+				app : {
 					files: [
 						{
-							expand : true,
+							expand: true,
 							dot   : true,
-							cwd    : '.tmp',
-							src    : [
+							cwd   : '.tmp',
+							src   : [
 								'**/fonts/*',
 								'**/less/*'
 							],
-							dest   : '<%= FEP.app %>/styles'
+							dest  : '<%= FEP.app %>/styles'
 						},
 						{
 							expand : true,
 							//cwd    : '.tmp',
-							src    : ['.tmp/**/*.js','<%= FEP.app %>/lib/**/*.js','<%= FEP.app %>/scripts/fep/**/*.js'],
+							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/**/*.js'],
 							dest   : '<%= FEP.app %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
@@ -159,14 +156,14 @@ module.exports = function( grunt ){
 				dist: {
 					files: [
 						{
-							expand : true,
+							expand: true,
 							dot   : true,
-							cwd    : '.tmp',
-							src    : [
+							cwd   : '.tmp',
+							src   : [
 								'**/fonts/*',
 								'**/less/*'
 							],
-							dest   : '<%= FEP.dist %>/styles'
+							dest  : '<%= FEP.dist %>/styles'
 						},
 						{
 							expand: true,
@@ -210,8 +207,15 @@ module.exports = function( grunt ){
 						layout        : 'byComponent'
 					}
 				}
+			},
+			retire    : {
+				app : {
+					js: ['<%= FEP.app %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
+				},
+				dist: {
+					js: ['<%= FEP.dist %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
+				}
 			}
-
 		}
 	);
 
@@ -230,6 +234,7 @@ module.exports = function( grunt ){
 			                'bower',
 			                'copy:app',
 			                'less:app',
+			                'retire:app',
 			                'concurrent:server',
 			                'connect:livereload',
 			                'watch'
@@ -252,7 +257,8 @@ module.exports = function( grunt ){
 		'copy:dist',
 		'concurrent:dist',
 		'uglify:dist',
-		'less:dist'
+		'less:dist',
+		'retire:dist'
 		//, 'requirejs:dist'
 	] );
 

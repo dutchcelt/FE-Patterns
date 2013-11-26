@@ -8,7 +8,7 @@
 // AMD ROUTING
 require.config(
 	{   baseUrl: "/scripts/minified",
-		paths: {
+		paths  : {
 			"jquery"    : "jquery",
 			"config"    : "config",
 			"keepinview": "keepinview",

@@ -1,4 +1,5 @@
 {
+	"private"        : true,
 	"name"           : "FE-Patterns",
 	"owner"          : "dutchcelt",
 	"package"        : "FE-Patterns",
@@ -7,17 +8,26 @@
 		"requirejs"   : "~2.1.9",
 		"jquery"      : "~2.0.3",
 		"font-awesome": "~4.0.3",
-		"momentjs"    : "~2.4.0"
+		"Keep-in-View": "~1.2.5",
+		"Dater"       : "~2.0.4"
 	},
-	"devDependencies": { },
 	"exportsOverride": {
 		"font-awesome": {
-			"less": "less/*",
+			"less" : "less/*",
 			"fonts": "fonts/*"
 		},
-		"requirejs": {
+		"requirejs"   : {
 			"js": "require.js"
 		}
-	}
-
+	},
+	"ignore"         : [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		".tmp",
+		".idea",
+		"dist",
+		"*.zip"
+	]
 }
