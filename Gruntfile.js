@@ -138,13 +138,12 @@ module.exports = function( grunt ){
 							cwd   : '.tmp',
 							src   : [
 								'**/fonts/*',
-								'**/less/*'
+								'**/*.less'
 							],
 							dest  : '<%= FEP.app %>/styles'
 						},
 						{
 							expand : true,
-							//cwd    : '.tmp',
 							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/**/*.js'],
 							dest   : '<%= FEP.app %>/scripts/minified',
 							flatten: true,
@@ -161,7 +160,7 @@ module.exports = function( grunt ){
 							cwd   : '.tmp',
 							src   : [
 								'**/fonts/*',
-								'**/less/*'
+								'**/*.less'
 							],
 							dest  : '<%= FEP.dist %>/styles'
 						},
@@ -172,6 +171,8 @@ module.exports = function( grunt ){
 							dest  : '<%= FEP.dist %>',
 							src   : [
 								'*.{ico,png,txt}',
+								'lib/**/*.js',
+								'lib/**/*.less',
 								'styles/less/*',
 								'styles/fonts/{,*/}*.{svg,woff,eot,ttf,otf,txt}',
 								'styles/images/{,*/}*.{jpg,gif,png,webp}',
@@ -196,7 +197,8 @@ module.exports = function( grunt ){
 					'less:app'
 				],
 				dist  : [
-					'less:dist'
+					'uglify:dist',
+				    'less:dist'
 				]
 			},
 			bower     : {
@@ -233,9 +235,8 @@ module.exports = function( grunt ){
 			                'clean:server',
 			                'bower',
 			                'copy:app',
-			                'less:app',
-			                'retire:app',
 			                'concurrent:server',
+			                'retire:app',
 			                'connect:livereload',
 			                'watch'
 		                ] );
@@ -256,8 +257,6 @@ module.exports = function( grunt ){
 		'bower',
 		'copy:dist',
 		'concurrent:dist',
-		'uglify:dist',
-		'less:dist',
 		'retire:dist'
 		//, 'requirejs:dist'
 	] );

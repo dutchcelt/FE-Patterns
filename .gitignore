@@ -2,6 +2,7 @@ node_modules
 dist
 bower_components
 font-awesome
+Dater
 css
 minified
 .tmp

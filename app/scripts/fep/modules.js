@@ -41,9 +41,10 @@ var fepTabs = function( $fepElements ) {
 			tabevent = event;
 			scrollLocation = $( window ).scrollTop();
 			hash = $( event.target ).attr( 'href' );
-			window.location.hash = hash.substr( 1 );
 			if( event.type === "loadhash" ) {
 				$( window ).trigger( "hashash" );
+			} else {
+				window.location.hash = hash.substr( 1 );
 			};
 		} );
 		$( window ).on( "hashash hashchange", function( event ) {
@@ -55,7 +56,8 @@ var fepTabs = function( $fepElements ) {
 		} );
 	};
 	hashThis( $fepElements, function() {
-		$fepElements.addClass( "loaded" ).css({ height: $( hash ).outerHeight() + 150 + "px" });
+		$fepElements.addClass( "loaded" );
+		$( hash ).css( "visibility", "visible" );
 		$( ".tabs-tab", $fepElements ).removeClass( "active" );
 		$( tabevent.target ).closest( '.tabs-tab' ).addClass( "active" );
 		return false;
