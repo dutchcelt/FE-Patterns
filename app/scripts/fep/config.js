@@ -30,11 +30,13 @@ FEP.config = {
 
 			////// Regular (global) functions ////////////////////////////////
 
+/*
 			{   // Tabs
 				elem: $( ".tabs" ),
 				amd : ['modules'],
 				func: 'fepTabs'
 			},
+*/
 
 			////// jQuery plugins ////////////////////////////////////////////
 
@@ -55,6 +57,12 @@ FEP.config = {
 
 			////// FEP modules ///////////////////////////////////////////////
 
+			{   // Tabs
+				elem  : $( ".tabs" ),
+				amd   : ['modules'],
+				module: 'tabs',
+				method: ["load"]
+			},
 			{   // Canvas placeholder
 				elem  : $( "canvas" ),
 				amd   : ['modules'],

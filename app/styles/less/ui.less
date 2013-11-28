@@ -111,19 +111,13 @@
 
 .tabs-pane {
 	.box();
-	//display: none;
-	visibility: hidden;
-	min-height: ( @em * 15 );
 	background: @light-color;
 	.box-sizing(border-box);
 	.clearfix;
 	}
-/*
-.tabs-pane:first-of-type {
-	display: block;
+.js .tabs-pane {
 	visibility: hidden;
 	}
-*/
 .loaded .tabs-pane {
 	display: none;
 	visibility: visible;
@@ -131,16 +125,5 @@
 //.target,
 .loaded .tabs-pane:target {
 	display: block;
-	}
-
-
-.tabs-pane > :last-child:after {
-	clear: both;
-	display: table;
-	margin-bottom: ( 0 - @em );
-	content: ".";
-	visibility: hidden;
-	height: 0;
-	line-height: 0;
 	}
 

@@ -37,7 +37,7 @@ module.exports = function( grunt ){
 						livereload: '<%= connect.options.livereload %>'
 					},
 					files  : [
-						'<%= FEP.app %>/*.html',
+						//'<%= FEP.app %>/*.html',
 						'<%= FEP.app %>/styles/css/{,*/}*.css',
 						'<%= FEP.app %>/scripts/minified/{,*/}*.js',
 						'<%= FEP.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'

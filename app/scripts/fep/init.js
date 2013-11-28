@@ -82,7 +82,7 @@ FEP.lazyload = (function(){
 
 							var el = elems.shift();
 							var mod = FEP[module]( $( el ), opts );
-							for( n = 0, l = method.length; n < l; n++ ) {
+							for( var n = 0, l = method.length; n < l; n++ ) {
 								mod[method[n]]();
 							}
 

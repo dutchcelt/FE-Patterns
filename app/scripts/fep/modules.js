@@ -2,88 +2,89 @@
 /*  Author:    C. Egor Kloos - DutchCelt Design */
 ///////////////////////////////////////////////////////////////////////////////
 
-/*
- Author:    C. Egor Kloos - DutchCelt Design
-
- Example wrapper to enable lazy loading from init.js:
- var fepFunctionName = function($fepElements){ ... }
-
- You can also use a module pattern scoped to FEP:
- ;(function ( FEP, $, window, document, undefined ) {
-    FEP.NAMEOFMODULE = function( elem, opts ) {
-        var module = {
-            opts : $.extend( {}, opts ),
-            run: function( ) { ... }
-        };
-        return {
-            run: module.run
-        };
-    }
- })( FEP, jQuery, window, document );
-
- */
-
-//////////////////////////////////////////////////////////////////////////////
-
 
 // TABS
 
-var fepTabs = function( $fepElements ) {
+(function( FEP, $ ){
 
 	"use strict";
 
-	var tabevent;
-	var hash = window.location.hash;
-	var hashThis = function( $elem, cb ) {
-		var scrollLocation;
-		$( $elem ).on( "loadhash click", ".tabs-tab-link", function( event ) {
-			event.preventDefault();
-			tabevent = event;
-			scrollLocation = $( window ).scrollTop();
-			hash = $( event.target ).attr( 'href' );
-			if( event.type === "loadhash" ) {
-				$( window ).trigger( "hashash" );
-			} else {
-				window.location.hash = hash.substr( 1 );
-			};
-		} );
-		$( window ).on( "hashash hashchange", function( event ) {
-			event.preventDefault();
-			$( window ).scrollTop( scrollLocation );
-			if( typeof cb === "function" ) {
-				cb();
-			}
-		} );
-	};
-	hashThis( $fepElements, function() {
-		$fepElements.addClass( "loaded" );
-		$( hash ).css( "visibility", "visible" );
-		$( ".tabs-tab", $fepElements ).removeClass( "active" );
-		$( tabevent.target ).closest( '.tabs-tab' ).addClass( "active" );
-		return false;
-	} );
-	if( !window.location.hash ) {
-		$( ".tabs-tab-link[href]:eq(0)" ).trigger( 'click' );
-	} else {
-		$( ".tabs-tab-link[href='" + window.location.hash + "']").trigger( 'loadhash' );
-	}
+	FEP.tabs = function( $tabs ){
 
-};
+		var scrollLocation;
+		var hash = window.location.hash;
+
+		var fn = {
+			tab     : {
+				click: function( event ){
+					event.preventDefault();
+					var that = event.data;
+					that.$event = event;
+					scrollLocation = $( window ).scrollTop();
+					hash = $( event.target ).attr( 'href' );
+					if( event.type === "loadhash" ){
+						$( window ).trigger( "hashash" );
+					} else {
+						window.location.hash = hash.substr( 1 );
+					}
+				},
+				hash : function( event ){
+					event.preventDefault();
+					var that = event.data;
+					$( window ).scrollTop( scrollLocation );
+					if( typeof that.callback === "function" ){
+						that.callback();
+					}
+				}
+			},
+			callback: function(){
+				this.$elem.addClass( "loaded" );
+				$( hash ).css( "visibility", "visible" );
+				$( ".tabs-tab", this.$elem ).removeClass( "active" );
+				$( this.$event.target ).closest( '.tabs-tab' ).addClass( "active" );
+				return false;
+			},
+			tabEvents  : function(){
+				this.$elem.on( "loadhash click", ".tabs-tab-link", this, this.tab.click );
+				$( window ).on( "hashash hashchange", this, this.tab.hash );
+
+				if( !window.location.hash ){
+					$( ".tabs-tab-link[href]:eq(0)", this.$elem ).trigger( 'click' );
+				} else {
+					$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).trigger( 'loadhash' );
+				}
+			}
+		};
+
+		return {
+			load: function(){
+				$tabs.each( function( index, tabsElem ){
+					var newFn = Object.create( fn );
+					newFn.$elem = $( tabsElem );
+					newFn.tabEvents();
+				});
+			}
+		};
+
+	};
+
+})( FEP, jQuery );
 
 
 //  FAKE CANVAS PLACEHOLDER - Using the module pattern scoped to FEP
 
-;(function( FEP, $ ) {
+;
+(function( FEP, $ ){
 
 	"use strict";
 
-	FEP.fakeCanvas = function( elem ) {
+	FEP.fakeCanvas = function( elem ){
 		var module = {
-			paint: function() {
+			paint: function(){
 				var el = elem.get()[0];
 				var ctx = el.getContext( '2d' );
 				ctx.fillStyle = '#08f';
-				function chart( x, w, val ) {
+				function chart( x, w, val ){
 					ctx.beginPath();
 					ctx.rect( x, 200 - val, w, val );
 					ctx.fill();
