@@ -45,8 +45,7 @@ FEP.config = {
 				elem: $( "code[class*='language']" ),
 				amd : ['prism'],
 				global: 'Prism',
-				func: 'highlightAll',
-				opts: 'async'
+				func: 'highlightAll'
 			},
 
 

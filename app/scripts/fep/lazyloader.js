@@ -8,10 +8,11 @@ FEP.lazyload = (function(){
 
 	var fn = {
 		loadScript: function(){
+
 			var elem = this.elem,
-				amd = this.amd,
-				opts = this.opts,
-				func = this.func,
+				amd = this.amd || "",
+				opts = this.opts || null,
+				func = this.func || "",
 				plugin = this.plugin,
 				global = this.global,
 				load = this.load,
@@ -24,14 +25,16 @@ FEP.lazyload = (function(){
 					return;
 				}
 
-				if( global ){
+				if( global !== void 0  ){
 					var fn = ( global === "window" ) ? window : window[global];
 					if( typeof fn[func] === 'function' ){
 						fn[func]( opts );
+					} else if( typeof fn === 'function' ){
+						fn( opts );
 					}
 				}
 
-				if( func !== void 0 ){
+				if( func !== void 0 && global === void 0){
 					// Assign the global function reference to a variable
 					var fn = window[func];
 					// Use the variable to invoke the function

@@ -36,18 +36,18 @@
 			},
 			hashEvent: function( event ){
 				event.preventDefault();
+				hash = window.location.hash || false;
 				var that = event.data;
-				$( window ).scrollTop( scrollLocation );
-				if( typeof that.callback === "function" ){
-					that.callback();
+				if( hash ){
+					$( window ).scrollTop( scrollLocation );
+					that.callback.call( that );
 				}
 			},
 			callback : function(){
 				this.$elem.addClass( "loaded" );
 				$( hash ).css( "visibility", "visible" );
 				$( ".tabs-tab", this.$elem ).removeClass( "active" );
-				$( this.$event.target ).closest( '.tabs-tab' ).addClass( "active" );
-				return false;
+				$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).closest( '.tabs-tab' ).addClass( "active" );
 			},
 			tabEvents: function(){
 				this.$elem.on( "loadhash click", ".tabs-tab-link", this, this.tabEvent );
