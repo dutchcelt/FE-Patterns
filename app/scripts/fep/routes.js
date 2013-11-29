@@ -1,7 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-/*  Author:    C. Egor Kloos - DutchCelt Design */
-///////////////////////////////////////////////////////////////////////////////
-
 // AMD ROUTING
 require.config(
 	{   baseUrl: "/scripts/minified",
@@ -11,7 +7,14 @@ require.config(
 			"keepinview": "keepinview",
 			"moment"    : "moment",
 			"dater"     : "dater",
-			"modules"   : "modules"
+			"modules"   : "modules",
+			"prism"     : "prism",
+			"tabs"      : "tabs"
+		},
+		shim   : {
+			"prism": {
+				"exports": "Prism"
+			}
 		}
 	}
 );

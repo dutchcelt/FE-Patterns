@@ -33,6 +33,7 @@
     "grunt-concurrent": "~0.3.0",
     "load-grunt-tasks": "~0.2.0",
     "grunt-bower-task": "~0.3.4",
-    "grunt-retire": "~0.1.17"
+    "grunt-retire": "~0.1.17",
+    "grunt-contrib-concat": "~0.3.0"
   }
 }

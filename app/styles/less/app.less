@@ -97,7 +97,7 @@ header .logo {
 	}
 
 .fep-text-pair + .fep-section {
-	width: -webkit-calc(66.6666% - ( @block / 2 ));
+	width: -webkit-calc(66% - ( @block / 2 ));
 	clear: none !important;
 	margin-left: @block;
 	}
@@ -333,13 +333,15 @@ fieldset .error {
 	padding: @interline @w;
 	}
 
-code,
+pre[class*="language-"], code,
 .note {
 	//color: @green2;
 	display: block;
-	.zebra-stripes(transparent, rgba(0, 0, 0, 0.05), 22px);
-	padding: 0em 1em;
+	//.zebra-stripes(transparent, rgba(0, 0, 0, 0.05), 22px);
+	padding: 0;
+	margin: 0;
 	overflow: auto;
+	background-color: transparent;
 	}
 
 .tabs-pane .note {

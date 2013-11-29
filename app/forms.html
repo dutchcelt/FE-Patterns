@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen" />
-        <script type="text/javascript" data-main="/scripts/minified/init" src="/scripts/minified/require.js"></script>
+        <script type="text/javascript" data-main="/scripts/minified/main" src="/scripts/minified/require_jquery.js"></script>
     </head>
 <body>
     
@@ -53,18 +53,18 @@
                 <form novalidate="novalidate">
                     <fieldset>
                         <h4>Text field</h4>
-                    <code class="note">
+                    <pre><code class="language-markup">
 &lt;div&gt;
     &lt;label for="txt01"&gt;Name *&lt;/label&gt;
     &lt;input type="text" id="txt01" required /&gt;
 &lt;/div&gt;
-                </code>
+                </code></pre>
                         <div>
                             <label for="txt01">Label text</label>
                             <input type="text" id="txt01" required />
                         </div>
                         <h4>Radio or checkbox entry</h4>
-                <code class="note">
+                <pre><code class="language-markup">
 &lt;div&gt;
     &lt;label&gt;Do you wish to receive our newletter?&lt;/label&gt;
     &lt;div&gt;
@@ -74,7 +74,7 @@
         &lt;label for="r02"&gt;No&lt;/label&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-                </code>
+                </code></pre>
                         <div>
                             <label>Label text</label>
                             <div>
@@ -83,12 +83,12 @@
                             </div>
                         </div>
                         <h4>Datepicker</h4>
-                <code class="note">
+                <pre><code class="language-markup">
 &lt;div&gt;
     &lt;label for=&quot;d01&quot;&gt;Date&lt;/label&gt;
     &lt;input type=&quot;text&quot; id=&quot;d01&quot; class=&quot;date&quot;/&gt;
 &lt;/div&gt;
-                </code>
+                </code></pre>
                         <div>
                             <label for="d01">Date</label>
                             <input type="text" id="d01" class="date" pattern="([1-9]|0[1-9]|[12][0-9]|3[01])[- /.]([1-9]|0[1-9]|1[012])[- /.](19|20)\d\d" placeholder="mm-dd-yyyy"/>
@@ -101,14 +101,14 @@
                 <form novalidate="novalidate">
                     <h4>Buttons (right aligned)</h4>
                     <fieldset>
-                    <code class="note">
+                    <pre><code class="language-markup">
 &lt;div class="buttons"&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn seperate&quot; value=&quot;Print&quot;&gt;&lt;i class=&quot;icon-print&quot;&gt;&lt;/i&gt;&amp;nbsp;Print&lt;/button&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; value=&quot;Delete&quot;&gt;&lt;i class=&quot;icon-trash&quot;&gt;&lt;/i&gt;&amp;nbsp;Delete&lt;/button&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; value=&quot;Cancel&quot;&gt;&lt;i class=&quot;icon-ban-circle&quot;&gt;&lt;/i&gt;&amp;nbsp;Cancel&lt;/button&gt;
     &lt;button type=&quot;submit&quot; class=&quot;btn default&quot; value=&quot;Save&quot;&gt;&lt;i class=&quot;icon-save&quot;&gt;&lt;/i&gt;&amp;nbsp;Save&lt;/button&gt;
 &lt;/div&gt;
-                </code>
+                </code></pre>
                     <div class="buttons">
                         <button type="button" class="btn seperate" value="Print" tabindex="0"><i class="icon-print"></i>&nbsp;Print</button>
                         <button type="button" class="btn" value="Delete" tabindex="0"><i class="icon-trash"></i>&nbsp;Delete</button>
@@ -124,7 +124,7 @@
                 <form novalidate="novalidate">
                     <h4>Contact form</h4>
                     <fieldset>
-                    <code class="note">
+                    <pre><code class="language-markup">
 &lt;form novalidate&gt;
     &lt;h4&gt;Contact form&lt;/h4&gt;
     &lt;fieldset&gt;
@@ -166,7 +166,7 @@
     &lt;/div&gt;
     &lt;p&gt;* These fields are required.&lt;/p&gt;
 &lt;/form&gt;
-                </code>
+                </code></pre>
                         <div>
                             <label for="id00">ID</label>
                             <input type="text" id="id00" value="0001 (readonly id)" readonly />
