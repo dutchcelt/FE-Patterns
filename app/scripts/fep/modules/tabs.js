@@ -1,75 +1,101 @@
 // TABS
 
-(function( factory ) {
+(function( factory ){
 
 	"use strict";
 
-	if( typeof define === 'function' && define.amd ) {
+	if( typeof define === 'function' && define.amd ){
 		// AMD. Register as an anonymous module.
 		define( ['jquery'], factory );
 	} else {
 		// Browser globals
-		factory( jQuery, FEP );
+		factory( jQuery );
 	}
 
-})(function( $ ){
+})( function( $ ){
 
 	"use strict";
 
-	FEP.tabs = function( $tabs ){
+	//  Detect if the FEP namespace is available. (FEP = Front-end Patterns)
+	if( FEP === void 0 ) {
+		window.FEP = { 'supports': {} };
+	}
 
+	FEP.supports.historyState = ( history.replaceState ) ? true : false;
+
+	FEP.tabs = function( $tabs ){
 		var scrollLocation;
 		var hash = window.location.hash;
 
 		var fn = {
-			tabEvent : function( event ){
+
+			tabEvent: function( event ){
+
 				event.preventDefault();
-				var that = event.data;
-				that.$event = event;
+
 				scrollLocation = $( window ).scrollTop();
 				hash = $( event.target ).attr( 'href' );
+
 				if( event.type === "loadhash" ){
 					$( window ).trigger( "tabHash" );
-				} else {
+				} else if( !FEP.supports.historyState ){
 					window.location.hash = hash.substr( 1 );
+				} else {
+					if( event.type === "click" ){
+						history.pushState( {}, document.title, hash );
+					}
+					if( event.type === "loadTAB"  ){
+						history.replaceState( {}, document.title, hash );
+					}
+					$( window ).trigger( "tabHash" );
 				}
+
 			},
+
 			hashEvent: function( event ){
 				event.preventDefault();
 				hash = window.location.hash || false;
-				var that = event.data;
 				if( hash ){
 					$( window ).scrollTop( scrollLocation );
-					that.callback.call( that );
+					this.setTab();
 				}
 			},
-			callback : function(){
+
+			setTab: function(){
 				this.$elem.addClass( "loaded" );
-				$( hash ).css( "visibility", "visible" );
+				if( FEP.supports.historyState ){
+					$( ".tabs-pane", this.$elem ).hide();
+					$( hash ).show();
+				}
 				$( ".tabs-tab", this.$elem ).removeClass( "active" );
 				$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).closest( '.tabs-tab' ).addClass( "active" );
 			},
-			tabEvents: function(){
-				this.$elem.on( "loadhash click", ".tabs-tab-link", this, this.tabEvent );
-				$( window ).on( "tabHash hashchange", this, this.hashEvent );
 
+			init: function(){
+				//  Attach events
+				this.$elem.on( "loadhash loadTAB click", ".tabs-tab-link", this.tabEvent );
+				$( window ).on( "tabHash hashchange", this.hashEvent.bind( this ) );
+				//  Load a tab!
 				if( !window.location.hash ){
-					$( ".tabs-tab-link[href]:eq(0)", this.$elem ).trigger( 'click' );
+					$( ".tabs-tab-link[href]:eq(0)", this.$elem ).trigger( 'loadTAB' );
 				} else {
 					$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).trigger( 'loadhash' );
 				}
 			}
+
 		};
+
 		return {
 			load: function(){
 				$tabs.each( function( index, tabsElem ){
 					var newFn = Object.create( fn );
 					newFn.$elem = $( tabsElem );
-					newFn.tabEvents();
+					newFn.init();
 				} );
+				return $tabs;
 			}
 		};
 
 	};
 
-});
+} );

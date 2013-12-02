@@ -80,10 +80,8 @@
 /*  Tabs */
 
 .tabs {
-	clear: both;
 	margin: 0;
 	padding: 0;
-	//position: relative;
 	background: @light-color;
 	}
 
@@ -113,7 +111,6 @@
 	.box();
 	background: @light-color;
 	.box-sizing(border-box);
-	.clearfix;
 	}
 .js .tabs-pane {
 	visibility: hidden;
@@ -122,8 +119,8 @@
 	display: none;
 	visibility: visible;
 	}
-//.target,
-.loaded .tabs-pane:target {
+.js .loaded .tabs-pane:target {
 	display: block;
+	visibility: visible;
 	}
 
