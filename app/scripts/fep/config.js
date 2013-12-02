@@ -18,6 +18,8 @@
  global:    Set the global scope to 'window' or a namespace so you van invoke
             the function from that scope. Pass our own arguments
             through with the 'opts' key.
+ iterate:   Set to false if you don't want to use the internal
+            array / setTimeout technique. Usually needed if you need $.each()
 
  */
 
@@ -72,7 +74,7 @@ FEP.config = {
 				elem  : $( ".tabs" ),
 				amd   : ['tabs'],
 				module: 'tabs',
-				method: ["load"]
+				iterate: false // Usually to allow $.each()
 			},
 			{   // Canvas placeholder
 				elem  : $( "canvas" ),
