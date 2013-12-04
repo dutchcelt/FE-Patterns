@@ -9,7 +9,7 @@ require.config(
 			"dater"     : "dater",
 			"modules"   : "modules",
 			"prism"     : "prism",
-			"tabs"      : "tabs"
+			"FEP-Tabs"  : "fep-tabs"
 		},
 		shim   : {
 			"prism": {

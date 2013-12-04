@@ -21,104 +21,132 @@
  ########################################################################### */
 
 
-
 (function( factory ){
 
 	"use strict";
 
 	if( typeof define === 'function' && define.amd ){
 		// AMD. Register as an anonymous module.
-		define( ['jquery'], factory );
+		define( ['FEP-Tabs'], factory );
 	} else {
 		// Browser globals
-		factory( jQuery );
+		factory( window );
 	}
 
-})( function( $ ){
+})( function(){
 
 	"use strict";
 
 	//  Detect if the FEP namespace is available. (FEP = Front-end Patterns)
-	if( window.FEP === void 0 ) {
+	if( window.FEP === void 0 ){
 		window.FEP = { 'supports': {} };
 	}
 
 	FEP.supports.historyState = ( history.replaceState ) ? true : false;
 
-	FEP.tabs = function( tabsSelector, settings ){
+	FEP.tabs = function( selector, settings ){
+
+		var tabBlocks = Array.prototype.slice.call( document.querySelectorAll( selector ) );
+
 		var scrollLocation;
-		var hash = window.location.hash;
+		var hash = window.location.hash || "";
 
 		var defaults = {
-			historyState : FEP.supports.historyState
+			historyState: FEP.supports.historyState
 		}
-		var options = $.extend( {}, defaults, settings );
+		var options = defaults;
+
+		//  Custom events
+		var loadhash = document.createEvent( 'Event' );
+		loadhash.initEvent( 'loadhash', true, true );
+		var loadTAB = document.createEvent( 'Event' );
+		loadTAB.initEvent( 'loadTAB', true, true );
 
 		var fn = {
 
 			tabEvent: function( event ){
-
+				if( event.target.className.indexOf( "tabs-tab-link" ) < 0 ){
+					return false;
+				}
 				event.preventDefault();
-				scrollLocation = $( window ).scrollTop();
-				hash = $( event.target ).attr( 'href' );
+				scrollLocation = document.documentElement.scrollTop;
+				hash = event.target.getAttribute( 'href' );
 
 				if( event.type === "loadhash" ){
-					$( window ).trigger( "tabHash" );
+					this.hashEvent( event );
 				} else if( !options.historyState ){
 					window.location.hash = hash.substr( 1 );
 				} else {
 					if( event.type === "click" ){
 						history.pushState( {}, document.title, hash );
 					}
-					if( event.type === "loadTAB"  ){
+					if( event.type === "loadTAB" ){
 						history.replaceState( {}, document.title, hash );
 					}
-					$( window ).trigger( "tabHash" );
+					this.hashEvent( event );
 				}
 
 			},
 
 			hashEvent: function( event ){
 				event.preventDefault();
-				if($( hash, this.$elem).length === 0) { return false };
-				$( window ).scrollTop( scrollLocation );
+				if( this.elem.querySelectorAll( hash ).length === 0 ){ return false }
+				;
+				document.documentElement.scrollTop = scrollLocation
 				this.setTab();
 			},
 
 			setTab: function(){
-				$( ".tabs-pane", this.$elem ).removeClass( "target" );
-				$( hash, this.$elem  ).addClass( "target" );
-				$( ".tabs-tab", this.$elem ).removeClass( "active" );
-				$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).closest( '.tabs-tab' ).addClass( "active" );
+
+				var target = this.elem.querySelector( ".target" );
+				var active = this.elem.querySelector( ".active" );
+
+				if( target ){
+					target.className = target.className.replace( /(?:^|\s)target(?!\S)/, '' );
+				}
+				if( active ){
+					active.className = active.className.replace( /(?:^|\s)active(?!\S)/, '' );
+				}
+
+				if( hash ){
+					this.elem.querySelector( hash ).className += " target";
+					this.elem.querySelector( ".tabs-tab-link[href='" + hash + "']" ).parentNode.className += " active";
+				}
 			},
 
 			init: function(){
 
-				this.$elem.addClass( "loaded" );
+				this.elem.className += " loaded";
 
 				//  Attach events
-				this.$elem.on( "loadhash loadTAB click", ".tabs-tab-link", this.tabEvent.bind( this ) );
-				$( window ).on( "tabHash hashchange", this.hashEvent.bind( this ) );
+				this.elem.addEventListener( 'click', this.tabEvent.bind( this ), false );
+				this.elem.addEventListener( 'loadhash', this.tabEvent.bind( this ), false );
+				this.elem.addEventListener( 'loadTAB', this.tabEvent.bind( this ), false );
+
+				window.addEventListener( 'hashchange', this.hashEvent.bind( this ), false );
+
+
 				//  Load a tab!
 				if( !window.location.hash ){
-					$( ".tabs-tab-link[href]:eq(0)", this.$elem ).trigger( 'loadTAB' );
-				} else if($( window.location.hash, this.$elem).length > 0){
-					$( ".tabs-tab-link[href='" + window.location.hash + "']", this.$elem ).trigger( 'loadhash' );
-				} else if($( window.location.hash, this.$elem).length === 0){
-					$( ".tabs-tab", this.$elem ).removeClass( "active" ).eq(0).addClass( "active" );
-					$( ".tabs-pane", this.$elem ).removeClass( "target" ).eq(0).addClass( "target" );
+					this.elem.querySelector( ".tabs-tab-link" ).dispatchEvent( loadTAB )
+				} else if( this.elem.querySelectorAll( window.location.hash ).length > 0 ){
+					this.elem.querySelector( ".tabs-tab-link[href='" + window.location.hash + "']" ).dispatchEvent( loadhash )
+				} else if( this.elem.querySelectorAll( window.location.hash ).length === 0 ){
+					this.elem.querySelector( ".tabs-tab" ).className += " active";
+					this.elem.querySelector( ".tabs-pane" ).className += " target";
 				}
 			}
 
 		};
 
-		return ( function(){
-			return $( tabsSelector ).each( function( index, tabsElem ){
+		return (function(){
+
+			tabBlocks.forEach( function( tabsElem ){
 				var newFn = Object.create( fn );
-				newFn.$elem = $( tabsElem );
-				newFn.index = index;
+				newFn.elem = tabsElem;
 				newFn.init();
-			});
+			} );
+
 		})();
 
 	};

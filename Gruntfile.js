@@ -51,6 +51,7 @@ module.exports = function( grunt ){
 			connect: {
 				options   : {
 					livereload: true,
+					hostname  : "*"
 				},
 				livereload: {
 					options: {
@@ -125,11 +126,11 @@ module.exports = function( grunt ){
 						'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js' ]
 					}
 				},
-				fep   : {
+				fep    : {
 					options: {
-						banner   : '<%= banner %>\n\n'
+						banner: '<%= banner %>\n\n'
 					},
-					files: [
+					files  : [
 						{
 							expand : true,
 							src    : '<%= FEP.app %>/scripts/fep/modules/*.js',
@@ -177,7 +178,8 @@ module.exports = function( grunt ){
 							cwd   : '.tmp',
 							src   : [
 								'**/fonts/*',
-								'**/*.less'
+								'**/*.less',
+								'**/*.css'
 							],
 							dest  : '<%= FEP.app %>/styles'
 						},

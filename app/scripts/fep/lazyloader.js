@@ -16,7 +16,7 @@ FEP.lazyload = (function(){
 				global = this.global,
 				load = this.load,
 				module = this.module,
-				iterate = this.iterate || true,
+				iterate = this.iterate,
 				method = this.method;
 
 			require( amd, function(){
@@ -74,6 +74,7 @@ FEP.lazyload = (function(){
 							};
 							iterator();
 						} else {
+
 							var mod = FEP[module]( elem, opts );
 							if( method ){
 								for( var n = 0, l = method.length; n < l; n++ ) {

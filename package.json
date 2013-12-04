@@ -13,8 +13,8 @@
   },
   "licenses": [
     {
-      "type": "GPL-3",
-      "url": "http://opensource.org/licenses/gpl-3.0.html"
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
     }
   ],
   "dependencies": {},
