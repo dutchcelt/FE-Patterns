@@ -57,7 +57,7 @@ FEP.config = {
 				elem  : $( "nav" ),
 				amd   : ['keepinview'],
 				plugin: 'keepInView',
-				opts  : { 'zindex': '4242' }
+				opts  : { 'zindex': '4242', cloned: true }
 			},
 
 			{   // Datepicker
@@ -71,8 +71,8 @@ FEP.config = {
 			////// FEP modules ///////////////////////////////////////////////
 
 			{   // Tabs
-				elem  : $( ".tabs" ),
-				amd   : ['tabs'],
+				elem  : ".tabs",
+				amd   : ['FEP-Tabs'],
 				module: 'tabs',
 				iterate: false // Usually to allow $.each()
 			},
