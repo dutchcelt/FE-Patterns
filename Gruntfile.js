@@ -88,7 +88,7 @@ module.exports = function( grunt ){
 						}
 					]
 				},
-				server: ['<%= FEP.app %>/scripts/minified/*'],
+				server: ['<%= FEP.app %>/scripts/minified/*']
 			},
 
 			jshint: {
@@ -107,17 +107,27 @@ module.exports = function( grunt ){
 			},
 			less  : {
 				app : {
-					files: {
-						"<%= FEP.app %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
-					}
+					files: [
+						{
+							"<%= FEP.app %>/styles/less/font-awesome.css": "<%= FEP.app %>/styles/**/font-awesome.less"
+						},
+						{
+							"<%= FEP.app %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
+						}
+					]
 				},
 				dist: {
 					options: {
 						cleancss: true
 					},
-					files  : {
-						"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.dist %>/styles/less/main.less"
-					}
+					files  : [
+						{
+							"<%= FEP.app %>/styles/less/font-awesome.css": "<%= FEP.app %>/styles/**/font-awesome.less"
+						},
+						{
+							"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
+						}
+					]
 				}
 			},
 			uglify: {
@@ -147,7 +157,7 @@ module.exports = function( grunt ){
 						},
 						{
 							expand : true,
-							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/main.js'],
+							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
 							dest   : '<%= FEP.dist %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
@@ -173,15 +183,18 @@ module.exports = function( grunt ){
 				app : {
 					files: [
 						{
-							expand: true,
-							dot   : true,
-							cwd   : '.tmp',
-							src   : [
-								'**/fonts/*',
-								'**/*.less',
-								'**/*.css'
-							],
-							dest  : '<%= FEP.app %>/styles'
+							expand : true,
+							src    : '.tmp/**/*.{svg,woff,eot,ttf,otf,txt}',
+							dest   : '<%= FEP.app %>/styles/fonts',
+							flatten: true,
+							filter : 'isFile'
+						},
+						{
+							expand : true,
+							src    : ['.tmp/**/*.less', '.tmp/**/*.css', '!.tmp/font-awesome/**/*.less' ],
+							dest   : '<%= FEP.app %>/styles/less',
+							flatten: true,
+							filter : 'isFile'
 						},
 						{
 							expand : true,
@@ -197,28 +210,17 @@ module.exports = function( grunt ){
 					files: [
 						{
 							expand: true,
-							dot   : true,
-							cwd   : '.tmp',
-							src   : [
-								'**/fonts/*',
-								'**/*.less'
-							],
-							dest  : '<%= FEP.dist %>/styles'
-						},
-						{
-							expand: true,
-							dot   : true,
 							cwd   : '<%= FEP.app %>',
 							dest  : '<%= FEP.dist %>',
 							src   : [
 								'*.{ico,png,txt}',
-								'lib/{,*/}*.js',
-								'lib/{,*/}*.css',
-								'styles/less/*',
-								'styles/fonts/{,*/}*.{svg,woff,eot,ttf,otf,txt}',
-								'styles/images/{,*/}*.{jpg,gif,png,webp}',
+								//'lib/**/*.js',
+								//'lib/**/*.css',
+								//'styles/less/*',
+								'styles/fonts/*.{svg,woff,eot,ttf,otf,txt}',
+								'styles/images/**/*.{jpg,gif,png,webp}',
 								'*.html',
-								'images/{,*/}*.{webp,gif}'
+								'images/**/*.{webp,gif}'
 							]
 						}
 
@@ -300,6 +302,7 @@ module.exports = function( grunt ){
 		'clean:dist',
 		'bower',
 		'concat:default',
+		'copy:app',
 		'copy:dist',
 		'concurrent:dist',
 		'retire:dist'

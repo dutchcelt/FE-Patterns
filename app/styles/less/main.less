@@ -1,6 +1,7 @@
-///////////////////////////////////////////////////////////////////////////////
-/*  Author:    C. Egor Kloos - DutchCelt Design */
-///////////////////////////////////////////////////////////////////////////////
+/*!
+ *  FE Patterns:    Main importer
+ *  Author:         C. Egor Kloos - DutchCelt Design
+ */
 
 
 /* Edit the lib files to match your projects design; */
@@ -14,20 +15,19 @@
 @import "FEP-forms";
 
 
+
 /* Add your own project LESS files below. */
 
 /* Library files */
-@import "../font-awesome/less/font-awesome";
 @import "../Dater/dater-base";
-@import "../FEP-Tabs/fep-tabs.css";
-@import "../../lib/prism/prism.css";
+
+@import (inline) "font-awesome.css";
+@import (inline) "../FEP-Tabs/fep-tabs.css";
+@import (inline) "../../lib/prism/prism.css";
+
 
 /* Custom styles (project based) */
 @import "app";
 @import "boxes";
 @import "ui";
 
-
-/* Overrides */
-
-@fa-font-path:        "../font-awesome/fonts";

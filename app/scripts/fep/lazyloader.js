@@ -9,6 +9,7 @@ FEP.lazyload = (function(){
 		loadScript: function(){
 
 			var elem = this.elem,
+				selector = this.selector,
 				amd = this.amd || "",
 				opts = this.opts || null,
 				func = this.func || "",
@@ -16,7 +17,6 @@ FEP.lazyload = (function(){
 				global = this.global,
 				load = this.load,
 				module = this.module,
-				iterate = this.iterate,
 				method = this.method;
 
 			require( amd, function(){
@@ -54,28 +54,16 @@ FEP.lazyload = (function(){
 				if( module !== void 0 ){
 					if( typeof FEP[module] === 'function' ){
 
-						var elems = $.makeArray( elem );
-						if( iterate ){
-							var iterator = function(){
-
-								var el = elems.shift();
-								var mod = FEP[module]( $( el ), opts );
-								if( method ){
-									for( var n = 0, l = method.length; n < l; n++ ) {
-										mod[method[n]]();
-									}
+						if( elem ){
+							var mod = FEP[module]( elem, opts );
+							if( method ){
+								for( var n = 0, l = method.length; n < l; n++ ) {
+									mod[method[n]]();
 								}
-
-								//  Iterate through the functions/methods for the module
-								if( elems.length > 0 ){
-									setTimeout( iterator, 25 );
-								}
-
-							};
-							iterator();
+							}
 						} else {
 
-							var mod = FEP[module]( elem, opts );
+							var mod = FEP[module]( selector, opts );
 							if( method ){
 								for( var n = 0, l = method.length; n < l; n++ ) {
 									mod[method[n]]();
@@ -102,13 +90,11 @@ FEP.lazyload = (function(){
 
 					var item = items.shift();
 					//  Invoke lazyLoad method with the current item
-					if( item.elem.length > 0 ){
-						fn.loadScript.call( item );
-					}
+					fn.loadScript.call( item );
 
-				} while( items.length > 0 && (+new Date() - start < 50) ); // increase to 100ms if needed.
+				} while( items[0] !== void 0 && (+new Date() - start < 50) ); // increase to 100ms if needed.
 
-				if( items.length > 0 ){
+				if( items[0] !== void 0 ){
 					setTimeout( iterator, 25 );
 				}
 			};

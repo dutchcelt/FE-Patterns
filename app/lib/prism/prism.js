@@ -529,72 +529,28 @@ Prism.languages.insertBefore('scss', 'ignore', {
 	'operator': /\s+([-+]{1,2}|={1,2}|!=|\|?\||\?|\*|\/|\%)\s+/g
 });
 ;
-Prism.languages.http = {
-	'request-line': {
-		pattern: /^(POST|GET|PUT|DELETE|OPTIONS)\b\shttps?:\/\/\S+\sHTTP\/[0-9.]+/g,
+Prism.languages.bash = Prism.languages.extend('clike', {
+	'comment': {
+		pattern: /(^|[^"{\\])(#.*?(\r?\n|$))/g,
+		lookbehind: true
+	},
+	'string': {
+		//allow multiline string
+		pattern: /("|')(\\?[\s\S])*?\1/g,
 		inside: {
-			// HTTP Verb
-			property: /^\b(POST|GET|PUT|DELETE|OPTIONS)\b/g,
-			// Path or query argument
-			'attr-name': /:\w+/g
+			//'property' class reused for bash variables
+			'property': /\$([a-zA-Z0-9_#\?\-\*!@]+|\{[^\}]+\})/g
 		}
 	},
-	'response-status': {
-		pattern: /^HTTP\/1.[01] [0-9]+.*/g,
-		inside: {
-			// Status, e.g. 200 OK
-			property: /[0-9]+[A-Z\s-]+$/g
-		}
-	},
-	// HTTP header name
-	keyword: /^[\w-]+:(?=.+)/gm
-};
+	'keyword': /\b(if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)\b/g
+});
 
-// Create a mapping of Content-Type headers to language definitions
-var httpLanguages = {
-	'application/json': Prism.languages.javascript,
-	'application/xml': Prism.languages.markup,
-	'text/xml': Prism.languages.markup,
-	'text/html': Prism.languages.markup
-};
-
-// Insert each content type parser that has its associated language
-// currently loaded.
-for (var contentType in httpLanguages) {
-	if (httpLanguages[contentType]) {
-		var options = {};
-		options[contentType] = {
-			pattern: new RegExp('(content-type:\\s*' + contentType + '[\\w\\W]*?)\\n\\n[\\w\\W]*', 'gi'),
-			lookbehind: true,
-			inside: {
-				rest: httpLanguages[contentType]
-			}
-		};
-		Prism.languages.insertBefore('http', 'keyword', options);
-	}
-}
+Prism.languages.insertBefore('bash', 'keyword', {
+	//'property' class reused for bash variables
+	'property': /\$([a-zA-Z0-9_#\?\-\*!@]+|\{[^}]+\})/g
+});
+Prism.languages.insertBefore('bash', 'comment', {
+	//shebang must be before comment, 'important' class from css reused
+	'important': /(^#!\s*\/bin\/bash)|(^#!\s*\/bin\/sh)/g
+});
 ;
-Prism.hooks.add('after-highlight', function (env) {
-	// works only for <code> wrapped inside <pre data-line-numbers> (not inline)
-	var pre = env.element.parentNode;
-	if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf('line-numbers') === -1) {
-		return;
-	}
-
-	var linesNum = (1 + env.code.split('\n').length);
-	var lineNumbersWrapper;
-
-	lines = new Array(linesNum);
-	lines = lines.join('<span></span>');
-
-	lineNumbersWrapper = document.createElement('span');
-	lineNumbersWrapper.className = 'line-numbers-rows';
-	lineNumbersWrapper.innerHTML = lines;
-
-	if (pre.hasAttribute('data-start')) {
-		pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 10) - 1);
-	}
-
-	env.element.appendChild(lineNumbersWrapper);
-
-});;

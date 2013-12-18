@@ -4,6 +4,7 @@
 
  elem:      The jquery selector that triggers the lazy load and
             gets passed to 'func', 'plugin' or 'module'
+ selector:   This is if you are using a selector string instead of a node elem
  amd:       Asynchronous Script Modules (AMD) that is required to load
  func:      The function to execute (mostly found in fep-functions.js) and
             will pass the 'elem' as an argument
@@ -18,14 +19,11 @@
  global:    Set the global scope to 'window' or a namespace so you van invoke
             the function from that scope. Pass our own arguments
             through with the 'opts' key.
- iterate:   Set to false if you don't want to use the internal
-            array / setTimeout technique. Usually needed if you need $.each()
-
  */
 
 FEP.config = {
 
-	getArray: function() {
+	getArray: function(){
 
 		"use strict";
 
@@ -33,32 +31,25 @@ FEP.config = {
 
 			////// Simple (load) functions ///////////////////////////////////
 
-/*
-			{   // Example
-				elem: $( ".exampleClass" ),
-				amd : ['exampleAMD'],
-				load: true
-			},
-*/
+			/*
+			 {   // Example
+			 elem: $( ".exampleClass" ),
+			 amd : ['exampleAMD'],
+			 load: true
+			 },
+			 */
 
 			////// Global functions //////////////////////////////////////////
 
 			{   // Prism
-				elem: $( "code[class*='language']" ),
-				amd : ['prism'],
+				elem  : $( "code[class*='language']" ),
+				amd   : ['prism'],
 				global: 'Prism',
-				func: 'highlightAll'
+				func  : 'highlightAll'
 			},
 
 
 			////// jQuery plugins ////////////////////////////////////////////
-
-			{   // Keep navigation in view
-				elem  : $( "nav" ),
-				amd   : ['keepinview'],
-				plugin: 'keepInView',
-				opts  : { 'zindex': '4242', cloned: true }
-			},
 
 			{   // Datepicker
 				elem  : $( ".date" ),
@@ -70,17 +61,16 @@ FEP.config = {
 
 			////// FEP modules ///////////////////////////////////////////////
 
-			{   // Tabs
-				elem  : ".tabs",
-				amd   : ['FEP-Tabs'],
-				module: 'tabs',
-				iterate: false // Usually to allow $.each()
+			{   // Keep navigation in view
+				selector: "nav",
+				amd     : ['FEP-KeepInView'],
+				module  : 'KeepInView',
+				opts    : { 'zindex': '4242', cloned: true }
 			},
-			{   // Canvas placeholder
-				elem  : $( "canvas" ),
-				amd   : ['modules'],
-				module: 'fakeCanvas',
-				method: ["run"]
+			{   // Tabs
+				selector: ".tabs",
+				amd     : ['FEP-Tabs'],
+				module  : 'tabs'
 			}
 
 		];

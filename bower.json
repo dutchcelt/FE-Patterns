@@ -6,12 +6,12 @@
 	"version"        : "2.0.0-alpha",
 	"license"        : "MIT",
 	"dependencies"   : {
-		"requirejs"   : "~2.1.9",
-		"jquery"      : "~2.0.3",
-		"font-awesome": "~4.0.3",
-		"Keep-in-View": "~1.2.5",
-		"FEP-Tabs"    : "~0.3.2",
-		"Dater"       : "~2.0.4"
+		"requirejs"     : "~2.1.9",
+		"jquery"        : "~2.0.3",
+		"font-awesome"  : "~4.0.3",
+		"FEP-KeepInView": "~1.0.3",
+		"FEP-Tabs"      : "~0.3.4",
+		"Dater"         : "~2.0.4"
 	},
 	"exportsOverride": {
 		"font-awesome": {
