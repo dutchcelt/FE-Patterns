@@ -62,10 +62,10 @@ FEP.config = {
 			////// FEP modules ///////////////////////////////////////////////
 
 			{   // Keep navigation in view
-				selector: "nav",
+				selector: "nav, .tabs-list",
 				amd     : ['FEP-KeepInView'],
 				module  : 'KeepInView',
-				opts    : { 'zindex': '4242', cloned: true }
+				opts    : { zindex: '42', cloned: true, stacked: true }
 			},
 			{   // Tabs
 				selector: ".tabs",

@@ -8,7 +8,7 @@
 	"dependencies"   : {
 		"requirejs"     : "~2.1.9",
 		"jquery"        : "~2.0.3",
-		"font-awesome"  : "~4.0.3",
+		"font-awesome"  : "~4.3.0",
 		"FEP-KeepInView": "~1.0.3",
 		"FEP-Tabs"      : "~0.3.4",
 		"Dater"         : "~2.0.4"

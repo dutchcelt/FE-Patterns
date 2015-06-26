@@ -10,12 +10,12 @@ module.exports = function( grunt ){
 		{
 
 			// Metadata.
-			pkg        : grunt.file.readJSON( 'package.json' ),
-			banner     : '///////////////////////////////////////////////////////////////////////////////\n' +
-			             '/* <%= pkg.name %> v<%= pkg.version %> by @duthcelt */\n' +
-			             '/* Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n' +
-			             '/* <%= _.pluck(pkg.licenses, "url").join(", ") %> */\n' +
-			             '///////////////////////////////////////////////////////////////////////////////\n\n',
+			pkg		  : grunt.file.readJSON( 'package.json' ),
+			banner	  : '///////////////////////////////////////////////////////////////////////////////\n' +
+						'/* <%= pkg.name %> v<%= pkg.version %> by @duthcelt */\n' +
+						'/* Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n' +
+						'/* <%= _.pluck(pkg.licenses, "url").join(", ") %> */\n' +
+						'///////////////////////////////////////////////////////////////////////////////\n\n',
 			jqueryCheck: 'if (!jQuery) { throw new Error(\"FE-Pattern requires jQuery\") }\n\n',
 
 			FEP: {
@@ -24,15 +24,15 @@ module.exports = function( grunt ){
 			},
 
 			watch  : {
-				styles    : {
+				styles	  : {
 					files: ['<%= FEP.app %>/styles/less{,*/}*.less'],
 					tasks: ['less:app']
 				},
-				scripts   : {
+				scripts	  : {
 					files: ['<%= FEP.app %>/scripts/fep/modules/*.js', '<%= FEP.app %>/lib{,*/}*.js'],
 					tasks: ['copy:app']
 				},
-				fep       : {
+				fep		  : {
 					files: '<%= FEP.app %>/scripts/fep/*.js',
 					tasks: 'concat'
 				},
@@ -40,7 +40,7 @@ module.exports = function( grunt ){
 					options: {
 						livereload: '<%= connect.options.livereload %>'
 					},
-					files  : [
+					files	: [
 						//'<%= FEP.app %>/*.html',
 						'<%= FEP.app %>/styles/css/{,*/}*.css',
 						'<%= FEP.app %>/scripts/minified/{,*/}*.js',
@@ -49,7 +49,7 @@ module.exports = function( grunt ){
 				}
 			},
 			connect: {
-				options   : {
+				options	  : {
 					livereload: true,
 					hostname  : "*"
 				},
@@ -59,7 +59,7 @@ module.exports = function( grunt ){
 						base: '<%= FEP.app %>'
 					}
 				},
-				test      : {
+				test	  : {
 					options: {
 						base: [
 							'.tmp',
@@ -68,7 +68,7 @@ module.exports = function( grunt ){
 						]
 					}
 				},
-				dist      : {
+				dist	  : {
 					options: {
 						open: true,
 						base: '<%= FEP.dist %>'
@@ -92,25 +92,28 @@ module.exports = function( grunt ){
 			},
 
 			jshint: {
-				options  : {
+				options	 : {
 					jshintrc: 'js/.jshintrc'
 				},
 				gruntfile: {
 					src: 'Gruntfile.js'
 				},
-				src      : {
+				src		 : {
 					src: ['js/*.js']
 				},
-				test     : {
+				test	 : {
 					src: ['js/tests/unit/*.js']
 				}
 			},
-			less  : {
+			less	 : {
 				app : {
+					options: {
+						sourceMap: true,
+						sourceMapRootpath: "/",
+						sourceMapBasepath: "<%= FEP.app %>",
+						sourceMapFilename: "<%= FEP.app %>/styles/css/main.css.map"
+					},
 					files: [
-						{
-							"<%= FEP.app %>/styles/less/font-awesome.css": "<%= FEP.app %>/styles/**/font-awesome.less"
-						},
 						{
 							"<%= FEP.app %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
 						}
@@ -120,7 +123,7 @@ module.exports = function( grunt ){
 					options: {
 						cleancss: true
 					},
-					files  : [
+					files	: [
 						{
 							"<%= FEP.app %>/styles/less/font-awesome.css": "<%= FEP.app %>/styles/**/font-awesome.less"
 						},
@@ -136,15 +139,15 @@ module.exports = function( grunt ){
 						'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js' ]
 					}
 				},
-				fep    : {
+				fep	   : {
 					options: {
 						banner: '<%= banner %>\n\n'
 					},
-					files  : [
+					files	: [
 						{
 							expand : true,
-							src    : '<%= FEP.app %>/scripts/fep/modules/*.js',
-							dest   : '<%= FEP.dist %>/scripts/minified',
+							src	  : '<%= FEP.app %>/scripts/fep/modules/*.js',
+							dest	  : '<%= FEP.dist %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
 						}
@@ -157,8 +160,8 @@ module.exports = function( grunt ){
 						},
 						{
 							expand : true,
-							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
-							dest   : '<%= FEP.dist %>/scripts/minified',
+							src	  : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
+							dest	  : '<%= FEP.dist %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
 						}
@@ -168,7 +171,7 @@ module.exports = function( grunt ){
 			concat: {
 				options: {
 					separator: ';\n\n',
-					banner   : '<%= banner %>'
+					banner	  : '<%= banner %>'
 				},
 				default: {
 					src : [
@@ -179,27 +182,27 @@ module.exports = function( grunt ){
 				}
 			},
 			// Put files not handled in other tasks here
-			copy  : {
+			copy	 : {
 				app : {
 					files: [
 						{
 							expand : true,
-							src    : '.tmp/**/*.{svg,woff,eot,ttf,otf,txt}',
-							dest   : '<%= FEP.app %>/styles/fonts',
+							src	  : '.tmp/**/*.{svg,woff,eot,ttf,otf,txt}',
+							dest	  : '<%= FEP.app %>/styles/fonts',
 							flatten: true,
 							filter : 'isFile'
 						},
 						{
 							expand : true,
-							src    : ['.tmp/**/*.less', '.tmp/**/*.css', '!.tmp/font-awesome/**/*.less' ],
-							dest   : '<%= FEP.app %>/styles/less',
+							src	  : ['.tmp/**/*.less', '.tmp/**/*.css', '!.tmp/font-awesome/**/*.less' ],
+							dest	  : '<%= FEP.app %>/styles/less',
 							flatten: true,
 							filter : 'isFile'
 						},
 						{
 							expand : true,
-							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/modules/*.js'],
-							dest   : '<%= FEP.app %>/scripts/minified',
+							src	  : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/modules/*.js'],
+							dest	  : '<%= FEP.app %>/scripts/minified',
 							flatten: true,
 							filter : 'isFile'
 						}
@@ -210,9 +213,9 @@ module.exports = function( grunt ){
 					files: [
 						{
 							expand: true,
-							cwd   : '<%= FEP.app %>',
-							dest  : '<%= FEP.dist %>',
-							src   : [
+							cwd	 : '<%= FEP.app %>',
+							dest	 : '<%= FEP.dist %>',
+							src	 : [
 								'*.{ico,png,txt}',
 								//'lib/**/*.js',
 								//'lib/**/*.css',
@@ -246,16 +249,16 @@ module.exports = function( grunt ){
 					'less:dist'
 				]
 			},
-			bower     : {
+			bower	 : {
 				install: {
 					options: {
-						targetDir     : '.tmp',
+						targetDir		: '.tmp',
 						cleanTargetDir: true,
-						layout        : 'byComponent'
+						layout		: 'byComponent'
 					}
 				}
 			},
-			retire    : {
+			retire	 : {
 				app : {
 					js: ['<%= FEP.app %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
 				},
@@ -277,18 +280,18 @@ module.exports = function( grunt ){
 		}
 
 		grunt.task.run( [
-			                'clean:server',
-			                'bower',
-			                'concat:default',
-			                'copy:app',
-			                'concurrent:server',
-			                'retire:app',
-			                'connect:livereload',
-			                'watch'
-		                ] );
+			'clean:server',
+			'bower',
+			'concat:default',
+			'copy:app',
+			'concurrent:server',
+			'retire:app',
+			'connect:livereload',
+			'watch'
+		] );
 	} );
 
-	//  TODO: add QUnit testing
+	//	 TODO: add QUnit testing
 	/*
 	 grunt.registerTask('test', [
 	 'clean:server',
@@ -306,12 +309,13 @@ module.exports = function( grunt ){
 		'copy:dist',
 		'concurrent:dist',
 		'retire:dist'
+		//,'connect:dist'
 		//, 'requirejs:dist'
 	] );
 
 	grunt.registerTask( 'default', [
 		//'jshint',
-		//'test', //  TODO: add QUnit testing
+		//'test', //	TODO: add QUnit testing
 		'build'
 	] );
 
