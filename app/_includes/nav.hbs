@@ -1,0 +1,13 @@
+<ul class="list-unstyled">
+	{{#each pages}}
+		{{#is ../basename data.section}}
+			{{#isnt data.type "index"}}
+				<li><a href="#{{basename}}">{{data.title}}</a></li>
+				{{> nav-tags data}}
+			{{/isnt}}
+		{{/is}}
+	{{/each}}
+
+</ul>
+
+

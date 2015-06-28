@@ -1,0 +1,56 @@
+# =============================================
+# Build config
+# =============================================
+
+name:             'FEP'
+staticpath: 	  '../../'
+dest:             '<%= pages.staticpath %><%= styleguide.name %>'
+filename:         'sg.<%= pkg.version %>'
+assets:           <%= pages.dest %>/assets
+
+# Data
+data:             <%= pages.staticpath %>/source/_data
+
+# Templates
+src:        	  source
+includes:         <%= pages.app %>/_includes/*.hbs
+layouts:          <%= pages.app %>/_layouts
+layout:           default.hbs
+articles:         <%= pages.app %>/pages
+
+
+
+# =============================================
+# Project metadata
+# =============================================
+
+author:           <%= pkg.author %>
+
+# Assemble metadata.
+assemble:
+  latest:         <%= pkg.version %>
+
+# GitHub
+username:         dutchcelt
+repo:
+  name:           <%= pkg.name %>
+  repository:	  <%= pkg.repository.url %>
+version:		  <%= pkg.version %>
+
+
+# =============================================
+# Site metadata
+# =============================================
+
+title:            'FE-Patterns'
+lead:             'Basic set of Front-end Patterns to get your projects up running with LESS.'
+keywords:         <%= pkg.keywords %>
+
+version:          <%= pkg.version %>
+description:      <%= pkg.description %>
+
+
+# Site
+domain:           'www.anwb.nl'
+path:             '/static/stijlgids'
+mainFileName:     'fep'

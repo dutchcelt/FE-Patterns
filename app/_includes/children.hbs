@@ -1,0 +1,9 @@
+{{#each pages}}
+	{{#is ../basename data.section}}
+		{{#isnt data.type "index"}}
+            <article id="{{../basename}}">
+			{{{page}}}
+            </article>
+		{{/isnt}}
+	{{/is}}
+{{/each}}

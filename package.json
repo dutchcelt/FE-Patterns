@@ -17,23 +17,26 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "assemble": "^0.6.0-beta.5"
+  },
   "devDependencies": {
+    "assemble-mustache": "^0.2.1",
     "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-connect": "~0.3.0",
-    "grunt-contrib-less": "~0.8.3",
     "grunt-bower-requirejs": "~0.7.1",
-    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-concurrent": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-less": "~0.8.3",
     "grunt-contrib-qunit": "~0.2.2",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.1",
-    "grunt-concurrent": "~0.3.0",
-    "load-grunt-tasks": "~0.2.0",
-    "grunt-bower-task": "~0.3.4",
     "grunt-retire": "~0.1.17",
-    "grunt-contrib-concat": "~0.3.0"
+    "load-grunt-tasks": "~0.2.0"
   }
 }

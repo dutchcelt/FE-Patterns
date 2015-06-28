@@ -1,0 +1,13 @@
+<header>
+    <div class="logo">Front-end Patterns</div>
+</header>
+<nav class="sg-nav" role="navigation">
+    <ul>
+		{{#each subhome}}
+			{{#each pages}}
+                <li{{#is ../this.sub ../../basename}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
+			{{/each}}
+		{{/each}}
+	</ul>
+</nav>
+

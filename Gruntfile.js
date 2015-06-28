@@ -18,6 +18,8 @@ module.exports = function( grunt ){
 						'///////////////////////////////////////////////////////////////////////////////\n\n',
 			jqueryCheck: 'if (!jQuery) { throw new Error(\"FE-Pattern requires jQuery\") }\n\n',
 
+			pages: grunt.file.readYAML('_assemble.yml'),
+
 			FEP: {
 				app : 'app',
 				dist: 'dist'
