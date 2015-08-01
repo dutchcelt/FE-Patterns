@@ -9,3 +9,4 @@ css
 minified
 .tmp
 .idea
+npm-debug.log
