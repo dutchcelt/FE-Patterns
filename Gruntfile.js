@@ -3,8 +3,6 @@
 module.exports = function( grunt ){
 	"use strict";
 
-	require( 'load-grunt-tasks' )( grunt );
-
 	// Project configuration.
 	grunt.initConfig(
 		{
@@ -233,33 +231,33 @@ module.exports = function( grunt ){
 				}
 			},
 
-			qunit: {
-				options: {
-					inject: 'js/tests/unit/phantom.js'
-				},
-				files  : ['js/tests/*.html']
-			},
+			//qunit: {
+			//	options: {
+			//		inject: 'js/tests/unit/phantom.js'
+			//	},
+			//	files  : ['js/tests/*.html']
+			//},
 
-			concurrent: {
-				server: [
-					'uglify:default',
-					'less:app'
-				],
-				dist  : [
-					'uglify:fep',
-					'uglify:dist',
-					'less:dist'
-				]
-			},
-			bower	 : {
-				install: {
-					options: {
-						targetDir		: '.tmp',
-						cleanTargetDir: true,
-						layout		: 'byComponent'
-					}
-				}
-			},
+			//concurrent: {
+			//	server: [
+			//		'uglify:default',
+			//		'less:app'
+			//	],
+			//	dist  : [
+			//		'uglify:fep',
+			//		'uglify:dist',
+			//		'less:dist'
+			//	]
+			//},
+			//bower	 : {
+			//	install: {
+			//		options: {
+			//			targetDir		: '.tmp',
+			//			cleanTargetDir: true,
+			//			layout		: 'byComponent'
+			//		}
+			//	}
+			//},
 			retire	 : {
 				app : {
 					js: ['<%= FEP.app %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
@@ -305,11 +303,10 @@ module.exports = function( grunt ){
 
 	grunt.registerTask( 'build', [
 		'clean:dist',
-		'bower',
 		'concat:default',
 		'copy:app',
 		'copy:dist',
-		'concurrent:dist',
+		//'concurrent:dist',
 		'retire:dist'
 		//,'connect:dist'
 		//, 'requirejs:dist'
