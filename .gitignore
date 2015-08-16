@@ -11,3 +11,4 @@ minified
 .tmp
 .idea
 npm-debug.log
+lib
