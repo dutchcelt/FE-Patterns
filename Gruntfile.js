@@ -220,17 +220,32 @@ module.exports = function( grunt ){
 					}]
 				}
 			},
-			serve: {
-				options:{
-					port: 9000
-				},
-				path: __dirname + '/dist'
+			connect: {
+				server:{
+					options: {
+						//open: true,
+						port: 9000,
+						base: '<%= FEP.dist %>',
+						keepalive: true,
+						//livereload: true,
+						hostname  : "*"
+					}
+
+				}
 			}
+			//"serve": {
+			//	"options":{
+			//		"port": 9009,
+			//		"silently": false
+			//	}
+			//	,"path": "/Users/p276094/Development/FE-Patterns/dist"
+			//}
 
 		}
 	);
 
 	// Load tasks
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks( "grunt-contrib-clean" );
 	grunt.loadNpmTasks( "grunt-contrib-concat" );
 	grunt.loadNpmTasks( "grunt-contrib-copy" );
@@ -240,7 +255,6 @@ module.exports = function( grunt ){
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-retire" );
-	grunt.loadNpmTasks( "grunt-serve" );
 	grunt.loadNpmTasks( "grunt-shell" );
 	grunt.loadNpmTasks( "grunt-traceur" );
 	grunt.loadNpmTasks( "grunt-newer" );
@@ -258,8 +272,8 @@ module.exports = function( grunt ){
 	] );
 
 	grunt.registerTask( 'default', ['build'] );
-	grunt.registerTask( 'custom', ['traceur:custom','serve'] );
-	grunt.registerTask( 'modules', ['newer:uglify:github','newer:uglify:npm','newer:copy','serve'] );
+	grunt.registerTask( 'custom', ['traceur:custom','connect:server:keepalive'] );
+	grunt.registerTask( 'modules', ['newer:uglify:github','newer:uglify:npm','newer:copy','connect:server:keepalive'] );
 
 
 	//console.log(__dirname,__filename);
