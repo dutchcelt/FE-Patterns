@@ -3,18 +3,19 @@
 <head>
 	<script src="/app/lib/system.js"></script>
 	<script src="/config.js"></script>
+	<script>
+		var importArray = [
+			System.import( 'dutchcelt/FEP-Tabs' ),
+			System.import('font-awesome' ),
+			System.import('dutchcelt/FEP-KeepInView' ),
+			System.import('dutchcelt/Dater' )
+		];
+	</script>
 </head>
 <body>
 <input type="text" placeholder="29-03-2014" /> <i class="fa fa-camera-retro"></i>
 <pre><code>&lt;p class='testing'&gt;test&lt;/p&gt;...</code></pre>
 <script>
-	var importArray = [
-		//System.import( 'github:dutchcelt/Dater@2.0.7/styles/css/dater.css!' ),
-		System.import('font-awesome' ),
-		System.import('dutchcelt/FEP-KeepInView' ),
-		System.import('dutchcelt/Dater' )
-	];
-
 	Promise.all( importArray ).then( function( resolved ){
 		//resolved[0]( function(){
 		console.log('done');

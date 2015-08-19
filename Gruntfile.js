@@ -46,33 +46,7 @@ module.exports = function( grunt ){
 			//		]
 			//	}
 			//},
-			//connect: {
-			//	options   : {
-			//		livereload: true,
-			//		hostname  : "*"
-			//	},
-			//	livereload: {
-			//		options: {
-			//			open: true,
-			//			base: '<%= FEP.app %>'
-			//		}
-			//	},
-			//	test      : {
-			//		options: {
-			//			base: [
-			//				'.tmp',
-			//				'test',
-			//				'<%= FEP.app %>'
-			//			]
-			//		}
-			//	},
-			//	dist      : {
-			//		options: {
-			//			open: true,
-			//			base: '<%= FEP.dist %>'
-			//		}
-			//	}
-			//},
+
 			//clean  : {
 			//	dist  : {
 			//		files: [
@@ -131,113 +105,101 @@ module.exports = function( grunt ){
 			//		]
 			//	}
 			//},
-			//uglify: {
-			//	default: {
-			//		files: {
-			//			'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
-			//		}
-			//	},
-			//	fep    : {
-			//		options: {
-			//			banner: '<%= banner %>\n\n'
-			//		},
-			//		files  : [
-			//			{
-			//				expand : true,
-			//				src    : '<%= FEP.app %>/scripts/fep/modules/*.js',
-			//				dest   : '<%= FEP.dist %>/scripts/minified',
-			//				flatten: true,
-			//				filter : 'isFile'
-			//			}
-			//		]
-			//	},
-			//	dist   : {
-			//		files: [
-			//			{
-			//				'<%= FEP.dist %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
-			//			},
-			//			{
-			//				expand : true,
-			//				src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
-			//				dest   : '<%= FEP.dist %>/scripts/minified',
-			//				flatten: true,
-			//				filter : 'isFile'
-			//			}
-			//		]
-			//	}
-			//},
-			//concat: {
-			//	options: {
-			//		separator: ';\n\n',
-			//		banner   : '<%= banner %>'
-			//	},
-			//	default: {
-			//		src : [
-			//			'<%= FEP.app %>/scripts/fep/*.js'
-			//
-			//		],
-			//		dest: '<%= FEP.app %>/scripts/minified/main.js'
-			//	}
-			//},
-			//// Put files not handled in other tasks here
-			//copy  : {
-			//	app : {
-			//		files: [
-			//			{
-			//				expand : true,
-			//				src    : '.tmp/**/*.{svg,woff,eot,ttf,otf,txt}',
-			//				dest   : '<%= FEP.app %>/styles/fonts',
-			//				flatten: true,
-			//				filter : 'isFile'
-			//			},
-			//			{
-			//				expand : true,
-			//				src    : ['.tmp/**/*.less', '.tmp/**/*.css', '!.tmp/font-awesome/**/*.less'],
-			//				dest   : '<%= FEP.app %>/styles/less',
-			//				flatten: true,
-			//				filter : 'isFile'
-			//			},
-			//			{
-			//				expand : true,
-			//				src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/fep/modules/*.js'],
-			//				dest   : '<%= FEP.app %>/scripts/minified',
-			//				flatten: true,
-			//				filter : 'isFile'
-			//			}
-			//
-			//		]
-			//	},
-			//	dist: {
-			//		files: [
-			//			{
-			//				expand: true,
-			//				cwd   : '<%= FEP.app %>',
-			//				dest  : '<%= FEP.dist %>',
-			//				src   : [
-			//					'*.{ico,png,txt}',
-			//					//'lib/**/*.js',
-			//					//'lib/**/*.css',
-			//					//'styles/less/*',
-			//					'styles/fonts/*.{svg,woff,eot,ttf,otf,txt}',
-			//					'styles/images/**/*.{jpg,gif,png,webp}',
-			//					'*.html',
-			//					'images/**/*.{webp,gif}'
-			//				]
-			//			}
-			//
-			//		]
-			//	}
-			//},
-			//
-			//
-			//retire: {
-			//	app : {
-			//		js: ['<%= FEP.app %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
-			//	},
-			//	dist: {
-			//		js: ['<%= FEP.dist %>/**/minified/*js'] /** Scan js-files in app/src/ directory and subdirectories. **/
-			//	}
-			//},
+			uglify: {
+				default: {
+					files: {
+						'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
+					}
+				},
+				fep    : {
+					options: {
+						banner: '<%= banner %>\n\n'
+					},
+					files  : [
+						{
+							expand : true,
+							src    : '<%= FEP.app %>/scripts/fep/modules/*.js',
+							dest   : '<%= FEP.dist %>/scripts/minified',
+							flatten: true,
+							filter : 'isFile'
+						}
+					]
+				},
+				dist   : {
+					files: [
+						{
+							'<%= FEP.dist %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
+						},
+						{
+							expand : true,
+							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
+							dest   : '<%= FEP.dist %>/scripts/minified',
+							flatten: true,
+							filter : 'isFile'
+						}
+					]
+				},
+				github:{
+					files : [{
+						expand : true,
+						cwd: '<%= FEP.app %>',
+						src:[
+							'./lib/*.js',
+							'./lib/github/**/*.js',
+							'!./lib/**/*.@(min|src).js'
+						],
+						dest:'./<%= FEP.dist %>'
+					}]
+
+				},
+				npm:{
+					files : [{
+						expand : true,
+						cwd: '<%= FEP.app %>',
+						src:[
+							'./lib/npm/@(domready*|font-awesome*|mustache*)/**/*.js',
+							'./lib/npm/@(domready*|font-awesome*|mustache*).js',
+							'!./lib/**/*.@(min|src).js'
+						],
+						dest:'./<%= FEP.dist %>'
+					}]
+
+				}
+			},
+			copy: {
+				default: {
+					files: [{
+						expand: true,
+						cwd: '<%= FEP.app %>',
+						src:[
+							'./*.html',
+							'./styles/**/*.css',
+							'./{styles,lib}/**/*.@(css|eot|svg|ttf|woff|woff2|otf)',
+							'!./lib/**/*.@(min|src).*'
+						],
+						dest:'./<%= FEP.dist %>'
+					}]
+				},
+				config: {
+					files: [{
+						src:[
+							'./config.js'
+						],
+						dest:'./<%= FEP.dist %>/config.js'
+					}]
+				}
+			},
+
+			retire: {
+				app : {
+					js: ['<%= FEP.app %>/**/lib/**/*js']
+					/** Scan js-files in app/src/ directory and subdirectories. **/
+				},
+				dist: {
+					js: ['<%= FEP.dist %>/**/lib/**/*js']
+					/** Scan js-files in app/src/ directory and subdirectories. **/
+				}
+			},
 			traceur: {
 				options: {
 					// traceur options here
@@ -256,31 +218,32 @@ module.exports = function( grunt ){
 						src: ['./<%= FEP.app %>/lib/github/ded/domready@1.0.8/ready.es6'],
 						dest: './<%= FEP.app %>/lib/github/ded/domready@1.0.8/ready.js'
 					}]
-				},
+				}
 			},
 			serve: {
-				options: {
+				options:{
 					port: 9000
-				}
+				},
+				path: __dirname + '/dist'
 			}
 
 		}
 	);
 
 	// Load tasks
-	//grunt.loadNpmTasks( "grunt-contrib-clean" );
-	//grunt.loadNpmTasks( "grunt-contrib-concat" );
-	//grunt.loadNpmTasks( "grunt-contrib-copy" );
-	//grunt.loadNpmTasks( "grunt-contrib-jshint" );
-	//grunt.loadNpmTasks( "grunt-contrib-less" );
-	//grunt.loadNpmTasks('grunt-highlight');
-	//grunt.loadNpmTasks( "grunt-contrib-uglify" );
-	//grunt.loadNpmTasks( "grunt-contrib-watch" );
-	//grunt.loadNpmTasks( "grunt-retire" );
+	grunt.loadNpmTasks( "grunt-contrib-clean" );
+	grunt.loadNpmTasks( "grunt-contrib-concat" );
+	grunt.loadNpmTasks( "grunt-contrib-copy" );
+	grunt.loadNpmTasks( "grunt-contrib-jshint" );
+	grunt.loadNpmTasks( "grunt-contrib-less" );
+	grunt.loadNpmTasks( "grunt-highlight" );
+	grunt.loadNpmTasks( "grunt-contrib-uglify" );
+	grunt.loadNpmTasks( "grunt-contrib-watch" );
+	grunt.loadNpmTasks( "grunt-retire" );
 	grunt.loadNpmTasks( "grunt-serve" );
-	//grunt.loadNpmTasks( "grunt-shell" );
-	//grunt.loadNpmTasks( "grunt-shell" );
-	grunt.loadNpmTasks('grunt-traceur');
+	grunt.loadNpmTasks( "grunt-shell" );
+	grunt.loadNpmTasks( "grunt-traceur" );
+	grunt.loadNpmTasks( "grunt-newer" );
 
 
 	grunt.registerTask( 'build', [
@@ -295,10 +258,10 @@ module.exports = function( grunt ){
 	] );
 
 	grunt.registerTask( 'default', ['build'] );
-	grunt.registerTask( 'dist', ['systemjs','serve'] );
 	grunt.registerTask( 'custom', ['traceur:custom','serve'] );
+	grunt.registerTask( 'modules', ['newer:uglify:github','newer:uglify:npm','newer:copy','serve'] );
 
-console.log(__dirname,__filename);
 
-}
-;
+	//console.log(__dirname,__filename);
+
+};

@@ -5,7 +5,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen"/>
-	<script type="text/javascript" data-main="/scripts/minified/main" src="/scripts/minified/require_jquery.js"></script>
+	<script src="lib/system.js"></script>
+	<script src="config.js"></script>
+	<script>
+		var importArray = [
+			System.import( 'dutchcelt/FEP-Tabs' ),
+			System.import('font-awesome' ),
+			System.import('dutchcelt/FEP-KeepInView' ).then( function(){
+				FEP.KeepInView('nav, .tabs-list', { zindex: '42', cloned: true, stacked: true });
+			}),
+			System.import('dutchcelt/Dater' )
+		];
+	</script>
+
 </head>
 <body>
 

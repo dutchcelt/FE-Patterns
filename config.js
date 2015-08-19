@@ -1,10 +1,10 @@
 System.config({
-  baseURL: "/",
+  baseURL: "./",
   defaultJSExtensions: true,
   transpiler: "traceur",
   paths: {
-    "github:*": "app/lib/github/*",
-    "npm:*": "app/lib/npm/*"
+    "github:*": "lib/github/*",
+    "npm:*": "lib/npm/*"
   },
 
   map: {
@@ -14,7 +14,6 @@ System.config({
     "dutchcelt/Dater": "github:dutchcelt/Dater@2.0.7",
     "dutchcelt/FEP-KeepInView": "github:dutchcelt/FEP-KeepInView@1.0.3",
     "dutchcelt/FEP-Tabs": "github:dutchcelt/FEP-Tabs@0.4.3",
-    "filamentgroup/loadCSS": "github:filamentgroup/loadCSS@0.1.7",
     "font-awesome": "npm:font-awesome@4.4.0",
     "jquery": "github:components/jquery@2.1.4",
     "moment": "github:moment/moment@2.10.6",
