@@ -24,26 +24,31 @@
   },
   "devDependencies": {
     "assemble-mustache": "^0.2.1",
+    "clean-css": "^3.4.0",
     "grunt": "^0.4.5",
+    "grunt-babel": "^5.0.1",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-highlight": "0.0.1",
     "grunt-newer": "^1.1.1",
+    "grunt-postcss": "^0.6.0",
     "grunt-retire": "~0.1.17",
     "grunt-shell": "^1.1.2",
+    "grunt-systemjs-builder": "^0.2.2",
     "grunt-traceur": "^0.5.4",
     "jspm": "^0.16.0",
     "traceur": "0.0.91"
   },
   "jspm": {
     "directories": {
-      "packages": "app/lib"
+      "packages": "lib"
     },
     "dependencies": {
       "css": "github:systemjs/plugin-css@^0.1.13",
@@ -52,7 +57,9 @@
       "dutchcelt/Dater": "github:dutchcelt/Dater@^2.0.7",
       "dutchcelt/FEP-KeepInView": "github:dutchcelt/FEP-KeepInView@^1.0.3",
       "dutchcelt/FEP-Tabs": "github:dutchcelt/FEP-Tabs@^0.4.3",
+      "es5-shim": "npm:es5-shim@^4.1.10",
       "font-awesome": "npm:font-awesome@^4.4.0",
+      "ie8": "npm:ie8@^0.2.8",
       "jquery": "github:components/jquery@^2.1.4",
       "moment": "github:moment/moment@^2.10.6",
       "mustache": "npm:mustache@^2.1.3"

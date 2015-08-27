@@ -8,61 +8,42 @@ module.exports = function( grunt ){
 			// Metadata.
 			pkg        : grunt.file.readJSON( 'package.json' ),
 			banner     : '/*!\n' +
-			             ' * <%= pkg.name %> v<%= pkg.version %> by @duthcelt */\n' +
-			             ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> */\n' +
-			             ' * <%= _.pluck(pkg.licenses, "url").join(", ") %> */\n' +
-			             ' */\n\n',
-			jqueryCheck: 'if (!jQuery) { throw new Error(\"FE-Pattern requires jQuery\") }\n\n',
+			             ' * <%= pkg.name %> v<%= pkg.version %> by @dutchcelt\n' +
+			             ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+			             ' * <%= _.pluck(pkg.licenses, "url").join(", ") %>\n' +
+			             ' */\n',
 
 			pages: grunt.file.readYAML( '_assemble.yml' ),
 
 			FEP: {
 				app : 'app',
-				dist: 'dist'
+				dist: 'dist',
+				temp: '.tmp'
 			},
-			//
-			//watch  : {
-			//	styles    : {
-			//		files: ['<%= FEP.app %>/styles/less{,*/}*.less'],
-			//		tasks: ['less:app']
-			//	},
-			//	scripts   : {
-			//		files: ['<%= FEP.app %>/scripts/fep/modules/*.js', '<%= FEP.app %>/lib{,*/}*.js'],
-			//		tasks: ['copy:app']
-			//	},
-			//	fep       : {
-			//		files: '<%= FEP.app %>/scripts/fep/*.js',
-			//		tasks: 'concat'
-			//	},
-			//	livereload: {
-			//		options: {
-			//			livereload: '<%= connect.options.livereload %>'
-			//		},
-			//		files  : [
-			//			//'<%= FEP.app %>/*.html',
-			//			'<%= FEP.app %>/styles/css/{,*/}*.css',
-			//			'<%= FEP.app %>/scripts/minified/{,*/}*.js',
-			//			'<%= FEP.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-			//		]
-			//	}
-			//},
 
-			//clean  : {
-			//	dist  : {
-			//		files: [
-			//			{
-			//				dot: true,
-			//				src: [
-			//					'<%= FEP.dist %>/scripts/minified/*',
-			//					'<%= FEP.dist %>/*',
-			//					'!<%= FEP.dist %>/.git*'
-			//				]
-			//			}
-			//		]
-			//	},
-			//	server: ['<%= FEP.app %>/scripts/minified/*']
-			//},
-			//
+			watch  : {
+				styles    : {
+					files: ['<%= FEP.app %>/styles/less{,*/}*.less'],
+					tasks: ['styles']
+				},
+				es6       : {
+					files: '<%= FEP.app %>/**/*.js',
+					tasks: 'modules'
+				}
+				//livereload: {
+				//	options: {
+				//		livereload: '<%= connect.options.livereload %>'
+				//	},
+				//	files  : [
+				//		//'<%= FEP.app %>/*.html',
+				//		'<%= FEP.app %>/styles/css/{,*/}*.css',
+				//		'<%= FEP.app %>/scripts/minified/{,*/}*.js',
+				//		'<%= FEP.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+				//	]
+				//}
+			},
+			clean : [ './<%= FEP.dist %>' ],
+
 			//jshint: {
 			//	options  : {
 			//		jshintrc: 'js/.jshintrc'
@@ -77,36 +58,59 @@ module.exports = function( grunt ){
 			//		src: ['js/tests/unit/*.js']
 			//	}
 			//},
-			//less  : {
-			//	app : {
-			//		options: {
-			//			sourceMap        : true,
-			//			sourceMapRootpath: "/",
-			//			sourceMapBasepath: "<%= FEP.app %>",
-			//			sourceMapFilename: "<%= FEP.app %>/styles/css/main.css.map"
-			//		},
-			//		files  : [
-			//			{
-			//				"<%= FEP.app %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
-			//			}
+
+			//postcss: {
+			//	options: {
+			//		//map: true,
+			//		processors: [
+			//			require('autoprefixer-core')({
+			//				browsers: ['last 3 versions']
+			//			})
 			//		]
 			//	},
 			//	dist: {
-			//		options: {
-			//			cleancss: true
-			//		},
-			//		files  : [
-			//			{
-			//				"<%= FEP.app %>/styles/less/font-awesome.css": "<%= FEP.app %>/styles/**/font-awesome.less"
-			//			},
-			//			{
-			//				"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
-			//			}
-			//		]
+			//		src: '<%= FEP.temp %>/**/*.css'
+			//	}
+			//},
+			less  : {
+				options: {
+					plugins: [
+						new require('less-plugin-autoprefix')({
+							browsers: ["last 3 versions"]
+						}),
+						new require('less-plugin-clean-css')
+					]
+
+				},
+				dist: {
+					files  : [
+						{
+							"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
+						}
+					]
+				}
+			},
+			//cssmin: {
+			//	options: {
+			//		shorthandCompacting: false,
+			//		roundingPrecision: -1
+			//	},
+			//	target: {
+			//		files: {
+			//			expand: true,
+			//			src: ['<%= FEP.temp %>/**/*.css'],
+			//			dest: '<%= FEP.dist %>',
+            //
+			//			"": [""]
+			//		}
 			//	}
 			//},
 			uglify: {
+
 				default: {
+					options : {
+						mangle: false
+					},
 					files: {
 						'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
 					}
@@ -118,10 +122,11 @@ module.exports = function( grunt ){
 					files  : [
 						{
 							expand : true,
-							src    : '<%= FEP.app %>/scripts/fep/modules/*.js',
-							dest   : '<%= FEP.dist %>/scripts/minified',
-							flatten: true,
-							filter : 'isFile'
+							cwd: '.tmp',
+							src    : 'scripts/**/*.js',
+							dest   : '<%= FEP.dist %>'//,
+							//flatten: true,
+							//filter : 'isFile'
 						}
 					]
 				},
@@ -140,22 +145,29 @@ module.exports = function( grunt ){
 					]
 				},
 				github:{
+					options : {
+						mangle: false
+					},
 					files : [{
 						expand : true,
-						cwd: '<%= FEP.app %>',
+						//cwd: './',
 						src:[
 							'./lib/*.js',
 							'./lib/github/**/*.js',
-							'!./lib/**/*.@(min|src).js'
+							'!./lib/**/*.@(min|src).js',
+							'!./lib/**/*-es6.js'
 						],
 						dest:'./<%= FEP.dist %>'
 					}]
 
 				},
 				npm:{
+					options : {
+						mangle: false
+					},
 					files : [{
 						expand : true,
-						cwd: '<%= FEP.app %>',
+						//cwd: './',
 						src:[
 							'./lib/npm/@(domready*|font-awesome*|mustache*)/**/*.js',
 							'./lib/npm/@(domready*|font-awesome*|mustache*).js',
@@ -173,11 +185,20 @@ module.exports = function( grunt ){
 						cwd: '<%= FEP.app %>',
 						src:[
 							'./*.html',
-							'./styles/**/*.css',
-							'./{styles,lib}/**/*.@(css|eot|svg|ttf|woff|woff2|otf)',
+							'./styles/**/*.@(js|css|eot|svg|ttf|woff|woff2|otf)',
+						],
+						dest:'<%= FEP.dist %>'
+					}]
+				},
+				lib: {
+					files: [{
+						expand: true,
+						cwd: './',
+						src:[
+							'./lib/**/*.@(js|css|eot|svg|ttf|woff|woff2|otf)',
 							'!./lib/**/*.@(min|src).*'
 						],
-						dest:'./<%= FEP.dist %>'
+						dest:'<%= FEP.dist %>'
 					}]
 				},
 				config: {
@@ -185,38 +206,65 @@ module.exports = function( grunt ){
 						src:[
 							'./config.js'
 						],
-						dest:'./<%= FEP.dist %>/config.js'
+						dest:'<%= FEP.dist %>/config.js'
 					}]
 				}
 			},
 
 			retire: {
 				app : {
-					js: ['<%= FEP.app %>/**/lib/**/*js']
+					js: ['<%= FEP.app %>/**/*js']
 					/** Scan js-files in app/src/ directory and subdirectories. **/
 				},
-				dist: {
-					js: ['<%= FEP.dist %>/**/lib/**/*js']
+				lib: {
+					js: ['lib/**/*js']
 					/** Scan js-files in app/src/ directory and subdirectories. **/
 				}
 			},
 			traceur: {
 				options: {
 					// traceur options here
-					experimental: true,
+					//experimental: true,
 					// module naming options,
 					//moduleNaming: {
 					//	stripPrefix: "src/es6",
 					//	addPrefix: "com/mycompany/project"
 					//},
-					copyRuntime: 'src/es5'
+					//copyRuntime: 'src/es5'
+					modules: 'instantiate'
 				},
 				custom: {
 					files: [{
+						"src":  ['lib/test-es6.js'],
+						"dest": '<%= FEP.dist %>/lib/test-es6.js'
+					}]
+				},
+				scripts: {
+					files: [{
+						expand: true,
+						cwd: './<%= FEP.app %>',
+						"src":  ['scripts/**/*.js'],
+						"dest": '.tmp'
+					}]
+				}
+			},
+			systemjs: {
+				options: {
+					sfx: false,
+					//baseURL: './',
+					configFile: "./config.js",
+					modules: 'instantiate',
+					minify: false,
+					build: {
+						mangle: false
+					}
+				},
+				dist: {
+					files: [{
 						//expand: true,
 						//cwd: './<%= FEP.app %>',
-						src: ['./<%= FEP.app %>/lib/github/ded/domready@1.0.8/ready.es6'],
-						dest: './<%= FEP.app %>/lib/github/ded/domready@1.0.8/ready.js'
+						"src":  'lib/test-es6.js',
+						"dest": '<%= FEP.dist %>/lib/test-es5.js'
 					}]
 				}
 			},
@@ -225,21 +273,19 @@ module.exports = function( grunt ){
 					options: {
 						//open: true,
 						port: 9000,
-						base: '<%= FEP.dist %>',
-						keepalive: true,
+						base: {
+							options: {
+								index: 'index.html'
+							},
+							path:  __dirname + '/<%= FEP.dist %>'
+						},
+						//keepalive: true,
 						//livereload: true,
 						hostname  : "*"
 					}
 
 				}
 			}
-			//"serve": {
-			//	"options":{
-			//		"port": 9009,
-			//		"silently": false
-			//	}
-			//	,"path": "/Users/p276094/Development/FE-Patterns/dist"
-			//}
 
 		}
 	);
@@ -251,29 +297,27 @@ module.exports = function( grunt ){
 	grunt.loadNpmTasks( "grunt-contrib-copy" );
 	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 	grunt.loadNpmTasks( "grunt-contrib-less" );
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks( "grunt-highlight" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-retire" );
 	grunt.loadNpmTasks( "grunt-shell" );
+	grunt.loadNpmTasks("grunt-systemjs-builder");
 	grunt.loadNpmTasks( "grunt-traceur" );
+	//grunt.loadNpmTasks( "grunt-babel" );
 	grunt.loadNpmTasks( "grunt-newer" );
+	grunt.loadNpmTasks('grunt-postcss');
 
 
-	grunt.registerTask( 'build', [
-		'clean:dist',
-		'concat:default',
-		'copy:app',
-		'copy:dist',
-		//'concurrent:dist',
-		'retire:dist'
-		//,'connect:dist'
-		//, 'requirejs:dist'
-	] );
 
-	grunt.registerTask( 'default', ['build'] );
-	grunt.registerTask( 'custom', ['traceur:custom','connect:server:keepalive'] );
-	grunt.registerTask( 'modules', ['newer:uglify:github','newer:uglify:npm','newer:copy','connect:server:keepalive'] );
+	//grunt.registerTask( 'custom', ['systemjs','connect:server:keepalive'] );
+	grunt.registerTask( 'styles', [ 'newer:less:dist' ] );
+	grunt.registerTask( 'modules', [ 'newer:traceur', 'newer:uglify:fep','newer:uglify:github','newer:uglify:npm'] );
+	grunt.registerTask( 'serve', ['connect:server', 'watch'] );
+
+	grunt.registerTask( 'default', [ 'styles', 'modules', 'newer:copy', 'serve' ] );
+	grunt.registerTask( 'build', [ 'retire', 'clean', 'default' ] );
 
 
 	//console.log(__dirname,__filename);

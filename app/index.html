@@ -7,80 +7,81 @@
 	<link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen"/>
 	<script src="lib/system.js"></script>
 	<script src="config.js"></script>
+
 	<script>
-		var importArray = [
-			System.import( 'dutchcelt/FEP-Tabs' ),
-			System.import('font-awesome' ),
-			System.import('dutchcelt/FEP-KeepInView' ).then( function(){
-				FEP.KeepInView('nav, .tabs-list', { zindex: '42', cloned: true, stacked: true });
-			}),
-			System.import('dutchcelt/Dater' )
-		];
+
+		if( 'querySelector' in document && 'localStorage' in window && 'addEventListener' in window ) {
+			System.import('./scripts/global/main.js').then(function( main ){
+				main.init();
+			});
+		}
+
 	</script>
 
 </head>
 <body>
 
-<header>
-	<div class="logo">Front-end Patterns</div>
-</header>
+    <header>
+        <div class="logo">Front-end Patterns</div>
+    </header>
 
-<nav>
-	<ul>
-		<li class="active"><a href="index.html">Home</a></li>
-		<li><a href="usage.html">Usage</a></li>
-		<li><a href="library.html">Library</a></li>
-		<li><a href="basics.html">Basics</a></li>
-		<li><a href="typography.html">Typography</a></li>
-		<li><a href="widgets.html">UI widgets</a></li>
-		<li><a href="bootstrap.html"><i class="fa fa-twitter"></i> Twitter</a></li>
-	</ul>
-</nav>
+    <nav>
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="usage.html">Usage</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="basics.html">Basics</a></li>
+            <li><a href="typography.html">Typography</a></li>
+            <li><a href="widgets.html">UI widgets</a></li>
+            <li><a href="https://twitter.com/dutchcelt"><i class="fa fa-twitter"></i> dutchcelt</a></li>
+        </ul>
+    </nav>
 
-<article class="content">
-	<header>
-		<h1>Web stack basics</h1>
-		<h5>Get it right and start with LESS!</h5>
-	</header>
-	<section>
-		<p>
-			The first thing to point out is that this isn't a kitchen sink project like HTML5 Boilerplate. In fact it's
-			not a template or widget library at all. <strong>FE-Patterns is a web stack pattern reference</strong>.
-			These patterns are for you to tinker around with. Create your own HTML and use LESS files to style it.
-		</p>
+    <article class="content">
+        <header>
+            <h1>Web stack basics</h1>
+            <h5>Get it right and start with LESS!</h5>
+        </header>
+        <section>
 
-		<p>
-			All web projects these days make use of the full web stack (HTML, CSS and JavaScript).
-			With front-end conventions and rendering conformance being more common across browser vendors we at Lunatech
-			Research have started shedding the extra bloat of the past and are looking forward to making first grade web
-			experiences. Each and every time.
-		</p>
+            <p class="fep-intro">
+				The first thing to point out is that this isn't a kitchen sink project like HTML5 Boilerplate. In fact it's
+                not a template or widget library at all. <strong>FE-Patterns is a web stack pattern reference</strong>.
+                These patterns are for you to tinker around with. Create your own HTML and use LESS files to style it.
+            </p>
 
-		<p>
-			To make the this process even easier we've started using pre-parsers like LESS and SASS.
-			For its simplicity and ease of use right out of the box we've opted for <a
-				href="http://lesscss.org/">LESS</a>. Implementing markup and UI patterns has never been this effortless.
-		</p>
-	</section>
-	<ol class="bootsteps">
+            <p>
+                All web projects these days make use of the full web stack (HTML, CSS and JavaScript).
+                With front-end conventions and rendering conformance being more common across browser vendors we at Lunatech
+                Research have started shedding the extra bloat of the past and are looking forward to making first grade web
+                experiences. Each and every time.
+            </p>
 
-		<li><i class="fa fa-github"></i><a href="https://github.com/dutchcelt/FE-Patterns">Download via Github</a> and
-			insert the files &amp; folders into your structure. Change the script locations if needed. It's best to keep
-			the folder structure for 'styles'
-		</li>
+            <p>
+                To make the this process even easier we've started using pre-parsers like LESS and SASS.
+                For its simplicity and ease of use right out of the box we've opted for <a
+                    href="http://lesscss.org/">LESS</a>. Implementing markup and UI patterns has never been this effortless.
+            </p>
+        </section>
+        <ol class="bootsteps">
 
-		<li><i class="fa fa-folder-open"></i>Set up <a href="https://github.com/cloudhead/less">LESS</a> to output CSS
-			files to a folder next to the LESS folder. Then your relative image paths will remain the same.
-		</li>
+            <li><i class="fa fa-github"></i><a href="https://github.com/dutchcelt/FE-Patterns">Download via Github</a> and
+                insert the files &amp; folders into your structure. Change the script locations if needed. It's best to keep
+                the folder structure for 'styles'
+            </li>
 
-		<li><i class="fa fa-link"></i>'@import' your additional LESS files via main.less</li>
+            <li><i class="fa fa-folder-open"></i>Set up <a href="https://github.com/cloudhead/less">LESS</a> to output CSS
+                files to a folder next to the LESS folder. Then your relative image paths will remain the same.
+            </li>
 
-	</ol>
-</article>
+            <li><i class="fa fa-link"></i>'@import' your additional LESS files via main.less</li>
 
-<footer>
-	<p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
-</footer>
+        </ol>
+    </article>
 
-</body>
-</html>
+    <footer>
+        <p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
+    </footer>
+
+    </body>
+    </html>

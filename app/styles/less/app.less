@@ -4,7 +4,7 @@
 
 
 //  This LESS file is only used for this project. Each project would require
-//  its own 'app.less' file or whatever you will call it. 
+//  its own 'app.less' file or whatever you will call it.
 //  The 'main.less' file is where you can add as many files you want.
 
 /*  Layout */
@@ -14,14 +14,14 @@ body {
 	color: @text-color;
 	min-width: ( @w * 20 );
 	max-width: ( @w * 75 );
-	background-color: @grey8;
+	background-color: @light-color;
 	.box-sizing(border-box);
 	}
 
 body > header {
 	height: @em*3;
 	overflow: hidden;
-	background-color: @grey8 ;
+	background-color: @light-color ;
 	.box-sizing(border-box);
 	}
 
@@ -31,11 +31,12 @@ header .logo {
 	padding: 0 0 0 @block;
 	letter-spacing: ( @l * 3 );
 	font-weight: normal;
-	line-height: 3;
-	text-transform: uppercase;
+	line-height:2;
+	.double-pica;
+	//text-transform: uppercase;
 	font-family: @typeface-header-light;
-	color: @red1;
-	text-shadow: 0 1px 0 @dark-color;
+	//color: @red1;
+	//text-shadow: 0 1px 0 @dark-color;
 	background: transparent;
 	}
 
@@ -50,7 +51,7 @@ header .logo {
 	.box();
 	padding-bottom: @em;
 	background: @grey1;
-	background-color: @grey9;
+	background-color: @grey0;
 	color: @light-color;
 	}
 
@@ -59,12 +60,11 @@ header .logo {
 	margin: 0.5em 0 -( @em / 2 );
 	.great-primer();
 	font-family: @typeface-brand;
-	color: @light-color;
+	color: @dark-color;
 	}
 
 .content > header h5,
 .content > hgroup h5 {
-	font-style: italic;
 	font-family: @typeface;
 	color: @grey4;
 	}
@@ -88,7 +88,7 @@ header .logo {
 	padding-right: @em;
 	.garamond;
 	max-width: @text-block;
-	font-family: @typeface-alt;
+	//font-family: @typeface-alt;
 	}
 
 .fep-section {
@@ -191,33 +191,27 @@ figcaption {
 	}
 
 .bootsteps {
-	float: right;
+	display: block;
 	list-style: none;
 	margin: @interline 0 0;
-	padding: 0;
-	width: 66.66%;
+	padding: 0 @block;
+	width: 100%;
 	.box-sizing(border-box);
+	column-count: 3;
 	}
+
 
 .bootsteps li {
 	position: relative;
-	padding: @interline @block @interline @block*3;
-	.h4;
-	margin: 0 0 @interline; // overriding margin for .h4
-	.border-radius();
-	background: @light-color;
-	.box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.2));
-	}
-
-.bootsteps li i:first-child {
-	position: absolute;
-	top: 0.2em;
-	left: 0.2em;
-	font-size: 2em;
-	}
-
-.bootsteps li:hover i:first-child {
-	color: @red2;
+	display: block;
+	margin: 0;
+	border: @l solid @grey1;
+	border-radius: @rad;
+	padding: ( @block / 2 );
+	.garamond;
+	font-family: @typeface-brand;
+	break-inside: avoid-column;
+	.box-sizing(border-box);
 	}
 
 /*  Datatables */
@@ -253,22 +247,22 @@ figcaption {
 /*  Navigaiton */
 
 header ~ nav {
-	.gradient(@grey7, @grey8);
-	z-index: 4242;
+	background-color: @light-color;
+	border-bottom: @l outset @grey0 !important;
 	}
 
 nav ul {
-	margin: 0 ( @block / 2 );
+	margin: 0 @block;
 	padding: 0;
 	display: block;
 	list-style: none;
 	//min-height: ( @em * 1.2 );
-	overflow: hidden;
+	//overflow: hidden;
 	}
 
 nav ul li {
 	position: relative;
-	float: left;
+	//float: left;
 	display: inline-block;
 	font-size: 0.825em;
 	line-height: ( @transport * 1.6 );
@@ -276,7 +270,7 @@ nav ul li {
 	text-transform: uppercase;
 	letter-spacing: @l;
 	color: @grey1;
-	text-shadow: 0 -1px 0 @dark-color;
+	//text-shadow: 0 -1px 0 @dark-color;
 	}
 
 nav ul li a {
@@ -376,13 +370,13 @@ code strong {
 .examples ul {
 	margin: 0;
 	width: 100%;
-	.display-box();
+	display: flex;
 	}
 
 .examples li {
 	position: relative;
 	display: block;
-	.box-flex();
+	flex: 1;
 	margin-left: @w;
 	overflow: hidden;
 	}

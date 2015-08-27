@@ -8,11 +8,11 @@
         <script type="text/javascript" data-main="/scripts/minified/main" src="/scripts/minified/require_jquery.js"></script>
     </head>
 <body>
-    
+
     <header>
         <div class="logo">Front-end Patterns</div>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -26,8 +26,8 @@
             <li><a href="styleguide.html">Style Guide</a></li>
         </ul>
     </nav>
-    
-            
+
+
     <article class="content">
         <hgroup>
             <h1>Less</h1>
@@ -40,7 +40,7 @@
             </p>
             <p><strong>Note</strong>: The pattern may evolve into a fully a fluid layout.</p>
         </section>
-    
+
             <div id="accordion">
                 <div>
                     <h3><a href="#">Layout </a></h3>
@@ -51,28 +51,28 @@
     @w:                     @view / 100px;  // Smallest horizontal unit
     @h:                     0.2em;          // Smallest vertical unit
     @em:                    @h*7;           // Vertical space for boundries like top & bottom padding
-    
+
     @block:                 @w * 2;         // White space for paddings or margins
-    @text-block:            @view * 48%;    // alt: 52em; 
+    @text-block:            @view * 48%;    // alt: 52em;
     @max-width:             @view * 1px;    // alt: @w * 80 = 960
-    
+
     @l:                     1px;            // Line or border
     @rad:                   @w/3;           // Standard radius
-    
-    
+
+
 //  Form elements -------------------------------------------------------------
 
     @form-width:            @text-block;
     @field-width:           @form-width;
-    
+
     @input-padding-height:  @em/4;
     @input-padding-width:   @block/6;
     @text-input-padding:    @input-padding-height @input-padding-width;
-    
+
     @label-width:           100%;
     @text-input-width:      100%;
     @label-orientation:     none; /* float value: left, right, none */
-    
+
     @label-text-orientation:left;
 
 
@@ -82,8 +82,8 @@
         margin:             0 0 @interline ;
         padding:            @interline @block;
         }
-        
-    //  Use this to have block elements override the '.panel' padding.    
+
+    //  Use this to have block elements override the '.panel' padding.
     //  This is great for headings, &lt;header&gt; and &lt;footer&gt; tags.
     .box-inset {
         margin:             0 - @interline 0 - @block;
@@ -96,9 +96,9 @@
                     <h3><a href="#">Typography</a></h3>
                     <code class="block">
 //  Font elements -------------------------------------------------------------
-    
+
     @font-root:             &quot;../fonts/&quot;;
-                            
+
     @font-face {
         font-family:        'fontname';
         src:                url('@{font-root}fontname.woff') format('woff');
@@ -111,14 +111,14 @@
     @interline:             @h*5;           // Interline / leading  http://en.wikipedia.org/wiki/Interline_spacing
     @typeface:              "fontname", Arial, sans-serif;
     @typeface-header:       "fontname", Arial, sans-serif;
-    
+
     @em-scale:              0.9em;
     @header-weight:         normal;
     @header-lineheight:     1.4;
-    
+
 
 /*  TYPOGRAPHIC FONT SCALE (DO NOT EDIT) ----------------------------------------- */
-    
+
     .nonpareil              { font-size: @em-scale * 0.6; }
     .minion                 { font-size: @em-scale * 0.7; }
     .brevier                { font-size: @em-scale * 0.8; }
@@ -141,26 +141,26 @@
     @light-color:           #ffffff;
     @dark-color:            #252b2c;
     @text-color:            @dark-color;
-    
-    
+
+
 //  Color sets ----------------------------------------------------------------
-    
+
     @brand-color:           #7abcff;
 
     @blue1:                 @brand-color;
     @blue2:                 darken(@blue1, 15%);
-    
+
     @green1:                #57c26c;
     @green2:                darken(@green1, 15%);
-    
+
     @yellow1:               #ffe362;
     @yellow2:               darken(@yellow1, 25%);
-    
+
     @red1:                  #f83f21;
     @red2:                  darken(@red1, 15%);
-    
-    @error:                 #cd0a0a;   
-   
+
+    @error:                 #cd0a0a;
+
     @grey9:                 @dark-color; // Dark tone first as its hue is easier to control
     @grey8:                 lighten(@grey9,10%);
     @grey7:                 lighten(@grey9,20%);
@@ -216,7 +216,7 @@
         background-image:       -ms-linear-gradient(top, @start 0%, @stop 100%); /* ie10 */
         background-image:       -o-linear-gradient(top, @start 0%, @stop 100%); /* opera */
         background-image:       linear-gradient(top, @start 0%, @stop 100%); /* w3c */
-        }   
+        }
 
     .background-clip() {
         // Background clip to allow borders to blend properly with the background
@@ -232,7 +232,7 @@
         }
     .rounded-corners-top(@r:@rad) {
         border-top-left-radius: @arguments;
-        border-top-right-radius: @arguments;  
+        border-top-right-radius: @arguments;
         .background-clip;
         }
     .rounded-corners-bottom(@r:@rad) {
@@ -242,15 +242,15 @@
         }
     .rounded-corners-left(@r:@rad) {
         border-top-left-radius: @arguments;
-        border-bottom-left-radius: @arguments;  
+        border-bottom-left-radius: @arguments;
         .background-clip;
         }
     .rounded-corners-right(@r:@rad) {
         border-top-right-radius: @arguments;
-        border-bottom-right-radius: @arguments;  
+        border-bottom-right-radius: @arguments;
         .background-clip;
         }
-    
+
     .clearfix {
         *zoom: 1;
         &:before,
@@ -264,14 +264,14 @@
         &:after {
             clear: both;
             }
-        }      
-        
-    .opacity(@alpha:0.5) { 
+        }
+
+    .opacity(@alpha:0.5) {
         @ieopacity:             @arguments * 100;
-        opacity:                @arguments; 
+        opacity:                @arguments;
         filter:                 ~"Alpha(Opacity=@{ieopacity})";
         }
-        
+
     .transition(@transition:none) {
     	-webkit-transition:     @arguments;
     	   -moz-transition:     @arguments;
@@ -279,7 +279,7 @@
     	     -o-transition:     @arguments;
     	        transition:     @arguments;
     	        }
-    
+
     .appearance(@arguments) {
         -webkit-appearance:     @arguments;
            -moz-appearance:     @arguments;
@@ -287,7 +287,7 @@
              -o-appearance:     @arguments;
                 appearance:     @arguments;
                 }
-    
+
     .transform(@arguments) {
         -webkit-transform:      @arguments;
            -moz-transform:      @arguments;
@@ -295,7 +295,7 @@
              -o-transform:      @arguments;
                 transform:      @arguments;
                 }
-                
+
     .box-sizing(@box:content-box){
         -webkit-box-sizing:     @arguments; /* content-box */
            -moz-box-sizing:     @arguments;
@@ -304,50 +304,17 @@
                 box-sizing:     @arguments;
                 }
 
-    // WARNING STILL BUGGY! ==============================
-    .columns(@col:2) {
-        -webkit-column-count:   @col; 
-        -webkit-column-gap:     @w; 
-           -moz-column-count:   @col; 
-           -moz-column-gap:     @w; 
-            -ms-column-count:   @col; 
-            -ms-column-gap:     @w; 
-             -o-column-count:   @col; 
-             -o-column-gap:     @w; 
-                column-count:   @col; 
-                column-gap:     @w; 
-                }
-    
-    // WARNING STILL VERY EXPERIMENTAL! ==================
-    .display-box(@orient:horizontal) {
-                   display:     -webkit-box;
-                   display:     -moz-box;
-                   display:     -ms-box;
-                   display:     -o-box;
-                   display:     box;
-        -webkit-box-orient:     @arguments;
-           -moz-box-orient:     @arguments;
-            -ms-box-orient:     @arguments;
-             -o-box-orient:     @arguments;
-                box-orient:     @arguments;
-                }
-    .box-flex(@flex:1) {
-          -webkit-box-flex:     @arguments;
-             -moz-box-flex:     @arguments;
-              -ms-box-flex:     @arguments;
-               -o-box-flex:     @arguments;
-                  box-flex:     @arguments;
-                  }
+
                     </code>
                 </div>
             </div>
 
 
     </article>
-    
+
     <footer>
             <p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
     </footer>
-    
+
 </body>
 </html>
