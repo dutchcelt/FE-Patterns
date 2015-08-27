@@ -49,7 +49,8 @@ header .logo {
 .content > header,
 .content > hgroup {
 	.box();
-	padding-bottom: @em;
+	padding-top: 0.5rem;
+	padding-bottom: 0.7rem;
 	background: @grey1;
 	background-color: @grey0;
 	color: @light-color;
@@ -191,19 +192,19 @@ figcaption {
 	}
 
 .bootsteps {
-	display: block;
+	display: flex;
 	list-style: none;
 	margin: @interline 0 0;
 	padding: 0 @block;
 	width: 100%;
 	.box-sizing(border-box);
-	column-count: 3;
+	//column-count: 3;
 	}
 
 
 .bootsteps li {
 	position: relative;
-	display: block;
+	flex: 1;
 	margin: 0;
 	border: @l solid @grey1;
 	border-radius: @rad;
@@ -212,7 +213,10 @@ figcaption {
 	font-family: @typeface-brand;
 	break-inside: avoid-column;
 	.box-sizing(border-box);
-	}
+}
+.bootsteps li:not(:first-child) {
+	margin: 0 0 0 ( @block / 2 );
+}
 
 /*  Datatables */
 

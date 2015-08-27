@@ -59,30 +59,17 @@ module.exports = function( grunt ){
 			//	}
 			//},
 
-			//postcss: {
-			//	options: {
-			//		//map: true,
-			//		processors: [
-			//			require('autoprefixer-core')({
-			//				browsers: ['last 3 versions']
-			//			})
-			//		]
-			//	},
-			//	dist: {
-			//		src: '<%= FEP.temp %>/**/*.css'
-			//	}
-			//},
 			less  : {
-				options: {
-					plugins: [
-						new require('less-plugin-autoprefix')({
-							browsers: ["last 3 versions"]
-						}),
-						new require('less-plugin-clean-css')
-					]
-
-				},
 				dist: {
+					options: {
+						plugins: [
+							new (require('less-plugin-autoprefix'))({
+								browsers: ["last 3 versions"]
+							}),
+							new (require('less-plugin-clean-css'))({keepSpecialComments:0})
+						]
+
+					},
 					files  : [
 						{
 							"<%= FEP.dist %>/styles/css/main.css": "<%= FEP.app %>/styles/less/main.less"
@@ -90,21 +77,6 @@ module.exports = function( grunt ){
 					]
 				}
 			},
-			//cssmin: {
-			//	options: {
-			//		shorthandCompacting: false,
-			//		roundingPrecision: -1
-			//	},
-			//	target: {
-			//		files: {
-			//			expand: true,
-			//			src: ['<%= FEP.temp %>/**/*.css'],
-			//			dest: '<%= FEP.dist %>',
-            //
-			//			"": [""]
-			//		}
-			//	}
-			//},
 			uglify: {
 
 				default: {
@@ -312,7 +284,7 @@ module.exports = function( grunt ){
 
 
 	//grunt.registerTask( 'custom', ['systemjs','connect:server:keepalive'] );
-	grunt.registerTask( 'styles', [ 'newer:less:dist' ] );
+	grunt.registerTask( 'styles', [ 'less:dist' ] );
 	grunt.registerTask( 'modules', [ 'newer:traceur', 'newer:uglify:fep','newer:uglify:github','newer:uglify:npm'] );
 	grunt.registerTask( 'serve', ['connect:server', 'watch'] );
 
