@@ -110,7 +110,6 @@ module.exports = function( grunt ){
 						],
 						dest:'./<%= FEP.dist %>'
 					}]
-
 				},
 				npm:{
 					options : {
@@ -125,7 +124,6 @@ module.exports = function( grunt ){
 						],
 						dest:'./<%= FEP.dist %>'
 					}]
-
 				}
 			},
 			copy: {
@@ -173,14 +171,6 @@ module.exports = function( grunt ){
 			},
 			traceur: {
 				options: {
-					// traceur options here
-					//experimental: true,
-					// module naming options,
-					//moduleNaming: {
-					//	stripPrefix: "src/es6",
-					//	addPrefix: "com/mycompany/project"
-					//},
-					//copyRuntime: 'src/es5'
 					modules: 'instantiate'
 				},
 				custom: {

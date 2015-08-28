@@ -72,7 +72,10 @@ header .logo {
 
 .content > section {
 	.box();
-	float: left;
+	column-count: 2;
+	p {
+		margin: 0 0 @em;
+	}
 	}
 
 .content > .info {
@@ -89,6 +92,7 @@ header .logo {
 	padding-right: @em;
 	.garamond;
 	max-width: @text-block;
+	column-span: all;
 	//font-family: @typeface-alt;
 	}
 
