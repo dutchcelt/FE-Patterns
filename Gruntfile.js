@@ -18,6 +18,7 @@ module.exports = function( grunt ){
 			FEP: {
 				app : 'app',
 				dist: 'dist',
+				lib: 'lib',
 				temp: '.tmp'
 			},
 
@@ -79,14 +80,6 @@ module.exports = function( grunt ){
 			},
 			uglify: {
 
-				default: {
-					options : {
-						mangle: false
-					},
-					files: {
-						'<%= FEP.app %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
-					}
-				},
 				fep    : {
 					options: {
 						banner: '<%= banner %>\n\n'
@@ -94,25 +87,11 @@ module.exports = function( grunt ){
 					files  : [
 						{
 							expand : true,
-							cwd: '.tmp',
+							cwd: '<%= FEP.temp %>',
 							src    : 'scripts/**/*.js',
 							dest   : '<%= FEP.dist %>'//,
 							//flatten: true,
 							//filter : 'isFile'
-						}
-					]
-				},
-				dist   : {
-					files: [
-						{
-							'<%= FEP.dist %>/scripts/minified/require_jquery.js': ['<%= FEP.app %>/scripts/global/prepend.js', '.tmp/requirejs/js/require.js', '.tmp/jquery/jquery.js']
-						},
-						{
-							expand : true,
-							src    : ['.tmp/**/*.js', '<%= FEP.app %>/lib/**/*.js', '<%= FEP.app %>/scripts/minified/*.js'],
-							dest   : '<%= FEP.dist %>/scripts/minified',
-							flatten: true,
-							filter : 'isFile'
 						}
 					]
 				},
@@ -124,10 +103,10 @@ module.exports = function( grunt ){
 						expand : true,
 						//cwd: './',
 						src:[
-							'./lib/*.js',
-							'./lib/github/**/*.js',
-							'!./lib/**/*.@(min|src).js',
-							'!./lib/**/*-es6.js'
+							'./<%= FEP.lib %>/*.js',
+							'./<%= FEP.lib %>/github/**/*.js',
+							'!./<%= FEP.lib %>/**/*.@(min|src).js',
+							'!./<%= FEP.lib %>/**/*-es6.js'
 						],
 						dest:'./<%= FEP.dist %>'
 					}]
@@ -141,9 +120,8 @@ module.exports = function( grunt ){
 						expand : true,
 						//cwd: './',
 						src:[
-							'./lib/npm/@(domready*|font-awesome*|mustache*)/**/*.js',
-							'./lib/npm/@(domready*|font-awesome*|mustache*).js',
-							'!./lib/**/*.@(min|src).js'
+							'./<%= FEP.lib %>/npm/@(domready*|font-awesome*|mustache*)/{,*/}*.js',
+							'!./<%= FEP.lib %>/**/*.@(min|src).js'
 						],
 						dest:'./<%= FEP.dist %>'
 					}]
@@ -167,8 +145,8 @@ module.exports = function( grunt ){
 						expand: true,
 						cwd: './',
 						src:[
-							'./lib/**/*.@(js|css|eot|svg|ttf|woff|woff2|otf)',
-							'!./lib/**/*.@(min|src).*'
+							'./<%= FEP.lib %>/**/*.@(js|css|eot|svg|ttf|woff|woff2|otf)',
+							'!./<%= FEP.lib %>/**/*.@(min|src).*'
 						],
 						dest:'<%= FEP.dist %>'
 					}]
@@ -189,7 +167,7 @@ module.exports = function( grunt ){
 					/** Scan js-files in app/src/ directory and subdirectories. **/
 				},
 				lib: {
-					js: ['lib/**/*js']
+					js: ['<%= FEP.lib %>/**/*js']
 					/** Scan js-files in app/src/ directory and subdirectories. **/
 				}
 			},
@@ -207,7 +185,7 @@ module.exports = function( grunt ){
 				},
 				custom: {
 					files: [{
-						"src":  ['lib/test-es6.js'],
+						"src":  ['<%= FEP.lib %>/test-es6.js'],
 						"dest": '<%= FEP.dist %>/lib/test-es6.js'
 					}]
 				},
@@ -216,7 +194,7 @@ module.exports = function( grunt ){
 						expand: true,
 						cwd: './<%= FEP.app %>',
 						"src":  ['scripts/**/*.js'],
-						"dest": '.tmp'
+						"dest": '<%= FEP.temp %>'
 					}]
 				}
 			},
@@ -235,8 +213,8 @@ module.exports = function( grunt ){
 					files: [{
 						//expand: true,
 						//cwd: './<%= FEP.app %>',
-						"src":  'lib/test-es6.js',
-						"dest": '<%= FEP.dist %>/lib/test-es5.js'
+						"src":  '<%= FEP.lib %>/test-es6.js',
+						"dest": '<%= FEP.dist %>/<%= FEP.lib %>/test-es5.js'
 					}]
 				}
 			},
@@ -265,21 +243,21 @@ module.exports = function( grunt ){
 	// Load tasks
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks( "grunt-contrib-clean" );
-	grunt.loadNpmTasks( "grunt-contrib-concat" );
+	//grunt.loadNpmTasks( "grunt-contrib-concat" );
 	grunt.loadNpmTasks( "grunt-contrib-copy" );
 	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 	grunt.loadNpmTasks( "grunt-contrib-less" );
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	//grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks( "grunt-highlight" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-retire" );
-	grunt.loadNpmTasks( "grunt-shell" );
-	grunt.loadNpmTasks("grunt-systemjs-builder");
+	//grunt.loadNpmTasks( "grunt-shell" );
+	//grunt.loadNpmTasks("grunt-systemjs-builder");
 	grunt.loadNpmTasks( "grunt-traceur" );
 	//grunt.loadNpmTasks( "grunt-babel" );
 	grunt.loadNpmTasks( "grunt-newer" );
-	grunt.loadNpmTasks('grunt-postcss');
+	//grunt.loadNpmTasks('grunt-postcss');
 
 
 
