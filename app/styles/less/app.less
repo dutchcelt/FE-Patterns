@@ -197,7 +197,7 @@ figcaption {
 	margin: @interline 0 0;
 	padding: 0 @block;
 	width: 100%;
-	.box-sizing(border-box);
+	box-sizing: border-box;
 	//column-count: 3;
 	}
 
@@ -211,8 +211,7 @@ figcaption {
 	padding: ( @block / 2 );
 	.garamond;
 	font-family: @typeface-brand;
-	break-inside: avoid-column;
-	.box-sizing(border-box);
+	//break-inside: avoid-column;
 }
 .bootsteps li:not(:first-child) {
 	margin: 0 0 0 ( @block / 2 );
