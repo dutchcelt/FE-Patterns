@@ -6,25 +6,25 @@
 
 /*  Font elements ------------------------------------------------------------- */
 
-@font-root: "../fonts/";
+@font-root: "../fonts";
 
 @font-face {
 	font-family: 'SourceSerifPro';
-	src: url('@{font-root}source-serif-pro/SourceSerifPro-Regular.otf') format('woff');
+	src: url('@{font-root}/source-serif-pro/SourceSerifPro-Regular.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'SourceSerifPro';
-	src: url('@{font-root}source-serif-pro/SourceSerifPro-Bold.otf') format('woff');
+	src: url('@{font-root}/source-serif-pro/SourceSerifPro-Bold.otf') format('opentype');
 	font-weight: bold;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'SourceSerifProBlack';
-	src: url('@{font-root}source-serif-pro/SourceSerifPro-Black.otf') format('woff');
+	src: url('@{font-root}/source-serif-pro/SourceSerifPro-Black.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 
@@ -33,45 +33,57 @@
 
 @font-face {
 	font-family: 'SourceSansPro';
-	src: url('@{font-root}SourceSansPro-Regular-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-Regular.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'SourceSansPro';
-	src: url('@{font-root}SourceSansPro-It-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-It.otf') format('opentype');
 	font-weight: normal;
 	font-style: italic;
 	}
 
 @font-face {
 	font-family: 'SourceSansPro';
-	src: url('@{font-root}SourceSansPro-Bold-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-Bold.otf') format('opentype');
 	font-weight: bold;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'SourceSansPro';
-	src: url('@{font-root}SourceSansPro-BoldIt-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-BoldIt.otf') format('opentype');
 	font-weight: bold;
 	font-style: italic;
 	}
 
 @font-face {
 	font-family: 'SourceSansProLight';
-	src: url('@{font-root}SourceSansPro-Light-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-Light.otf') format('opentype');
 	font-weight: normal;
 	font-style: normal;
 	}
 
 @font-face {
 	font-family: 'SourceSansProLight';
-	src: url('@{font-root}SourceSansPro-LightIt-webfont.woff') format('woff');
+	src: url('@{font-root}/source-sans-pro/SourceSansPro-LightIt.otf') format('opentype');
 	font-weight: normal;
 	font-style: italic;
-	}
+}
+@font-face {
+	font-family: 'SourceCodePro';
+	src: url('@{font-root}/source-code-pro/SourceCodePro-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'SourceCodePro';
+	src: url('@{font-root}/source-code-pro/SourceCodePro-It.otf') format('opentype');
+	font-weight: normal;
+	font-style: italic;
+}
 
 @body-scale: 100%;
 // Used on the body element
@@ -83,6 +95,7 @@
 @typeface-header: "SourceSansPro", Helvetica, Arial, sans-serif;
 @typeface-header-light: "SourceSansProLight", Helvetica, Arial, sans-serif;
 @typeface-brand: "SourceSansPro", Helvetica, Arial, sans-serif;
+@typeface-monospaced: "SourceCodePro", monospace;
 @typeface-alt: "SourceSerifProBlack", Georgia, Times, serif;
 
 @font-scale: 1.1;
