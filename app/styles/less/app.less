@@ -15,14 +15,15 @@ body {
 	min-width: ( @w * 20 );
 	max-width: ( @w * 75 );
 	background-color: @light-color;
-	.box-sizing(border-box);
+	box-sizing: border-box;
 	}
 
 body > header {
-	height: @em*3;
+	padding: @interline 0;
+	//height: @em*3;
 	overflow: hidden;
 	background-color: @light-color ;
-	.box-sizing(border-box);
+	box-sizing: border-box;
 	}
 
 header .logo {
@@ -73,6 +74,7 @@ header .logo {
 .content > section {
 	.box();
 	column-count: 2;
+	column-gap: @block;
 	p {
 		margin: 0 0 @em;
 	}
@@ -96,10 +98,18 @@ header .logo {
 	//font-family: @typeface-alt;
 	}
 
-.fep-section {
-	padding: @interline 0;
-	.box-to-grid(3);
+.fep-example {
+	display: flex;
+
+	border-top: @l solid @grey2;
+	> * {
+		flex: 1;
 	}
+	> *:not(:first-child){
+		margin: 0 0 0 @block;
+	}
+
+}
 
 .fep-text-pair + .fep-section {
 	width: -webkit-calc(66% - ( @block / 2 ));
@@ -108,15 +118,13 @@ header .logo {
 	}
 
 .fep-text-pair {
-	clear: left;
-	margin-left: 0;
-	}
+	flex: 0.5;
+}
 
 .fep-header {
 	clear: both;
 	margin: 0;
 	overflow: hidden;
-	border-top: @l solid @grey2;
 	padding: 0;
 	padding-top: (  @em / 2 );
 	}
@@ -129,7 +137,7 @@ header .logo {
 
 .fep-code-header {
 	.garamond;
-	margin: ( -( @em * 1.6 ) ) 0 ( @em / 1.4 );
+	//margin: ( -( @em * 1.6 ) ) 0 ( @em / 1.4 );
 	padding: 0;
 	}
 
@@ -220,6 +228,11 @@ figcaption {
 .bootsteps li:not(:first-child) {
 	margin: 0 0 0 ( @block / 2 );
 }
+.bootsteps li:first-letter {
+	.double-pica;
+	float: left;
+	//margin-bottom: -@em;
+}
 
 /*  Datatables */
 
@@ -254,34 +267,34 @@ figcaption {
 /*  Navigaiton */
 
 header ~ nav {
-	background-color: @light-color;
+	padding: 0;
+	background-color: hsla( 360, 100%, 100%, 1);
 	border-bottom: @l outset @grey0 !important;
 	}
 
 nav ul {
-	margin: 0 @block;
+	margin: 0;
 	padding: 0;
 	display: block;
 	list-style: none;
-	//min-height: ( @em * 1.2 );
-	//overflow: hidden;
 	}
-
+nav ul:hover a {
+	filter: blur(2px);
+}
 nav ul li {
+	//flex: 1;
 	position: relative;
-	//float: left;
-	display: inline-block;
+	display: inline;
 	font-size: 0.825em;
 	line-height: ( @transport * 1.6 );
 	font-family: @typeface-header;
 	text-transform: uppercase;
 	letter-spacing: @l;
 	color: @grey1;
-	//text-shadow: 0 -1px 0 @dark-color;
 	}
 
 nav ul li a {
-	padding: ( @interline / 2 ) ( @block / 2 );
+	padding: 	@interline @block;
 	}
 
 nav ul li a,
@@ -293,6 +306,7 @@ nav ul li a:hover,
 nav ul li a:active,
 nav ul li.active a {
 	color: @blue1;
+	filter: none;
 	}
 
 nav ul li:last-child {

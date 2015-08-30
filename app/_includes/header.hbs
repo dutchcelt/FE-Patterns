@@ -1,13 +1,12 @@
 <header>
     <div class="logo">Front-end Patterns</div>
 </header>
-<nav class="sg-nav" role="navigation">
-    <ul>
-		{{#each subhome}}
-			{{#each pages}}
-                <li{{#is ../this.sub ../../basename}} class="active"{{/is}}><a href="{{relative ../../page.dest this.dest}}">{{data.title}}</a></li>
-			{{/each}}
-		{{/each}}
-	</ul>
-</nav>
 
+<nav>
+    <ul>
+	    {{#withSort pages "data.order"}}
+		    <li{{#is ../page.dest this.dest}} class="active"{{/is}}><a href="{{basename}}.html">{{data.title}}</a></li>
+	    {{/withSort}}
+	    <li><a href="https://twitter.com/dutchcelt"><i class="fa fa-twitter"></i> dutchcelt</a></li>
+    </ul>
+</nav>

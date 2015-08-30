@@ -1,27 +1,22 @@
-import test1 from './test1';
+import 'jquery';
+import 'dutchcelt/FEP-Tabs';
+import 'font-awesome';
+import 'dutchcelt/FEP-KeepInView';
 import 'dutchcelt/Dater';
-import domready from 'ded/domready';
-//(function(){
-	Promise.all( [domready] ).then( function( ){
-		domready( function(){
-			test1();
-			$( "input" ).dater( {placeholder: "day-month-year"} );
-		} );
-	} );
-//}());
-//import 'dutchcelt/FEP.Tabs';
-//import domready from 'ded/domready';
-//
-//(function(){
-//	Promise.all( [domready] ).then( function( ){
-//		$( 'body' ).append( "<p>test2<\/p>" );
-//		domready( function(){
-//			window.domready = domready;
-//			$( 'body' ).append( "<p>test3<\/p>" );
-//			$( "input" ).dater( {placeholder: "day-month-year"} );
-//		} );
-//	} );
-//}());
-//
 
-export { test1 as m };
+
+// We like javascript. Add 'js' class to allow for styling fallbacks, just in case.
+document.getElementsByTagName( "HTML" )[0].className = 'js';
+
+let init = () => {
+
+	// Make the menu sticky. (will be fired on all pages)
+	FEP.KeepInView( 'nav', { zindex: 42, cloned: true } );
+	FEP.KeepInView( '.tabs-list', { zindex: 42, edgeOffset: 30 } );
+	$("input").dater({placeholder: "day-month-year"});
+	FEP.tabs('.tabs');
+	console.log($().jquery, FEP);
+
+};
+
+export { init };

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	    <title>Front-end Patterns</title>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	    <link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen"/>
+	    <script src="lib/system.js"></script>
+	    <script src="config.js"></script>
+	    <!--[if lte IE 8]>
+		<script type="text/javascript" src="es5.js"></script>
+	    <![endif]-->
+	    <script>
+	
+	        if( 'querySelector' in document && 'localStorage' in window && 'addEventListener' in window ) {
+	            System.import('./scripts/global/main.js').then(function( main ){
+	                main.init();
+	            });
+	        }
+	
+	    </script>
+	
+	</head>
+
+	<body id="top" class="sg">
+
+
+		<header>
+		    <div class="logo">Front-end Patterns</div>
+		</header>
+		
+		<nav>
+		    <ul>
+		        <li class="active"><a href="index.html">Home</a></li>
+		        <li><a href="usage.html">Usage</a></li>
+		        <li><a href="library.html">Library</a></li>
+		        <li><a href="basics.html">Basics</a></li>
+		        <li><a href="typography.html">Typography</a></li>
+		        <li><a href="widgets.html">UI widgets</a></li>
+		        <li><a href="https://twitter.com/dutchcelt"><i class="fa fa-twitter"></i> dutchcelt</a></li>
+		    </ul>
+		</nav>
+
+	    <main>
+
+		    
+<article class="content">
+
+	<header>
+		<h1>Getting started</h1>
+		<h5>LESS is all you need</h5>
+	</header>
+	<section>
+		<p><strong>Building something with the Web Stack you do not need much. HTML, CSS and, maybe, JavaScript. The common HTML patterns we use can be found in '<a href="text.html">Content</a>', '<a href="forms.html">Forms</a>'. '<a href="table.html">Tables</a>' &amp; '<a href="layout.html">Layout</a>' and please feel free to use these in your projects. The '<a href="less.html">LESS</a>' section is the hero of our UI patterns and accelerates front-end production considerably.</strong></p>
+		<!--
+						<p>
+							There are number of files you should use and some that you can omit all together. In fact you don't need most of the files.
+							JavaScript, images, css and fonts you can just skip because these tend to be project or even company specific. To this end there is a <a href="skeleton.zip"><strong>skeleton</strong></a> setup for you to <strong>bootstrap</strong> new projects.
+						</p>
+		-->
+
+	</section>
+	<section class="info">
+		<h2>Behold the scafold!</h2>
+		<p>You may have noticed that this project looks pretty sparse. That's because it uses grunt and bower on top of node to pull in the needed dependencies. This allows reuse to be a little more flexible. </p><p>Downside is that you do need to get to grips with the command line. I've opted for this approach because it is fast to get up 'n running and a lot of designers / front-enders are becoming familiar with the command line. So if you're not on board yet I suggest you <a href="http://www.webdesign.org/miscellaneous/software-reviews/an-introduction-to-the-command-line.22164.html">have a go</a>, you won't regret it!</p>
+		<h4>Node and NPM</h4>
+		<ol>
+			<li>Install <a href="http://nodejs.org/" >node.js</a></li>
+			<li>In your project directory on the command line enter <code class="language-bash">$ npm install</code></li>
+			<li>Then start a server that reloads after you make a change <code class="language-bash">$ grunt server</code></li>
+			<li>Or just build a site for distribution: <code class="language-bash">$ grunt build</code> This creates a "dist" folder with all the assets bundled and compressed.</li>
+		</ol>
+		<h3>LESS files you really need:</h3>
+		<ol>
+			<li><strong>FEP-*.less</strong> (A collection of library files that contain all variables and mixins)</li>
+			<li><strong>FEP-base.less</strong> (A patterned reset to help HTML tags behave a little more predictable across browsers)</li>
+			<li><strong>FEP-forms.less</strong> (basic form settings like label alignment)</li>
+			<li><strong>main.less</strong> (loads all the LESS files in to single CSS file) </li>
+		</ol>
+
+		<h4>The Lib files</h4>
+		<p>
+			The number of files may look a little excessive. Feel free to pare them down too your own needs. You may not need the icon-fonts lib file for example.
+			Remember these lib files would preferably <strong>not</strong> parse out any actual css code and only set variables and mixins for use in the other files.
+		</p>
+		<h4>The base file</h4>
+		<p>
+			This file (re)sets the standard HTML patterns for most browsers. Any additional patterns should be done in your project files as these will tend to specific to it's identity.
+		</p>
+		<p>One exception to this could be the header tags (h1, h2, h3 etc.) These have set sizes and may prove to be more effective to change them here rather than overriding them elsewhere.</p>
+		<h4>The form file</h4>
+		<p>
+			The form file will render all forms and input fields consistently across browsers. The lib file contains a form section that will allow you to change the position of the label with out altering anything in this file. It's best to leave this file untouched.
+		</p>
+		<h4>The main file</h4>
+		<p>
+			This is the file where you'll include all the files you need. Your template will either call this file to have it compiled by the server or the pre-compiled CSS file (styles/legacy/css/main.css).
+			Either way all relative image paths should be the same "../images/".
+		</p>
+
+		<h3>JavaScript</h3>
+		<p>
+			Considering the fact that <a href="http://jquery.com/">jQuery</a> is so popular and useful I've added it to this project. Along with some jQuery plugins to utilise common usage patterns; <a href="https://github.com/dutchcelt/Keep-in-View/">Keep in View</a> and <a href="https://github.com/dutchcelt/Dater">Dater</a> (a little date picker).
+			<!--
+								<a href="http://code.google.com/p/html5shiv/">html5shiv</a> is still being added to enable HTML5 goodness for those who are unfortunate to be stuck using IE8. For more on compatibility see below.
+							</p>
+			-->
+		<p>
+			The dependancy loader is <a href="http://requirejs.org/">Requirejs</a>. Fast and asynchronous script loading for any website, large or small.
+		</p>
+
+		<h3>Compatibility</h3>
+		<p>These patterns are no longer being tested in IE8 or lower as the patterns now make use of more advanced features.</p>
+		<p>The current requirements are:</p>
+		<ul>
+			<li>
+				Internet Explorer 9+
+			</li>
+			<li>
+				Chrome (latest)
+			</li>
+			<li>
+				Firefox (latest)
+			</li>
+			<li>
+				Safari (latest)
+			</li>
+		</ul>
+	</section>
+
+</article>
+
+
+	    </main>
+
+	    <!-- footer -->
+		<footer>
+			<p>Styleguide version: <em></em></p>
+		</footer>
+		<!-- END: footer -->
+
+	</body>
+</html>

@@ -2,21 +2,21 @@
 # Build config
 # =============================================
 
-name:             'FEP'
-staticpath: 	  '../../'
-dest:             '<%= pages.staticpath %><%= styleguide.name %>'
-filename:         'sg.<%= pkg.version %>'
-assets:           <%= pages.dest %>/assets
+name:             'FE-Patterns'
+# staticpath: 	  '/'
+dest:             <%= FEP.dest %>
+#filename:         'sg.<%= pkg.version %>'
+assets:           <%= FEP.dest %>/assets
 
 # Data
-data:             <%= pages.staticpath %>/source/_data
+data:             '_assemble.yml'
 
 # Templates
-src:        	  source
-includes:         <%= pages.app %>/_includes/*.hbs
-layouts:          <%= pages.app %>/_layouts
-layout:           default.hbs
-articles:         <%= pages.app %>/pages
+src:        	  <%= FEP.app %>
+includes:         <%= FEP.app %>/_includes/*.hbs
+layouts:          <%= FEP.app %>/_layouts
+layout:           <%= FEP.app %>/_layouts/default.hbs
+articles:         <%= FEP.app %>/pages
 
 
 
@@ -51,6 +51,6 @@ description:      <%= pkg.description %>
 
 
 # Site
-domain:           'www.anwb.nl'
-path:             '/static/stijlgids'
-mainFileName:     'fep'
+# domain:           'www.anwb.nl'
+# path:             '/static/stijlgids'
+# mainFileName:     'fep'

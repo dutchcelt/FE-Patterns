@@ -1,46 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Front-end Patterns</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" type="text/css" href="styles/css/main.css" media="screen"/>
-	<script src="lib/system.js"></script>
-	<script src="config.js"></script>
-
-	<script>
-
-		if( 'querySelector' in document && 'localStorage' in window && 'addEventListener' in window ) {
-			System.import('./scripts/global/main.js').then(function( main ){
-				main.init();
-			});
-		}
-
-	</script>
-
-</head>
-<body>
-
-    <header>
-        <div class="logo">Front-end Patterns</div>
-    </header>
-
-    <nav>
-        <ul>
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="usage.html">Usage</a></li>
-            <li><a href="library.html">Library</a></li>
-            <li><a href="basics.html">Basics</a></li>
-            <li><a href="typography.html">Typography</a></li>
-            <li><a href="widgets.html">UI widgets</a></li>
-            <li><a href="https://twitter.com/dutchcelt"><i class="fa fa-twitter"></i> dutchcelt</a></li>
-        </ul>
-    </nav>
-	<main>
+---
+layout: default.hbs
+title: home
+order: 10
+---
 		<article class="content">
 			<header>
 				<h1>Web stack basics</h1>
-				<h5>Get it right and start with LESS!</h5>
+				<h5>hahah Get it right and start with LESS!</h5>
 			</header>
 			<section>
 
@@ -78,10 +44,4 @@
 
 			</ol>
 		</article>
-	</main>
-    <footer>
-        <p>Copyright &copy; 2011-2013, C. Egor Kloos. All rights reserved.</p>
-    </footer>
 
-    </body>
-    </html>

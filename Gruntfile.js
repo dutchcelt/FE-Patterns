@@ -13,7 +13,7 @@ module.exports = function( grunt ){
 			             ' * <%= _.pluck(pkg.licenses, "url").join(", ") %>\n' +
 			             ' */\n',
 
-			pages: grunt.file.readYAML( '_assemble.yml' ),
+			data: grunt.file.readYAML( '_assemble.yml' ),
 
 			FEP: {
 				app : 'app',
@@ -30,6 +30,10 @@ module.exports = function( grunt ){
 				es6       : {
 					files: '<%= FEP.app %>/**/*.js',
 					tasks: 'modules'
+				},
+				content       : {
+					files: '<%= FEP.app %>/**/*.hbs',
+					tasks: 'content'
 				}
 				//livereload: {
 				//	options: {
@@ -59,7 +63,28 @@ module.exports = function( grunt ){
 			//		src: ['js/tests/unit/*.js']
 			//	}
 			//},
+			assemble: {
+				options:{
+					partials: ['<%= FEP.app %>/_includes/*.hbs'],
+					layoutdir: '<%= FEP.app %>/_layouts/',
+					layout: 'default.hbs'
+				//	,data: ['<%= data %>']
+				},
+				index: {
+					files: {
+						'<%= FEP.dist %>/index.html': ['<%= FEP.app %>/pages/index.hbs']
+					}
+				},
+				pages: {
+					options:{
+						flatten: true
+					},
+					files: {
+						'<%= FEP.dist %>/' : ['./<%= FEP.app %>/pages/*.hbs']
+					}
+				}
 
+			},
 			less  : {
 				dist: {
 					options: {
@@ -221,7 +246,7 @@ module.exports = function( grunt ){
 						},
 						//keepalive: true,
 						//livereload: true,
-						hostname  : "*"
+						hostname  : "localhost"
 					}
 
 				}
@@ -230,33 +255,44 @@ module.exports = function( grunt ){
 		}
 	);
 
-	// Load tasks
+	// Operational / development tasks
+	grunt.loadNpmTasks( "grunt-retire" );
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks( "grunt-contrib-clean" );
-	//grunt.loadNpmTasks( "grunt-contrib-concat" );
 	grunt.loadNpmTasks( "grunt-contrib-copy" );
-	grunt.loadNpmTasks( "grunt-contrib-jshint" );
+	grunt.loadNpmTasks( "grunt-contrib-watch" );
+	grunt.loadNpmTasks( "grunt-newer" );
+
+	//grunt.loadNpmTasks( "grunt-contrib-concat" );
+
+	// HTML tasks
+	//grunt.loadNpmTasks('assemble');
+	grunt.loadNpmTasks('grunt-assemble');
+	grunt.loadNpmTasks( "grunt-highlight" );
+
+	// Style tasks
 	grunt.loadNpmTasks( "grunt-contrib-less" );
 	//grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks( "grunt-highlight" );
+
+	// JavaScript tasks
+	grunt.loadNpmTasks( "grunt-contrib-jshint" );
+	grunt.loadNpmTasks( "grunt-traceur" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
-	grunt.loadNpmTasks( "grunt-contrib-watch" );
-	grunt.loadNpmTasks( "grunt-retire" );
+
 	//grunt.loadNpmTasks( "grunt-shell" );
 	//grunt.loadNpmTasks("grunt-systemjs-builder");
-	grunt.loadNpmTasks( "grunt-traceur" );
 	//grunt.loadNpmTasks( "grunt-babel" );
-	grunt.loadNpmTasks( "grunt-newer" );
 	//grunt.loadNpmTasks('grunt-postcss');
 
 
 
 	//grunt.registerTask( 'custom', ['systemjs','connect:server:keepalive'] );
+	grunt.registerTask( 'content', [ 'assemble' ] );
 	grunt.registerTask( 'styles', [ 'less:dist' ] );
 	grunt.registerTask( 'modules', [ 'newer:traceur', 'newer:uglify:fep','newer:uglify:github','newer:uglify:npm'] );
 	grunt.registerTask( 'serve', ['connect:server', 'watch'] );
 
-	grunt.registerTask( 'default', [ 'styles', 'modules', 'newer:copy', 'serve' ] );
+	grunt.registerTask( 'default', [ 'content', 'styles', 'modules', 'newer:copy', 'serve' ] );
 	grunt.registerTask( 'build', [ 'retire', 'clean', 'default' ] );
 
 
